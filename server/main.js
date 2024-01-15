@@ -1,6 +1,7 @@
 const express = require("express");
-const path = require("path");
 const cors = require("cors");
+const path = require("path");
+const bodyParser = require("body-parser");
 const app = express();
 
 app.use(express.json());
@@ -9,6 +10,7 @@ app.use(
     origin: ["http://localhost:3000"],
   })
 );
+app.use(bodyParser.json());
 
 // API endpoint 예시
 app.get("/api/message", (req, res) => {
