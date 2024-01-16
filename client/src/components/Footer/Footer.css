@@ -1,0 +1,11 @@
+.footer{
+    width: 100%;
+    background-color: brown;
+    position : relative;
+
+    /* ✅ footer 높이 수정 필요 */
+    height: 100px;
+
+    margin-top: 0; /* 상단 마진 제거 */
+}
+
