@@ -1,5 +1,8 @@
-
 /* index.css */
+html {
+  overscroll-behavior-y: contain;
+  background: #55B76B;
+}
 html, body {
   margin: 0;
   padding: 0;
@@ -7,7 +10,9 @@ html, body {
   font-family: sans-serif,'Segoe UI', 'Roboto', 'Oxygen';
 }
 
+
 body {
   display: flex;
   flex-direction: column;
+  background-color: white;
 }
