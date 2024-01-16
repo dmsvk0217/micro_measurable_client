@@ -1,11 +1,14 @@
 /* App.css */
 .main-content {
   /* ✅ navigationbar hgith+margin 수정 필요 */
-  min-height: calc(100vh - 100px);
-  padding: 20px 40px;
+  min-height: calc(100vh - 80px);
+  padding: 0px 40px;
 }
 
 
 hr{
+  border: none; /* 기존 테두리 제거 */
+  height: 1px; /* 선의 두께 */
+  background-color: #d3d3d3; /* 연한 회색 */
   margin: 0 40px 0 40px;
 }
