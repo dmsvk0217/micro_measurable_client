@@ -1,0 +1,35 @@
+/* NavigationBar.css */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin: 20px;
+
+    /* navigationbar 높이 수정 필요 */
+    height: 60px;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+
+.nav-links li {
+    /* display: inline; */
+    margin-left: 100px;
+}
+
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav-links a:hover {
+    color: blue;
+}
+
