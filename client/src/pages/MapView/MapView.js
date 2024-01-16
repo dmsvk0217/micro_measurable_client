@@ -4,7 +4,7 @@ import './MapView.css'
 function MapView(){
     return (
         <div>
-            <h1>MapView</h1>
+            <img src='img/map.png' alt="map" className="map"/>
         </div>
     );
 }

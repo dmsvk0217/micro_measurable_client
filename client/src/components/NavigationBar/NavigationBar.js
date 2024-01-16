@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import './NavigationBar.css'
 
 function NavigationBar(){
+
+
     return (
         <nav className="navbar">
             <div className="navbar-logo">

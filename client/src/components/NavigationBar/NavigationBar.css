@@ -28,7 +28,11 @@
     color: black;
 }
 
-.nav-links a:hover {
-    color: blue;
+
+.nav-links a:focus{
+    color: #55B76B;
 }
 
+/* .nav-links li:first-child a{
+    color: #55B76B;
+} */
