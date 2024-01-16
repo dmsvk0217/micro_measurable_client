@@ -9,6 +9,7 @@
     height: 60px;
 }
 
+
 .nav-links {
     list-style-type: none;
     display: flex;
@@ -19,7 +20,7 @@
 
 .nav-links li {
     /* display: inline; */
-    margin-left: 100px;
+    margin-left: 5vw;
 }
 
 
