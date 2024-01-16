@@ -1,0 +1,5 @@
+{
+  "type": "all-nodes-all-substances-daily-averages",
+  "node": 1,
+  "daily-data": { "day1": 15 }
+}

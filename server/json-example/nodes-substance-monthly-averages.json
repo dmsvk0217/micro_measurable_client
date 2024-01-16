@@ -1,0 +1,32 @@
+{
+  "node-number": 2,
+  "type": "nodes-substance-monthly-averages",
+  "node1": {
+    "year": "2024",
+    "month": "01",
+    "substance": "PM10",
+    "node-address": "12",
+    "day1": 15,
+    "day2": 16,
+    "day3": 16,
+    "day4": 15,
+    "day5": 18,
+    "day6": 18,
+    "day7": 16,
+    "day8": 16
+  },
+  "node2": {
+    "year": "2024",
+    "month": "01",
+    "substance": "PM10",
+    "node-address": "15",
+    "day1": 15,
+    "day2": 16,
+    "day3": 16,
+    "day4": 15,
+    "day5": 18,
+    "day6": 18,
+    "day7": 16,
+    "day8": 16
+  }
+}
