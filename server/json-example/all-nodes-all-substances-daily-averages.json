@@ -1,5 +1,141 @@
 {
   "type": "all-nodes-all-substances-daily-averages",
-  "node": 1,
-  "daily-data": { "day1": 15 }
+  "node-number": "15",
+  "date": "2024-01-09",
+  "substance": "ALL",
+  "node1": {
+    "humidity": 32,
+    "tempareture": 24,
+    "pm25": 8,
+    "pm10": 9,
+    "CH2O": 0.02,
+    "wind-speed": 15,
+    "wind-direction": 15
+  },
+  "node2": {
+    "humidity": 32,
+    "tempareture": 24,
+    "pm25": 8,
+    "pm10": 9,
+    "CH2O": 0.02,
+    "wind-speed": 15,
+    "wind-direction": 15
+  },
+  "node3": {
+    "humidity": 32,
+    "tempareture": 24,
+    "pm25": 8,
+    "pm10": 9,
+    "CH2O": 0.02,
+    "wind-speed": 15,
+    "wind-direction": 15
+  },
+  "node4": {
+    "humidity": 32,
+    "tempareture": 24,
+    "pm25": 8,
+    "pm10": 9,
+    "CH2O": 0.02,
+    "wind-speed": 15,
+    "wind-direction": 15
+  },
+  "node5": {
+    "humidity": 32,
+    "tempareture": 24,
+    "pm25": 8,
+    "pm10": 9,
+    "CH2O": 0.02,
+    "wind-speed": 15,
+    "wind-direction": 15
+  },
+  "node6": {
+    "humidity": 32,
+    "tempareture": 24,
+    "pm25": 8,
+    "pm10": 9,
+    "CH2O": 0.02,
+    "wind-speed": 15,
+    "wind-direction": 15
+  },
+  "node7": {
+    "humidity": 32,
+    "tempareture": 24,
+    "pm25": 8,
+    "pm10": 9,
+    "CH2O": 0.02,
+    "wind-speed": 15,
+    "wind-direction": 15
+  },
+  "node8": {
+    "humidity": 32,
+    "tempareture": 24,
+    "pm25": 8,
+    "pm10": 9,
+    "CH2O": 0.02,
+    "wind-speed": 15,
+    "wind-direction": 15
+  },
+  "node9": {
+    "humidity": 32,
+    "tempareture": 24,
+    "pm25": 8,
+    "pm10": 9,
+    "CH2O": 0.02,
+    "wind-speed": 15,
+    "wind-direction": 15
+  },
+  "node10": {
+    "humidity": 32,
+    "tempareture": 24,
+    "pm25": 8,
+    "pm10": 9,
+    "CH2O": 0.02,
+    "wind-speed": 15,
+    "wind-direction": 15
+  },
+  "node11": {
+    "humidity": 32,
+    "tempareture": 24,
+    "pm25": 8,
+    "pm10": 9,
+    "CH2O": 0.02,
+    "wind-speed": 15,
+    "wind-direction": 15
+  },
+  "node12": {
+    "humidity": 32,
+    "tempareture": 24,
+    "pm25": 8,
+    "pm10": 9,
+    "CH2O": 0.02,
+    "wind-speed": 15,
+    "wind-direction": 15
+  },
+  "node13": {
+    "humidity": 32,
+    "tempareture": 24,
+    "pm25": 8,
+    "pm10": 9,
+    "CH2O": 0.02,
+    "wind-speed": 15,
+    "wind-direction": 15
+  },
+  "node14": {
+    "humidity": 32,
+    "tempareture": 24,
+    "pm25": 8,
+    "pm10": 9,
+    "CH2O": 0.02,
+    "wind-speed": 15,
+    "wind-direction": 15
+  },
+  "node15": {
+    "humidity": 32,
+    "tempareture": 24,
+    "pm25": 8,
+    "pm10": 9,
+    "CH2O": 0.02,
+    "wind-speed": 15,
+    "wind-direction": 15
+  }
 }

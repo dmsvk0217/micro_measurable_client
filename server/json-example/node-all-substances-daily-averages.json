@@ -1,3 +1,16 @@
 {
-  "type": "node-all-substances-daily-averages"
+  "type": "node-all-substances-daily-averages",
+  "node-number": 1,
+  "date": "2024-01-09",
+  "substance": "ALL",
+  "node": {
+    "node-address": "8",
+    "humidity": 32,
+    "tempareture": 24,
+    "pm25": 8,
+    "pm10": 9,
+    "CH2O": 0.02,
+    "wind-speed": 15,
+    "wind-direction": 15
+  }
 }
