@@ -2,7 +2,7 @@
 
 import React from 'react';
 import './Footer.css'; // 필요에 따라 스타일링을 위한 CSS 파일을 import
- 
+  
 const Footer = () => {
   return ( 
     <footer className="footer-container">
