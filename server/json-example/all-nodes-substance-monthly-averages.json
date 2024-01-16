@@ -1,6 +1,6 @@
 {
   "type": "all-node-substance-monthly-averages",
-  "node-number": 15,
+  "node-number": "15",
   "date": "2024-01",
   "substance": "PM10",
   "node1": {

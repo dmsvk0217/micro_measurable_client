@@ -1,10 +1,10 @@
 {
   "type": "nodes-substance-monthly-averages",
-  "node-number": 2,
+  "node-number": "2",
   "date": "2024-01",
   "substance": "PM10",
   "node1": {
-    "node-address": "12",
+    "node-address": "4",
     "day1": 15,
     "day2": 16,
     "day3": 16,
@@ -38,7 +38,7 @@
     "day31": 16
   },
   "node2": {
-    "node-address": "15",
+    "node-address": "7",
     "day1": 15,
     "day2": 16,
     "day3": 16,
