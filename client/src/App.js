@@ -12,6 +12,7 @@ function App() {
   return (
     <Router>
       <NavigationBar/>
+      <hr></hr>
       <div className="main-content">
         <Routes>
           <Route path="/" element={<MapView />} />
