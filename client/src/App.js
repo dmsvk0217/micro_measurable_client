@@ -6,6 +6,7 @@ import NavigationBar from './components/NavigationBar/NavigationBar';
 import MapView from './pages/MapView/MapView';
 import RealTimeView from './pages/RealTimeView/RealTimeView';
 import StatisticsView from './pages/StatisticsView/StatisticsView';
+import Footer from './components/Footer/Footer'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/statistics" element={<StatisticsView />} />
         </Routes>
       </div>
+      <Footer/>
     </Router>
   );
 }
