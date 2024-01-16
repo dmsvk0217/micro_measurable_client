@@ -1,6 +1,11 @@
 /* App.css */
 .main-content {
   /* ✅ navigationbar hgith+margin 수정 필요 */
-  min-height: calc(100vh - 120px);
+  min-height: calc(100vh - 100px);
   padding: 20px 40px;
+}
+
+
+hr{
+  margin: 0 40px 0 40px;
 }
