@@ -1,11 +1,11 @@
-.image-container {
+.main-container {
     position: relative;
-    width: 80%;
+    width: 100%;
     /* max-width:; */
 }
 
 .map {
-    width: 100%;
+    width: 85%;
     height: auto;
 }
 
@@ -28,5 +28,43 @@
     position: absolute;
     width: 8.6%;
     top: 5.4%;
-    left: 69%;
+    left: 55%;
+}
+
+.option-container {
+    position: absolute;
+    top: 5%;
+    left: 0%;
+    background-color: #55B76B;
+    width: 250px;
+    height: 300px;
+}
+
+
+.info-container {
+    position: absolute;
+    top: 5%;
+    right: 0%;
+
+    width: 400px;
+}
+
+.node-info {
+    border: 1px solid #D9D9D9;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 0px;
+    height: 500px;
+    width: 100%;
+    background-color: white;
+    opacity: 90%;
+}
+
+.legend-info {
+    margin-top: 20px;
+    border: 1px solid #D9D9D9;
+    border-radius: 10px;
+    height: 200px;
+    width: 100%;
+    background-color: white;
+    opacity: 90%;
 }
