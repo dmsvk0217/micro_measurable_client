@@ -1,7 +1,7 @@
 /* App.css */
 .main-content {
   /* ✅ navigationbar hgith+margin 수정 필요 */
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 120px);
   
-  padding-bottom: 0; /* 하단 패딩 제거 */
+  padding: 20px 40px;
 }

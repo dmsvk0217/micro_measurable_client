@@ -1,11 +1,32 @@
-.footer{
-    width: 100%;
-    background-color: brown;
-    position : relative;
-
-    /* ✅ footer 높이 수정 필요 */
-    height: 100px;
-
+.footer-container {
     margin-top: 0; /* 상단 마진 제거 */
+    background-color: #333;
+    color: white;
+    padding: 20px 40px;
+    width: 100%; 
+    height: 200px;
+    position : relative;
+    /* transform : translateY(-100%); */
 }
 
+.CU {
+     text-align: left;
+     margin: 15px;
+    font-size: 20px; 
+    font-weight: bold;
+}
+.footer-content {
+    text-align: left;
+    margin: 10px;
+    font-size: 15px;
+}
+#copy {
+    text-align: center;
+    color: gray;
+}
+.mail_content {
+    display: flex;
+    vertical-align: top; 
+    align-items: center;
+
+}
