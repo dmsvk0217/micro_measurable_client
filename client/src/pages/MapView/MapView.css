@@ -1,0 +1,96 @@
+.main-container {
+    position: relative;
+    width: 100%;
+    /* max-width:; */
+}
+
+.map {
+    width: 85%;
+    height: auto;
+}
+
+.building-image-container img {
+    filter: drop-shadow(4px 4px 5px white);
+}
+
+.building-image-container img:hover {
+    filter: drop-shadow(2px 2px 2px #55B76B);
+}
+
+.student_building {
+    position: absolute;
+    width: 11%;
+    top: 32.5%;
+    left: 39.5%;
+}
+
+.grace_building {
+    position: absolute;
+    width: 8.6%;
+    top: 5.4%;
+    left: 55%;
+}
+
+
+.info-container {
+    position: absolute;
+    top: 5%;
+    right: 0%;
+
+    width: 450px;
+}
+
+.node-info {
+    border: 1px solid #D9D9D9;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 0px #D9D9D9;
+    height: 500px;
+    width: 100%;
+    background-color: white;
+    opacity: 90%;
+}
+
+.legend-info {
+    margin-top: 20px;
+    border: 1px solid #D9D9D9;
+    border-radius: 10px;
+    height: 200px;
+    width: 100%;
+    background-color: white;
+    opacity: 90%;
+}
+
+
+.option-container {
+    margin: auto;
+    position: absolute;
+    top: 5%;
+    left: 0%;
+    width: 300px;
+}
+
+.option-container button {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px 0;
+    
+    border: 1px solid #D9D9D9;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 4px 4px 4px 0px #D9D9D9;
+
+    font-size:medium;
+    font-weight: bold;
+}
+
+.option-container button:last-child {
+    margin-bottom: 0;
+}
+
+
+button.active {
+    background-color: #55B76B;
+    color: white; 
+    border-color: white;
+}
