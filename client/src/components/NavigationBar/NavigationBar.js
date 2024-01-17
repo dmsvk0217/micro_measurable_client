@@ -1,17 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './NavigationBar.css'
 
 function NavigationBar(){
     return (
         <nav className="navbar">
             <div className="navbar-logo">
-                <Link to="/"><img src="/img/logo.png" alt="Logo" /></Link>
+                <NavLink to="/"><img src="/img/logo.png" alt="Logo" /></NavLink>
             </div>
             <ul className="nav-links">
-                <li><Link to="/">지도 보기</Link></li>
-                <li><Link to="/realTime">실시간 정보 보기</Link></li>
-                <li><Link to="/statistics">통계 보기</Link></li>
+                <li><NavLink to="/" className={({ isActive }) => isActive ? 'nav-link-active' : 'nav-link'}>지도 보기</NavLink></li>
+                <li><NavLink to="/realTime" className={({ isActive }) => isActive ? 'nav-link-active' : 'nav-link'}>실시간 정보 보기</NavLink></li>
+                <li><NavLink to="/statistics" className={({ isActive }) => isActive ? 'nav-link-active' : 'nav-link'}>통계 보기</NavLink></li>
             </ul>
         </nav>
     );

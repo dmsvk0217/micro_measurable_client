@@ -31,28 +31,19 @@
     left: 55%;
 }
 
-.option-container {
-    position: absolute;
-    top: 5%;
-    left: 0%;
-    background-color: #55B76B;
-    width: 250px;
-    height: 300px;
-}
-
 
 .info-container {
     position: absolute;
     top: 5%;
     right: 0%;
 
-    width: 400px;
+    width: 450px;
 }
 
 .node-info {
     border: 1px solid #D9D9D9;
     border-radius: 10px;
-    box-shadow: 2px 2px 5px 0px;
+    box-shadow: 2px 2px 5px 0px #D9D9D9;
     height: 500px;
     width: 100%;
     background-color: white;
@@ -67,4 +58,39 @@
     width: 100%;
     background-color: white;
     opacity: 90%;
+}
+
+
+.option-container {
+    margin: auto;
+    position: absolute;
+    top: 5%;
+    left: 0%;
+    width: 300px;
+}
+
+.option-container button {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px 0;
+    
+    border: 1px solid #D9D9D9;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 4px 4px 4px 0px #D9D9D9;
+
+    font-size:medium;
+    font-weight: bold;
+}
+
+.option-container button:last-child {
+    margin-bottom: 0;
+}
+
+
+button.active {
+    background-color: #55B76B;
+    color: white; 
+    border-color: white;
 }
