@@ -23,17 +23,16 @@
     margin-left: 5vw;
 }
 
-
-.nav-links a {
+.nav-link{
     text-decoration: none;
     color: black;
 }
 
-
-.nav-links a:focus{
-    color: #55B76B;
+.nav-link:hover{
+    color: #D9D9D9;
 }
 
-/* .nav-links li:first-child a{
+.nav-link-active {
+    text-decoration: none;
     color: #55B76B;
-} */
+}
