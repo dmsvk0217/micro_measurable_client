@@ -38,7 +38,8 @@ const substanceType = ["humidity", "tempareture", "pm10", "pm25", "ch2o"];
 
 async function addLoraDataToFirestore() {
   // in lora.read() loop
-  const loraContent = "4/24/21/8/8/0.04//+ERR=14//6/21/21/9/9/0.04//";
+  const loraContent =
+    "11/24/21/8/8/0.04//+ERR=14//12/21/21/9/9/0.04//13/21/21/9/9/0.04//14/21/21/9/9/0.04//15/21/21/9/9/0.04//";
 
   // 전체 노드 개수 파악
   let numberOfNodes = 0;
@@ -81,9 +82,10 @@ async function addLoraDataToFirestore() {
 
   if (errContainFlag) {
     console.log("🚀 ~ loraContent:", loraContent);
+    await addErrData(loraContent);
   }
 
-  await addErrData(loraContent);
+  await addRawData(loraContent);
 
   for (let i = 0; i < numberOfNodes; i++) {
     const nodeAddress = nodeAddressArray[i];
@@ -168,6 +170,17 @@ async function addHourlyRawData(nodeAddress, substanceDataArray) {
 
 async function addErrData(loraContent) {
   const errDataRef = collection(db, `err-data`);
+  const dataObject = {
+    date: `${yyyyMM}-${dayDD}`,
+    timestamp: hhmmss,
+    errData: loraContent,
+  };
+
+  await addDoc(errDataRef, dataObject);
+}
+
+async function addRawData(loraContent) {
+  const errDataRef = collection(db, `raw-data/${yyyyMM}/data`);
   const dataObject = {
     date: `${yyyyMM}-${dayDD}`,
     timestamp: hhmmss,
