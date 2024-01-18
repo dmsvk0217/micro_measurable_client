@@ -9,6 +9,7 @@ function RealTimeView(){
             <p className='RT-title'>실시간 정보 보기</p>
             <div className='RT-container'>
                 <RTTable/>
+                <hr className='RTGraph-hr'></hr>
                 <RTGraph/>
             </div>
         </div>

@@ -7,3 +7,9 @@
     border: 1px solid #d3d3d3;
     padding: 20px;
 }
+
+.RTGraph-hr{
+    border: none; 
+    height: 2px;
+    background-color: #d3d3d3; 
+}
