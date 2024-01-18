@@ -76,56 +76,56 @@
     align-items: center;
 }
 
-.legend-content .legen-option-status {
+.legend-content .legend-option-status {
     margin-right: 10px;
     font-size: small;
 }
 
-.legen-option-status .good {
+.legend-option-status .good {
     color: white;
     background-color: #7D9DDB;
     border-radius: 10px;
     padding: 5px 10px 5px 10px;
 }
 
-.legen-option-status .normal {
+.legend-option-status .normal {
     color: white;
     background-color: #6EB057;
     border-radius: 10px;
     padding: 5px 10px 5px 10px;
 }
 
-.legen-option-status .bad {
+.legend-option-status .bad {
     color: white;
     background-color: #D7E067;
     border-radius: 10px;
     padding: 5px 10px 5px 10px;
 }
 
-.legen-option-status .worse {
+.legend-option-status .worse {
     color: white;
     background-color: #BB7373;
     border-radius: 10px;
     padding: 5px 10px 5px 10px;
 }
 
-.legend-content .legen-option-value {
+.legend-content .legend-option-value {
     font-size: small;
 }
 
-.legen-option-value .good{
+.legend-option-value .good{
     padding: 5px;
 }
 
-.legen-option-value .normal{
+.legend-option-value .normal{
     padding: 5px;
 }
 
-.legen-option-value .bad{
+.legend-option-value .bad{
     padding: 5px;
 }
 
-.legen-option-value .worse{
+.legend-option-value .worse{
     padding: 5px;
 }
 
