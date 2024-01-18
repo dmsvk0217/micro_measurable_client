@@ -30,10 +30,7 @@ exports.allNodesAllSubstancesDailyAverages = async (req, res) => {
     data: {},
   };
 
-  const dailyAverageRef = collection(
-    db,
-    `daily-data/${yyyyMM}/day${dayDD}/node1/data`
-  );
+  const dailyAverageRef = collection(db, `daily-data/${yyyyMM}/day${dayDD}`);
 
   // dailyDataRef에서 문서들을 가져옴
   const querySnapshot = await getDocs(dailyAverageRef);
