@@ -1,9 +1,6 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCqcuHvJwtE1TO6lyUuH20O8no5fuHnN7s",
   authDomain: "capstone-c6d9e.firebaseapp.com",
@@ -15,10 +12,7 @@ const firebaseConfig = {
   measurementId: "G-K7B3FH99ZC",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-// Get Firestore instance
 const db = getFirestore(app);
 
 const currentDate = new Date();
