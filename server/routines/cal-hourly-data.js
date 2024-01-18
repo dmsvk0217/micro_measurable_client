@@ -1,14 +1,12 @@
-import { collection, addDoc, query, getDocs } from "firebase/firestore";
-import db from "../firebase.js";
-import {
+const { collection, addDoc, query, getDocs } = require("firebase/firestore");
+const db = require("../firebase.js");
+const {
   NUMBEROFNODE,
-  NUMBEROFHOUR,
   NUMBEROFSUBSTANCE,
   substanceType,
-  substanceHourlyAverageType,
-} from "../const.js";
+} = require("../const.js");
 
-export default function calHourlyAverage() {
+module.exports = function calHourlyAverage() {
   const currentDate = new Date();
   const hhmmss = currentDate.toLocaleTimeString("en-US", { hour12: false }); // HH:MM:SS format
   console.log(`[${hhmmss}] calHourlyAverage `);
@@ -16,7 +14,7 @@ export default function calHourlyAverage() {
   for (let i = 0; i < NUMBEROFNODE; i++) {
     calHourlyAverageWithNodeAndHour(i);
   }
-}
+};
 
 async function calHourlyAverageWithNodeAndHour(i) {
   const currentDate = new Date();
