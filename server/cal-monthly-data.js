@@ -1,5 +1,6 @@
-const { collection, addDoc, query, getDocs } = require("firebase/firestore");
-const db = require("./firebase.js");
+import { collection, addDoc, query, getDocs } from "firebase/firestore";
+import db from "./firebase.js";
+import { NUMBEROFNODE } from "./const.js";
 
 calMonthlyDayAverage();
 

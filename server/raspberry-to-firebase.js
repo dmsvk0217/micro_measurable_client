@@ -1,13 +1,6 @@
 // Import the functions you need from the SDKs you need
-const { initializeApp } = require("firebase/app");
-const {
-  getFirestore,
-  collection,
-  addDoc,
-  serverTimestamp,
-  query,
-  getDocs,
-} = require("firebase/firestore");
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -37,73 +30,78 @@ const hh = currentDate.getHours().toString().padStart(2, "0"); // HH format
 const substanceType = ["humidity", "tempareture", "pm10", "pm25", "ch2o"];
 
 async function addLoraDataToFirestore() {
-  // in lora.read() loop
-  const loraContent =
-    "11/24/21/8/8/0.04//+ERR=14//12/21/21/9/9/0.04//13/21/21/9/9/0.04//14/21/21/9/9/0.04//15/21/21/9/9/0.04//";
+  const loraContent = [
+    "1/24/21/8/8/0.04//2/21/21/9/9/0.04//",
+    "3/21/21/9/9/0.04//4/21/21/9/9/0.04//5/21/21/9/9/0.04//",
+    "6/24/21/8/8/0.04//+ERR=14//",
+    "7/21/21/9/9/0.04//8/21/21/9/9/0.04//9/21/21/9/9/0.04//10/21/21/9/9/0.04//",
+    "11/24/21/8/8/0.04//12/21/21/9/9/0.04//13/21/21/9/9/0.04//14/21/21/9/9/0.04//15/21/21/9/9/0.04//",
+  ];
+  for (let index = 0; index < loraContent.length; index++) {
+    // 전체 노드 개수 파악
+    let numberOfNodes = 0;
 
-  // 전체 노드 개수 파악
-  let numberOfNodes = 0;
+    // 각 노드를 기준으로 나누기
+    const nodeStrings = loraContent[index]
+      .split("//")
+      .filter((data) => data !== "");
 
-  // 각 노드를 기준으로 나누기
-  const nodeStrings = loraContent.split("//").filter((data) => data !== "");
+    // 각 string 배열에서 /로 구분되는 데이터 추출
+    const allSubstanceDataArray = [];
+    const nodeAddressArray = [];
+    let errContainFlag = false;
 
-  // 각 string 배열에서 /로 구분되는 데이터 추출
-  const allSubstanceDataArray = [];
-  const nodeAddressArray = [];
-  let errContainFlag = false;
-
-  nodeStrings.forEach((nodeString) => {
-    const nodeData = nodeString
-      .split("/")
-      .map((data, index) => {
-        if (index === 0) {
-          // 첫 번째 숫자는 nodeAddress이므로 nodeAddressArray에 추가
-          if (!isNaN(parseInt(data, 10))) {
-            nodeAddressArray.push(parseInt(data, 10));
-            numberOfNodes++;
+    nodeStrings.forEach((nodeString) => {
+      const nodeData = nodeString
+        .split("/")
+        .map((data, index) => {
+          if (index === 0) {
+            // 첫 번째 숫자는 nodeAddress이므로 nodeAddressArray에 추가
+            if (!isNaN(parseInt(data, 10))) {
+              nodeAddressArray.push(parseInt(data, 10));
+              numberOfNodes++;
+            } else {
+              errContainFlag = true;
+            }
+            return null; // nodeAddress는 데이터 배열에 추가하지 않음
           } else {
-            errContainFlag = true;
+            return !data.includes(".") ? parseInt(data, 10) : parseFloat(data);
           }
+        })
+        .filter((data) => data !== null);
+      if (nodeData.length > 0) allSubstanceDataArray.push(nodeData);
+    });
 
-          return null; // nodeAddress는 데이터 배열에 추가하지 않음
-        } else {
-          // 숫자 또는 에러값 처리
-          return !data.includes(".") ? parseInt(data, 10) : parseFloat(data);
-        }
-      })
-      .filter((data) => data !== null);
+    console.log("Total Node Count:", numberOfNodes);
+    console.log("Node Numbers:", nodeAddressArray);
+    console.log("All Node Data Array:", allSubstanceDataArray);
 
-    if (nodeData.length > 0) allSubstanceDataArray.push(nodeData);
-  });
+    if (errContainFlag) {
+      console.log("🚀 ~ loraContent:", loraContent[index]);
+      addErrData(loraContent[index]);
+    }
 
-  console.log("Total Node Count:", numberOfNodes);
-  console.log("Node Numbers:", nodeAddressArray);
-  console.log("All Node Data Array:", allSubstanceDataArray);
+    addRawData(loraContent[index]);
 
-  if (errContainFlag) {
-    console.log("🚀 ~ loraContent:", loraContent);
-    await addErrData(loraContent);
+    for (let i = 0; i < numberOfNodes; i++) {
+      const nodeAddress = nodeAddressArray[i];
+      const substanceDataArray = allSubstanceDataArray[i];
+
+      // 모든 노드, 모든 물질,  15개노드 7개 물질 -> 105개 query
+      addMonthlyRawData(nodeAddress, substanceDataArray);
+      console.log("done1");
+
+      // 모든 노드, 15개노드 -> 15개 query
+      addDailyRawData(nodeAddress, substanceDataArray);
+      console.log("done2");
+
+      // 모든 노드, 15개노드 -> 15개 query
+      addHourlyRawData(nodeAddress, substanceDataArray);
+      console.log("done3");
+    }
+    console.log("done");
   }
 
-  await addRawData(loraContent);
-
-  for (let i = 0; i < numberOfNodes; i++) {
-    const nodeAddress = nodeAddressArray[i];
-    const substanceDataArray = allSubstanceDataArray[i];
-
-    // 모든 노드, 모든 물질,  15개노드 7개 물질 -> 105개 query
-    await addMonthlyRawData(nodeAddress, substanceDataArray);
-    console.log("done1");
-
-    // 모든 노드, 15개노드 -> 15개 query
-    await addDailyRawData(nodeAddress, substanceDataArray);
-    console.log("done2");
-
-    // 모든 노드, 15개노드 -> 15개 query
-    await addHourlyRawData(nodeAddress, substanceDataArray);
-    console.log("done3");
-  }
-  console.log("done");
   return;
 }
 
