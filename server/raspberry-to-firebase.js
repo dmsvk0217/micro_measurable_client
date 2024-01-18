@@ -25,7 +25,6 @@ const currentDate = new Date();
 const yyyyMM = currentDate.toISOString().slice(0, 7); // YYYY-MM format
 const dayDD = currentDate.getDate().toString().padStart(2, "0"); // DD format
 const hhmmss = currentDate.toLocaleTimeString("en-US", { hour12: false }); // HH:MM:SS format
-const hh = currentDate.getHours().toString().padStart(2, "0"); // HH format
 
 const substanceType = ["humidity", "tempareture", "pm10", "pm25", "ch2o"];
 
@@ -123,6 +122,7 @@ async function addMonthlyRawData(nodeAddress, substanceDataArray) {
     };
 
     await addDoc(monthlyRawDataRef, dataObject);
+    console.log("Monthly done");
   }
 }
 
@@ -144,12 +144,16 @@ async function addDailyRawData(nodeAddress, substanceDataArray) {
   };
 
   await addDoc(dailyRawDataRef, dataObject);
+  console.log("Daily done");
 }
 
 async function addHourlyRawData(nodeAddress, substanceDataArray) {
+  const hh = currentDate.getHours().toString().padStart(2, "0"); // HH format
+  const hour = (parseInt(hh, 10) + 1).toString();
+
   const hourlyRawDataRef = collection(
     db,
-    `hourly-raw-data/${yyyyMM}/day${dayDD}/hour${hh}/node${nodeAddress}`
+    `hourly-raw-data/${yyyyMM}/day${dayDD}/hour${hour}/node${nodeAddress}`
   );
 
   const dataObject = {
@@ -164,6 +168,7 @@ async function addHourlyRawData(nodeAddress, substanceDataArray) {
   };
 
   await addDoc(hourlyRawDataRef, dataObject);
+  console.log("Hourly done");
 }
 
 async function addErrData(loraContent) {
