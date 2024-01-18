@@ -2,31 +2,51 @@ import React, { useState } from 'react';
 import './MapView.css';
 
 function MapView() {
-  const [legendTitle, setLegendTitle] = useState('초미세먼지');
-  const [selectedButtonId, setSelectedButtonId] = useState(1);
   const [selectedNode, setSelectedNode] = useState('Node 1');
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const selectedButtonAction = (buttonId) => {
-    setSelectedButtonId(buttonId);
+  const [legendTitle, setLegendTitle] = useState('초미세먼지');
+  const [selectedButtonId, setSelectedButtonId] = useState(1);
+  const [legendValueGood, setlegendValueGood] = useState('0~15');
+  const [legendValueNormal, setlegendValueNormal] = useState('16~35');
+  const [legendValueBad, setlegendValueBad] = useState('36~75');
+  const [legendValueWorse, setlegendValueWorse] = useState('76~');
 
-    if (buttonId === 1) {
-      setLegendTitle('초미세먼지');
-    } else if (buttonId === 2) {
-      setLegendTitle('미세먼지');
-    } else {
-      setLegendTitle('포름알데히드');
+    const selectedButtonAction = (buttonId) => {
+
+        setSelectedButtonId(buttonId);
+
+        if(buttonId === 1){
+            setLegendTitle('초미세먼지');
+            setlegendValueGood('0~15');
+            setlegendValueNormal('16~35');
+            setlegendValueBad('36~75');
+            setlegendValueWorse('76~');
+        }
+        else if (buttonId === 2){
+            setLegendTitle('미세먼지');
+            setlegendValueGood('0~');
+            setlegendValueNormal('');
+            setlegendValueBad('');
+            setlegendValueWorse('');
+        }
+        else {
+            setLegendTitle('포름알데히드');
+            setlegendValueGood('0~');
+            setlegendValueNormal('');
+            setlegendValueBad('');
+            setlegendValueWorse('');
+        }
     }
-  };
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
+    const toggleDropdown = () => {
+        setDropdownOpen(!dropdownOpen);
+    };
 
-  const handleNodeSelect = (node) => {
-    setSelectedNode(node);
-    setDropdownOpen(false);
-  };
+    const handleNodeSelect = (node) => {
+        setSelectedNode(node);
+        setDropdownOpen(false);
+    };
 
   return (
     <div className='main-container'>
@@ -37,16 +57,10 @@ function MapView() {
       </div>
 
       <div className='option-container'>
-        <button className={selectedButtonId === 1 ? 'active' : ''} onClick={() => selectedButtonAction(1)}>
-          초미세먼지
-        </button>
-        <button className={selectedButtonId === 2 ? 'active' : ''} onClick={() => selectedButtonAction(2)}>
-          미세먼지
-        </button>
-        <button className={selectedButtonId === 3 ? 'active' : ''} onClick={() => selectedButtonAction(3)}>
-          포름알데히드
-        </button>
-      </div>
+                <button className={selectedButtonId === 1 ? 'active' : ''} onClick={() => selectedButtonAction(1)}>초미세먼지</button>
+                <button className={selectedButtonId === 2 ? 'active' : ''} onClick={() => selectedButtonAction(2)}>미세먼지</button>
+                <button className={selectedButtonId === 3 ? 'active' : ''} onClick={() => selectedButtonAction(3)}>포름알데히드</button>
+            </div>
 
       <div className='info-container'>
         <div className='node-info'>
@@ -119,16 +133,16 @@ function MapView() {
               <p className='worse'>매우 나쁨</p>
             </div>
             <div className='legend-option-value'>
-              <p className='good'>0~15</p>
-              <p className='normal'>16~35</p>
-              <p className='bad'>36~75</p>
-              <p className='worse'>76~</p>
+                <p className='good'>{legendValueGood}</p>
+                <p className='normal'>{legendValueNormal}</p>
+                <p className='bad'>{legendValueBad}</p>
+                <p className='worse'>{legendValueWorse}</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-}
+              }
 
 export default MapView;
