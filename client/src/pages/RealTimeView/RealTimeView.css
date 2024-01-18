@@ -1,0 +1,9 @@
+.RT-title{
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.RT-container{
+    border: 1px solid #d3d3d3;
+    padding: 20px;
+}
