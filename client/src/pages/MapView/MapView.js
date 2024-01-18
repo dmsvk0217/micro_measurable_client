@@ -5,6 +5,11 @@ function MapView(){
 
     const [legendTitle, setLegendTitle] = useState('초미세먼지');
     const [selectedButtonId, setSelectedButtonId] = useState(1);
+    const [legendValueGood, setlegendValueGood] = useState('0~15');
+    const [legendValueNormal, setlegendValueNormal] = useState('16~35');
+    const [legendValueBad, setlegendValueBad] = useState('36~75');
+    const [legendValueWorse, setlegendValueWorse] = useState('76~');
+
 
 
     const selectedButtonAction = (buttonId) => {
@@ -13,12 +18,24 @@ function MapView(){
 
         if(buttonId === 1){
             setLegendTitle('초미세먼지');
+            setlegendValueGood('0~15');
+            setlegendValueNormal('16~35');
+            setlegendValueBad('36~75');
+            setlegendValueWorse('76~');
         }
         else if (buttonId === 2){
             setLegendTitle('미세먼지');
+            setlegendValueGood('0~');
+            setlegendValueNormal('');
+            setlegendValueBad('');
+            setlegendValueWorse('');
         }
         else {
             setLegendTitle('포름알데히드');
+            setlegendValueGood('0~');
+            setlegendValueNormal('');
+            setlegendValueBad('');
+            setlegendValueWorse('');
         }
     }
 
@@ -48,10 +65,10 @@ function MapView(){
                             <p className='worse'>매우 나쁨</p>
                         </div>
                         <div className='legend-option-value'>
-                            <p className='good'>0~15</p>
-                            <p className='normal'>16~35</p>
-                            <p className='bad'>36~75</p>
-                            <p className='worse'>76~</p>
+                            <p className='good'>{legendValueGood}</p>
+                            <p className='normal'>{legendValueNormal}</p>
+                            <p className='bad'>{legendValueBad}</p>
+                            <p className='worse'>{legendValueWorse}</p>
                         </div>
                     </div>
                 </div>
