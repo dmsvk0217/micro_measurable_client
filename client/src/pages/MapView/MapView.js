@@ -1,21 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState} from 'react';
 // import globalIcon from '../img/globalIcon'
 import './MapView.css'
 
 function MapView(){
-
-    const [containerHeight, setContainerHeight] = useState(0);
-    const mapRef = useRef(null);
-    const infoRef = useRef(null);
-
-    useEffect(() => {
-        const mapHeight = mapRef.current ? mapRef.current.offsetHeight : 0;
-        const infoHeight = infoRef.current ? infoRef.current.offsetHeight : 0;
-
-        // 두 요소 중 더 큰 높이를 선택하여 상태를 업데이트합니다.
-        setContainerHeight(Math.max(mapHeight, infoHeight));
-    }, []);
-
 
     const [selectedButtonId, setSelectedButtonId] = useState(1);
 
@@ -36,8 +23,8 @@ function MapView(){
     }
 
     return (
-        <div className='main-container'  style={{ height: `calc(${containerHeight}px)` }}>
-            <img src='img/map.png' alt="map" className="map" ref={mapRef}/>
+        <div className='main-container'>  
+            <img src='img/map.png' alt="map" className="map"/>
             <div className='building-image-container'>
                 <img src='img/student_building.png' alt='student_building' className='student_building'/>
                 <img src='img/grace_building.png' alt='grace_building' className='grace_building'/>
@@ -49,7 +36,7 @@ function MapView(){
                 <button className={selectedButtonId === 3 ? 'active' : ''} onClick={() => selectedButtonAction(3)}>포름알데히드</button>
             </div>
 
-            <div className='info-container' ref={infoRef}>
+            <div className='info-container'>
                 <div className='node-info'></div>
                 <div className='legend-info'>
                     <p className='legend-title'><span className="option">초미세먼지</span>  범례</p>

@@ -11,18 +11,16 @@ import Footer from './components/Footer/Footer'
 function App() {
   return (
     <Router>
-      <div className="page-container"> {/* 이 div가 flex container가 됩니다 */}
-        <NavigationBar/>
-        <hr/>
-        <div className="main-content">
-          <Routes>
-            <Route path="/" element={<MapView />} />
-            <Route path="/realTime" element={<RealTimeView />} />
-            <Route path="/statistics" element={<StatisticsView />} />
-          </Routes>
-        </div>
-        <Footer/>
+      <NavigationBar/>
+      <hr></hr>
+      <div className="main-content">
+        <Routes>
+          <Route path="/" element={<MapView />} />
+          <Route path="/realTime" element={<RealTimeView />} />
+          <Route path="/statistics" element={<StatisticsView />} />
+        </Routes>
       </div>
+      <Footer/>
     </Router>
   );
 }
