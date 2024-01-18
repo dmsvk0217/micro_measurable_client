@@ -1,49 +1,47 @@
-const Cart = require("../models/cart.model");
-
-exports.allNodesAllSubstancesDailyAverages = (req, res) => {
+export function allNodesAllSubstancesDailyAverages(req, res) {
   if (!req.body) {
     return res.status(400).send({ data: "Content can not be empty" });
   }
 
   const body = req.body;
-};
+}
 
-exports.allNodesAllSubstancesHourlyAverages = (req, res) => {
+export function allNodesAllSubstancesHourlyAverages(req, res) {
   if (!req.body) {
     return res.status(400).send({ data: "Content can not be empty" });
   }
 
   const body = req.body;
-};
+}
 
-exports.NodeAllSubstancesDailyAverages = (req, res) => {
+export function NodeAllSubstancesDailyAverages(req, res) {
   if (!req.body) {
     return res.status(400).send({ data: "Content can not be empty" });
   }
 
   const body = req.body;
-};
+}
 
-exports.nodeAllSubstancesHourlyAverages = (req, res) => {
+export function nodeAllSubstancesHourlyAverages(req, res) {
   if (!req.body) {
     return res.status(400).send({ data: "Content can not be empty" });
   }
 
   const body = req.body;
-};
+}
 
-exports.nodesSubstanceMonthlyAverages = (req, res) => {
+export function nodesSubstanceMonthlyAverages(req, res) {
   if (!req.body) {
     return res.status(400).send({ data: "Content can not be empty" });
   }
 
   const body = req.body;
-};
+}
 
-exports.allNodesSubstanceMonthlyAverages = (req, res) => {
+export function allNodesSubstanceMonthlyAverages(req, res) {
   if (!req.body) {
     return res.status(400).send({ data: "Content can not be empty" });
   }
 
   const body = req.body;
-};
+}
