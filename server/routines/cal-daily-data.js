@@ -1,15 +1,17 @@
 import { collection, addDoc, query, getDocs } from "firebase/firestore";
-import db from "./firebase.js";
+import db from "../firebase.js";
 import {
   NUMBEROFNODE,
   NUMBEROFSUBSTANCE,
   substanceType,
   substanceDailyAverageType,
-} from "./const.js";
+} from "../const.js";
 
-calDailyAverage();
+export default function calDailyAverage() {
+  const currentDate = new Date();
+  const hhmmss = currentDate.toLocaleTimeString("en-US", { hour12: false }); // HH:MM:SS format
+  console.log(`[${hhmmss}] calDailyAverage `);
 
-function calDailyAverage() {
   for (let i = 0; i < NUMBEROFNODE; i++) {
     calDailyAverageWithNode(i);
   }

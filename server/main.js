@@ -2,8 +2,17 @@ import express from "express";
 import cors from "cors";
 import path from "path";
 import bodyParser from "body-parser";
+import cron from "node-cron";
+
+import calDailyAverage from "./routines/cal-daily-data.js";
+import calMonthlyAverage from "./routines/cal-monthly-data.js";
+import calHourlyAverage from "./routines/cal-hourly-data.js";
 
 const app = express();
+
+cron.schedule("0 * * * *", calHourlyAverage);
+cron.schedule("0 0 * * *", calDailyAverage);
+cron.schedule("0 0 1 * *", calMonthlyAverage);
 
 app.use(express.json());
 app.use(
