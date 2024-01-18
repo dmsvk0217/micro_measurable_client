@@ -3,6 +3,11 @@ import { Line } from 'react-chartjs-2';
 import 'chart.js/auto'
 import './RTGraph.css'
 
+import { Chart, registerables } from 'chart.js';
+import annotationPlugin from 'chartjs-plugin-annotation';
+Chart.register(...registerables, annotationPlugin);
+
+
 function RTGraph(){
 
     const data = {
@@ -19,9 +24,48 @@ function RTGraph(){
     };
 
     const options = {
+        plugins: {
+            annotation: {
+              annotations: {
+                line1: {
+                  type: 'line',
+                  yMin: 0,
+                  yMax: 0,
+                  borderColor: '#7D9DDB',
+                  borderWidth: 2,
+                },
+                line2: {
+                  type: 'line',
+                  yMin: 15,
+                  yMax: 15,
+                  borderColor: '#6EB057',
+                  borderWidth: 2,
+                },
+                line3: {
+                    type: 'line',
+                    yMin: 36,
+                    yMax: 36,
+                    borderColor: '#D7E067',
+                    borderWidth: 2,
+                },
+                line4: {
+                    type: 'line',
+                    yMin: 76,
+                    yMax: 76,
+                    borderColor: '#BB7373',
+                    borderWidth: 2,
+                },
+              }
+            }
+        },
         scales: {
             y: {
                 beginAtZero: true,
+                ticks: {
+                    stepSize: 10,
+                    suggestedMin: 0, // Suggests a minimum value for the scale
+                    suggestedMax: 80, // Suggests a maximum value for the scale
+                  }
             }
         }
     };
