@@ -183,7 +183,7 @@ async function addErrData(loraContent) {
 }
 
 async function addRawData(loraContent) {
-  const errDataRef = collection(db, `raw-data/${yyyyMM}/data`);
+  const errDataRef = collection(db, `raw-data/${yyyyMM}/day${dayDD}`);
   const dataObject = {
     date: `${yyyyMM}-${dayDD}`,
     timestamp: hhmmss,

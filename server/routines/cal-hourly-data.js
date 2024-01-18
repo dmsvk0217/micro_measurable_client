@@ -1,16 +1,18 @@
 import { collection, addDoc, query, getDocs } from "firebase/firestore";
-import db from "./firebase.js";
+import db from "../firebase.js";
 import {
   NUMBEROFNODE,
   NUMBEROFHOUR,
   NUMBEROFSUBSTANCE,
   substanceType,
   substanceHourlyAverageType,
-} from "./const.js";
+} from "../const.js";
 
-calHourlyAverage();
+export default function calHourlyAverage() {
+  const currentDate = new Date();
+  const hhmmss = currentDate.toLocaleTimeString("en-US", { hour12: false }); // HH:MM:SS format
+  console.log(`[${hhmmss}] calHourlyAverage `);
 
-function calHourlyAverage() {
   for (let i = 0; i < NUMBEROFNODE; i++) {
     calHourlyAverageWithNodeAndHour(i);
   }

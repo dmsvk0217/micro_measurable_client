@@ -1,10 +1,12 @@
 import { collection, addDoc, query, getDocs } from "firebase/firestore";
-import db from "./firebase.js";
-import { NUMBEROFNODE } from "./const.js";
+import db from "../firebase.js";
+import { NUMBEROFNODE } from "../const.js";
 
-calMonthlyDayAverage();
+export default function calMonthlyDayAverage() {
+  const currentDate = new Date();
+  const hhmmss = currentDate.toLocaleTimeString("en-US", { hour12: false }); // HH:MM:SS format
+  console.log(`[${hhmmss}] calMonthlyDayAverage `);
 
-function calMonthlyDayAverage() {
   for (let i = 0; i < NUMBEROFNODE; i++) {
     for (let j = 0; j < substanceType.length; j++) {
       calDayAverageWithNodeAndSubstance(i, j);
