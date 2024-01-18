@@ -1,9 +1,9 @@
 import React, { useState} from 'react';
-// import globalIcon from '../img/globalIcon'
 import './MapView.css'
 
 function MapView(){
 
+    const [legendTitle, setLegendTitle] = useState('초미세먼지');
     const [selectedButtonId, setSelectedButtonId] = useState(1);
 
 
@@ -12,13 +12,13 @@ function MapView(){
         setSelectedButtonId(buttonId);
 
         if(buttonId === 1){
-            console.log('초미세먼지');
+            setLegendTitle('초미세먼지');
         }
         else if (buttonId === 2){
-            console.log('미세먼지');
+            setLegendTitle('미세먼지');
         }
         else {
-            console.log('포름알데히드');
+            setLegendTitle('포름알데히드');
         }
     }
 
@@ -39,15 +39,15 @@ function MapView(){
             <div className='info-container'>
                 <div className='node-info'></div>
                 <div className='legend-info'>
-                    <p className='legend-title'><span className="option">초미세먼지</span>  범례</p>
+                    <p className='legend-title'><span className="option">{legendTitle}</span>  범례</p>
                     <div className="legend-content">
-                        <div className='legen-option-status'>
+                        <div className='legend-option-status'>
                             <p className='good'>좋음</p>
                             <p className='normal'>보통</p>
                             <p className='bad'>나쁨</p>
                             <p className='worse'>매우 나쁨</p>
                         </div>
-                        <div className='legen-option-value'>
+                        <div className='legend-option-value'>
                             <p className='good'>0~15</p>
                             <p className='normal'>16~35</p>
                             <p className='bad'>36~75</p>
