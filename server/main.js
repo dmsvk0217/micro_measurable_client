@@ -1,7 +1,8 @@
-const express = require("express");
-const cors = require("cors");
-const path = require("path");
-const bodyParser = require("body-parser");
+import express from "express";
+import cors from "cors";
+import path from "path";
+import bodyParser from "body-parser";
+
 const app = express();
 
 app.use(express.json());
