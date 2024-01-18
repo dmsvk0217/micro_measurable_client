@@ -114,12 +114,51 @@ exports.NodeAllSubstancesDailyAverages = async (req, res) => {
   return res.status(200).json({ dataObject });
 };
 
-exports.nodeAllSubstancesHourlyAverages = (req, res) => {
-  if (!req.body) {
-    return res.status(400).send({ data: "Content can not be empty" });
+exports.nodeAllSubstancesHourlyAverages = async (req, res) => {
+  const { date, nodeAddress, hour } = req.body;
+  let dataObject, yyyyMM, dayDD;
+
+  if (!date || !nodeAddress || !hour)
+    return res.status(400).json({ error: "'All fields are required'" });
+
+  if (!isValidDateFormat(date))
+    return res.status(400).send({ error: "Date is not valid date format" });
+
+  yyyyMM = date.slice(0, 7);
+  dayDD = date.slice(8);
+  dataObject = {
+    type: "node-all-substances-hourly-averages",
+    numberOfNode: nodeAddress,
+    date: req.body.date,
+    hour: hour,
+    substance: "ALL",
+    data: {},
+  };
+
+  try {
+    const hourlyAverageRef = collection(
+      db,
+      `hourly-data/${yyyyMM}/day${dayDD}/hour${hour}/node${nodeAddress}`
+    );
+
+    const querySnapshot = await getDocs(hourlyAverageRef);
+
+    if (querySnapshot.docs.length === 0) {
+      console.log("🚀 ~ querySnapshot.docs.length === 0");
+      return res.status(500).send({ error: "querySnapshot.docs.length === 0" });
+    }
+
+    const nodeData = querySnapshot.docs[0].data();
+    dataObject["data"] = nodeData;
+  } catch (error) {
+    console.log(
+      "🚀 ~ exports.nodeAllSubstancesHourlyAverages= ~ error:",
+      error
+    );
+    return res.status(500).json({ error: error });
   }
 
-  const body = req.body;
+  return res.status(200).json({ dataObject });
 };
 
 exports.nodesSubstanceMonthlyAverages = (req, res) => {
