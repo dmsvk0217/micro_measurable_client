@@ -21,16 +21,18 @@ async function calDailyAverageWithNode(i) {
   const yyyyMM = currentDate.toISOString().slice(0, 7); // YYYY-MM format
   const dayDD = currentDate.getDate().toString().padStart(2, "0"); // DD format
   const hhmmss = currentDate.toLocaleTimeString("en-US", { hour12: false }); // HH:MM:SS format
-  const hh = currentDate.getHours().toString().padStart(2, "0"); // HH format
-
-  let avgValue;
-  let averageRef;
-  let dataObject;
 
   const dailyRawDataRef = collection(
     db,
     `daily-raw-data/${yyyyMM}/day${dayDD}/node${i + 1}/data`
   );
+  const dailyAverageRef = collection(
+    db,
+    `daily-data/${yyyyMM}/day${dayDD}/node${i + 1}/data`
+  );
+
+  let avgValue;
+  let dataObject;
 
   try {
     const querySnapshot = await getDocs(query(dailyRawDataRef));
@@ -46,7 +48,7 @@ async function calDailyAverageWithNode(i) {
       timestamp: hhmmss,
     };
 
-    // 특정날짜 특정노드, 모든 물질에 대한 평균값 계산하여 dataObject에 추가
+    // 특정날짜 특정노드에 대해서, 모든 물질의 평균값 계산하여 dataObject에 추가
     for (let j = 0; j < NUMBEROFSUBSTANCE; j++) {
       const valueArray = querySnapshot.docs.map(
         (doc) => doc.data()[substanceType[j]]
@@ -56,12 +58,11 @@ async function calDailyAverageWithNode(i) {
 
       dataObject[substanceDailyAverageType[j]] = avgValue;
     }
-    averageRef = collection(
-      db,
-      `daily-data/${yyyyMM}/day${dayDD}/node${i + 1}/data`
-    );
-    addDoc(averageRef, dataObject);
+
+    await addDoc(dailyAverageRef, dataObject);
+    console.log("done");
   } catch (error) {
     console.log("🚀 ~ calDayAverageWithNodeSubstance ~ error:", error);
   }
+  return;
 }
