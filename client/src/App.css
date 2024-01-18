@@ -2,7 +2,6 @@
 .main-content {
   /* ✅ navigationbar hgith+margin 수정 필요 */
   min-height: calc(100vh - 100px);
-  max-height: fit-content;
   padding: 0px 60px;
 }
 
