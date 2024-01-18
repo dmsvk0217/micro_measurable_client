@@ -4,7 +4,7 @@ import './RTGraph.css'
 function RTGraph(){
     return (
         <div>
-            <h1>RTGraph</h1>
+            <hr className='RTGraph-hr'></hr>
         </div>
     );
 }
