@@ -5,11 +5,11 @@ import RTGraph from './RTGraph/RTGraph'
 
 function RealTimeView(){
     return (
-        <div>
+        <div className='RT-container'>
             <p className='RT-title'>실시간 정보 보기</p>
-            <div className='RT-container'>
+            <div className='RT-content-container'>
                 <RTTable/>
-                <hr className='RTGraph-hr'></hr>
+                <hr className='RT-hr'></hr>
                 <RTGraph/>
             </div>
         </div>

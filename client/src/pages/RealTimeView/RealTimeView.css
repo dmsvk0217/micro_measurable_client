@@ -1,14 +1,19 @@
+.RT-container{
+    max-width: 1000px;
+    margin: 0 auto; /* 좌우 마진을 auto */
+}
+
 .RT-title{
     font-size: 1.5em;
     text-align: center;
 }
 
-.RT-container{
+.RT-content-container{
     border: 1px solid #d3d3d3;
     padding: 20px;
 }
 
-.RTGraph-hr{
+.RT-hr{
     border: none; 
     height: 2px;
     background-color: #d3d3d3; 
