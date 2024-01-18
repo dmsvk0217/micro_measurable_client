@@ -1,12 +1,10 @@
 .main-container {
     position: relative;
     width: 100%;
-    /* max-width:; */
 }
 
 .map {
     width: 85%;
-    height: auto;
 }
 
 .building-image-container img {
@@ -20,15 +18,15 @@
 .student_building {
     position: absolute;
     width: 11%;
-    top: 32.5%;
+    top: 30%;
     left: 39.5%;
 }
 
 .grace_building {
     position: absolute;
-    width: 8.6%;
-    top: 5.4%;
-    left: 55%;
+    width: 8%;
+    top: 2.5%;
+    left: 58%;
 }
 
 
@@ -36,30 +34,275 @@
     position: absolute;
     top: 5%;
     right: 0%;
-
     width: 450px;
 }
 
 .node-info {
-    border: 1px solid #D9D9D9;
+    border: 1px solid #E9E9E9;
     border-radius: 10px;
-    box-shadow: 2px 2px 5px 0px #D9D9D9;
-    height: 500px;
+    box-shadow: 2px 2px 5px 0px #afafaf;
+    height: 470px;
     width: 100%;
     background-color: white;
     opacity: 90%;
 }
+
+.node-info .select-node {
+    display: flex;
+    padding: 0;
+}
+
+.node-info .select-node .leaf {
+    padding-left: 15%;
+    padding-top: 7%;
+    width: 105px;
+    height: 80px;
+}
+
+.dropdown {
+    margin-top: 45px;
+    position: relative;
+    display: inline-block;
+    padding: 0;
+}
+
+.dropbtn {
+    display: flex;    
+    justify-content: center;    
+    align-items: center;
+    color: black;
+    padding: 10px;
+    font-size: 2em;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.triangle-icon {
+    margin-left: 15px;
+    font-size: 0.7em; 
+    vertical-align: middle;
+  }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content p {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+.dropdown-content p:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.time {
+    display: flex;    
+    justify-content: center;    
+    margin: 0;
+    font-size: 1.2em;
+    color: black;
+}
+
+.node-info-divider {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color: black;
+    opacity: 70%;
+}
+
+.is-level {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty {
+    padding: 30px;
+}
+
+.no-level {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-trim: 20px;
+}
+
+.no-level .value {
+    justify-content: center;
+    text-align: center;
+}
+
+.no-level p {
+    margin: 12px;
+}
+
+.is-level p {
+    margin: 15px;
+}
+
+.is-level .sub {
+    margin-left: 30px;
+    text-align: center;
+}
+
+.is-level .value {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.is-level .number {
+    justify-content: center;
+    text-align: center;
+}
+
+.is-level .status {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.is-level .number .worse {
+    color: #BB7373;
+}
+
+.is-level .number .normal {
+    color: #6EB057;
+}
+
+.is-level .number .good {
+    color: #7D9DDB;
+}
+
+.is-level .status .good {
+    color: white;
+    background-color: #7D9DDB;
+    border-radius: 10px;
+    padding: 3px 1px 3px 1px;
+    width: 35px;
+    text-align: center;
+    font-size: small; 
+}
+
+.is-level .status .normal {
+    color: white;
+    background-color: #6EB057;
+    border-radius: 10px;
+    padding: 3px 1px 3px 1px;
+    width: 35px;
+    text-align: center;
+    font-size: small; 
+}
+
+.is-level .status .worse {
+    color: white;
+    background-color: #BB7373;
+    border-radius: 10px;
+    padding: 3px 1px 3px 1px;
+    width: 35px;
+    text-align: center;
+    font-size: small; 
+}
+
+.no-level .value p {
+    color: grey;
+}
+
 
 .legend-info {
     margin-top: 20px;
-    border: 1px solid #D9D9D9;
+    border: 1px solid #E9E9E9;
     border-radius: 10px;
-    height: 200px;
+    box-shadow: 2px 2px 5px 0px #afafaf;
+    height: auto;
     width: 100%;
-    background-color: white;
+    background-color: #F8F8F8;
     opacity: 90%;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
+.legend-title {
+    font-size:medium;
+}
+
+.legend-title .option {
+    font-weight: bold;
+}
+
+.legend-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.legend-content .legend-option-status {
+    margin-right: 10px;
+    font-size: small;
+}
+
+.legend-option-status .good {
+    color: white;
+    background-color: #7D9DDB;
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+}
+
+.legend-option-status .normal {
+    color: white;
+    background-color: #6EB057;
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+}
+
+.legend-option-status .bad {
+    color: white;
+    background-color: #D7E067;
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+}
+
+.legend-option-status .worse {
+    color: white;
+    background-color: #BB7373;
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+}
+
+.legend-content .legend-option-value {
+    font-size: small;
+}
+
+.legend-option-value .good{
+    padding: 5px;
+}
+
+.legend-option-value .normal{
+    padding: 5px;
+}
+
+.legend-option-value .bad{
+    padding: 5px;
+}
+
+.legend-option-value .worse{
+    padding: 5px;
+}
 
 .option-container {
     margin: auto;
@@ -75,10 +318,10 @@
     margin-bottom: 20px;
     padding: 15px 0;
     
-    border: 1px solid #D9D9D9;
+    border: 1px solid #E9E9E9;
     border-radius: 10px;
     background-color: white;
-    box-shadow: 4px 4px 4px 0px #D9D9D9;
+    box-shadow: 2px 3px 4px 0px #afafaf;
 
     font-size:medium;
     font-weight: bold;
@@ -92,5 +335,5 @@
 button.active {
     background-color: #55B76B;
     color: white; 
-    border-color: white;
+    border: none;
 }

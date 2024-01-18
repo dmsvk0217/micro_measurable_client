@@ -1,48 +1,134 @@
-import React, {useState} from 'react';
-// import globalIcon from '../img/globalIcon'
-import './MapView.css'
+import React, { useState } from 'react';
+import './MapView.css';
 
-function MapView(){
+function MapView() {
+  const [legendTitle, setLegendTitle] = useState('초미세먼지');
+  const [selectedButtonId, setSelectedButtonId] = useState(1);
+  const [selectedNode, setSelectedNode] = useState('Node 1');
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
-    const [selectedButtonId, setSelectedButtonId] = useState(1);
+  const selectedButtonAction = (buttonId) => {
+    setSelectedButtonId(buttonId);
 
-
-    const selectedButtonAction = (buttonId) => {
-
-        setSelectedButtonId(buttonId);
-
-        if(buttonId === 1){
-            console.log('초미세먼지');
-        }
-        else if (buttonId === 2){
-            console.log('미세먼지');
-        }
-        else {
-            console.log('포름알데히드');
-        }
+    if (buttonId === 1) {
+      setLegendTitle('초미세먼지');
+    } else if (buttonId === 2) {
+      setLegendTitle('미세먼지');
+    } else {
+      setLegendTitle('포름알데히드');
     }
+  };
 
-    return (
-        <div className='main-container'>
-            <img src='img/map.png' alt="map" className="map"/>
-            <div className='building-image-container'>
-                <img src='img/student_building.png' alt='student_building' className='student_building'/>
-                <img src='img/grace_building.png' alt='grace_building' className='grace_building'/>
-            </div>
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
 
-            <div className='option-container'>
-                <button className={selectedButtonId === 1 ? 'active' : ''} onClick={() => selectedButtonAction(1)}>초미세먼지</button>
-                <button className={selectedButtonId === 2 ? 'active' : ''} onClick={() => selectedButtonAction(2)}>미세먼지</button>
-                <button className={selectedButtonId === 3 ? 'active' : ''} onClick={() => selectedButtonAction(3)}>포름알데히드</button>
-            </div>
+  const handleNodeSelect = (node) => {
+    setSelectedNode(node);
+    setDropdownOpen(false);
+  };
 
-            <div className='info-container'>
-                <div className='node-info'></div>
-                <div className='legend-info'></div>
+  return (
+    <div className='main-container'>
+      <img src='img/map.png' alt='map' className='map' />
+      <div className='building-image-container'>
+        <img src='img/student_building.png' alt='student_building' className='student_building' />
+        <img src='img/grace_building.png' alt='grace_building' className='grace_building' />
+      </div>
+
+      <div className='option-container'>
+        <button className={selectedButtonId === 1 ? 'active' : ''} onClick={() => selectedButtonAction(1)}>
+          초미세먼지
+        </button>
+        <button className={selectedButtonId === 2 ? 'active' : ''} onClick={() => selectedButtonAction(2)}>
+          미세먼지
+        </button>
+        <button className={selectedButtonId === 3 ? 'active' : ''} onClick={() => selectedButtonAction(3)}>
+          포름알데히드
+        </button>
+      </div>
+
+      <div className='info-container'>
+        <div className='node-info'>
+          <div className='select-node'>
+            <img src='img/leaf.png' alt='leaf' className='leaf' />
+            <div className='dropdown'>
+              <button className='dropbtn' onClick={toggleDropdown}>
+                {selectedNode} <span className='triangle-icon'>{dropdownOpen ? '▲' : '▼'}</span>
+              </button>
+              {dropdownOpen && (
+                <div className='dropdown-content'>
+                  <p onClick={() => handleNodeSelect('Node 1')}>Node 1</p>
+                  <p onClick={() => handleNodeSelect('Node 2')}>Node 2</p>
+                  <p onClick={() => handleNodeSelect('Node 3')}>Node 3</p>
+                  <p onClick={() => handleNodeSelect('Node 4')}>Node 4</p>
+                </div>
+              )}
             </div>
+          </div>
+          <div>
+            <p className="time">2024-01-18 16시</p>
+            <hr className="node-info-divider"></hr>
+          </div>
+          <div className="value">
+            <div className="is-level">
+                <div className="sub">
+                    <p>초미세먼지</p>
+                    <p>미세먼지</p>
+                    <p>포름알데히드</p>
+                </div>
+                <div className="number">
+                    <p className="worse">151 ㎍/㎥</p>
+                    <p className="normal">120 ㎍/㎥ </p>
+                    <p className="good">0.002 ppm</p>
+                </div>
+                <div className="status">
+                    <p className='worse'>위험</p>
+                    <p className='normal'>보통</p>
+                    <p className='good'>좋음</p>
+                </div>
+            </div>
+            <div className="no-level">
+                <div className="sub">
+                    <p>풍향</p>
+                    <p>풍속</p>
+                    <p>온도</p>
+                    <p>습도</p>
+                </div>
+                <div className="empty">
+
+                </div>
+                <div className="value">
+                    <p>남서풍</p>
+                    <p>5m/s</p>
+                    <p>7 °C</p>
+                    <p>30%</p>
+                </div>
+            </div>
+          </div>
         </div>
-
-    );
+        <div className='legend-info'>
+          <p className='legend-title'>
+            <span className='option'>{legendTitle}</span> 범례
+          </p>
+          <div className='legend-content'>
+            <div className='legend-option-status'>
+              <p className='good'>좋음</p>
+              <p className='normal'>보통</p>
+              <p className='bad'>나쁨</p>
+              <p className='worse'>매우 나쁨</p>
+            </div>
+            <div className='legend-option-value'>
+              <p className='good'>0~15</p>
+              <p className='normal'>16~35</p>
+              <p className='bad'>36~75</p>
+              <p className='worse'>76~</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default MapView;
