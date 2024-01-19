@@ -24,6 +24,7 @@ const db = getFirestore(app);
 const currentDate = new Date();
 const yyyyMM = currentDate.toISOString().slice(0, 7); // YYYY-MM format
 const dayDD = currentDate.getDate().toString().padStart(2, "0"); // DD format
+// const dayDD = "15"; // DD format
 const hhmmss = currentDate.toLocaleTimeString("en-US", { hour12: false }); // HH:MM:SS format
 
 const substanceType = ["humidity", "tempareture", "pm10", "pm25", "ch2o"];
