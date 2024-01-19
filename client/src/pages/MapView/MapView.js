@@ -25,10 +25,10 @@ function MapView() {
         }
         else if (buttonId === 2){
             setLegendTitle('미세먼지');
-            setlegendValueGood('0~');
-            setlegendValueNormal('');
-            setlegendValueBad('');
-            setlegendValueWorse('');
+            setlegendValueGood('0~30');
+            setlegendValueNormal('31~80');
+            setlegendValueBad('81~150');
+            setlegendValueWorse('151~');
         }
         else {
             setLegendTitle('포름알데히드');
