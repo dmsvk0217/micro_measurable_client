@@ -1,9 +1,12 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+const { initializeApp } = require("firebase/app");
+const {
+  getFirestore,
+  collection,
+  addDoc,
+  setDoc,
+  doc,
+} = require("firebase/firestore");
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCqcuHvJwtE1TO6lyUuH20O8no5fuHnN7s",
   authDomain: "capstone-c6d9e.firebaseapp.com",
@@ -15,10 +18,7 @@ const firebaseConfig = {
   measurementId: "G-K7B3FH99ZC",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-// Get Firestore instance
 const db = getFirestore(app);
 
 const currentDate = new Date();
@@ -36,19 +36,17 @@ async function addLoraDataToFirestore() {
     "7/21/21/9/9/0.04//8/21/21/9/9/0.04//9/21/21/9/9/0.04//10/21/21/9/9/0.04//",
     "11/24/21/8/8/0.04//12/21/21/9/9/0.04//13/21/21/9/9/0.04//14/21/21/9/9/0.04//15/21/21/9/9/0.04//",
   ];
+
+  const loraContent2 = ["1/24/21/8/8/0.04//2/21/21/9/9/0.04//"];
+
   for (let index = 0; index < loraContent.length; index++) {
-    // 전체 노드 개수 파악
     let numberOfNodes = 0;
-
-    // 각 노드를 기준으로 나누기
-    const nodeStrings = loraContent[index]
-      .split("//")
-      .filter((data) => data !== "");
-
-    // 각 string 배열에서 /로 구분되는 데이터 추출
     const allSubstanceDataArray = [];
     const nodeAddressArray = [];
     let errContainFlag = false;
+    const nodeStrings = loraContent[index]
+      .split("//")
+      .filter((data) => data !== "");
 
     nodeStrings.forEach((nodeString) => {
       const nodeData = nodeString
@@ -79,28 +77,20 @@ async function addLoraDataToFirestore() {
       console.log("🚀 ~ loraContent:", loraContent[index]);
       addErrData(loraContent[index]);
     }
-
     addRawData(loraContent[index]);
 
     for (let i = 0; i < numberOfNodes; i++) {
       const nodeAddress = nodeAddressArray[i];
       const substanceDataArray = allSubstanceDataArray[i];
 
-      // 모든 노드, 모든 물질,  15개노드 7개 물질 -> 105개 query
+      // 모든 노드, 모든 물질,  15개노드 7개 물질 -> 최대 105개 query
       addMonthlyRawData(nodeAddress, substanceDataArray);
-      console.log("done1");
-
-      // 모든 노드, 15개노드 -> 15개 query
+      // 모든 노드, 15개노드 -> 최대 15개 query
       addDailyRawData(nodeAddress, substanceDataArray);
-      console.log("done2");
-
-      // 모든 노드, 15개노드 -> 15개 query
+      // 모든 노드, 15개노드 -> 최대 15개 query
       addHourlyRawData(nodeAddress, substanceDataArray);
-      console.log("done3");
     }
-    console.log("done");
   }
-
   return;
 }
 
@@ -151,9 +141,13 @@ async function addHourlyRawData(nodeAddress, substanceDataArray) {
   const hh = currentDate.getHours().toString().padStart(2, "0"); // HH format
   const hour = (parseInt(hh, 10) + 1).toString();
 
-  const hourlyRawDataRef = collection(
+  const hourlyNodeRawDataRef = collection(
     db,
     `hourly-raw-data/${yyyyMM}/day${dayDD}/hour${hour}/node${nodeAddress}`
+  );
+  const NodehourlyRawDataRef = collection(
+    db,
+    `hourly-raw-data/${yyyyMM}/day${dayDD}/node${nodeAddress}/hour${hour}`
   );
 
   const dataObject = {
@@ -167,8 +161,22 @@ async function addHourlyRawData(nodeAddress, substanceDataArray) {
     [substanceType[4]]: substanceDataArray[4],
   };
 
-  await addDoc(hourlyRawDataRef, dataObject);
-  console.log("Hourly done");
+  await setDoc(
+    doc(
+      hourlyNodeRawDataRef,
+      `node${nodeAddress} : ${yyyyMM}-${dayDD} ${hhmmss}`
+    ),
+    dataObject
+  );
+  console.log("hourly Node done");
+  await setDoc(
+    doc(
+      NodehourlyRawDataRef,
+      `node${nodeAddress} : ${yyyyMM}-${dayDD} ${hhmmss}`
+    ),
+    dataObject
+  );
+  console.log("hourly Node done");
 }
 
 async function addErrData(loraContent) {

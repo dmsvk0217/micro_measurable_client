@@ -1,19 +1,18 @@
-import express from "express";
-import cors from "cors";
-import path, { dirname } from "path";
-import { fileURLToPath } from "url";
-import bodyParser from "body-parser";
-import cron from "node-cron";
+const express = require("express");
+const cors = require("cors");
+const path = require("path");
+const { fileURLToPath } = require("url");
+const bodyParser = require("body-parser");
+const cron = require("node-cron");
 
-import calDailyAverage from "./routines/cal-daily-data.js";
-import calMonthlyAverage from "./routines/cal-monthly-data.js";
-import calHourlyAverage from "./routines/cal-hourly-data.js";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const calAllNodeDailyAverage = require("./routines/cal-all-node-daily-data.js");
+const calNodeDailyAverage = require("./routines/cal-node-daily-data.js");
+const calMonthlyAverage = require("./routines/cal-monthly-data.js");
+const calHourlyAverage = require("./routines/cal-hourly-data.js");
 
 cron.schedule("0 * * * *", calHourlyAverage);
-cron.schedule("0 0 * * *", calDailyAverage);
+cron.schedule("0 0 * * *", calAllNodeDailyAverage);
+cron.schedule("0 0 * * *", calNodeDailyAverage);
 cron.schedule("0 0 1 * *", calMonthlyAverage);
 
 const app = express();
@@ -30,7 +29,7 @@ app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "./index.html"));
 });
 
-require("./routes/user.routes")(app);
+require("./routers/main.router.js")(app);
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => {

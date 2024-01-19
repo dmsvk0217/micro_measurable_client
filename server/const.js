@@ -1,19 +1,13 @@
-export const substanceType = [
-  "humidity",
-  "tempareture",
-  "pm10",
-  "pm25",
-  "ch2o",
-];
+const substanceType = ["humidity", "tempareture", "pm10", "pm25", "ch2o"];
 
-export const substanceDailyAverageType = [
+const substanceDailyAverageType = [
   "humidity-Daily-Average",
   "tempareture-Daily-Average",
   "pm10-Daily-Average",
   "pm25-Daily-Average",
   "ch2o-Daily-Average",
 ];
-export const substanceHourlyAverageType = [
+const substanceHourlyAverageType = [
   "humidity-hourly-Average",
   "tempareture-hourly-Average",
   "pm10-hourly-Average",
@@ -21,6 +15,15 @@ export const substanceHourlyAverageType = [
   "ch2o-hourly-Average",
 ];
 
-export const NUMBEROFSUBSTANCE = 5;
-export const NUMBEROFNODE = 15;
-export const NUMBEROFHOUR = 24;
+const NUMBEROFSUBSTANCE = 5;
+const NUMBEROFNODE = 15;
+const NUMBEROFHOUR = 24;
+
+module.exports = {
+  substanceType,
+  substanceDailyAverageType,
+  substanceHourlyAverageType,
+  NUMBEROFSUBSTANCE,
+  NUMBEROFNODE,
+  NUMBEROFHOUR,
+};

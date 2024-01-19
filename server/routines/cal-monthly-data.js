@@ -1,8 +1,13 @@
-import { collection, addDoc, query, getDocs } from "firebase/firestore";
-import db from "../firebase.js";
-import { NUMBEROFNODE } from "../const.js";
+const { collection, addDoc, query, getDocs } = require("firebase/firestore");
+const db = require("../firebase.js");
+const getDate = require("../util.js");
+const {
+  NUMBEROFNODE,
+  substanceType,
+  substanceDailyAverageType,
+} = require("../const.js");
 
-export default function calMonthlyDayAverage() {
+module.exports = function calMonthlyDayAverage() {
   const currentDate = new Date();
   const hhmmss = currentDate.toLocaleTimeString("en-US", { hour12: false }); // HH:MM:SS format
   console.log(`[${hhmmss}] calMonthlyDayAverage `);
@@ -12,7 +17,7 @@ export default function calMonthlyDayAverage() {
       calDayAverageWithNodeAndSubstance(i, j);
     }
   }
-}
+};
 
 async function calDayAverageWithNodeAndSubstance(i, j) {
   const currentDate = new Date();
