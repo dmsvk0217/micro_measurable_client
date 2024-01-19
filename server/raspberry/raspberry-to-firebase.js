@@ -87,7 +87,7 @@ async function addLoraDataToFirestore() {
       addMonthlyRawData(nodeAddress, substanceDataArray);
       // 모든 노드, 15개노드 -> 최대 15개 query
       addDailyRawData(nodeAddress, substanceDataArray);
-      // 모든 노드, 15개노드 -> 최대 15개 query
+      // 모든 노드, 15개노드 * 2개 쿼리 -> 최대 30개 query
       addHourlyRawData(nodeAddress, substanceDataArray);
     }
   }
@@ -145,10 +145,6 @@ async function addHourlyRawData(nodeAddress, substanceDataArray) {
     db,
     `hourly-raw-data/${yyyyMM}/day${dayDD}/hour${hour}/node${nodeAddress}`
   );
-  const NodehourlyRawDataRef = collection(
-    db,
-    `hourly-raw-data/${yyyyMM}/day${dayDD}/node${nodeAddress}/hour${hour}`
-  );
 
   const dataObject = {
     "node-address": nodeAddress,
@@ -164,14 +160,6 @@ async function addHourlyRawData(nodeAddress, substanceDataArray) {
   await setDoc(
     doc(
       hourlyNodeRawDataRef,
-      `node${nodeAddress} : ${yyyyMM}-${dayDD} ${hhmmss}`
-    ),
-    dataObject
-  );
-  console.log("hourly Node done");
-  await setDoc(
-    doc(
-      NodehourlyRawDataRef,
       `node${nodeAddress} : ${yyyyMM}-${dayDD} ${hhmmss}`
     ),
     dataObject

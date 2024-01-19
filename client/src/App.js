@@ -1,5 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {
+  createColumnHelper,
+  flexRender,
+  getCoreRowModel,
+  useReactTable
+} from "@tanstack/react-table";
+import { tableData } from "../src/pages/RealTimeView/RTTable/tableData";
 import './App.css';
 
 import NavigationBar from './components/NavigationBar/NavigationBar';
