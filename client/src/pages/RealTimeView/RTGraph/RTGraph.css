@@ -8,21 +8,24 @@
 
 .RT-graph-select-container{
     background-color: #EBF0EB;
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; */
-    text-align: center;
-}
-
-.RT-graph-select-option-container{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.RT-graph-select-container p{
+    font-weight: bold;
+}
+
+.RT-graph-location {
+    display: flex;
     align-items: center;
 }
 
-.RT-graph-select-option-container p{
-    font-weight: bold;
+.RT-graph-matter {
+    display: flex;
+    align-items: center;
 }
 
 /* 오늘 일자 css */
@@ -34,20 +37,17 @@
 /* 측정위치 css */
 .RT-graph-location-dropdown{
     position: relative;
-    display: inline-block;
 }
 
 .RT-graph-location-dropdown .menu {
     border: none;
     background-color: white;
-    border-radius: 10px;
-    padding: 5px;
+    border-radius: 7px;
+    padding: 5px 10px;
     width: 100px;
     margin-left: 10px;
-    margin-right: 20px;
-
     display: flex;
-    justify-content:space-around;
+    justify-content:space-between;
 }
 
 .RT-graph-location-dropdown .options {
@@ -56,38 +56,35 @@
     position: absolute;
     z-index: inherit;
     border: 1px solid #E9E9E9;
-    border-radius: 10px;
-    margin-left: 10px;
-    margin-right: 20px;
+    border-radius: 7px;
+    margin-left: 9px;
     background-color: white;
 }
 
 .RT-graph-location-dropdown .options Button {
     background-color: white;
     border: none;
-    padding: 5px;
+    padding: 5px 10px;
     width: 100px;
-    border-radius: 10px;
+    border-radius: 7px;
+    text-align: left;
 }
 
 
 /* 측정물질 css */
 .RT-graph-matter-dropdown{
     position: relative;
-    display: inline-block;
 }
 
 .RT-graph-matter-dropdown .menu {
     border: none;
     background-color: white;
-    border-radius: 10px;
-    padding: 5px;
+    border-radius: 7px;
+    padding: 5px 10px;
     width: 120px;
     margin-left: 10px;
-    margin-right: 20px;
-
     display: flex;
-    justify-content:space-around;
+    justify-content:space-between;
 }
 
 .RT-graph-matter-dropdown .options {
@@ -96,16 +93,16 @@
     position: absolute;
     z-index: inherit;
     border: 1px solid #E9E9E9;
-    border-radius: 10px;
-    margin-left: 10px;
-    margin-right: 20px;
+    border-radius: 7px;
+    margin-left: 9px;
     background-color: white;
 }
 
 .RT-graph-matter-dropdown .options Button {
     background-color: white;
     border: none;
-    padding: 5px;
+    padding: 5px 10px;
     width: 120px;
-    border-radius: 10px;
+    border-radius: 7px;
+    text-align: left;
 }
