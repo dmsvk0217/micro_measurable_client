@@ -42,6 +42,34 @@ function RTGraph(){
         setIsActiveMatter(false);
         setActiveMatterButton('▼');
         setMatter(item);
+
+        const newOptions = { ...options };
+
+        if(item === "초미세먼지"){
+            newOptions.scales.y.ticks.suggestedMax = 80;
+            newOptions.scales.y.ticks.stepSize = 10;
+
+            newOptions.plugins.annotation.annotations.line2.yMin = 15;
+            newOptions.plugins.annotation.annotations.line3.yMin = 36;
+            newOptions.plugins.annotation.annotations.line4.yMin = 76;
+
+            newOptions.plugins.annotation.annotations.line2.yMax = 15;
+            newOptions.plugins.annotation.annotations.line3.yMax = 36;
+            newOptions.plugins.annotation.annotations.line4.yMax = 76;
+        }
+        if(item === "미세먼지"){
+            newOptions.scales.y.ticks.suggestedMax = 160;
+            newOptions.scales.y.ticks.stepSize = 20;
+
+            newOptions.plugins.annotation.annotations.line2.yMax = 31;
+            newOptions.plugins.annotation.annotations.line3.yMax = 81;
+            newOptions.plugins.annotation.annotations.line4.yMax = 151;
+
+            newOptions.plugins.annotation.annotations.line2.yMin = 31;
+            newOptions.plugins.annotation.annotations.line3.yMin = 81;
+            newOptions.plugins.annotation.annotations.line4.yMin = 151;
+        }
+        setOptions(newOptions);
     }
 
 
@@ -58,7 +86,7 @@ function RTGraph(){
         ],
     };
 
-    const options = {
+    const [options, setOptions] = useState({
         plugins: {
             annotation: {
               annotations: {
@@ -103,13 +131,14 @@ function RTGraph(){
                   }
             }
         }
-    };
+    });
+
 
     return (
         <div className='RT-graph'>
             <p className='RT-graph-title'>| 그래프 보기 |</p>
             <div className='RT-graph-select-container'>
-                <div className='RT-graph-select-option-container'>
+                <div className='RT-graph-location'>
                     <p>측정위치</p>
                     <div className='RT-graph-location-dropdown'>
                         <button className='menu' onClick={()=>handleLocationSelect()}><span>{location}</span><span>{activeLocationButton}</span></button>
@@ -121,6 +150,8 @@ function RTGraph(){
                             </div>
                         )}
                     </div>
+                </div>
+                <div className='RT-graph-matter'>
                     <p>측정물질</p>
                     <div className='RT-graph-matter-dropdown'>
                         <button className='menu' onClick={()=>handleMatterSelect()}><span>{matter}</span><span>{activeMatterButton}</span></button>
@@ -133,9 +164,9 @@ function RTGraph(){
                             </div>
                         )}
                     </div>
-                    <CurrentDate/>
                 </div>
-                <div>버튼</div>
+                <CurrentDate/>
+                
             </div>
             <Line data={data} options={options} />
         </div>
