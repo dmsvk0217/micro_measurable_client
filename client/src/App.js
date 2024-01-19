@@ -5,7 +5,8 @@ import './App.css';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import MapView from './pages/MapView/MapView';
 import RealTimeView from './pages/RealTimeView/RealTimeView';
-import StatisticsView from './pages/StatisticsView/StatisticsView';
+import StatisticsDayView from './pages/StatisticsView/Day/StatisticsDayView';
+import StatisticsMonthView from './pages/StatisticsView/Month/StatisticsMonthView';
 import Footer from './components/Footer/Footer'
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
         <Routes>
           <Route path="/" element={<MapView />} />
           <Route path="/realTime" element={<RealTimeView />} />
-          <Route path="/statistics" element={<StatisticsView />} />
+          <Route path="/statisticsDay" element={<StatisticsDayView />} />
+          <Route path="/statisticsMonth" element={<StatisticsMonthView />} />
         </Routes>
       </div>
       <Footer/>

@@ -26,6 +26,7 @@
 .nav-link{
     text-decoration: none;
     color: black;
+    font-size: 1em;
 }
 
 .nav-link:hover{
@@ -35,4 +36,36 @@
 .nav-link-active {
     text-decoration: none;
     color: #55B76B;
+}
+
+.nav-links li button{
+    border: none;
+    background-color: white;
+    font-size: 1em;
+}
+
+.nav-links li button:hover{
+    cursor: pointer;
+}
+
+.nav-item {
+    position: relative; /* 드롭다운 메뉴 위치를 정의하기 위해 필요 */
+}
+
+.nav-dropdown {
+    display: none; /* 기본적으로 드롭다운 메뉴는 보이지 않습니다. */
+    position: absolute;
+    top: 100%; /* 버튼 바로 아래에 표시 */
+    left: 0;
+    background-color: white;
+    z-index: 100;
+    /* 추가적인 스타일링 */
+}
+
+.nav-item:hover .nav-dropdown {
+    display: block; /* nav-item에 hover가 되면 드롭다운 메뉴를 표시합니다. */
+}
+
+.nav-dropdown:hover {
+    display: block; /* 드롭다운 메뉴에 hover가 되어도 계속 표시합니다. */
 }
