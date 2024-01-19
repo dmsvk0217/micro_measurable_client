@@ -87,7 +87,7 @@ async function addLoraDataToFirestore() {
       addMonthlyRawData(nodeAddress, substanceDataArray);
       // 모든 노드, 15개노드 -> 최대 15개 query
       addDailyRawData(nodeAddress, substanceDataArray);
-      // 모든 노드, 15개노드 -> 최대 15개 query
+      // 모든 노드, 15개노드 * 2개 쿼리 -> 최대 30개 query
       addHourlyRawData(nodeAddress, substanceDataArray);
     }
   }
