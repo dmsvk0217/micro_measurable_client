@@ -145,10 +145,6 @@ async function addHourlyRawData(nodeAddress, substanceDataArray) {
     db,
     `hourly-raw-data/${yyyyMM}/day${dayDD}/hour${hour}/node${nodeAddress}`
   );
-  const NodehourlyRawDataRef = collection(
-    db,
-    `hourly-raw-data/${yyyyMM}/day${dayDD}/node${nodeAddress}/hour${hour}`
-  );
 
   const dataObject = {
     "node-address": nodeAddress,
@@ -164,14 +160,6 @@ async function addHourlyRawData(nodeAddress, substanceDataArray) {
   await setDoc(
     doc(
       hourlyNodeRawDataRef,
-      `node${nodeAddress} : ${yyyyMM}-${dayDD} ${hhmmss}`
-    ),
-    dataObject
-  );
-  console.log("hourly Node done");
-  await setDoc(
-    doc(
-      NodehourlyRawDataRef,
       `node${nodeAddress} : ${yyyyMM}-${dayDD} ${hhmmss}`
     ),
     dataObject
