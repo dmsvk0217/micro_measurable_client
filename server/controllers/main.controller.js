@@ -1,4 +1,11 @@
-const { collection, addDoc, query, getDocs } = require("firebase/firestore");
+const {
+  collection,
+  addDoc,
+  query,
+  getDocs,
+  getDoc,
+  doc,
+} = require("firebase/firestore");
 const db = require("../firebase.js");
 const {
   NUMBEROFNODE,
@@ -11,54 +18,43 @@ exports.allNodesAllSubstancesDailyAverages = async (req, res) => {
   const { date } = req.body;
   let dataObject, yyyyMM, dayDD;
 
-  if (!date) {
-    return res.status(400).json({ error: "date can not be empty" });
-  }
+  if (!date) return res.status(400).json({ error: "date can not be empty" });
 
-  if (!isValidDateFormat(date)) {
+  if (!isValidDateFormat(date))
     return res.status(400).send({ error: "date is not valid date format" });
-  }
 
   yyyyMM = date.slice(0, 7);
   dayDD = date.slice(8);
-
   dataObject = {
     type: "all-nodes-all-substances-daily-averages",
-    "number-of-node": "15",
+    numberOfNode: "15",
     date: req.body.date,
     substance: "ALL",
     data: {},
   };
 
-  const dailyAverageRef = collection(db, `daily-data/${yyyyMM}/day${dayDD}`);
+  try {
+    const allNodeDocRef = doc(
+      db,
+      `daily-data/${yyyyMM}/day${dayDD}`,
+      "allNode"
+    );
+    const docSnapshot = await getDoc(allNodeDocRef);
 
-  // dailyDataRef에서 문서들을 가져옴
-  const querySnapshot = await getDocs(dailyAverageRef);
+    if (!docSnapshot.exists()) {
+      console.log(
+        "🚀 ~ exports.allNodesAllSubstancesDailyAverages= ~ !docSnapshot.exists():",
+        !docSnapshot.exists()
+      );
+      return res.status(500).json({ error: "docSnapshot doesn't exist" });
+    }
 
-  if (querySnapshot.docs.length === 0) {
-    console.log("🚀 ~ calDailyAverageWithNode docs.length = 0");
-    return;
+    dataObject["data"] = docSnapshot.data();
+  } catch (error) {
+    console.error("Error getting document:", error);
   }
 
-  // 가져온 문서들을 반복하며 각 노드의 데이터 출력
-  querySnapshot.forEach((doc) => {
-    const nodeData = doc.data(); // 각 노드의 데이터
-    console.log(`Node ${doc.id} Data:`, nodeData);
-
-    // 각 노드의 data 컬렉션에 대한 참조
-    const dataRef = collection(doc.ref, "data");
-
-    // dataRef에서 문서들을 가져옴
-    getDocs(dataRef).then((dataSnapshot) => {
-      // 각 물질별 데이터 출력
-      dataSnapshot.forEach((dataDoc) => {
-        const substanceData = dataDoc.data();
-        console.log(`Substance ${dataDoc.id} Data:`, substanceData);
-      });
-    });
-  });
-
-  return res.status(200).json({ result: "OK" });
+  return res.status(200).json({ dataObject });
 };
 
 exports.allNodesAllSubstancesHourlyAverages = (req, res) => {

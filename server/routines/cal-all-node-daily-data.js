@@ -15,20 +15,27 @@ const {
   substanceDailyAverageType,
 } = require("../const.js");
 
-module.exports = async function calDailyAverage() {
-  let allNodedataObject = {};
-  const { hhmmss } = getDate();
-  console.log(`[${hhmmss}] calDailyAverage `);
+module.exports = async function calAllNodeDailyAverage() {
+  const { yyyyMM, dayDD, hhmmss } = getDate();
+  let allNodedataObject = {
+    date: `${yyyyMM}-${dayDD}`,
+    timestamp: hhmmss,
+  };
+
+  console.log(`[${hhmmss}] calAllNodeDailyAverage`);
 
   for (let i = 0; i < NUMBEROFNODE; i++) {
     await getDailyAverageDataObjectWithAllNode(i, allNodedataObject);
   }
-
   calDailyAverageWithAllNode(allNodedataObject);
   return;
 };
 
 async function calDailyAverageWithAllNode(dailyDataForAllNode) {
+  console.log(
+    "🚀 ~ calDailyAverageWithAllNode ~ dailyDataForAllNode:",
+    dailyDataForAllNode
+  );
   const { yyyyMM, dayDD } = getDate();
   const dailyAverageRef = collection(db, `daily-data/${yyyyMM}/day${dayDD}`);
 
@@ -49,8 +56,11 @@ async function getDailyAverageDataObjectWithAllNode(i, allNodedataObject) {
   try {
     const querySnapshot = await getDocs(query(dailyRawDataRef));
 
-    if (querySnapshot.docs.length === 0) {
-      console.log("🚀 ~ calDailyAverageWithNode docs.length = 0");
+    if (querySnapshot.docs.length == 0) {
+      console.log(
+        "🚀 ~ getDailyAverageDataObjectWithAllNode querySnapshot.docs.length : ",
+        querySnapshot.docs.length
+      );
       return;
     }
 
@@ -65,7 +75,6 @@ async function getDailyAverageDataObjectWithAllNode(i, allNodedataObject) {
       dataObject[substanceDailyAverageType[j]] = avgValue;
     }
     allNodedataObject[`node${i + 1}`] = dataObject;
-    console.log("🚀 getDailyAverageDataObjectWithAllNode:", `node${i + 1}`);
   } catch (error) {
     console.log("🚀 ~ calDayAverageWithNodeSubstance ~ error:", error);
   }

@@ -14,9 +14,9 @@ const {
   substanceDailyAverageType,
 } = require("../const.js");
 
-module.exports = function calDailyAverage() {
+module.exports = function calNodeDailyAverage() {
   const { hhmmss } = getDate();
-  console.log(`[${hhmmss}] calDailyAverage `);
+  console.log(`[${hhmmss}] calNodeDailyAverage`);
 
   for (let i = 0; i < NUMBEROFNODE; i++) {
     calDailyAverageWithNode(i);
@@ -24,16 +24,19 @@ module.exports = function calDailyAverage() {
   return;
 };
 
-async function calDailyAverageWithNode(i, dailyDataForAllNode) {
-  let avgValue;
-  let dataObject;
+async function calDailyAverageWithNode(i) {
   const { yyyyMM, dayDD, hhmmss } = getDate();
+  let avgValue;
+  let dataObject = {
+    "node-address": i + 1,
+    date: `${yyyyMM}-${dayDD}`,
+    timestamp: hhmmss,
+  };
 
   const dailyRawDataRef = collection(
     db,
     `daily-raw-data/${yyyyMM}/day${dayDD}/node${i + 1}/data`
   );
-
   const dailyAverageRef = collection(db, `daily-data/${yyyyMM}/day${dayDD}`);
 
   try {
@@ -43,12 +46,6 @@ async function calDailyAverageWithNode(i, dailyDataForAllNode) {
       console.log("🚀 ~ calDailyAverageWithNode docs.length = 0");
       return;
     }
-
-    dataObject = {
-      "node-address": i + 1,
-      date: `${yyyyMM}-${dayDD}`,
-      timestamp: hhmmss,
-    };
 
     // 특정날짜 특정노드에 대해서, 모든 물질의 평균값 계산하여 dataObject에 추가
     for (let j = 0; j < NUMBEROFSUBSTANCE; j++) {

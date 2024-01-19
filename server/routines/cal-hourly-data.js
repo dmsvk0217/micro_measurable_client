@@ -1,40 +1,66 @@
-const { collection, addDoc, query, getDocs } = require("firebase/firestore");
+const {
+  collection,
+  addDoc,
+  query,
+  getDocs,
+  setDoc,
+  getDoc,
+  doc,
+  updateDoc,
+} = require("firebase/firestore");
 const db = require("../firebase.js");
 const getDate = require("../util.js");
 const {
   NUMBEROFNODE,
   NUMBEROFSUBSTANCE,
+  substanceHourlyAverageType,
   substanceType,
 } = require("../const.js");
 
 module.exports = function calHourlyAverage() {
-  const currentDate = new Date();
-  const hhmmss = currentDate.toLocaleTimeString("en-US", { hour12: false }); // HH:MM:SS format
+  const { hhmmss } = getDate();
   console.log(`[${hhmmss}] calHourlyAverage `);
 
   for (let i = 0; i < NUMBEROFNODE; i++) {
     calHourlyAverageWithNodeAndHour(i);
   }
+  return;
 };
 
+calHourlyAverage();
+
+function calHourlyAverage() {
+  const { hhmmss } = getDate();
+  console.log(`[${hhmmss}] calHourlyAverage `);
+
+  for (let i = 0; i < NUMBEROFNODE; i++) {
+    calHourlyAverageWithNodeAndHour(i);
+  }
+  return;
+}
+
 async function calHourlyAverageWithNodeAndHour(i) {
-  const currentDate = new Date();
-  const yyyyMM = currentDate.toISOString().slice(0, 7); // YYYY-MM format
-  const dayDD = currentDate.getDate().toString().padStart(2, "0"); // DD format
-  const hhmmss = currentDate.toLocaleTimeString("en-US", { hour12: false }); // HH:MM:SS format
-  const hh = currentDate.getHours().toString().padStart(2, "0"); // HH format
+  const { yyyyMM, dayDD, hhmmss, hh } = getDate();
+  let avgValue;
+  let dataObject = {
+    "node-address": i + 1,
+    date: `${yyyyMM}-${dayDD}`,
+    timestamp: hhmmss,
+  };
 
   const hourlyRawDataRef = collection(
     db,
-    `hourly-raw-data/${yyyyMM}/day${dayDD}/hour${hh}/node${i + 1}`
+    `hourly-raw-data/${yyyyMM}/day${dayDD}/hour13/node${i + 1}`
   );
-  const hourlyAverageRef = collection(
+  const nodeHourlyAveragedocRef = doc(
     db,
-    `hourly-data/${yyyyMM}/day${dayDD}/hour${hh}/node${i + 1}`
+    `hourly-data/${yyyyMM}/day${dayDD}`,
+    `node${i + 1}`
   );
-
-  let avgValue;
-  let dataObject;
+  const nodeHourlyAverageCollectionRef = collection(
+    db,
+    `hourly-data/${yyyyMM}/day${dayDD}`
+  );
 
   try {
     const querySnapshot = await getDocs(query(hourlyRawDataRef));
@@ -43,12 +69,6 @@ async function calHourlyAverageWithNodeAndHour(i) {
       console.log("🚀 ~ calHourlyAverageWithNodeAndHour docs.length = 0");
       return;
     }
-
-    dataObject = {
-      "node-address": i + 1,
-      date: `${yyyyMM}-${dayDD}`,
-      timestamp: hhmmss,
-    };
 
     // 특정시간 특정노드에 대해서, 모든 물질의 평균값 계산하여 dataObject에 추가
     for (let j = 0; j < NUMBEROFSUBSTANCE; j++) {
@@ -62,7 +82,26 @@ async function calHourlyAverageWithNodeAndHour(i) {
       dataObject[substanceHourlyAverageType[j]] = avgValue;
     }
 
-    await addDoc(hourlyAverageRef, dataObject);
+    const docSnapshot = await getDoc(nodeHourlyAveragedocRef);
+
+    if (docSnapshot.exists()) {
+      const data = docSnapshot.data();
+      data[`hour01`] = dataObject;
+      await updateDoc(
+        doc(nodeHourlyAverageCollectionRef, `node${i + 1}`),
+        data
+      );
+
+      console.log("Document updated successfully!");
+    } else {
+      console.log("No such document!");
+      await setDoc(
+        doc(nodeHourlyAverageCollectionRef, `node${i + 1}`),
+        dataObject
+      );
+      console.log("Document updated successfully!");
+    }
+    // await setDoc(doc(hourlyAverageRef, `hour${hh}`), dataObject);
     console.log("done");
   } catch (error) {
     console.log("🚀 ~ calDayAverageWithNodeSubstance ~ error:", error);
