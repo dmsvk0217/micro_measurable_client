@@ -162,15 +162,73 @@ exports.nodesSubstanceMonthlyAverages = (req, res) => {
   const body = req.body;
 };
 
-exports.allNodesSubstanceMonthlyAverages = (req, res) => {
+exports.allNodesSubstanceMonthlyAverages = async (req, res) => {
   if (!req.body) {
-    return res.status(400).send({ data: "Content can not be empty" });
+    return res.status(400).send({ data: "body can not be empty" });
   }
 
-  const body = req.body;
+  // ”date”:”2024-01”
+  // ”substance”: "pm10"
+  const { date, substance } = req.body;
+  let dataObject, yyyyMM, dayDD;
+
+  if (!date || !substance)
+    return res.status(400).json({ error: "'All fields are required'" });
+
+  if (!isValidYYYYMMFormat(date))
+    return res.status(400).send({ error: "Date is not valid date format" });
+
+  if (!substanceType.includes(substance))
+    return res.status(400).send({ error: "substance is invalid" });
+
+  yyyyMM = date;
+  dataObject = {
+    type: "all-node-substance-monthly-averages",
+    // Todo: numberOfNode를 collection에서 읽은 node의 수로 변경.
+    numberOfNode: NUMBEROFNODE,
+    date: date,
+    substance: substance,
+    data: {},
+  };
+
+  try {
+    const documentRef = doc(
+      db,
+      `monthly-data/${yyyyMM}/${substance}`,
+      "allNode"
+    );
+
+    const docSnapshot = await getDoc(documentRef);
+
+    if (!docSnapshot.exists()) {
+      console.log(
+        "🚀 ~ exports.allNodesSubstanceMonthlyAverages= ~ documentRef.exists():",
+        documentRef.exists()
+      );
+      return res.status(500).send({
+        error: `monthly-data/${yyyyMM}/${substance}/allNode : documentRef not exists`,
+      });
+    }
+    const data = docSnapshot.data();
+    console.log("🚀 ~ exports.allNodesSubstanceMonthlyAverages= ~ data:", data);
+    dataObject["data"] = data;
+  } catch (error) {
+    console.log(
+      "🚀 ~ exports.nodeAllSubstancesHourlyAverages= ~ error:",
+      error
+    );
+    return res.status(500).json({ error: error });
+  }
+
+  return res.status(200).json({ dataObject });
 };
 
 function isValidDateFormat(dateString) {
   const regex = /^\d{4}-\d{2}-\d{2}$/;
+  return regex.test(dateString);
+}
+
+function isValidYYYYMMFormat(dateString) {
+  const regex = /^\d{4}-\d{2}/;
   return regex.test(dateString);
 }
