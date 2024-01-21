@@ -3,7 +3,6 @@ import { NavLink, useLocation } from 'react-router-dom';
 import './NavigationBar.css'
 
 function NavigationBar(){
-    const [showStatisticDropdown, setShowStatisticDropdown] = useState(false);
     const location = useLocation();
 
 
@@ -23,13 +22,10 @@ function NavigationBar(){
                 <li><NavLink to="/realTime" className={({ isActive }) => isActive ? 'nav-link-active' : 'nav-link'}>실시간 정보 보기</NavLink></li>
                 <li className="nav-item">
                     <button className={isStatisticsActive() ? 'nav-link-active' : 'nav-link'}>통계 보기</button>
-                    {showStatisticDropdown && (
-                       
-                        <div className="nav-dropdown">
-                            <NavLink to="/statisticsDay" className={({ isActive }) => isActive ? 'nav-link-active' : 'nav-link'}>일별 통계</NavLink>
-                            <NavLink to="/statisticsMonth" className={({ isActive }) => isActive ? 'nav-link-active' : 'nav-link'}>월별 통계</NavLink>
-                        </div>
-                    )}
+                    <div className="nav-dropdown">
+                        <NavLink to="/statisticsDay" className={({ isActive }) => isActive ? 'nav-link-active' : 'nav-link'}>일별 통계<hr></hr></NavLink>
+                        <NavLink to="/statisticsMonth" className={({ isActive }) => isActive ? 'nav-link-active' : 'nav-link'}>월별 통계</NavLink>
+                    </div>
                 </li>
             </ul>
         </nav>
