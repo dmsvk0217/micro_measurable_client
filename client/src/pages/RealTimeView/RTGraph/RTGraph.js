@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
-import 'chart.js/auto'
-import './RTGraph.css'
+import 'chart.js/auto';
+import './RTGraph.css';
 import CurrentDate from '../../../components/CurrentDate';
 
 import { Chart, registerables } from 'chart.js';
@@ -27,7 +27,6 @@ function RTGraph(){
         setLocation(item);
     }
 
-
     const [isActiveMatter, setIsActiveMatter] = useState(false);
     const [activeMatterButton, setActiveMatterButton] = useState('▼');
     const [matter,setMatter] = useState('초미세먼지');
@@ -49,13 +48,14 @@ function RTGraph(){
             newOptions.scales.y.ticks.suggestedMax = 80;
             newOptions.scales.y.ticks.stepSize = 10;
 
-            newOptions.plugins.annotation.annotations.line2.yMin = 15;
+            newOptions.plugins.annotation.annotations.line2.yMax = 16;
+            newOptions.plugins.annotation.annotations.line3.yMax = 36;
+            newOptions.plugins.annotation.annotations.line4.yMax = 76;
+
+            newOptions.plugins.annotation.annotations.line2.yMin = 16;
             newOptions.plugins.annotation.annotations.line3.yMin = 36;
             newOptions.plugins.annotation.annotations.line4.yMin = 76;
 
-            newOptions.plugins.annotation.annotations.line2.yMax = 15;
-            newOptions.plugins.annotation.annotations.line3.yMax = 36;
-            newOptions.plugins.annotation.annotations.line4.yMax = 76;
         }
         if(item === "미세먼지"){
             newOptions.scales.y.ticks.suggestedMax = 160;
@@ -72,22 +72,58 @@ function RTGraph(){
         setOptions(newOptions);
     }
 
+    // const getPM25PointColor = (value) => {
+    //     if(value <=30){
+    //         return '#7D9DDB';
+    //     }
+    //     else if(value <= 80){
+    //         return '#6EB057';
+    //     }
+    //     else if(value <= 150){
+    //         return '#D7E067';
+    //     }
+    //     else{
+    //         return '#BB7373';
+    //     }
+    // }
+
+    // const getPM10PointColor = (value) => {
+    //     if(value <=15){
+    //         return '#7D9DDB';
+    //     }
+    //     else if(value <= 35){
+    //         return '#6EB057';
+    //     }
+    //     else if(value <= 75){
+    //         return '#D7E067';
+    //     }
+    //     else{
+    //         return '#BB7373';
+    //     }
+    // }
+
+    // const pointColors = data.datasets[0].data.map(value => getPM25PointColor(value));
+
+
 
     const data = {
         labels: ['01시','02시','03시','04시','05시','06시','07시','08시','09시','10시','11시','12시','13시','14시','15시','16시','17시','18시','19시','20시','21시','22시','23시','24시'],
         datasets:[
             {
-                label: '예시 테이터',
-                data: [3,6,5,3,4,2,3,4,5,3,4,5],
+                label: matter,
+                data: [3,6,5,3,4,2,3,20,30,45,52,60],
                 fill: false,
-                backgroundColor: 'rgb(75, 192, 192)',
-                borderColor: 'rgba(75, 192, 192, 0.2)',
+                backgroundColor: '#CCCCCC',
+                borderColor: '#CCCCCC',
             },
         ],
     };
 
     const [options, setOptions] = useState({
         plugins: {
+            legend: {
+                display: false,
+            },
             annotation: {
               annotations: {
                 line1: {
@@ -99,8 +135,8 @@ function RTGraph(){
                 },
                 line2: {
                   type: 'line',
-                  yMin: 15,
-                  yMax: 15,
+                  yMin: 16,
+                  yMax: 16,
                   borderColor: '#6EB057',
                   borderWidth: 2,
                 },
