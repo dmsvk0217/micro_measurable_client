@@ -72,38 +72,7 @@ function RTGraph(){
         setOptions(newOptions);
     }
 
-    // const getPM25PointColor = (value) => {
-    //     if(value <=30){
-    //         return '#7D9DDB';
-    //     }
-    //     else if(value <= 80){
-    //         return '#6EB057';
-    //     }
-    //     else if(value <= 150){
-    //         return '#D7E067';
-    //     }
-    //     else{
-    //         return '#BB7373';
-    //     }
-    // }
-
-    // const getPM10PointColor = (value) => {
-    //     if(value <=15){
-    //         return '#7D9DDB';
-    //     }
-    //     else if(value <= 35){
-    //         return '#6EB057';
-    //     }
-    //     else if(value <= 75){
-    //         return '#D7E067';
-    //     }
-    //     else{
-    //         return '#BB7373';
-    //     }
-    // }
-
-    // const pointColors = data.datasets[0].data.map(value => getPM25PointColor(value));
-
+ 
 
 
     const data = {
@@ -169,6 +138,13 @@ function RTGraph(){
         }
     });
 
+    const [selectedValue, setSelectedValue] = useState("option1"); // 현재 선택된 값을 관리하는 상태
+
+    // 사용자가 옵션을 선택할 때 호출될 함수
+    const handleMatterChange = (event) => {
+        setSelectedValue(event.target.value); // 선택된 값을 상태로 설정
+    };
+
 
     return (
         <div className='RT-graph'>
@@ -189,7 +165,7 @@ function RTGraph(){
                 </div>
                 <div className='RT-graph-matter'>
                     <p>측정물질</p>
-                    <div className='RT-graph-matter-dropdown'>
+                    {/* <div className='RT-graph-matter-dropdown'>
                         <button className='menu' onClick={()=>handleMatterSelect()}><span>{matter}</span><span>{activeMatterButton}</span></button>
                         
                         {isActiveMatter && (
@@ -199,6 +175,14 @@ function RTGraph(){
                                <button onClick={() => chooseMatter('포름알데히드')}>포름알데히드</button>
                             </div>
                         )}
+                    </div> */}
+
+                    <div>
+                        <select value={selectedValue} onChange={handleMatterChange}>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
                     </div>
                 </div>
                 <CurrentDate/>

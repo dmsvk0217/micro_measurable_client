@@ -56,16 +56,19 @@
     display: none;
     position: absolute;
     top: 100%;
+    width:max-content;
    
     /* transform: translateX(30%);  */
     /* 버튼 바로 아래에 표시 */
-    /* left: 0; */
+    left: -10px;
     /* background-color: white; */
     /* z-index: 100; */
-    font-size: 0.8em;
+    /* font-size: 0.8em; */
     border: 1px solid #D9D9D9;
-    padding: 10px 5px;
-
+    border-top: none;
+    padding: 10px 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     background-color: white;
 }
 
@@ -79,6 +82,11 @@
     flex-direction: column;
 }
 
-.nav-dropdown .hr {
-    
+.nav-dropdown hr{
+    width: 60px;
+    background-color: #d3d3d3;
+    height: 1px;
+    border: none;
 }
+
+
