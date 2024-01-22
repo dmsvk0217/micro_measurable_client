@@ -9,8 +9,8 @@ const {
   updateDoc,
 } = require("firebase/firestore");
 const db = require("../firebase.js");
-const getDate = require("../util.js");
-const { yyyyMM, dayDD, hhmmss } = getDate();
+const util = require("../util.js");
+const { yyyyMM, dayDD, hhmmss } = util.getDate();
 const {
   NUMBEROFNODE,
   substanceType,

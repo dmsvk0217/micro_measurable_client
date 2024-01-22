@@ -7,7 +7,7 @@ const {
   updateDoc,
 } = require("firebase/firestore");
 const db = require("../firebase.js");
-const getDate = require("../util.js");
+const util = require("../util.js");
 const {
   NUMBEROFNODE,
   NUMBEROFSUBSTANCE,
@@ -16,7 +16,7 @@ const {
 } = require("../const.js");
 
 module.exports = async function calHourlyAllNodeAverage() {
-  const { yyyyMM, dayDD, hhmmss } = getDate();
+  const { yyyyMM, dayDD, hhmmss } = util.getDate();
   console.log(`[${hhmmss}] calHourlyAverage `);
   let hourlyAllNodeObject = {
     date: `${yyyyMM}-${dayDD}`,
@@ -26,13 +26,13 @@ module.exports = async function calHourlyAllNodeAverage() {
   for (let i = 0; i < NUMBEROFNODE; i++) {
     await getHourlyAllNodeObject(i, hourlyAllNodeObject);
   }
-  await addHourlyAllNodeAverageObject(hourlyAllNodeObject);
+  addHourlyAllNodeAverageObject(hourlyAllNodeObject);
   console.log("addHourlyAllNodeAverageObject done");
   return;
 };
 
 async function addHourlyAllNodeAverageObject(hourlyAllNodeObject) {
-  const { yyyyMM, dayDD, hhmmss, hh } = getDate();
+  const { yyyyMM, dayDD, hhmmss, hh } = util.getDate();
   const hour = (parseInt(hh, 10) + 1).toString();
 
   const hourlyAllNodeObjectRef = collection(
@@ -42,14 +42,17 @@ async function addHourlyAllNodeAverageObject(hourlyAllNodeObject) {
 
   const hourlyAllNodeSnapshot = await getDocs(query(hourlyAllNodeObjectRef));
   if (hourlyAllNodeSnapshot.docs.length === 0) {
-    await setDoc(doc(hourlyAllNodeObjectRef, "data"), hourlyAllNodeObject);
+    await setDoc(doc(hourlyAllNodeObjectRef, "allNode"), hourlyAllNodeObject);
   } else {
-    await updateDoc(doc(hourlyAllNodeObjectRef, "data"), hourlyAllNodeObject);
+    await updateDoc(
+      doc(hourlyAllNodeObjectRef, "allNode"),
+      hourlyAllNodeObject
+    );
   }
 }
 
 async function getHourlyAllNodeObject(i, hourlyAllNodeObject) {
-  const { yyyyMM, dayDD, hh, hhmmss } = getDate();
+  const { yyyyMM, dayDD, hh, hhmmss } = util.getDate();
   const hour = (parseInt(hh, 10) + 1).toString();
   let avgValue;
   let dataObject = {

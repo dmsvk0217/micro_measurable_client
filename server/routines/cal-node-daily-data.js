@@ -6,7 +6,7 @@ const {
   doc,
 } = require("firebase/firestore");
 const db = require("../firebase.js");
-const getDate = require("../util.js");
+const util = require("../util.js");
 const {
   NUMBEROFNODE,
   NUMBEROFSUBSTANCE,
@@ -15,7 +15,7 @@ const {
 } = require("../const.js");
 
 module.exports = function calNodeDailyAverage() {
-  const { hhmmss } = getDate();
+  const { hhmmss } = util.getDate();
   console.log(`[${hhmmss}] calNodeDailyAverage`);
 
   for (let i = 0; i < NUMBEROFNODE; i++) {
@@ -25,7 +25,7 @@ module.exports = function calNodeDailyAverage() {
 };
 
 async function calDailyAverageWithNode(i) {
-  const { yyyyMM, dayDD, hhmmss } = getDate();
+  const { yyyyMM, dayDD, hhmmss } = util.getDate();
   let avgValue;
   let dataObject = {
     "node-address": i + 1,
