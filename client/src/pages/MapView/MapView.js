@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import './MapView.css';
+import CurrentDate from '../../components/CurrentDate';
 
 function MapView() {
-  const [selectedNode, setSelectedNode] = useState('Node 1');
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [selectedNode, setSelectedNode] = useState('전체');
+    const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const [legendTitle, setLegendTitle] = useState('초미세먼지');
   const [selectedButtonId, setSelectedButtonId] = useState(1);
@@ -11,6 +12,11 @@ function MapView() {
   const [legendValueNormal, setlegendValueNormal] = useState('16~35');
   const [legendValueBad, setlegendValueBad] = useState('36~75');
   const [legendValueWorse, setlegendValueWorse] = useState('76~');
+
+  const handleNodeSelect = (node) => {
+    setSelectedNode(node);
+    setDropdownOpen(false);
+  };
 
     const selectedButtonAction = (buttonId) => {
 
@@ -43,11 +49,6 @@ function MapView() {
         setDropdownOpen(!dropdownOpen);
     };
 
-    const handleNodeSelect = (node) => {
-        setSelectedNode(node);
-        setDropdownOpen(false);
-    };
-
   return (
     <div className='main-container'>
       <img src='img/map.png' alt='map' className='map' />
@@ -67,21 +68,18 @@ function MapView() {
           <div className='select-node'>
             <img src='img/leaf.png' alt='leaf' className='leaf' />
             <div className='dropdown'>
-              <button className='dropbtn' onClick={toggleDropdown}>
-                {selectedNode} <span className='triangle-icon'>{dropdownOpen ? '▲' : '▼'}</span>
-              </button>
-              {dropdownOpen && (
-                <div className='dropdown-content'>
-                  <p onClick={() => handleNodeSelect('Node 1')}>Node 1</p>
-                  <p onClick={() => handleNodeSelect('Node 2')}>Node 2</p>
-                  <p onClick={() => handleNodeSelect('Node 3')}>Node 3</p>
-                  <p onClick={() => handleNodeSelect('Node 4')}>Node 4</p>
-                </div>
-              )}
+              <select value={selectedNode} onChange={(e) => handleNodeSelect(e.target.value)}
+                className="node-dropdown"
+                >
+                  <option value="Node 1">Node 1</option>
+                  <option value="Node 2">Node 2</option>
+                  <option value="Node 3">Node 3</option>
+                  <option value="Node 4">Node 4</option>
+                </select>
             </div>
           </div>
           <div>
-            <p className="time">2024-01-18 16시</p>
+            <span className="current-time" style={{ fontWeight: '400' }}><CurrentDate/></span>
             <hr className="node-info-divider"></hr>
           </div>
           <div className="value">

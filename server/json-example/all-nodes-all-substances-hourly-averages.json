@@ -1,157 +1,159 @@
 {
-  "type": "all-nodes-all-substances-hourly-averages",
-  "node-number": "15",
-  "date": "2024-01-09",
-  "hour": "17",
-  "substance": "ALL",
-  "node1": {
-    "node-address": "1",
-    "humidity": 32,
-    "tempareture": 24,
-    "pm25": 8,
-    "pm10": 9,
-    "CH2O": 0.02,
-    "wind-speed": 15,
-    "wind-direction": 15
-  },
-  "node2": {
-    "node-address": "2",
-    "humidity": 32,
-    "tempareture": 24,
-    "pm25": 8,
-    "pm10": 9,
-    "CH2O": 0.02,
-    "wind-speed": 15,
-    "wind-direction": 15
-  },
-  "node3": {
-    "node-address": "3",
-    "humidity": 32,
-    "tempareture": 24,
-    "pm25": 8,
-    "pm10": 9,
-    "CH2O": 0.02,
-    "wind-speed": 15,
-    "wind-direction": 15
-  },
-  "node4": {
-    "node-address": "4",
-    "humidity": 32,
-    "tempareture": 24,
-    "pm25": 8,
-    "pm10": 9,
-    "CH2O": 0.02,
-    "wind-speed": 15,
-    "wind-direction": 15
-  },
-  "node5": {
-    "node-address": "5",
-    "humidity": 32,
-    "tempareture": 24,
-    "pm25": 8,
-    "pm10": 9,
-    "CH2O": 0.02,
-    "wind-speed": 15,
-    "wind-direction": 15
-  },
-  "node6": {
-    "node-address": "6",
-    "humidity": 32,
-    "tempareture": 24,
-    "pm25": 8,
-    "pm10": 9,
-    "CH2O": 0.02,
-    "wind-speed": 15,
-    "wind-direction": 15
-  },
-  "node7": {
-    "node-address": "7",
-    "humidity": 32,
-    "tempareture": 24,
-    "pm25": 8,
-    "pm10": 9,
-    "CH2O": 0.02,
-    "wind-speed": 15,
-    "wind-direction": 15
-  },
-  "node8": {
-    "node-address": "8",
-    "humidity": 32,
-    "tempareture": 24,
-    "pm25": 8,
-    "pm10": 9,
-    "CH2O": 0.02,
-    "wind-speed": 15,
-    "wind-direction": 15
-  },
-  "node9": {
-    "node-address": "9",
-    "humidity": 32,
-    "tempareture": 24,
-    "pm25": 8,
-    "pm10": 9,
-    "CH2O": 0.02,
-    "wind-speed": 15,
-    "wind-direction": 15
-  },
-  "node10": {
-    "node-address": "10",
-    "humidity": 32,
-    "tempareture": 24,
-    "pm25": 8,
-    "pm10": 9,
-    "CH2O": 0.02,
-    "wind-speed": 15,
-    "wind-direction": 15
-  },
-  "node11": {
-    "node-address": "11",
-    "humidity": 32,
-    "tempareture": 24,
-    "pm25": 8,
-    "pm10": 9,
-    "CH2O": 0.02,
-    "wind-speed": 15,
-    "wind-direction": 15
-  },
-  "node12": {
-    "node-address": "12",
-    "humidity": 32,
-    "tempareture": 24,
-    "pm25": 8,
-    "pm10": 9,
-    "CH2O": 0.02,
-    "wind-speed": 15,
-    "wind-direction": 15
-  },
-  "node13": {
-    "node-address": "13",
-    "humidity": 32,
-    "tempareture": 24,
-    "pm25": 8,
-    "pm10": 9,
-    "CH2O": 0.02,
-    "wind-speed": 15,
-    "wind-direction": 15
-  },
-  "node14": {
-    "node-address": "14",
-    "humidity": 32,
-    "tempareture": 24,
-    "pm25": 8,
-    "pm10": 9,
-    "CH2O": 0.02,
-    "wind-speed": 15,
-    "wind-direction": 15
-  },
-  "node15": {
-    "node-address": "15",
-    "humidity": 32,
-    "tempareture": 24,
-    "pm25": 8,
-    "pm10": 9,
-    "CH2O": 0.02,
-    "wind-speed": 15,
-    "wind-direction": 15
+  "dataObject": {
+    "type": "all-nodes-all-substances-hourly-averages",
+    "node-number": "15",
+    "date": "2024-01-09",
+    "hour": "17",
+    "substance": "ALL",
+    "node1": {
+      "node-address": "1",
+      "humidity": 32,
+      "tempareture": 24,
+      "pm25": 8,
+      "pm10": 9,
+      "CH2O": 0.02,
+      "wind-speed": 15,
+      "wind-direction": 15
+    },
+    "node2": {
+      "node-address": "2",
+      "humidity": 32,
+      "tempareture": 24,
+      "pm25": 8,
+      "pm10": 9,
+      "CH2O": 0.02,
+      "wind-speed": 15,
+      "wind-direction": 15
+    },
+    "node3": {
+      "node-address": "3",
+      "humidity": 32,
+      "tempareture": 24,
+      "pm25": 8,
+      "pm10": 9,
+      "CH2O": 0.02,
+      "wind-speed": 15,
+      "wind-direction": 15
+    },
+    "node4": {
+      "node-address": "4",
+      "humidity": 32,
+      "tempareture": 24,
+      "pm25": 8,
+      "pm10": 9,
+      "CH2O": 0.02,
+      "wind-speed": 15,
+      "wind-direction": 15
+    },
+    "node5": {
+      "node-address": "5",
+      "humidity": 32,
+      "tempareture": 24,
+      "pm25": 8,
+      "pm10": 9,
+      "CH2O": 0.02,
+      "wind-speed": 15,
+      "wind-direction": 15
+    },
+    "node6": {
+      "node-address": "6",
+      "humidity": 32,
+      "tempareture": 24,
+      "pm25": 8,
+      "pm10": 9,
+      "CH2O": 0.02,
+      "wind-speed": 15,
+      "wind-direction": 15
+    },
+    "node7": {
+      "node-address": "7",
+      "humidity": 32,
+      "tempareture": 24,
+      "pm25": 8,
+      "pm10": 9,
+      "CH2O": 0.02,
+      "wind-speed": 15,
+      "wind-direction": 15
+    },
+    "node8": {
+      "node-address": "8",
+      "humidity": 32,
+      "tempareture": 24,
+      "pm25": 8,
+      "pm10": 9,
+      "CH2O": 0.02,
+      "wind-speed": 15,
+      "wind-direction": 15
+    },
+    "node9": {
+      "node-address": "9",
+      "humidity": 32,
+      "tempareture": 24,
+      "pm25": 8,
+      "pm10": 9,
+      "CH2O": 0.02,
+      "wind-speed": 15,
+      "wind-direction": 15
+    },
+    "node10": {
+      "node-address": "10",
+      "humidity": 32,
+      "tempareture": 24,
+      "pm25": 8,
+      "pm10": 9,
+      "CH2O": 0.02,
+      "wind-speed": 15,
+      "wind-direction": 15
+    },
+    "node11": {
+      "node-address": "11",
+      "humidity": 32,
+      "tempareture": 24,
+      "pm25": 8,
+      "pm10": 9,
+      "CH2O": 0.02,
+      "wind-speed": 15,
+      "wind-direction": 15
+    },
+    "node12": {
+      "node-address": "12",
+      "humidity": 32,
+      "tempareture": 24,
+      "pm25": 8,
+      "pm10": 9,
+      "CH2O": 0.02,
+      "wind-speed": 15,
+      "wind-direction": 15
+    },
+    "node13": {
+      "node-address": "13",
+      "humidity": 32,
+      "tempareture": 24,
+      "pm25": 8,
+      "pm10": 9,
+      "CH2O": 0.02,
+      "wind-speed": 15,
+      "wind-direction": 15
+    },
+    "node14": {
+      "node-address": "14",
+      "humidity": 32,
+      "tempareture": 24,
+      "pm25": 8,
+      "pm10": 9,
+      "CH2O": 0.02,
+      "wind-speed": 15,
+      "wind-direction": 15
+    },
+    "node15": {
+      "node-address": "15",
+      "humidity": 32,
+      "tempareture": 24,
+      "pm25": 8,
+      "pm10": 9,
+      "CH2O": 0.02,
+      "wind-speed": 15,
+      "wind-direction": 15
+    }
   }
 }

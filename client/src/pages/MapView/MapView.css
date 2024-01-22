@@ -66,7 +66,21 @@
     padding: 0;
 }
 
-.dropbtn {
+.node-dropdown {
+    font-size: 2em;
+    padding: 5px;
+    border: none;
+}
+
+.main-container .info-container .node-info .current-time {
+    font-weight: 300 !important;
+    display: flex;    
+    justify-content: center;    
+    align-items: center;
+    font-size: 1.5em;
+}
+
+.dropdown .dropbtn {
     display: flex;    
     justify-content: center;    
     align-items: center;
@@ -122,6 +136,7 @@
     margin-bottom: 10px;
     background-color: black;
     opacity: 70%;
+    width: 80%;
 }
 
 .is-level {

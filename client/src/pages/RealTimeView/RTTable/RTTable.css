@@ -1,4 +1,113 @@
-/* RTTable.css 파일 내용 */
+/* table container 
+css */
+
+.RT-table-select-container{
+    background-color: #EBF0EB;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 10px;
+    border: 0;
+}
+
+.RT-table-title {
+    font-weight: bold;
+    font-size: 1.1em;
+    align-items: center;
+}
+
+.location-and-unit {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.RT-graph-location-dropdown{
+  position: relative;
+}
+
+.location-dropdown, .hour-dropdown {
+  width: 100px;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 10px;
+  background-color: #fff;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.time-dropdown {
+  display: flex;
+  width: 120px;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 10px;
+  background-color: #fff;
+  border-color: transparent;
+  cursor: pointer;
+  align-items: center;
+}
+
+.dropdown-title {
+    text-align: center;
+    align-items: center;
+    color: black;
+    font-size: 1.1em;
+    border: none;
+    font-size: 0.8em;
+    align-items: center;
+    display: flex;
+}
+
+.dropdown .dropbtn {
+    align-items: center;
+    color: black;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 7px;
+    width: 100px;
+    /* height: 25px; */
+    font-size: 0.8em;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.dropdown-content {
+    font-size: 0.8em;
+}
+
+.RT-table-location, .RT-table-unit, .RT-table-time {
+  display: flex;
+  align-items: center;
+}
+
+.react-datepicker__navigation--next {
+  left: 200px;
+}
+
+.react-datepicker__navigation--previous {
+  right: 50px; 
+}
+
+.search-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.search-btn {
+  background-color: rgba(85,183,107);
+  border: none;
+  padding: 10px 50px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+/*
+Table CSS
+*/
 
 table {
     width: 100%;

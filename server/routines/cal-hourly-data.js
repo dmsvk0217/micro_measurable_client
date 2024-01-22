@@ -7,7 +7,7 @@ const {
   updateDoc,
 } = require("firebase/firestore");
 const db = require("../firebase.js");
-const getDate = require("../util.js");
+const util = require("../util.js");
 const {
   NUMBEROFNODE,
   NUMBEROFSUBSTANCE,
@@ -16,37 +16,18 @@ const {
 } = require("../const.js");
 
 module.exports = async function calHourlyAverage() {
-  const { yyyyMM, dayDD, hhmmss } = getDate();
+  const { yyyyMM, dayDD, hhmmss } = util.getDate();
   console.log(`[${hhmmss}] calHourlyAverage `);
-  let hourlyAllNodeObject = {
-    date: `${yyyyMM}-${dayDD}`,
-    timestamp: hhmmss,
-  };
 
   for (let i = 0; i < NUMBEROFNODE; i++) {
-    await calHourlyAverageWithNodeAndHour(i, hourlyAllNodeObject);
+    calHourlyAverageWithNodeAndHour(i);
   }
-  await addHourlyAllNodeAverageObject(hourlyAllNodeObject);
   console.log("calHourlyAverage done");
   return;
 };
 
-async function addHourlyAllNodeAverageObject(hourlyAllNodeObject) {
-  const { yyyyMM, dayDD, hhmmss, hh } = getDate();
-  const hour = (parseInt(hh, 10) + 1).toString();
-
-  const hourlyAllNodeObjectRef = collection(
-    db,
-    `hourly-data/${yyyyMM}/day${dayDD}/hour${hour}/allNode`
-  );
-  setDoc(
-    doc(hourlyAllNodeObjectRef, `allNode: ${yyyyMM}-${dayDD} ${hhmmss}`),
-    hourlyAllNodeObject
-  );
-}
-
-async function calHourlyAverageWithNodeAndHour(i, hourlyAllNodeObject) {
-  const { yyyyMM, dayDD, hhmmss, hh } = getDate();
+async function calHourlyAverageWithNodeAndHour(i) {
+  const { yyyyMM, dayDD, hhmmss, hh } = util.getDate();
   const hour = (parseInt(hh, 10) + 1).toString();
   let avgValue;
   let dataObject = {
@@ -85,20 +66,10 @@ async function calHourlyAverageWithNodeAndHour(i, hourlyAllNodeObject) {
   }
 
   // 1. hour/node/data 생성
-  await setDoc(
-    doc(hourlyNodeDataRef, `node${i + 1} : ${yyyyMM}-${dayDD} ${hhmmss}`),
-    dataObject
-  );
-
-  // make hourlyAllNodeObject
-  hourlyAllNodeObject[`node${i + 1}`] = dataObject;
-  console.log(`🚀 ~ hourlyNodeDataRef ~ node${i + 1}:`);
+  await setDoc(doc(hourlyNodeDataRef, `node${i + 1}`), dataObject);
 
   // 2. node/hour/data 생성
-  await setDoc(
-    doc(nodeHourlyDataRef, `node${i + 1} : ${yyyyMM}-${dayDD} ${hhmmss}`),
-    dataObject
-  );
+  await setDoc(doc(nodeHourlyDataRef, `hour${hour}`), dataObject);
 
   // 3. node/allhour/data 생성,업데이트
   const nodeAllHoursRef = collection(
@@ -107,9 +78,9 @@ async function calHourlyAverageWithNodeAndHour(i, hourlyAllNodeObject) {
   );
   const nodeAllHoursSnapshot = await getDocs(query(nodeAllHoursRef));
   if (nodeAllHoursSnapshot.docs.length === 0) {
-    setDoc(doc(nodeAllHoursRef, "data"), { [`hour${hour}`]: dataObject });
+    setDoc(doc(nodeAllHoursRef, "allHour"), { [`hour${hour}`]: dataObject });
   } else {
-    updateDoc(doc(nodeAllHoursRef, "data"), { [`hour${hour}`]: dataObject });
+    updateDoc(doc(nodeAllHoursRef, "allHour"), { [`hour${hour}`]: dataObject });
   }
 
   console.log(`🚀 ~ nodeHourlyDataRef ~ node${i + 1}:`);

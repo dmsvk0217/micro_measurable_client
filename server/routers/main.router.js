@@ -13,6 +13,11 @@ module.exports = (app) => {
   );
 
   router.post(
+    "/node/all-substances/all-hourly-averages",
+    mainController.nodeAllSubstancesAllHourlyAverages
+  );
+
+  router.post(
     "/node/all-substances/daily-averages",
     mainController.NodeAllSubstancesDailyAverages
   );

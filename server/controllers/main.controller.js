@@ -7,6 +7,7 @@ const {
   doc,
 } = require("firebase/firestore");
 const db = require("../firebase.js");
+const util = require("../util.js");
 const {
   NUMBEROFNODE,
   NUMBEROFSUBSTANCE,
@@ -15,10 +16,17 @@ const {
 } = require("../const.js");
 
 exports.allNodesAllSubstancesDailyAverages = async (req, res) => {
+  /* 
+    request body
+    {
+      ”date”:”2024-01-22”
+    }
+  */
+
   const { date } = req.body;
   let dataObject, yyyyMM, dayDD;
 
-  if (!date) return res.status(400).json({ error: "date can not be empty" });
+  if (!date) return res.status(400).json({ error: "All fields are required" });
 
   if (!isValidDateFormat(date))
     return res.status(400).send({ error: "date is not valid date format" });
@@ -27,7 +35,7 @@ exports.allNodesAllSubstancesDailyAverages = async (req, res) => {
   dayDD = date.slice(8);
   dataObject = {
     type: "all-nodes-all-substances-daily-averages",
-    numberOfNode: "15",
+    // numberOfNode: "15",
     date: req.body.date,
     substance: "ALL",
     data: {},
@@ -50,6 +58,8 @@ exports.allNodesAllSubstancesDailyAverages = async (req, res) => {
     }
 
     dataObject["data"] = docSnapshot.data();
+    let numberOfNode = util.countNodesFromJson(dataObject);
+    dataObject["numberOfNode"] = numberOfNode;
   } catch (error) {
     console.error("Error getting document:", error);
   }
@@ -57,20 +67,133 @@ exports.allNodesAllSubstancesDailyAverages = async (req, res) => {
   return res.status(200).json({ dataObject });
 };
 
-exports.allNodesAllSubstancesHourlyAverages = (req, res) => {
-  if (!req.body) {
-    return res.status(400).send({ data: "Content can not be empty" });
-  }
+exports.nodeAllSubstancesAllHourlyAverages = async (req, res) => {
+  /* 
+    request body
+    {
+      ”date”:”2024-01-15”
+      ”nodeAddress”:13
+    }
+  */
 
-  const body = req.body;
-};
-
-exports.NodeAllSubstancesDailyAverages = async (req, res) => {
   const { date, nodeAddress } = req.body;
   let dataObject, yyyyMM, dayDD;
 
   if (!date || !nodeAddress)
-    return res.status(400).json({ error: "'All fields are required'" });
+    return res.status(400).json({ error: "All fields are required" });
+
+  if (!isValidDateFormat(date))
+    return res.status(400).send({ error: "Date is not valid date format" });
+
+  yyyyMM = date.slice(0, 7);
+  dayDD = date.slice(8);
+  dataObject = {
+    type: "node-all-substances-all-hourly-averages",
+    numberOfNode: nodeAddress,
+    date: date,
+    substance: "ALL",
+    data: {},
+  };
+
+  try {
+    const allHourlyAverageRef = doc(
+      db,
+      `hourly-data/${yyyyMM}/day${dayDD}/node${nodeAddress}/allHour/allHour`
+    );
+
+    const docSnapshot = await getDoc(allHourlyAverageRef);
+    if (!docSnapshot.exists()) {
+      console.log(
+        "🚀 ~ exports.nodeAllSubstancesAllHourlyAverages= ~ !docSnapshot.exists():",
+        !docSnapshot.exists()
+      );
+      return res.status(500).json({
+        error: `hourly-data/${yyyyMM}/day${dayDD}/hour${hour}/allNode/allNode : docSnapshot doesn't exist`,
+      });
+    }
+
+    const nodeData = docSnapshot.data();
+    dataObject["data"] = nodeData;
+  } catch (error) {
+    console.log(
+      "🚀 ~ exports.nodeAllSubstancesHourlyAverages= ~ error:",
+      error
+    );
+    return res.status(500).json({ error: error });
+  }
+
+  return res.status(200).json({ dataObject });
+};
+
+exports.allNodesAllSubstancesHourlyAverages = async (req, res) => {
+  /* 
+    request body
+    {
+      ”date”:”2024-01-22”
+      hour: "16"
+    }
+  */
+
+  const { date, hour } = req.body;
+  let dataObject, yyyyMM, dayDD;
+
+  if (!date || !hour)
+    return res.status(400).json({ error: "All fields are required" });
+
+  if (!isValidDateFormat(date))
+    return res.status(400).send({ error: "date is not valid date format" });
+
+  yyyyMM = date.slice(0, 7);
+  dayDD = date.slice(8);
+  dataObject = {
+    type: "all-nodes-all-substances-hourly-averages",
+    numberOfNode: null,
+    date: req.body.date,
+    substance: "ALL",
+    data: {},
+  };
+
+  try {
+    const allNodeDocRef = doc(
+      db,
+      `hourly-data/${yyyyMM}/day${dayDD}/hour${hour}/allNode/allNode`
+    );
+    const docSnapshot = await getDoc(allNodeDocRef);
+
+    if (!docSnapshot.exists()) {
+      console.log(
+        "🚀 ~ exports.allNodesAllSubstancesHourlyAverages= ~ !docSnapshot.exists():",
+        !docSnapshot.exists()
+      );
+      return res.status(500).json({
+        error: `hourly-data/${yyyyMM}/day${dayDD}/hour${hour}/allNode/allNode : docSnapshot doesn't exist`,
+      });
+    }
+
+    dataObject["data"] = docSnapshot.data();
+    let numberOfNode = util.countNodesFromJson(dataObject);
+    dataObject["numberOfNode"] = numberOfNode;
+  } catch (error) {
+    console.error("Error getting document:", error);
+  }
+
+  return res.status(200).json({ dataObject });
+};
+
+exports.NodeAllSubstancesDailyAverages = async (req, res) => {
+  /* 
+    request body
+    {
+      ”date”:”2024-01-15”
+      ”nodeAddress”: 9
+    }
+  */
+
+  const { date, nodeAddress } = req.body;
+  let dataObject, yyyyMM, dayDD;
+
+  if (!date || !nodeAddress)
+    return res.status(400).json({ error: "All fields are required" });
 
   if (!isValidDateFormat(date))
     return res.status(400).send({ error: "Date is not valid date format" });
@@ -86,19 +209,23 @@ exports.NodeAllSubstancesDailyAverages = async (req, res) => {
   };
 
   try {
-    const dailyAverageRef = collection(
+    const dailyAverageRef = doc(
       db,
-      `daily-data/${yyyyMM}/day${dayDD}/node${nodeAddress}/data`
+      `daily-data/${yyyyMM}/day${dayDD}/node${nodeAddress}`
     );
+    const docSnapshot = await getDoc(dailyAverageRef);
 
-    const querySnapshot = await getDocs(dailyAverageRef);
-
-    if (querySnapshot.docs.length === 0) {
-      console.log("🚀 ~ querySnapshot.docs.length === 0");
-      return res.status(500).send({ error: "querySnapshot.docs.length === 0" });
+    if (!docSnapshot.exists()) {
+      console.log(
+        "🚀 ~ exports.NodeAllSubstancesDailyAverages= ~ docSnapshot.exists():",
+        docSnapshot.exists()
+      );
+      return res.status(500).send({
+        error: `daily-data/${yyyyMM}/day${dayDD}/node${nodeAddress} : documentRef does not exists`,
+      });
     }
 
-    const nodeData = querySnapshot.docs[0].data();
+    const nodeData = docSnapshot.data();
     dataObject["data"] = nodeData;
   } catch (error) {
     return res.status(500).json({ error: error });
@@ -108,11 +235,20 @@ exports.NodeAllSubstancesDailyAverages = async (req, res) => {
 };
 
 exports.nodeAllSubstancesHourlyAverages = async (req, res) => {
+  /* 
+    request body
+    {
+      ”date”:”2024-01-15”
+      ”hour”:”21”
+      ”nodeAddress”:13
+    }
+  */
+
   const { date, nodeAddress, hour } = req.body;
   let dataObject, yyyyMM, dayDD;
 
   if (!date || !nodeAddress || !hour)
-    return res.status(400).json({ error: "'All fields are required'" });
+    return res.status(400).json({ error: "All fields are required" });
 
   if (!isValidDateFormat(date))
     return res.status(400).send({ error: "Date is not valid date format" });
@@ -154,23 +290,87 @@ exports.nodeAllSubstancesHourlyAverages = async (req, res) => {
   return res.status(200).json({ dataObject });
 };
 
-exports.nodesSubstanceMonthlyAverages = (req, res) => {
-  if (!req.body) {
-    return res.status(400).send({ data: "Content can not be empty" });
+exports.nodesSubstanceMonthlyAverages = async (req, res) => {
+  /* 
+    request body
+    {
+      ”date”:”2024-01”
+      ”substance”: "pm10"
+      ”nodeAddressesArray”: [”3”, ”8”, “14”]
+    }
+  */
+
+  const { date, substance, nodeAddressesArray } = req.body;
+  let dataObject, yyyyMM;
+
+  if (!date || !substance || !nodeAddressesArray)
+    return res.status(400).json({ error: "'All fields are required'" });
+
+  if (!isValidYYYYMMFormat(date))
+    return res.status(400).send({ error: "Date is not valid date format" });
+
+  if (!substanceType.includes(substance))
+    return res.status(400).send({ error: "substance is invalid" });
+
+  yyyyMM = date;
+  dataObject = {
+    type: "nodes-substance-monthly-averages",
+    date: date,
+    substance: substance,
+    nodeAddressesArray: nodeAddressesArray,
+    data: {},
+  };
+
+  try {
+    const documentRef = doc(
+      db,
+      `monthly-data/${yyyyMM}/${substance}`,
+      "allNode"
+    );
+
+    const docSnapshot = await getDoc(documentRef);
+
+    if (!docSnapshot.exists()) {
+      return res.status(500).send({
+        error: `monthly-data/${yyyyMM}/${substance}/allNode : documentRef does not exists`,
+      });
+    }
+
+    const data = docSnapshot.data();
+    const resultData = util.getTargetNodesDatafromJson(
+      data,
+      nodeAddressesArray
+    );
+    dataObject["data"] = resultData;
+    console.log(
+      "🚀 ~ exports.nodesSubstanceMonthlyAverages= ~ resultData:",
+      resultData
+    );
+
+    let numberOfNode = util.countNodesFromJson(dataObject);
+    dataObject["numberOfNode"] = numberOfNode;
+  } catch (error) {
+    console.log(
+      "🚀 ~ exports.nodeAllSubstancesHourlyAverages= ~ error:",
+      error
+    );
+    return res.status(500).json({ error: error });
   }
 
-  const body = req.body;
+  return res.status(200).json({ dataObject });
 };
 
 exports.allNodesSubstanceMonthlyAverages = async (req, res) => {
-  if (!req.body) {
-    return res.status(400).send({ data: "body can not be empty" });
-  }
+  /* 
+    request body
+    {
+      ”date”:”2024-01”
+      ”substance”: "pm10"
+    }
+  */
 
-  // ”date”:”2024-01”
-  // ”substance”: "pm10"
   const { date, substance } = req.body;
-  let dataObject, yyyyMM, dayDD;
+  let dataObject, yyyyMM;
 
   if (!date || !substance)
     return res.status(400).json({ error: "'All fields are required'" });
@@ -184,8 +384,6 @@ exports.allNodesSubstanceMonthlyAverages = async (req, res) => {
   yyyyMM = date;
   dataObject = {
     type: "all-node-substance-monthly-averages",
-    // Todo: numberOfNode를 collection에서 읽은 node의 수로 변경.
-    numberOfNode: NUMBEROFNODE,
     date: date,
     substance: substance,
     data: {},
@@ -206,12 +404,15 @@ exports.allNodesSubstanceMonthlyAverages = async (req, res) => {
         documentRef.exists()
       );
       return res.status(500).send({
-        error: `monthly-data/${yyyyMM}/${substance}/allNode : documentRef not exists`,
+        error: `monthly-data/${yyyyMM}/${substance}/allNode : documentRef does not exists`,
       });
     }
     const data = docSnapshot.data();
-    console.log("🚀 ~ exports.allNodesSubstanceMonthlyAverages= ~ data:", data);
     dataObject["data"] = data;
+    console.log("🚀 ~ exports.allNodesSubstanceMonthlyAverages= ~ data:", data);
+
+    let numberOfNode = util.countNodesFromJson(dataObject);
+    dataObject["numberOfNode"] = numberOfNode;
   } catch (error) {
     console.log(
       "🚀 ~ exports.nodeAllSubstancesHourlyAverages= ~ error:",

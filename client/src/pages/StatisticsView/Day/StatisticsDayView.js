@@ -3,8 +3,13 @@ import './StatisticsDayView.css'
 
 function StatisticsDayView(){
     return (
-        <div>
-            <h1>StatisticsDayView</h1>
+        <div className='SD-container'>
+            <p className='SD-title'>통계 보기 &gt; 일별</p>
+            <div className='SD-content-container'>
+                {/* <SDTable/> */}
+                <hr className='SD-hr'></hr>
+                {/* <SDGraph/> */}
+            </div>
         </div>
     );
 }
