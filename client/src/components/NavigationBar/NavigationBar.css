@@ -19,13 +19,13 @@
 
 
 .nav-links li {
-    /* display: inline; */
     margin-left: 5vw;
 }
 
 .nav-link{
     text-decoration: none;
     color: black;
+    font-size: 1em;
 }
 
 .nav-link:hover{
@@ -35,4 +35,50 @@
 .nav-link-active {
     text-decoration: none;
     color: #55B76B;
+}
+
+.nav-links li button{
+    border: none;
+    background-color: white;
+    font-size: 1em;
+    padding: 0;
+}
+
+.nav-links li button:hover{
+    cursor: pointer;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+   
+    /* transform: translateX(30%);  */
+    /* 버튼 바로 아래에 표시 */
+    /* left: 0; */
+    /* background-color: white; */
+    /* z-index: 100; */
+    font-size: 0.8em;
+    border: 1px solid #D9D9D9;
+    padding: 10px 5px;
+
+    background-color: white;
+}
+
+.nav-item:hover .nav-dropdown {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-dropdown:hover {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-dropdown .hr {
+    
 }
