@@ -1,3 +1,6 @@
+/* table container 
+css */
+
 .RT-table-select-container{
     background-color: #EBF0EB;
     display: flex;
@@ -80,11 +83,11 @@
 }
 
 .react-datepicker__navigation--next {
-  left: 200px; /* 버튼을 원하는 만큼 이동시킵니다. */
+  left: 200px;
 }
 
 .react-datepicker__navigation--previous {
-  right: 50px; /* 버튼을 원하는 만큼 이동시킵니다. */
+  right: 50px; 
 }
 
 .search-btn-container {
@@ -101,6 +104,7 @@
   color: white;
   font-weight: bold;
 }
+
 /*
 Table CSS
 */
