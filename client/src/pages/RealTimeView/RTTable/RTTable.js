@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import {
   createColumnHelper,
   flexRender,
@@ -5,20 +6,31 @@ import {
   useReactTable
 } from "@tanstack/react-table";
 import DatePicker from "react-datepicker";
+
 import 'react-datepicker/dist/react-datepicker.css'; 
-
-import { FaCalendarAlt } from 'react-icons/fa';
-
-import React, { useState, useEffect } from "react";
-import { tableData } from "./tableData";
 import "./RTTable.css";
+import { FaCalendarAlt } from 'react-icons/fa';
+import { tableData } from "./tableData";
 import CurrentDate from '../../../components/CurrentDate';
 
 
 function RTTable() {
   const [data] = useState([...tableData]);
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedHour, setSelectedHour] = useState(""); // 추가
+  const [selectedHour, setSelectedHour] = useState("");
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [selectedNode, setSelectedNode] = useState('전체');
+  const [selectedUnit, setSelectedUnit] = useState('시간평균');
+
+  const handleNodeSelect = (node) => {
+    setSelectedNode(node);
+    setDropdownOpen(false);
+  };
+
+  const handleUnitSelect = (unit) => {
+    setSelectedUnit(unit);
+    setDropdownOpen(false);
+  };
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -34,14 +46,14 @@ function RTTable() {
     </button>
   ));
   
+  // 시간 배열 생성
   useEffect(() => {
     const now = new Date();
     const nearestHour = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), 0, 0, 0);
     setSelectedDate(nearestHour);
-
-    const hours = Array.from({ length: 24 }, (_, index) => index); // 0부터 24까지의 배열 생성
-    setSelectedHour(now.getHours().toString()+":00"); // 현재 시간을 선택된 시간으로 설정
   }, []);
+
+  // table column 지정 
   const columnHelper = createColumnHelper();
   const columns = [
     columnHelper.accessor("date", { header: "측정일시", size: 120 }),
@@ -161,28 +173,10 @@ function RTTable() {
     getCoreRowModel: getCoreRowModel(),
   });
 
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedNode, setSelectedNode] = useState('전체');
-  const [selectedUnit, setSelectedUnit] = useState('시간평균');
-
-
-
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
-
-  const handleNodeSelect = (node) => {
-    setSelectedNode(node);
-    setDropdownOpen(false);
-  };
-
-  const handleUnitSelect = (unit) => {
-    setSelectedUnit(unit);
-    setDropdownOpen(false);
-  };
 
   return (
     <div className="RTTable">
+      {/* table container section */}
       <div className="RT-table-select-container">
         <div>
           <div className="location-and-unit">
@@ -244,6 +238,8 @@ function RTTable() {
       <p>
         <span className="RT-table-title">| 측정 일시 |</span> <CurrentDate />
       </p>
+
+      {/* table section */}
       <table>
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
