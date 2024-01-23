@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
-const { fileURLToPath } = require("url");
 const bodyParser = require("body-parser");
 const cron = require("node-cron");
 

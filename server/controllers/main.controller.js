@@ -33,9 +33,9 @@ exports.allNodesAllSubstancesDailyAverages = async (req, res) => {
 
   yyyyMM = date.slice(0, 7);
   dayDD = date.slice(8);
+
   dataObject = {
     type: "all-nodes-all-substances-daily-averages",
-    // numberOfNode: "15",
     date: req.body.date,
     substance: "ALL",
     data: {},
@@ -62,6 +62,7 @@ exports.allNodesAllSubstancesDailyAverages = async (req, res) => {
     dataObject["numberOfNode"] = numberOfNode;
   } catch (error) {
     console.error("Error getting document:", error);
+    return res.status(500).json({ error: "internal server error" });
   }
 
   return res.status(200).json({ dataObject });

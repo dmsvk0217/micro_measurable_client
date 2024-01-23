@@ -1,3 +1,0 @@
-
-  //     [`allHour.${keyToUpdate}`]: valueToUpdate,
-  //   }
