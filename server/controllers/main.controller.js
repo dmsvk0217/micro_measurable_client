@@ -61,8 +61,11 @@ exports.allNodesAllSubstancesDailyAverages = async (req, res) => {
     let numberOfNode = util.countNodesFromJson(dataObject);
     dataObject["numberOfNode"] = numberOfNode;
   } catch (error) {
-    console.error("Error getting document:", error);
-    return res.status(500).json({ error: "internal server error" });
+    console.log(
+      "🚀 ~ exports.allNodesAllSubstancesDailyAverages= ~ error:",
+      error
+    );
+    return res.status(500).json({ error: error });
   }
 
   return res.status(200).json({ dataObject });
@@ -117,7 +120,7 @@ exports.nodeAllSubstancesAllHourlyAverages = async (req, res) => {
     dataObject["data"] = nodeData;
   } catch (error) {
     console.log(
-      "🚀 ~ exports.nodeAllSubstancesHourlyAverages= ~ error:",
+      "🚀 ~ exports.nodeAllSubstancesAllHourlyAverages= ~ error:",
       error
     );
     return res.status(500).json({ error: error });
@@ -175,7 +178,11 @@ exports.allNodesAllSubstancesHourlyAverages = async (req, res) => {
     let numberOfNode = util.countNodesFromJson(dataObject);
     dataObject["numberOfNode"] = numberOfNode;
   } catch (error) {
-    console.error("Error getting document:", error);
+    console.log(
+      "🚀 ~ exports.allNodesAllSubstancesHourlyAverages= ~ error:",
+      error
+    );
+    return res.status(500).json({ error: error });
   }
 
   return res.status(200).json({ dataObject });
@@ -229,6 +236,7 @@ exports.NodeAllSubstancesDailyAverages = async (req, res) => {
     const nodeData = docSnapshot.data();
     dataObject["data"] = nodeData;
   } catch (error) {
+    console.log("🚀 ~ exports.NodeAllSubstancesDailyAverages= ~ error:", error);
     return res.status(500).json({ error: error });
   }
 
