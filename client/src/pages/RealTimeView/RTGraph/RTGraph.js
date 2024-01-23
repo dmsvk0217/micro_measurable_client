@@ -11,66 +11,49 @@ Chart.register(...registerables, annotationPlugin);
 
 function RTGraph(){
     
-    const [isActiveLocation, setIsActiveLocation] = useState(false);
-    const [activeLocationButton, setActiveLocationButton] = useState('▼');
-    const [location,setLocation] = useState('node1');
+    const [location,setLocation] = useState('오석관');
+    const handleLocationChange = (event) => {
+        setLocation(event.target.value); 
+    };
 
-
-    const handleLocationSelect = () => {
-        setIsActiveLocation(true);
-        setActiveLocationButton('▲');
-    }
-
-    const chooseLocation = (item) => {
-        setIsActiveLocation(false);
-        setActiveLocationButton('▼');
-        setLocation(item);
-    }
-
-    const [isActiveMatter, setIsActiveMatter] = useState(false);
-    const [activeMatterButton, setActiveMatterButton] = useState('▼');
     const [matter,setMatter] = useState('초미세먼지');
+    const handleMatterChange = (event) => {
+        setMatter(event.target.value); 
+    };
 
 
-    const handleMatterSelect = () => {
-        setIsActiveMatter(true);
-        setActiveMatterButton('▲');
-    }
+    // const chooseMatter = (item) => {
+    //     setMatter(item);
 
-    const chooseMatter = (item) => {
-        setIsActiveMatter(false);
-        setActiveMatterButton('▼');
-        setMatter(item);
+    //     const newOptions = { ...options };
 
-        const newOptions = { ...options };
+    //     if(item === "초미세먼지"){
+    //         newOptions.scales.y.ticks.suggestedMax = 80;
+    //         newOptions.scales.y.ticks.stepSize = 10;
 
-        if(item === "초미세먼지"){
-            newOptions.scales.y.ticks.suggestedMax = 80;
-            newOptions.scales.y.ticks.stepSize = 10;
+    //         newOptions.plugins.annotation.annotations.line2.yMax = 16;
+    //         newOptions.plugins.annotation.annotations.line3.yMax = 36;
+    //         newOptions.plugins.annotation.annotations.line4.yMax = 76;
 
-            newOptions.plugins.annotation.annotations.line2.yMax = 16;
-            newOptions.plugins.annotation.annotations.line3.yMax = 36;
-            newOptions.plugins.annotation.annotations.line4.yMax = 76;
+    //         newOptions.plugins.annotation.annotations.line2.yMin = 16;
+    //         newOptions.plugins.annotation.annotations.line3.yMin = 36;
+    //         newOptions.plugins.annotation.annotations.line4.yMin = 76;
 
-            newOptions.plugins.annotation.annotations.line2.yMin = 16;
-            newOptions.plugins.annotation.annotations.line3.yMin = 36;
-            newOptions.plugins.annotation.annotations.line4.yMin = 76;
+    //     }
+    //     if(item === "미세먼지"){
+    //         newOptions.scales.y.ticks.suggestedMax = 160;
+    //         newOptions.scales.y.ticks.stepSize = 20;
 
-        }
-        if(item === "미세먼지"){
-            newOptions.scales.y.ticks.suggestedMax = 160;
-            newOptions.scales.y.ticks.stepSize = 20;
+    //         newOptions.plugins.annotation.annotations.line2.yMax = 31;
+    //         newOptions.plugins.annotation.annotations.line3.yMax = 81;
+    //         newOptions.plugins.annotation.annotations.line4.yMax = 151;
 
-            newOptions.plugins.annotation.annotations.line2.yMax = 31;
-            newOptions.plugins.annotation.annotations.line3.yMax = 81;
-            newOptions.plugins.annotation.annotations.line4.yMax = 151;
-
-            newOptions.plugins.annotation.annotations.line2.yMin = 31;
-            newOptions.plugins.annotation.annotations.line3.yMin = 81;
-            newOptions.plugins.annotation.annotations.line4.yMin = 151;
-        }
-        setOptions(newOptions);
-    }
+    //         newOptions.plugins.annotation.annotations.line2.yMin = 31;
+    //         newOptions.plugins.annotation.annotations.line3.yMin = 81;
+    //         newOptions.plugins.annotation.annotations.line4.yMin = 151;
+    //     }
+    //     setOptions(newOptions);
+    // }
 
  
 
@@ -138,12 +121,6 @@ function RTGraph(){
         }
     });
 
-    const [selectedValue, setSelectedValue] = useState("option1"); // 현재 선택된 값을 관리하는 상태
-
-    // 사용자가 옵션을 선택할 때 호출될 함수
-    const handleMatterChange = (event) => {
-        setSelectedValue(event.target.value); // 선택된 값을 상태로 설정
-    };
 
 
     return (
@@ -152,41 +129,25 @@ function RTGraph(){
             <div className='RT-graph-select-container'>
                 <div className='RT-graph-location'>
                     <p>측정위치</p>
-                    <div className='RT-graph-location-dropdown'>
-                        <button className='menu' onClick={()=>handleLocationSelect()}><span>{location}</span><span>{activeLocationButton}</span></button>
-                        {isActiveLocation && (
-                            <div className='options'>
-                               <button onClick={() => chooseLocation('node1')}>node1</button>
-                               <button onClick={() => chooseLocation('node2')}>node2</button>
-                               <button onClick={() => chooseLocation('node3')}>node3</button>
-                            </div>
-                        )}
+                    <div className='RT-graph-dropdown'>
+                        <select value={location} onChange={handleLocationChange}>
+                            <option value="option1">뉴턴홀</option>
+                            <option value="option2">오석관</option>
+                            <option value="option3">느헤미야홀</option>
+                        </select>
                     </div>
                 </div>
                 <div className='RT-graph-matter'>
                     <p>측정물질</p>
-                    {/* <div className='RT-graph-matter-dropdown'>
-                        <button className='menu' onClick={()=>handleMatterSelect()}><span>{matter}</span><span>{activeMatterButton}</span></button>
-                        
-                        {isActiveMatter && (
-                            <div className='options'>
-                               <button onClick={() => chooseMatter('초미세먼지')}>초미세먼지</button>
-                               <button onClick={() => chooseMatter('미세먼지')}>미세먼지</button>
-                               <button onClick={() => chooseMatter('포름알데히드')}>포름알데히드</button>
-                            </div>
-                        )}
-                    </div> */}
-
-                    <div>
-                        <select value={selectedValue} onChange={handleMatterChange}>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
+                    <div className='RT-graph-dropdown'>
+                        <select value={matter} onChange={handleMatterChange}>
+                            <option value="option1">초미세먼지</option>
+                            <option value="option2">미세먼지</option>
+                            <option value="option3">포름알데히드</option>
                         </select>
                     </div>
                 </div>
                 <CurrentDate/>
-                
             </div>
             <Line data={data} options={options} />
         </div>

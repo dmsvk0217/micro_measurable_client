@@ -17,16 +17,7 @@
 
 .RT-graph-select-container p{
     font-weight: bold;
-}
-
-.RT-graph-location {
-    display: flex;
-    align-items: center;
-}
-
-.RT-graph-matter {
-    display: flex;
-    align-items: center;
+    margin-right: 10px;
 }
 
 /* 오늘 일자 css */
@@ -35,75 +26,22 @@
     font-weight: bold;
 }
 
-/* 측정위치 css */
-.RT-graph-location-dropdown{
-    position: relative;
+.RT-graph-location , .RT-graph-matter {
+    display: flex;
+    align-items: center;
 }
 
-.RT-graph-location-dropdown .menu {
-    border: none;
-    background-color: white;
-    border-radius: 7px;
-    padding: 5px 10px;
+.RT-graph-dropdown select {
+    border:none;
+    width: 100%;
+}
+
+.RT-graph-dropdown{
     width: 100px;
-    margin-left: 10px;
-    display: flex;
-    justify-content:space-between;
-}
-
-.RT-graph-location-dropdown .options {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    z-index: inherit;
-    border: 1px solid #E9E9E9;
-    border-radius: 7px;
-    margin-left: 9px;
-    background-color: white;
-}
-
-.RT-graph-location-dropdown .options Button {
-    background-color: white;
-    border: none;
-    padding: 5px 10px;
-    width: 100px;
-    border-radius: 7px;
-    text-align: left;
-}
-
-
-/* 측정물질 css */
-.RT-graph-matter-dropdown{
-    position: relative;
-}
-
-.RT-graph-matter-dropdown .menu {
-    border: none;
-    background-color: white;
-    border-radius: 7px;
-    padding: 5px 10px;
-    width: 120px;
-    margin-left: 10px;
-    display: flex;
-    justify-content:space-between;
-}
-
-.RT-graph-matter-dropdown .options {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    z-index: inherit;
-    border: 1px solid #E9E9E9;
-    border-radius: 7px;
-    margin-left: 9px;
-    background-color: white;
-}
-
-.RT-graph-matter-dropdown .options Button {
-    background-color: white;
-    border: none;
-    padding: 5px 10px;
-    width: 120px;
-    border-radius: 7px;
-    text-align: left;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 10px;
+    background-color: #fff;
+    border-color: transparent;
+    cursor: pointer;
 }
