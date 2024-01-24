@@ -1,0 +1,115 @@
+{
+  "dataObject": {
+    "type": "all-nodes-all-substances-daily-averages",
+    "numberOfNode": "15",
+    "date": "2024-01-18",
+    "substance": "ALL",
+    "data": {
+      "node12": {
+        "pm10-Daily-Average": 9,
+        "ch2o-Daily-Average": 0.039999999999999994,
+        "tempareture-Daily-Average": 21,
+        "pm25-Daily-Average": 9,
+        "humidity-Daily-Average": 21
+      },
+      "node14": {
+        "humidity-Daily-Average": 21,
+        "tempareture-Daily-Average": 21,
+        "pm25-Daily-Average": 9,
+        "pm10-Daily-Average": 9,
+        "ch2o-Daily-Average": 0.039999999999999994
+      },
+      "node8": {
+        "pm25-Daily-Average": 9,
+        "humidity-Daily-Average": 21,
+        "ch2o-Daily-Average": 0.04,
+        "tempareture-Daily-Average": 21,
+        "pm10-Daily-Average": 9
+      },
+      "node13": {
+        "ch2o-Daily-Average": 0.039999999999999994,
+        "pm25-Daily-Average": 9,
+        "humidity-Daily-Average": 21,
+        "tempareture-Daily-Average": 21,
+        "pm10-Daily-Average": 9
+      },
+      "node2": {
+        "tempareture-Daily-Average": 21,
+        "pm10-Daily-Average": 9,
+        "humidity-Daily-Average": 21,
+        "ch2o-Daily-Average": 0.039999999999999994,
+        "pm25-Daily-Average": 9
+      },
+      "node10": {
+        "pm10-Daily-Average": 9,
+        "tempareture-Daily-Average": 21,
+        "pm25-Daily-Average": 9,
+        "humidity-Daily-Average": 21,
+        "ch2o-Daily-Average": 0.04
+      },
+      "node11": {
+        "pm25-Daily-Average": 8,
+        "humidity-Daily-Average": 24,
+        "pm10-Daily-Average": 8,
+        "tempareture-Daily-Average": 21,
+        "ch2o-Daily-Average": 0.039999999999999994
+      },
+      "node5": {
+        "pm25-Daily-Average": 9,
+        "tempareture-Daily-Average": 21,
+        "humidity-Daily-Average": 21,
+        "pm10-Daily-Average": 9,
+        "ch2o-Daily-Average": 0.039999999999999994
+      },
+      "node9": {
+        "pm10-Daily-Average": 9,
+        "ch2o-Daily-Average": 0.04,
+        "pm25-Daily-Average": 9,
+        "humidity-Daily-Average": 21,
+        "tempareture-Daily-Average": 21
+      },
+      "node4": {
+        "ch2o-Daily-Average": 0.039999999999999994,
+        "humidity-Daily-Average": 21,
+        "tempareture-Daily-Average": 21,
+        "pm10-Daily-Average": 9,
+        "pm25-Daily-Average": 9
+      },
+      "node3": {
+        "pm10-Daily-Average": 9,
+        "tempareture-Daily-Average": 21,
+        "ch2o-Daily-Average": 0.039999999999999994,
+        "pm25-Daily-Average": 9,
+        "humidity-Daily-Average": 21
+      },
+      "node7": {
+        "pm25-Daily-Average": 9,
+        "humidity-Daily-Average": 21,
+        "pm10-Daily-Average": 9,
+        "ch2o-Daily-Average": 0.04,
+        "tempareture-Daily-Average": 21
+      },
+      "node6": {
+        "tempareture-Daily-Average": 21,
+        "pm10-Daily-Average": 8,
+        "pm25-Daily-Average": 8,
+        "ch2o-Daily-Average": 0.04,
+        "humidity-Daily-Average": 24
+      },
+      "node15": {
+        "tempareture-Daily-Average": 21,
+        "ch2o-Daily-Average": 0.039999999999999994,
+        "pm10-Daily-Average": 9,
+        "humidity-Daily-Average": 21,
+        "pm25-Daily-Average": 9
+      },
+      "node1": {
+        "humidity-Daily-Average": 24,
+        "pm10-Daily-Average": 8,
+        "pm25-Daily-Average": 8,
+        "ch2o-Daily-Average": 0.039999999999999994,
+        "tempareture-Daily-Average": 21
+      }
+    }
+  }
+}
