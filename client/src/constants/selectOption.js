@@ -1,3 +1,27 @@
+export const selectUnitOptions = ["일평균", "시간평균"];
+
+export const selectYearOptions = Array.from({ length: 28 }, (_, index) =>
+  String(2024 - index)
+);
+export const selectHourOptions = Array.from({ length: 25 }, (_, index) =>
+  index == 0 ? "전체 " : index < 10 ? "0" + index + ":00" : index + ":00"
+);
+
+export const selectMonthOptions = Array.from(
+  { length: 12 },
+  (_, index) => `${index + 1}월`
+);
+
+export const selectSubstanceOptions = [
+  "포름알데히드",
+  "PM10",
+  "PM2.5",
+  "온도",
+  "습도",
+  "풍향",
+  "풍속",
+];
+
 export const selectNodeOptions = [
   "전체",
   "뉴턴홀",
@@ -11,37 +35,8 @@ export const selectNodeOptions = [
   "평봉필드",
   "히딩크 풋살장",
   "복지동",
-  "채플앞",
+  "채플",
   "하용조관",
   "벧엘관",
   "창조관",
-];
-
-export const selectUnitOptions = ["일평균", "시간평균"];
-
-export const selectHourOptions = [
-  "전체",
-  "01:00",
-  "02:00",
-  "03:00",
-  "04:00",
-  "05:00",
-  "06:00",
-  "07:00",
-  "08:00",
-  "09:00",
-  "10:00",
-  "11:00",
-  "12:00",
-  "13:00",
-  "14:00",
-  "15:00",
-  "16:00",
-  "17:00",
-  "18:00",
-  "19:00",
-  "20:00",
-  "21:00",
-  "22:00",
-  "23:00",
 ];
