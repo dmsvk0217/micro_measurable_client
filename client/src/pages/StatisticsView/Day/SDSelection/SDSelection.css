@@ -1,12 +1,12 @@
-.RT-graph{
+.SD-graph{
     
 }
-.RT-graph-title {
+.SD-graph-title {
     font-weight: bold;
     font-size: 1.1em;
 }
 
-.RT-graph-select-container{
+.SD-graph-select-container{
     background-color: #EBF0EB;
     display: flex;
     justify-content: space-around;
@@ -15,9 +15,8 @@
     margin-bottom: 20px;
 }
 
-.RT-graph-select-container p{
+.SD-graph-select-container p{
     font-weight: bold;
-    margin-right: 10px;
 }
 
 /* 오늘 일자 css */
@@ -26,17 +25,17 @@
     font-weight: bold;
 }
 
-.RT-graph-location , .RT-graph-matter {
+.SD-graph-select-comp {
     display: flex;
     align-items: center;
 }
 
-.RT-graph-dropdown select {
+.SD-graph-dropdown select {
     border:none;
     width: 100%;
 }
 
-.RT-graph-dropdown{
+.SD-graph-dropdown{
     width: 100px;
     padding: 8px;
     font-size: 14px;
@@ -44,8 +43,9 @@
     background-color: #fff;
     border-color: transparent;
     cursor: pointer;
+    margin-left: 10px;
 }
 
-.RT-graph-dropdown select:focus {
+.SD-graph-dropdown select:focus {
     outline: none;
 }
