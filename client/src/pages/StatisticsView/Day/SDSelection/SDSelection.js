@@ -29,53 +29,61 @@ function SDSelection(){
         setMatter(event.target.value);
     };
 
-    return(
-        <div className='SD-graph-select-container'>
+    const handleTableSubmit = ()=>{
 
-                <div className='SD-graph-select-comp'>
+    }
+
+    return(
+        <div className='SD-select'>
+            <div className='SD-select-container'>
+
+                <div className='SD-select-comp'>
                     <p>측정위치</p>
-                    <div className='SD-graph-dropdown'>
+                    <div className='SD-dropdown'>
                         <select value={location} onChange={handleLocationChange}>
                             {locations.map((location, index) => (
-                                 <option value={index+1} key={index}>{location}</option>
+                                 <option value={index} key={index}>{location}</option>
                             ))}
                         </select>
                         
                     </div>
                 </div>
 
-                <div className='SD-graph-select-comp'>
+                <div className='SD-select-comp'>
                     <p>측정기간</p>
-                    <div className='SD-graph-dropdown'>
+                    <div className='SD-dropdown'>
                         <select value={year} onChange={handleYearChange}>
                             {years.map((year, index) => (
-                                 <option value={index+1} key={index}>{year}</option>
+                                 <option value={index} key={index}>{year}</option>
                             ))}
                         </select>
                     </div>
-                    <div className='SD-graph-dropdown'>
+                    <div className='SD-dropdown'>
                         <select value={month} onChange={handleMonthChange}>
                             {months.map((month, index) => (
-                                 <option value={index+1} key={index}>{month}</option>
+                                 <option value={index} key={index}>{month}</option>
                             ))}
                         </select>
                         
                     </div>
                 </div>
 
-                <div className='SD-graph-select-comp'>
+                <div className='SD-select-comp'>
                     <p>측정물질</p>
-                    <div className='SD-graph-dropdown'>
+                    <div className='SD-dropdown'>
                         <select value={matter} onChange={handleMatterChange}>
                             {matters.map((matter, index) => (
-                                 <option value={index+1} key={index}>{matter}</option>
+                                 <option value={index} key={index}>{matter}</option>
                             ))}
                         </select>
                         
                     </div>
                 </div>
-    
             </div>
+            <div className="SD-btn-container">
+                <button className="search-btn" onClick={handleTableSubmit}>검색</button>
+            </div>
+        </div>
     );
 }
 
