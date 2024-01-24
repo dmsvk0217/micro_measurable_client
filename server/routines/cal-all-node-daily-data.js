@@ -14,8 +14,8 @@ const {
   substanceDailyAverageType,
 } = require("../const.js");
 
-module.exports = async function calAllNodeDailyAverage() {
-  const { yyyyMM, dayDD, hhmmss } = util.getDate();
+module.exports = async function calAllNodeDailyAverage(yyyyMM, dayDD, hhmmss) {
+  // const { yyyyMM, dayDD, hhmmss } = util.getDate();
   let allNodedataObject = {
     date: `${yyyyMM}-${dayDD}`,
     timestamp: hhmmss,

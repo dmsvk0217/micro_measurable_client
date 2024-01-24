@@ -14,18 +14,18 @@ const {
   substanceDailyAverageType,
 } = require("../const.js");
 
-module.exports = function calNodeDailyAverage() {
-  const { hhmmss } = util.getDate();
+module.exports = function calNodeDailyAverage(yyyyMM, dayDD, hhmmss) {
+  // const { hhmmss } = util.getDate();
   console.log(`[${hhmmss}] calNodeDailyAverage`);
 
   for (let i = 0; i < NUMBEROFNODE; i++) {
-    calDailyAverageWithNode(i);
+    calDailyAverageWithNode(i, yyyyMM, dayDD, hhmmss);
   }
   return;
 };
 
-async function calDailyAverageWithNode(i) {
-  const { yyyyMM, dayDD, hhmmss } = util.getDate();
+async function calDailyAverageWithNode(i, yyyyMM, dayDD, hhmmss) {
+  // const { yyyyMM, dayDD, hhmmss } = util.getDate();
   let avgValue;
   let dataObject = {
     "node-address": i + 1,

@@ -37,3 +37,24 @@ exports.getTargetNodesDatafromJson = (data, nodeAddresses) => {
   console.log("🚀 ~ resultData:", resultData);
   return resultData;
 };
+
+exports.generateAllnodesTestData = () => {
+  const result = [];
+  for (var i = 0; i < 15; i++) {
+    var randomData = generateRandomTestData(i);
+    result.push(randomData);
+  }
+  return result;
+};
+
+function generateRandomTestData(i) {
+  var firstNumber = i + 1;
+  var secondNumber = (Math.random() * (30 - -10) + -10).toFixed(0);
+  var thirdNumber = (Math.random() * (30 - -10) + -10).toFixed(0);
+  var fourthNumber = (Math.random() * (15 - 5) + 5).toFixed(0);
+  var fifthNumber = (Math.random() * (15 - 5) + 5).toFixed(0);
+  var sixthNumber = (Math.random() * (0.05 - 0) + 0).toFixed(2);
+
+  var data = `${firstNumber}/${secondNumber}/${thirdNumber}/${fourthNumber}/${fifthNumber}/${sixthNumber}`;
+  return data;
+}
