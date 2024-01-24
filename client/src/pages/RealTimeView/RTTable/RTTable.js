@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import {
   createColumnHelper,
   flexRender,
@@ -16,7 +17,7 @@ import CurrentDate from "../../../components/CurrentDate";
 function RTTable() {
   const [data] = useState([...tableData]);
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedHour, setSelectedHour] = useState("");
+  const [selectedHour, setSelectedHour] = useState("전체");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectedNode, setSelectedNode] = useState("전체");
   const [selectedUnit, setSelectedUnit] = useState("시간평균");
@@ -207,7 +208,9 @@ function RTTable() {
     getCoreRowModel: getCoreRowModel(),
   });
 
-  const handleTableSubmit = () => {
+  const [responseData, setResponseData] = useState(null);
+  const [responseError, setResponseError] = useState(null);
+  const handleTableSubmit = async () => {
     /* 
       모든 노드에 대한 모든 물질의 일평균 데이터
       /api/all-nodes/all-substances/daily-averages
@@ -245,17 +248,63 @@ function RTTable() {
       }
 
     */
-
-    const requestBody = {};
     console.log("🚀 ~ handleTableSubmit ~ selectedHour:", selectedHour);
     console.log("🚀 ~ handleTableSubmit ~ selectedNode:", selectedNode);
     console.log("🚀 ~ handleTableSubmit ~ selectedUnit:", selectedUnit);
     console.log("🚀 ~ handleTableSubmit ~ selectedDate:", selectedDate);
-    if (selectedUnit.match("시간평균")) {
-      console.log("시간평균");
-    } else {
-      console.log("일평균");
+
+    const requestBody = {};
+
+    if (selectedNode.match("전체") && selectedUnit.match("일평균")) {
+      console.log("전체노드 일평균");
     }
+
+    if (!selectedNode.match("전체") && selectedUnit.match("일평균")) {
+      console.log("특정노드 일평균");
+    }
+
+    if (
+      selectedNode.match("전체") &&
+      selectedUnit.match("시간평균") &&
+      selectedHour.match("전체")
+    ) {
+      console.log("전체노드 시간평균 전체시간");
+      alert("전체시간으로 검색시에는 상세 측정소명을 선택하셔야 합니다.");
+    }
+
+    if (
+      selectedNode.match("전체") &&
+      selectedUnit.match("시간평균") &&
+      !selectedHour.match("전체")
+    ) {
+      console.log("전체노드 시간평균 특정시간");
+    }
+
+    if (
+      !selectedNode.match("전체") &&
+      selectedUnit.match("시간평균") &&
+      selectedHour.match("전체")
+    ) {
+      console.log("특정노드 시간평균 전체시간");
+    }
+
+    if (
+      !selectedNode.match("전체") &&
+      selectedUnit.match("시간평균") &&
+      !selectedHour.match("전체")
+    ) {
+      console.log("특정노드 시간평균 특정시간");
+    }
+
+    // try {
+    //   const response = await axios.get(
+    //     "http://localhost:4000/api/all-nodes/all-substances/daily-averages"
+    //   );
+    //   setResponseData(response.data);
+    //   console.log("🚀 ~ handleTableSubmit ~ response.data:", response.data);
+    // } catch (error) {
+    //   setResponseError(error);
+    // }
   };
 
   return (
@@ -320,9 +369,13 @@ function RTTable() {
                   onChange={(e) => handleHourSelect(e.target.value)}
                   className="hour-dropdown"
                 >
+                  <option key="-1" value="전체">
+                    전체
+                  </option>
                   {Array.from({ length: 24 }, (_, index) => (
                     <option key={index} value={index.toString()}>
-                      {`${index}:00`} {/* 시간 형식으로 표시 */}
+                      {`${index}:00`}
+                      {/* 시간 형식으로 표시 */}
                     </option>
                   ))}
                 </select>
