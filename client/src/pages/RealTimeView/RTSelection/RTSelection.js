@@ -6,12 +6,18 @@ import "react-datepicker/dist/react-datepicker.css";
 import "./RTSelection.css";
 import { FaCalendarAlt } from "react-icons/fa";
 import CurrentDate from "../../../components/CurrentDate";
+import CustomDropDown from "../../../components/CustomDropDown/CustomDropDown";
+import {
+  selectNodeOptions,
+  selectUnitOptions,
+  selectHourOptions,
+} from "../../../constants/selectOption";
 
 function RTSelection() {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedHour, setSelectedHour] = useState("전체");
-  const [selectedNode, setSelectedNode] = useState("0");
-  const [selectedUnit, setSelectedUnit] = useState("일평균");
+  const [selectedHour, setSelectedHour] = useState(selectHourOptions[0]);
+  const [selectedNode, setSelectedNode] = useState(selectNodeOptions[0]);
+  const [selectedUnit, setSelectedUnit] = useState(selectUnitOptions[0]);
 
   const handleNodeSelect = (node) => {
     setSelectedNode(node);
@@ -19,6 +25,7 @@ function RTSelection() {
 
   const handleUnitSelect = (unit) => {
     setSelectedUnit(unit);
+    console.log("🚀 ~ handleUnitSelect ~ unit:", unit);
   };
 
   const handleDateChange = (date) => {
@@ -187,28 +194,11 @@ function RTSelection() {
                 측정위치
               </p>
               <div className="RT-table-location-dropdown">
-                <select
-                  value={selectedNode}
-                  onChange={(e) => handleNodeSelect(e.target.value)}
-                  className="location-dropdown"
-                >
-                  <option value="0">전체</option>
-                  <option value="1">뉴턴홀</option>
-                  <option value="2">현동홀</option>
-                  <option value="3">느헤미아홀</option>
-                  <option value="4">오석관</option>
-                  <option value="5">코너스톤홀</option>
-                  <option value="6">올네이션스홀</option>
-                  <option value="7">그레이스스쿨</option>
-                  <option value="8">로멘틱잔디</option>
-                  <option value="9">평봉필드</option>
-                  <option value="10">히딩크 풋살장</option>
-                  <option value="11">복지동</option>
-                  <option value="12">채플앞</option>
-                  <option value="13">하용조관</option>
-                  <option value="14">벧엘관</option>
-                  <option value="15">창조관</option>
-                </select>
+                <CustomDropDown
+                  optionData={selectNodeOptions}
+                  selectedValue={selectedNode}
+                  handleSelectedValue={handleNodeSelect}
+                />
               </div>
             </div>
             <div className="RT-table-unit">
@@ -216,14 +206,11 @@ function RTSelection() {
                 측정단위
               </p>
               <div className="RT-table-location-dropdown">
-                <select
-                  value={selectedUnit}
-                  onChange={(e) => handleUnitSelect(e.target.value)}
-                  className="location-dropdown"
-                >
-                  <option value="시간평균">시간평균</option>
-                  <option value="일평균">일평균</option>
-                </select>
+                <CustomDropDown
+                  optionData={selectUnitOptions}
+                  selectedValue={selectedUnit}
+                  handleSelectedValue={handleUnitSelect}
+                />
               </div>
             </div>
             <div className="RT-table-time">
@@ -245,24 +232,12 @@ function RTSelection() {
                 />
               </div>
               {selectedUnit == "시간평균" ? (
-                <select
-                  value={selectedHour}
-                  onChange={(e) => handleHourSelect(e.target.value)}
-                  className="hour-dropdown"
-                >
-                  <option key="-1" value="전체">
-                    전체
-                  </option>
-                  {Array.from({ length: 24 }, (_, index) => (
-                    <option
-                      key={index}
-                      value={index < 10 ? "0" + index : index.toString()}
-                    >
-                      {`${index < 10 ? "0" + index : index.toString()}:00`}
-                      {/* 시간 형식으로 표시 */}
-                    </option>
-                  ))}
-                </select>
+                // className="hour-dropdown"
+                <CustomDropDown
+                  optionData={selectHourOptions}
+                  selectedValue={selectedHour}
+                  handleSelectedValue={handleHourSelect}
+                />
               ) : null}
             </div>
           </div>
