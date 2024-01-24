@@ -19,8 +19,8 @@ function RTTable() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedHour, setSelectedHour] = useState("전체");
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedNode, setSelectedNode] = useState("전체");
-  const [selectedUnit, setSelectedUnit] = useState("시간평균");
+  const [selectedNode, setSelectedNode] = useState("0");
+  const [selectedUnit, setSelectedUnit] = useState("일평균");
 
   const handleNodeSelect = (node) => {
     setSelectedNode(node);
@@ -211,60 +211,46 @@ function RTTable() {
   const [responseData, setResponseData] = useState(null);
   const [responseError, setResponseError] = useState(null);
   const handleTableSubmit = async () => {
-    /* 
-      모든 노드에 대한 모든 물질의 일평균 데이터
-      /api/all-nodes/all-substances/daily-averages
-      {
-        date : "2024-01-01"
-      }
-
-      특정 노드에 대한 모든 물질의 일평균 데이터
-      /api/node/all-substances/daily-averages
-      {
-        "date":"2024-01-15"
-        "nodeAddress": "2"
-      }
-      
-      모든 노드에 대한 모든 물질의 시간평균 데이터
-      /api/all-nodes/all-substances/hourly-averages
-      {
-        ”date”:”2024-01-15”
-        ”hour”:”08”
-      }
-
-      특정 노드에 대한 모든 물질의 시간평균 데이터
-      /api/node/all-substances/hourly-averages
-      {
-        ”date”:”2024-01-15”
-        ”hour”:”21”
-        ”nodeAddress”:13
-      }
-
-      특정 노드에 대한 모든 물질의 일간 시간평균 데이터
-      /api/node/all-substances/all-hourly-averages
-      {
-        ”date”:”2024-01”
-        ”nodeAddress” : “4”
-      }
-
-    */
     console.log("🚀 ~ handleTableSubmit ~ selectedHour:", selectedHour);
     console.log("🚀 ~ handleTableSubmit ~ selectedNode:", selectedNode);
     console.log("🚀 ~ handleTableSubmit ~ selectedUnit:", selectedUnit);
     console.log("🚀 ~ handleTableSubmit ~ selectedDate:", selectedDate);
 
-    const requestBody = {};
+    let requestURL;
+    const requestBody = {
+      date: selectedDate.toISOString().split("T")[0],
+    };
 
-    if (selectedNode.match("전체") && selectedUnit.match("일평균")) {
+    if (selectedNode.match("0") && selectedUnit.match("일평균")) {
       console.log("전체노드 일평균");
+      requestURL =
+        "http://localhost:4000/api/all-nodes/all-substances/daily-averages";
+      /*
+        모든 노드에 대한 모든 물질의 일평균 데이터
+        /api/all-nodes/all-substances/daily-averages
+        {
+          date : "2024-01-01"
+        }
+      */
     }
 
-    if (!selectedNode.match("전체") && selectedUnit.match("일평균")) {
+    if (!selectedNode.match("0") && selectedUnit.match("일평균")) {
       console.log("특정노드 일평균");
+      requestBody["nodeAddress"] = selectedNode;
+      requestURL =
+        "http://localhost:4000/api/node/all-substances/daily-averages";
+      /*
+        특정 노드에 대한 모든 물질의 일평균 데이터
+        /api/node/all-substances/daily-averages
+        {
+          "date":"2024-01-15"
+          "nodeAddress": "2"
+        }
+      */
     }
 
     if (
-      selectedNode.match("전체") &&
+      selectedNode.match("0") &&
       selectedUnit.match("시간평균") &&
       selectedHour.match("전체")
     ) {
@@ -273,38 +259,75 @@ function RTTable() {
     }
 
     if (
-      selectedNode.match("전체") &&
+      selectedNode.match("0") &&
       selectedUnit.match("시간평균") &&
       !selectedHour.match("전체")
     ) {
       console.log("전체노드 시간평균 특정시간");
+      requestBody["hour"] = selectedHour;
+      requestURL =
+        "http://localhost:4000/api/all-nodes/all-substances/hourly-averages";
+      /*
+        모든 노드에 대한 모든 물질의 시간평균 데이터
+        /api/all-nodes/all-substances/hourly-averages
+        {
+          ”date”:”2024-01-15”
+          ”hour”:”08”
+        }
+      */
     }
 
     if (
-      !selectedNode.match("전체") &&
+      !selectedNode.match("0") &&
       selectedUnit.match("시간평균") &&
       selectedHour.match("전체")
     ) {
       console.log("특정노드 시간평균 전체시간");
+      requestBody["nodeAddress"] = selectedNode;
+      requestURL =
+        "http://localhost:4000/api/node/all-substances/all-hourly-averages";
+      /*
+        특정 노드에 대한 모든 물질의 일간 시간평균 데이터
+        /api/node/all-substances/all-hourly-averages
+        {
+          ”date”:”2024-01”
+          ”nodeAddress” : “4”
+        }
+      */
     }
 
     if (
-      !selectedNode.match("전체") &&
+      !selectedNode.match("0") &&
       selectedUnit.match("시간평균") &&
       !selectedHour.match("전체")
     ) {
       console.log("특정노드 시간평균 특정시간");
+      requestBody["hour"] = selectedHour;
+      requestBody["nodeAddress"] = selectedNode;
+      requestURL =
+        "http://localhost:4000/api/node/all-substances/hourly-averages";
+      /*
+        특정 노드에 대한 모든 물질의 시간평균 데이터
+        /api/node/all-substances/hourly-averages
+        {
+          ”date”:”2024-01-15”
+          ”hour”:”21”
+          ”nodeAddress”:13
+        }
+      */
     }
 
-    // try {
-    //   const response = await axios.get(
-    //     "http://localhost:4000/api/all-nodes/all-substances/daily-averages"
-    //   );
-    //   setResponseData(response.data);
-    //   console.log("🚀 ~ handleTableSubmit ~ response.data:", response.data);
-    // } catch (error) {
-    //   setResponseError(error);
-    // }
+    try {
+      console.log("🚀 ~ handleTableSubmit ~ requestURL:", requestURL);
+      console.log("🚀 ~ handleTableSubmit ~ requestBody:", requestBody);
+
+      const response = await axios.post(requestURL, requestBody);
+      setResponseData(response.data);
+      console.log("🚀 ~ handleTableSubmit ~ response.data:", response.data);
+    } catch (error) {
+      setResponseError(error);
+      console.log("🚀 ~ handleTableSubmit ~ error:", error);
+    }
   };
 
   return (
@@ -323,10 +346,22 @@ function RTTable() {
                   onChange={(e) => handleNodeSelect(e.target.value)}
                   className="location-dropdown"
                 >
-                  <option value="전체">전체</option>
-                  <option value="뉴턴홀">뉴턴홀</option>
-                  <option value="하용조관">하용조관</option>
-                  <option value="현동홀">현동홀</option>
+                  <option value="0">전체</option>
+                  <option value="1">뉴턴홀</option>
+                  <option value="2">현동홀</option>
+                  <option value="3">느헤미아홀</option>
+                  <option value="4">오석관</option>
+                  <option value="5">코너스톤홀</option>
+                  <option value="6">올네이션스홀</option>
+                  <option value="7">그레이스스쿨</option>
+                  <option value="8">로멘틱잔디</option>
+                  <option value="9">평봉필드</option>
+                  <option value="10">히딩크 풋살장</option>
+                  <option value="11">복지동</option>
+                  <option value="12">채플앞</option>
+                  <option value="13">하용조관</option>
+                  <option value="14">벧엘관</option>
+                  <option value="15">창조관</option>
                 </select>
               </div>
             </div>
@@ -373,8 +408,11 @@ function RTTable() {
                     전체
                   </option>
                   {Array.from({ length: 24 }, (_, index) => (
-                    <option key={index} value={index.toString()}>
-                      {`${index}:00`}
+                    <option
+                      key={index}
+                      value={index < 10 ? "0" + index : index.toString()}
+                    >
+                      {`${index < 10 ? "0" + index : index.toString()}:00`}
                       {/* 시간 형식으로 표시 */}
                     </option>
                   ))}
