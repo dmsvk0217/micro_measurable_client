@@ -10,28 +10,47 @@ const {
 } = require("firebase/firestore");
 const db = require("../firebase.js");
 const util = require("../util.js");
-const { yyyyMM, dayDD, hhmmss } = util.getDate();
 const {
   NUMBEROFNODE,
   substanceType,
   substanceDailyAverageType,
 } = require("../const.js");
 
-module.exports = async function calMonthlyDayAverage() {
+module.exports = async function calMonthlyDayAverage(yyyyMM, dayDD, hhmmss) {
+  // const { yyyyMM, dayDD, hhmmss } = util.getDate();
   console.log(`[${hhmmss}] calMonthlyDayAverage `);
 
   for (let i = 0; i < substanceType.length; i++) {
     let monthlyDayObject = {};
     for (let j = 0; j < NUMBEROFNODE; j++) {
-      await calDayAverageWithNodeAndSubstance(j, i, monthlyDayObject);
+      await calDayAverageWithNodeAndSubstance(
+        j,
+        i,
+        monthlyDayObject,
+        yyyyMM,
+        dayDD,
+        hhmmss
+      );
     }
-    await addSubstanceAllNodeObject(monthlyDayObject, substanceType[i]);
+    await addSubstanceAllNodeObject(
+      monthlyDayObject,
+      substanceType[i],
+      yyyyMM,
+      dayDD,
+      hhmmss
+    );
     console.log("addSubstanceAllNodeObject done");
   }
   console.log("done");
 };
 
-async function addSubstanceAllNodeObject(monthlyDayObject, substanceType) {
+async function addSubstanceAllNodeObject(
+  monthlyDayObject,
+  substanceType,
+  yyyyMM,
+  dayDD,
+  hhmmss
+) {
   const substanceRef = collection(
     db,
     `monthly-data/${yyyyMM}/${substanceType}`
@@ -62,7 +81,14 @@ async function addSubstanceAllNodeObject(monthlyDayObject, substanceType) {
   }
 }
 
-async function calDayAverageWithNodeAndSubstance(i, j, monthlyDayObject) {
+async function calDayAverageWithNodeAndSubstance(
+  i,
+  j,
+  monthlyDayObject,
+  yyyyMM,
+  dayDD,
+  hhmmss
+) {
   const monthlyRawDataRef = collection(
     db,
     `monthly-raw-data/${yyyyMM}/${substanceType[j]}/node${i + 1}/day${dayDD}`

@@ -15,8 +15,8 @@ const {
   substanceType,
 } = require("../const.js");
 
-module.exports = async function calHourlyAllNodeAverage() {
-  const { yyyyMM, dayDD, hhmmss } = util.getDate();
+module.exports = async function calHourlyAllNodeAverage(yyyyMM, dayDD, hhmmss) {
+  // const { yyyyMM, dayDD, hhmmss } = util.getDate();
   console.log(`[${hhmmss}] calHourlyAverage `);
   let hourlyAllNodeObject = {
     date: `${yyyyMM}-${dayDD}`,
