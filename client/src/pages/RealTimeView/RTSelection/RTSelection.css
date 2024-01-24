@@ -26,29 +26,6 @@ css */
   position: relative;
 }
 
-.location-dropdown,
-.hour-dropdown {
-  width: 100px;
-  padding: 8px;
-  font-size: 14px;
-  border-radius: 10px;
-  background-color: #fff;
-  border-color: transparent;
-  cursor: pointer;
-}
-
-.time-dropdown {
-  display: flex;
-  width: 120px;
-  padding: 8px;
-  font-size: 14px;
-  border-radius: 10px;
-  background-color: #fff;
-  border-color: transparent;
-  cursor: pointer;
-  align-items: center;
-}
-
 .dropdown-title {
   text-align: center;
   align-items: center;
@@ -78,11 +55,24 @@ css */
   font-size: 0.8em;
 }
 
+.time-dropdown {
+  display: flex;
+  width: 120px;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 10px;
+  background-color: #fff;
+  border-color: transparent;
+  cursor: pointer;
+  align-items: center;
+}
+
 .RT-table-location,
 .RT-table-unit,
 .RT-table-time {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .react-datepicker__navigation--next {

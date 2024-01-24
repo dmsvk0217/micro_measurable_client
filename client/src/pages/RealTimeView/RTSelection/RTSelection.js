@@ -73,25 +73,21 @@ function RTSelection() {
               <p style={{ fontWeight: "bold", marginRight: "10px" }}>
                 측정위치
               </p>
-              <div className="RT-table-location-dropdown">
-                <CustomDropDown
-                  optionData={selectLocationOptions}
-                  selectedValue={selectedLocation}
-                  handleSelectedValue={handleNodeSelect}
-                />
-              </div>
+              <CustomDropDown
+                optionData={selectLocationOptions}
+                selectedValue={selectedLocation}
+                handleSelectedValue={handleNodeSelect}
+              />
             </div>
             <div className="RT-table-unit">
               <p style={{ fontWeight: "bold", marginRight: "10px" }}>
                 측정단위
               </p>
-              <div className="RT-table-location-dropdown">
-                <CustomDropDown
-                  optionData={selectUnitOptions}
-                  selectedValue={selectedUnit}
-                  handleSelectedValue={handleUnitSelect}
-                />
-              </div>
+              <CustomDropDown
+                optionData={selectUnitOptions}
+                selectedValue={selectedUnit}
+                handleSelectedValue={handleUnitSelect}
+              />
             </div>
             <div className="RT-table-time">
               <p style={{ fontWeight: "bold", marginRight: "10px" }}>

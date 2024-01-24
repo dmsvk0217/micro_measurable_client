@@ -28,23 +28,3 @@
   display: flex;
   align-items: center;
 }
-
-.SD-dropdown select {
-  border: none;
-  width: 100%;
-}
-
-.SD-dropdown {
-  width: 100px;
-  padding: 8px;
-  font-size: 14px;
-  border-radius: 10px;
-  background-color: #fff;
-  border-color: transparent;
-  cursor: pointer;
-  margin-left: 10px;
-}
-
-.SD-dropdown select:focus {
-  outline: none;
-}

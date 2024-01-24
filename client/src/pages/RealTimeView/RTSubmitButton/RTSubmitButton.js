@@ -3,7 +3,7 @@ import axios from "axios";
 import "./RTSubmitButton.css";
 
 function RTTSubmitButton({
-  selectedNode,
+  selectedLocation,
   selectedDate,
   selectedUnit,
   selectedHour,
@@ -13,7 +13,7 @@ function RTTSubmitButton({
 
   const handleTableSubmit = async () => {
     console.log("🚀 ~ handleTableSubmit ~ selectedHour:", selectedHour);
-    console.log("🚀 ~ handleTableSubmit ~ selectedNode:", selectedNode);
+    console.log("🚀 ~ handleTableSubmit ~ selectedLocation:", selectedLocation);
     console.log("🚀 ~ handleTableSubmit ~ selectedUnit:", selectedUnit);
     console.log("🚀 ~ handleTableSubmit ~ selectedDate:", selectedDate);
 
@@ -22,7 +22,7 @@ function RTTSubmitButton({
       date: selectedDate.toISOString().split("T")[0],
     };
 
-    if (selectedNode.match("0") && selectedUnit.match("일평균")) {
+    if (selectedLocation.match("0") && selectedUnit.match("일평균")) {
       console.log("전체노드 일평균");
       requestURL =
         "http://localhost:4000/api/all-nodes/all-substances/daily-averages";
@@ -35,9 +35,9 @@ function RTTSubmitButton({
       */
     }
 
-    if (!selectedNode.match("0") && selectedUnit.match("일평균")) {
+    if (!selectedLocation.match("0") && selectedUnit.match("일평균")) {
       console.log("특정노드 일평균");
-      requestBody["nodeAddress"] = selectedNode;
+      requestBody["nodeAddress"] = selectedLocation;
       requestURL =
         "http://localhost:4000/api/node/all-substances/daily-averages";
       /*
@@ -51,7 +51,7 @@ function RTTSubmitButton({
     }
 
     if (
-      selectedNode.match("0") &&
+      selectedLocation.match("0") &&
       selectedUnit.match("시간평균") &&
       selectedHour.match("전체")
     ) {
@@ -60,7 +60,7 @@ function RTTSubmitButton({
     }
 
     if (
-      selectedNode.match("0") &&
+      selectedLocation.match("0") &&
       selectedUnit.match("시간평균") &&
       !selectedHour.match("전체")
     ) {
@@ -79,12 +79,12 @@ function RTTSubmitButton({
     }
 
     if (
-      !selectedNode.match("0") &&
+      !selectedLocation.match("0") &&
       selectedUnit.match("시간평균") &&
       selectedHour.match("전체")
     ) {
       console.log("특정노드 시간평균 전체시간");
-      requestBody["nodeAddress"] = selectedNode;
+      requestBody["nodeAddress"] = selectedLocation;
       requestURL =
         "http://localhost:4000/api/node/all-substances/all-hourly-averages";
       /*
@@ -98,13 +98,13 @@ function RTTSubmitButton({
     }
 
     if (
-      !selectedNode.match("0") &&
+      !selectedLocation.match("0") &&
       selectedUnit.match("시간평균") &&
       !selectedHour.match("전체")
     ) {
       console.log("특정노드 시간평균 특정시간");
       requestBody["hour"] = selectedHour;
-      requestBody["nodeAddress"] = selectedNode;
+      requestBody["nodeAddress"] = selectedLocation;
       requestURL =
         "http://localhost:4000/api/node/all-substances/hourly-averages";
       /*

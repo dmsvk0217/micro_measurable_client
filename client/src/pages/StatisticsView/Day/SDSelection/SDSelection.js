@@ -40,42 +40,34 @@ function SDSelection() {
       <div className="SD-select-container">
         <div className="SD-select-comp">
           <p>측정위치</p>
-          <div className="SD-dropdown">
-            <CustomDropDown
-              optionData={selectLocationOptions}
-              selectedValue={selectedLocation}
-              handleSelectedValue={handleLocationChange}
-            />
-          </div>
+          <CustomDropDown
+            optionData={selectLocationOptions}
+            selectedValue={selectedLocation}
+            handleSelectedValue={handleLocationChange}
+          />
         </div>
 
         <div className="SD-select-comp">
           <p>측정기간</p>
-          <div className="SD-dropdown">
-            <CustomDropDown
-              optionData={selectYearOptions}
-              selectedValue={selectedYear}
-              handleSelectedValue={handleYearChange}
-            />
-          </div>
-          <div className="SD-dropdown">
-            <CustomDropDown
-              optionData={selectMonthOptions}
-              selectedValue={selectedMonth}
-              handleSelectedValue={handleMonthChange}
-            />
-          </div>
+          <CustomDropDown
+            optionData={selectYearOptions}
+            selectedValue={selectedYear}
+            handleSelectedValue={handleYearChange}
+          />
+          <CustomDropDown
+            optionData={selectMonthOptions}
+            selectedValue={selectedMonth}
+            handleSelectedValue={handleMonthChange}
+          />
         </div>
 
         <div className="SD-select-comp">
           <p>측정물질</p>
-          <div className="SD-dropdown">
-            <CustomDropDown
-              optionData={selectSubstanceOptions}
-              selectedValue={selectedSubstance}
-              handleSelectedValue={handleSubstanceChange}
-            />
-          </div>
+          <CustomDropDown
+            optionData={selectSubstanceOptions}
+            selectedValue={selectedSubstance}
+            handleSelectedValue={handleSubstanceChange}
+          />
         </div>
       </div>
       <SDSubmitButton
