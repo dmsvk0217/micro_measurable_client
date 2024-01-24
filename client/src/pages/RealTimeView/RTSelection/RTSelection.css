@@ -1,19 +1,19 @@
 /* table container 
 css */
 
-.RT-table-select-container{
-    background-color: #EBF0EB;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px 10px;
-    border: 0;
+.RT-table-select-container {
+  background-color: #ebf0eb;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 10px;
+  border: 0;
 }
 
 .RT-table-title {
-    font-weight: bold;
-    font-size: 1.1em;
-    align-items: center;
+  font-weight: bold;
+  font-size: 1.1em;
+  align-items: center;
 }
 
 .location-and-unit {
@@ -22,11 +22,12 @@ css */
   gap: 20px;
 }
 
-.RT-graph-location-dropdown{
+.RT-graph-location-dropdown {
   position: relative;
 }
 
-.location-dropdown, .hour-dropdown {
+.location-dropdown,
+.hour-dropdown {
   width: 100px;
   padding: 8px;
   font-size: 14px;
@@ -49,35 +50,37 @@ css */
 }
 
 .dropdown-title {
-    text-align: center;
-    align-items: center;
-    color: black;
-    font-size: 1.1em;
-    border: none;
-    font-size: 0.8em;
-    align-items: center;
-    display: flex;
+  text-align: center;
+  align-items: center;
+  color: black;
+  font-size: 1.1em;
+  border: none;
+  font-size: 0.8em;
+  align-items: center;
+  display: flex;
 }
 
 .dropdown .dropbtn {
-    align-items: center;
-    color: black;
-    border: none;
-    cursor: pointer;
-    background-color: white;
-    border-radius: 7px;
-    width: 100px;
-    /* height: 25px; */
-    font-size: 0.8em;
-    align-items: center;
-    margin-left: 10px;
+  align-items: center;
+  color: black;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 7px;
+  width: 100px;
+  /* height: 25px; */
+  font-size: 0.8em;
+  align-items: center;
+  margin-left: 10px;
 }
 
 .dropdown-content {
-    font-size: 0.8em;
+  font-size: 0.8em;
 }
 
-.RT-table-location, .RT-table-unit, .RT-table-time {
+.RT-table-location,
+.RT-table-unit,
+.RT-table-time {
   display: flex;
   align-items: center;
 }
@@ -87,22 +90,7 @@ css */
 }
 
 .react-datepicker__navigation--previous {
-  right: 50px; 
-}
-
-.search-btn-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.search-btn {
-  background-color: rgba(85,183,107);
-  border: none;
-  padding: 10px 50px;
-  border-radius: 10px;
-  color: white;
-  font-weight: bold;
+  right: 50px;
 }
 
 /*
@@ -110,53 +98,52 @@ Table CSS
 */
 
 table {
-    width: 100%;
-    border-top: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
-    background-color: #fff;
-    font-size: 12px;
-    text-align: center;
-  }
-  
-  tfoot {
-    background-color: #eee;
-  }
-  
-  td .isWorse {
-    background-color: rgba(187, 115, 115);
-    padding: 0 0;
-  }
+  width: 100%;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  background-color: #fff;
+  font-size: 12px;
+  text-align: center;
+}
 
-  td .isBad {
-    background-color: rgba(215, 224, 103);
-    padding: 0 0;
-  }
+tfoot {
+  background-color: #eee;
+}
 
-  td .isNormal {
-    background-color: rgba(110, 176, 87);
-    padding: 0 0;
-  }
-  
-  td .isGood {
-    background-color: rgba(125, 157, 219);
-    padding: 0 0;
-  }
+td .isWorse {
+  background-color: rgba(187, 115, 115);
+  padding: 0 0;
+}
 
-  th,
-  td {
-    position: relative;
-    padding: 8px 8px;
-    border-right: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
-  }
-  
-  th,
-  td:last-child {
-    border-right: none;
-  }
-  
-  th {
-    border-bottom: 1px solid lightgray;
-    background-color: rgba(245, 251, 246);
-  }
-  
+td .isBad {
+  background-color: rgba(215, 224, 103);
+  padding: 0 0;
+}
+
+td .isNormal {
+  background-color: rgba(110, 176, 87);
+  padding: 0 0;
+}
+
+td .isGood {
+  background-color: rgba(125, 157, 219);
+  padding: 0 0;
+}
+
+th,
+td {
+  position: relative;
+  padding: 8px 8px;
+  border-right: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+th,
+td:last-child {
+  border-right: none;
+}
+
+th {
+  border-bottom: 1px solid lightgray;
+  background-color: rgba(245, 251, 246);
+}
