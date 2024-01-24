@@ -1,58 +1,50 @@
-.SD-select{
-    background-color: #EBF0EB;
-    padding: 10px;
+.SD-select {
+  background-color: #ebf0eb;
+  padding: 10px;
 }
 .SD-graph-title {
-    font-weight: bold;
-    font-size: 1.1em;
+  font-weight: bold;
+  font-size: 1.1em;
 }
 
-.SD-select-container{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding-bottom: 10px;
+.SD-select-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 10px;
 }
 
-.SD-select-container p{
-    font-weight: bold;
+.SD-select-container p {
+  font-weight: bold;
 }
 
 /* 오늘 일자 css */
-.current-date{
-    font-size: 0.8em;
-    font-weight: bold;
+.current-date {
+  font-size: 0.8em;
+  font-weight: bold;
 }
 
 .SD-select-comp {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .SD-dropdown select {
-    border:none;
-    width: 100%;
+  border: none;
+  width: 100%;
 }
 
 .SD-dropdown {
-    width: 100px;
-    padding: 8px;
-    font-size: 14px;
-    border-radius: 10px;
-    background-color: #fff;
-    border-color: transparent;
-    cursor: pointer;
-    margin-left: 10px;
+  width: 100px;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 10px;
+  background-color: #fff;
+  border-color: transparent;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
 .SD-dropdown select:focus {
-    outline: none;
-}
-
-.SD-btn-container{
-    text-align: center;
-}
-
-.SD-btn-container button{
-    margin: 0%;
+  outline: none;
 }

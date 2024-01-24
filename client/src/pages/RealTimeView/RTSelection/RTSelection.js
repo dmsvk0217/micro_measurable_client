@@ -8,7 +8,7 @@ import CurrentDate from "../../../components/CurrentDate";
 import CustomDropDown from "../../../components/CustomDropDown/CustomDropDown";
 import RTTSubmitButton from "../RTSubmitButton/RTSubmitButton";
 import {
-  selectNodeOptions,
+  selectLocationOptions,
   selectUnitOptions,
   selectHourOptions,
 } from "../../../constants/selectOption";
@@ -16,11 +16,13 @@ import {
 function RTSelection() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedHour, setSelectedHour] = useState(selectHourOptions[0]);
-  const [selectedNode, setSelectedNode] = useState(selectNodeOptions[0]);
+  const [selectedLocation, setSelectedLocation] = useState(
+    selectLocationOptions[0]
+  );
   const [selectedUnit, setSelectedUnit] = useState(selectUnitOptions[0]);
 
   const handleNodeSelect = (node) => {
-    setSelectedNode(node);
+    setSelectedLocation(node);
   };
 
   const handleUnitSelect = (unit) => {
@@ -73,8 +75,8 @@ function RTSelection() {
               </p>
               <div className="RT-table-location-dropdown">
                 <CustomDropDown
-                  optionData={selectNodeOptions}
-                  selectedValue={selectedNode}
+                  optionData={selectLocationOptions}
+                  selectedValue={selectedLocation}
                   handleSelectedValue={handleNodeSelect}
                 />
               </div>
@@ -119,7 +121,7 @@ function RTSelection() {
             </div>
           </div>
           <RTTSubmitButton
-            selectedNode={selectedNode}
+            selectedLocation={selectedLocation}
             selectedDate={selectedDate}
             selectedUnit={selectedUnit}
             selectedHour={selectedHour}

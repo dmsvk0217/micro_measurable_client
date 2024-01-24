@@ -22,7 +22,7 @@ export const selectSubstanceOptions = [
   "풍속",
 ];
 
-export const selectNodeOptions = [
+export const selectLocationOptions = [
   "전체",
   "뉴턴홀",
   "현동홀",

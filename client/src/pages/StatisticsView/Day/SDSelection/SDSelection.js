@@ -1,36 +1,38 @@
 import React, { useState, useEffect } from "react";
 import {
-  selectNodeOptions,
-  selectYearOptions,
   selectMonthOptions,
+  selectYearOptions,
+  selectLocationOptions,
   selectSubstanceOptions,
 } from "../../../../constants/selectOption";
 import CustomDropDown from "../../../../components/CustomDropDown/CustomDropDown";
+import SDSubmitButton from "../SDSubmitButton/SDSubmitButton";
 import "./SDSelection.css";
 
 function SDSelection() {
-  const [year, setYear] = useState(selectYearOptions[0]);
-  const handleYearChange = (event) => {
-    console.log("🚀 ~ handleYearChange ~ event:", event);
-    setYear(event);
+  const [selectedYear, setSelectedYear] = useState(selectYearOptions[0]);
+  const [selectedMonth, setSelectedMonth] = useState(selectMonthOptions[0]);
+  const [selectedLocation, setSelectedLocation] = useState(
+    selectLocationOptions[0]
+  );
+  const [selectedSubstance, setSelectedSubstance] = useState(
+    selectSubstanceOptions[0]
+  );
+
+  const handleYearChange = (year) => {
+    setSelectedYear(year);
   };
 
-  const [month, setMonth] = useState(selectMonthOptions[0]);
-  const handleMonthChange = (event) => {
-    console.log("🚀 ~ handleMonthChange ~ event:", event);
-    setMonth(event);
+  const handleMonthChange = (month) => {
+    setSelectedMonth(month);
   };
 
-  const [location, setLocation] = useState(selectNodeOptions[0]);
-  const handleLocationChange = (event) => {
-    console.log("🚀 ~ handleLocationChange ~ event:", event);
-    setLocation(event);
+  const handleLocationChange = (location) => {
+    setSelectedLocation(location);
   };
 
-  const [substance, setSubstance] = useState(selectSubstanceOptions[0]);
-  const handleSubstanceChange = (event) => {
-    console.log("🚀 ~ handleSubstanceChange ~ event:", event);
-    setSubstance(event);
+  const handleSubstanceChange = (substance) => {
+    setSelectedSubstance(substance);
   };
 
   return (
@@ -40,8 +42,8 @@ function SDSelection() {
           <p>측정위치</p>
           <div className="SD-dropdown">
             <CustomDropDown
-              optionData={selectNodeOptions}
-              selectedValue={location}
+              optionData={selectLocationOptions}
+              selectedValue={selectedLocation}
               handleSelectedValue={handleLocationChange}
             />
           </div>
@@ -52,14 +54,14 @@ function SDSelection() {
           <div className="SD-dropdown">
             <CustomDropDown
               optionData={selectYearOptions}
-              selectedValue={year}
+              selectedValue={selectedYear}
               handleSelectedValue={handleYearChange}
             />
           </div>
           <div className="SD-dropdown">
             <CustomDropDown
               optionData={selectMonthOptions}
-              selectedValue={month}
+              selectedValue={selectedMonth}
               handleSelectedValue={handleMonthChange}
             />
           </div>
@@ -70,15 +72,18 @@ function SDSelection() {
           <div className="SD-dropdown">
             <CustomDropDown
               optionData={selectSubstanceOptions}
-              selectedValue={substance}
+              selectedValue={selectedSubstance}
               handleSelectedValue={handleSubstanceChange}
             />
           </div>
         </div>
       </div>
-      <div className="SD-btn-container">
-        <button className="search-btn">검색</button>
-      </div>
+      <SDSubmitButton
+        selectedYear={selectedYear}
+        selectedMonth={selectedMonth}
+        selectedLocation={selectedLocation}
+        selectedSubstance={selectedSubstance}
+      />
     </div>
   );
 }

@@ -1,12 +1,6 @@
 import React from "react";
 
 const CustomDropDown = ({ optionData, selectedValue, handleSelectedValue }) => {
-  console.log("🚀 ~ CustomDropDown ~ optionData:", optionData);
-  console.log(
-    "🚀 ~ CustomDropDown ~ handleSelectedValue:",
-    handleSelectedValue
-  );
-  console.log("🚀 ~ CustomDropDown ~ selectedValue:", selectedValue);
   return (
     <select
       value={selectedValue}
