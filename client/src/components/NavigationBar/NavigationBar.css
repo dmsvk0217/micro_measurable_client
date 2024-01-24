@@ -65,10 +65,11 @@
     /* z-index: 100; */
     /* font-size: 0.8em; */
     border: 1px solid #D9D9D9;
-    border-top: none;
-    padding: 10px 10px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    /* border-top: none; */
+    padding: 12px 10px;
+    /* border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px; */
+    box-shadow: #D9D9D9;
     background-color: white;
 }
 

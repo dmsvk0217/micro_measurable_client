@@ -45,7 +45,3 @@
     border-color: transparent;
     cursor: pointer;
 }
-
-.RT-graph-dropdown select:focus {
-    outline: none;
-}
