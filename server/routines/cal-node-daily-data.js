@@ -10,7 +10,7 @@ const util = require("../util.js");
 const {
   NUMBEROFNODE,
   NUMBEROFSUBSTANCE,
-  substanceType,
+  substanceEnType,
   substanceDailyAverageType,
 } = require("../const.js");
 
@@ -51,7 +51,7 @@ async function calDailyAverageWithNode(i, yyyyMM, dayDD, hhmmss) {
     // 특정날짜 특정노드에 대해서, 모든 물질의 평균값 계산하여 dataObject에 추가
     for (let j = 0; j < NUMBEROFSUBSTANCE; j++) {
       const valueArray = querySnapshot.docs.map(
-        (doc) => doc.data()[substanceType[j]]
+        (doc) => doc.data()[substanceEnType[j]]
       );
       avgValue =
         valueArray.reduce((acc, value) => acc + value, 0) / valueArray.length;
