@@ -12,6 +12,7 @@ const {
   NUMBEROFNODE,
   NUMBEROFSUBSTANCE,
   substanceType,
+  nodeAddressOptions,
   substanceDailyAverageType,
 } = require("../const.js");
 
@@ -197,7 +198,7 @@ exports.NodeAllSubstancesDailyAverages = async (req, res) => {
     }
   */
 
-  const { date, nodeAddress } = req.body;
+  let { date, nodeAddress } = req.body;
   let dataObject, yyyyMM, dayDD;
 
   if (!date || !nodeAddress)
@@ -208,6 +209,8 @@ exports.NodeAllSubstancesDailyAverages = async (req, res) => {
 
   yyyyMM = date.slice(0, 7);
   dayDD = date.slice(8);
+  nodeAddress = nodeAddressOptions[nodeAddress];
+
   dataObject = {
     type: "node-all-substances-daily-averages",
     numberOfNode: nodeAddress,
@@ -225,8 +228,7 @@ exports.NodeAllSubstancesDailyAverages = async (req, res) => {
 
     if (!docSnapshot.exists()) {
       console.log(
-        "🚀 ~ exports.NodeAllSubstancesDailyAverages= ~ docSnapshot.exists():",
-        docSnapshot.exists()
+        `[${dayDD}day] NodeAllSubstancesDailyAverages(docSnapshot does not exists)  daily-data/${yyyyMM}/day${dayDD}/node${nodeAddress}`
       );
       return res.status(500).send({
         error: `daily-data/${yyyyMM}/day${dayDD}/node${nodeAddress} : documentRef does not exists`,
@@ -240,7 +242,7 @@ exports.NodeAllSubstancesDailyAverages = async (req, res) => {
     return res.status(500).json({ error: error });
   }
 
-  return res.status(200).json({ dataObject });
+  return res.status(200).json(dataObject);
 };
 
 exports.nodeAllSubstancesHourlyAverages = async (req, res) => {

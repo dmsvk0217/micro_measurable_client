@@ -118,22 +118,22 @@ function RTTSubmitButton({
       */
     }
 
-    // try {
-    //   console.log("🚀 ~ handleTableSubmit ~ requestURL:", requestURL);
-    //   console.log("🚀 ~ handleTableSubmit ~ requestBody:", requestBody);
+    try {
+      console.log("🚀 ~ handleTableSubmit ~ requestURL:", requestURL);
+      console.log("🚀 ~ handleTableSubmit ~ requestBody:", requestBody);
 
-    //   const response = await axios.post(requestURL, requestBody);
-    //   setResponseData(response.data);
-    //   console.log("🚀 ~ handleTableSubmit ~ response.data:", response.data);
-    // } catch (error) {
-    //   setResponseError(error);
-    //   console.log("🚀 ~ handleTableSubmit ~ error:", error);
-    // }
+      const response = await axios.post(requestURL, requestBody);
+      setResponseData(response.data);
+      console.log("🚀 ~ handleTableSubmit ~ response.data:", response.data);
+    } catch (error) {
+      setResponseError(error);
+      console.log("🚀 ~ handleTableSubmit ~ error:", error);
+    }
   };
 
   return (
     <div className="search-btn-container">
-      <button className="search-btn" onClick={handleTableSubmit}>
+      <button type="button" className="search-btn" onClick={handleTableSubmit}>
         검색
       </button>
     </div>

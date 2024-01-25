@@ -21,35 +21,47 @@ module.exports = async function calAllNodeDailyAverage(yyyyMM, dayDD, hhmmss) {
     timestamp: hhmmss,
   };
 
-  console.log(`[${hhmmss}] calAllNodeDailyAverage`);
-
   for (let i = 0; i < NUMBEROFNODE; i++) {
-    await getDailyAverageDataObjectWithAllNode(i, allNodedataObject);
+    await getDailyAverageDataObjectWithAllNode(
+      i,
+      allNodedataObject,
+      yyyyMM,
+      dayDD,
+      hhmmss
+    );
   }
-  calDailyAverageWithAllNode(allNodedataObject);
+  calDailyAverageWithAllNode(allNodedataObject, yyyyMM, dayDD, hhmmss);
   return;
 };
 
-async function calDailyAverageWithAllNode(dailyDataForAllNode) {
-  console.log(
-    "🚀 ~ calDailyAverageWithAllNode ~ dailyDataForAllNode:",
-    dailyDataForAllNode
-  );
-  const { yyyyMM, dayDD } = util.getDate();
+async function calDailyAverageWithAllNode(
+  dailyDataForAllNode,
+  yyyyMM,
+  dayDD,
+  hhmmss
+) {
+  // const { yyyyMM, dayDD } = util.getDate();
   const dailyAverageRef = collection(db, `daily-data/${yyyyMM}/day${dayDD}`);
 
   await setDoc(doc(dailyAverageRef, "allNode"), dailyDataForAllNode);
+  console.log(`[${dayDD}day: ${hhmmss}] calDailyAverage With AllNode done`);
   return;
 }
 
-async function getDailyAverageDataObjectWithAllNode(i, allNodedataObject) {
+async function getDailyAverageDataObjectWithAllNode(
+  i,
+  allNodedataObject,
+  yyyyMM,
+  dayDD,
+  hhmmss
+) {
   const dataObject = {};
   let avgValue;
-  const { yyyyMM, dayDD } = util.getDate();
+  // const { yyyyMM, dayDD } = util.getDate();
 
   const dailyRawDataRef = collection(
     db,
-    `daily-raw-data/${yyyyMM}/day${dayDD}/node${i + 1}/data`
+    `daily-raw-data/${yyyyMM}/day${dayDD}/node${i + 1}/node${i + 1}`
   );
 
   try {
@@ -57,8 +69,9 @@ async function getDailyAverageDataObjectWithAllNode(i, allNodedataObject) {
 
     if (querySnapshot.docs.length == 0) {
       console.log(
-        "🚀 ~ getDailyAverageDataObjectWithAllNode querySnapshot.docs.length : ",
-        querySnapshot.docs.length
+        `[${dayDD}day: ${hhmmss}] calAllNodeDailyAverage(querySnapshot.docs.length == 0) daily-raw-data/${yyyyMM}/day${dayDD}/node${
+          i + 1
+        }/node${i + 1}`
       );
       return;
     }
@@ -75,7 +88,9 @@ async function getDailyAverageDataObjectWithAllNode(i, allNodedataObject) {
     }
     allNodedataObject[`node${i + 1}`] = dataObject;
   } catch (error) {
-    console.log("🚀 ~ calDayAverageWithNodeSubstance ~ error:", error);
+    console.log(
+      `[${dayDD}day: ${hhmmss}] calDayAverageWithNodeSubstance ~ ${error}:`
+    );
   }
   return;
 }

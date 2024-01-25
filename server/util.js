@@ -41,13 +41,13 @@ exports.getTargetNodesDatafromJson = (data, nodeAddresses) => {
 exports.generateAllnodesTestData = () => {
   const result = [];
   for (var i = 0; i < 15; i++) {
-    var randomData = generateRandomTestData(i);
+    var randomData = this.generateRandomTestData(i);
     result.push(randomData);
   }
   return result;
 };
 
-function generateRandomTestData(i) {
+exports.generateRandomTestData = (i) => {
   var firstNumber = i + 1;
   var secondNumber = (Math.random() * (30 - -10) + -10).toFixed(0);
   var thirdNumber = (Math.random() * (30 - -10) + -10).toFixed(0);
@@ -57,4 +57,28 @@ function generateRandomTestData(i) {
 
   var data = `${firstNumber}/${secondNumber}/${thirdNumber}/${fourthNumber}/${fifthNumber}/${sixthNumber}`;
   return data;
-}
+};
+
+exports.generateRandomTime = (i) => {
+  var hh = i; // 0부터 23까지의 랜덤 시간
+  var mm = Math.floor(Math.random() * 60); // 0부터 59까지의 랜덤 분
+  var ss = Math.floor(Math.random() * 60); // 0부터 59까지의 랜덤 초
+
+  // 시간, 분, 초를 두 자리 숫자로 변환
+  hh = hh < 10 ? "0" + hh : hh;
+  mm = mm < 10 ? "0" + mm : mm;
+  ss = ss < 10 ? "0" + ss : ss;
+
+  var time = hh + ":" + mm + ":" + ss;
+  return time;
+};
+
+exports.generateDayDD = (dayDD) => {
+  dayDD = dayDD < 10 ? "0" + dayDD : dayDD;
+  return dayDD;
+};
+
+exports.generateHHMMSStoHH = (hhmmss) => {
+  let hh = hhmmss.slice(0, 2);
+  return hh;
+};
