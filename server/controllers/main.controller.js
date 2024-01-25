@@ -12,7 +12,8 @@ const querys = require("../querys.js");
 const {
   NUMBEROFNODE,
   NUMBEROFSUBSTANCE,
-  substanceType,
+  substanceKrType,
+  substanceKrToEn,
   nodeAddressOptions,
   substanceDailyAverageType,
 } = require("../const.js");
@@ -357,25 +358,32 @@ exports.nodeAllSubstancesHourlyAverages = async (req, res) => {
     }
   */
 exports.nodesSubstanceMonthlyAverages = async (req, res) => {
-  const { date, substance, nodeAddressNameArray } = req.body;
-  if (!date || !substance || !nodeAddressNameArray)
-    return res.status(400).json({ error: "'All fields are required'" });
+  const { date, substanceKr, nodeAddressNameArray } = req.body;
+  if (!date || !substanceKr || !nodeAddressNameArray)
+    return res.status(400).json({ error: "All fields are required" });
+  if (!util.checkIsAllNodeVaild(nodeAddressNameArray))
+    return res.status(400).json({ error: "'All Location must be vaild'" });
   if (!isValidYYYYMMFormat(date))
     return res.status(400).send({ error: "Date is not valid date format" });
-  if (!substanceType.includes(substance))
+  if (!substanceKrType.includes(substanceKr))
     return res.status(400).send({ error: "substance is invalid" });
 
   const yyyyMM = date.slice(0, 7);
-  const hh = hour.slice(0, 2);
-  const nodeAddressNumber = nodeAddressOptions[nodeAddressName];
+  const substanceEn = substanceKrToEn[substanceKr];
   let dataObject = {
     type: "nodes-substance-monthly-averages",
     date: date,
-    substance: substance,
+    substanceKr: substanceKr,
+    substanceEn: substanceEn,
     nodeAddressNameArray: nodeAddressNameArray,
     data: {},
   };
-  const query = querys.getNodesSubstanceMonthlyAveragesQuery(yyyyMM, substance);
+  const nodeAddressNumberArray =
+    util.translateSubstanceArrNameToNumber(nodeAddressNameArray);
+  const query = querys.getNodesSubstanceMonthlyAveragesQuery(
+    yyyyMM,
+    substanceEn
+  );
 
   try {
     const documentRef = doc(db, query);
@@ -397,8 +405,13 @@ exports.nodesSubstanceMonthlyAverages = async (req, res) => {
 
     const resultData = util.getTargetNodesDatafromJson(
       docSnapshot.data(),
-      nodeAddressNameArray
+      nodeAddressNumberArray
     );
+    console.log(
+      "🚀 ~ exports.nodesSubstanceMonthlyAverages= ~ resultData:",
+      resultData
+    );
+
     dataObject["data"] = resultData;
     dataObject["numberOfNode"] = util.countNodesFromJson(dataObject);
   } catch (error) {
@@ -427,25 +440,26 @@ exports.nodesSubstanceMonthlyAverages = async (req, res) => {
     }
   */
 exports.allNodesSubstanceMonthlyAverages = async (req, res) => {
-  const { date, substance } = req.body;
-  if (!date || !substance)
+  const { date, substanceKr } = req.body;
+  if (!date || !substanceKr)
     return res.status(400).json({ error: "'All fields are required'" });
   if (!isValidYYYYMMFormat(date))
     return res.status(400).send({ error: "Date is not valid date format" });
-  if (!substanceType.includes(substance))
+  if (!substanceKrType.includes(substanceKr))
     return res.status(400).send({ error: "substance is invalid" });
 
   const yyyyMM = date;
-  const nodeAddressNumber = nodeAddressOptions[nodeAddressName];
+  const substanceEn = substanceKrToEn[substanceKr];
   let dataObject = {
     type: "all-node-substance-monthly-averages",
     date: date,
-    substance: substance,
+    substanceKr: substanceKr,
+    substanceEn: substanceEn,
     data: {},
   };
   const query = querys.getAllNodesSubstanceMonthlyAveragesQuery(
     yyyyMM,
-    substance
+    substanceEn
   );
 
   try {
@@ -481,8 +495,8 @@ exports.allNodesSubstanceMonthlyAverages = async (req, res) => {
     });
   }
 
-  console.log(`[${yyyyMM}-${dayDD}] allNodesSubstanceMonthlyAverages(done)`);
-  return res.status(200).json({ dataObject });
+  console.log(`[${yyyyMM}] allNodesSubstanceMonthlyAverages(done)`);
+  return res.status(200).json(dataObject);
 };
 
 function isValidDateFormat(dateString) {
