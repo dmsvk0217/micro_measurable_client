@@ -1,0 +1,12 @@
+.download-button {
+    float: right;
+    border: none;
+    background-color: white;
+    color: rgba(85,183,107);
+    padding: 10px;
+}
+
+.download-button:hover{
+    cursor: pointer;
+}
+

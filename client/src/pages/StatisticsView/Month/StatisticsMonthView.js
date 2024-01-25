@@ -5,6 +5,7 @@ import CustomTable from "../../../components/CustomTable/CustomTable";
 import SMSelection from './SMSelection/SMSelection';
 import { chartData, chartOptions } from './SMGraphConfig';
 import { data, columns } from "./SMTableConfig";
+import DownloadButton from "../../../components/DownloadButton/DownloadButton";
 
 function StatisticsMonthView(){
     return (
@@ -12,6 +13,7 @@ function StatisticsMonthView(){
             <p className='SM-title'>통계 보기 &gt; 월별</p>
             <div className='SM-content-container'>
                 <SMSelection/>
+                <DownloadButton data={data}></DownloadButton>
                 <CustomTable data={data} columns={columns}></CustomTable>
                 <hr className='SM-Month'></hr>
                 <CustomGraph data={chartData} options={chartOptions}></CustomGraph>
