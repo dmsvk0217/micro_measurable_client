@@ -32,7 +32,7 @@ function RTTSubmitButton({
 
     if (!selectedLocation.match("전체") && selectedUnit.match("일평균")) {
       console.log("특정노드 일평균");
-      requestBody["nodeAddress"] = selectedLocation;
+      requestBody["nodeAddressName"] = selectedLocation;
       requestURL =
         "http://localhost:4000/api/node/all-substances/daily-averages";
       /*
@@ -40,7 +40,7 @@ function RTTSubmitButton({
         /api/node/all-substances/daily-averages
         {
           "date":"2024-01-15"
-          "nodeAddress": "2"
+          "nodeAddressName": "2"
         }
       */
     }
@@ -79,7 +79,7 @@ function RTTSubmitButton({
       selectedHour.match("전체")
     ) {
       console.log("특정노드 시간평균 전체시간");
-      requestBody["nodeAddress"] = selectedLocation;
+      requestBody["nodeAddressName"] = selectedLocation;
       requestURL =
         "http://localhost:4000/api/node/all-substances/all-hourly-averages";
       /*
@@ -87,7 +87,7 @@ function RTTSubmitButton({
         /api/node/all-substances/all-hourly-averages
         {
           ”date”:”2024-01”
-          ”nodeAddress” : “4”
+          ”nodeAddressName” : “4”
         }
       */
     }
@@ -99,7 +99,7 @@ function RTTSubmitButton({
     ) {
       console.log("특정노드 시간평균 특정시간");
       requestBody["hour"] = selectedHour;
-      requestBody["nodeAddress"] = selectedLocation;
+      requestBody["nodeAddressName"] = selectedLocation;
       requestURL =
         "http://localhost:4000/api/node/all-substances/hourly-averages";
       /*
@@ -108,7 +108,7 @@ function RTTSubmitButton({
         {
           ”date”:”2024-01-15”
           ”hour”:”21”
-          ”nodeAddress”:13
+          ”nodeAddressName”:13
         }
       */
     }

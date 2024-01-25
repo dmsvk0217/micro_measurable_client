@@ -8,6 +8,7 @@ const {
 } = require("firebase/firestore");
 const db = require("../firebase.js");
 const util = require("../util.js");
+const querys = require("../querys.js");
 const {
   NUMBEROFNODE,
   NUMBEROFSUBSTANCE,
@@ -16,59 +17,129 @@ const {
   substanceDailyAverageType,
 } = require("../const.js");
 
-exports.allNodesAllSubstancesDailyAverages = async (req, res) => {
-  /* 
+/* 
     request body
     {
       ”date”:”2024-01-22”
     }
   */
-
+exports.allNodesAllSubstancesDailyAverages = async (req, res) => {
   const { date } = req.body;
-  let dataObject, yyyyMM, dayDD;
-
   if (!date) return res.status(400).json({ error: "All fields are required" });
-
   if (!isValidDateFormat(date))
     return res.status(400).send({ error: "date is not valid date format" });
 
-  yyyyMM = date.slice(0, 7);
-  dayDD = date.slice(8);
-
-  dataObject = {
+  const yyyyMM = date.slice(0, 7);
+  const dayDD = date.slice(8);
+  let dataObject = {
     type: "all-nodes-all-substances-daily-averages",
     date: req.body.date,
     substance: "ALL",
     data: {},
   };
+  const query = querys.getAllNodesAllSubstancesDailyAveragesQuery(
+    yyyyMM,
+    dayDD
+  );
 
   try {
-    const allNodeDocRef = doc(
-      db,
-      `daily-data/${yyyyMM}/day${dayDD}`,
-      "allNode"
-    );
+    const allNodeDocRef = doc(db, query);
     const docSnapshot = await getDoc(allNodeDocRef);
 
     if (!docSnapshot.exists()) {
-      console.log(
-        `[${yyyyMM}-${dayDD}] allNodesAllSubstancesDailyAverages(docSnapshot does not exists) daily-data/${yyyyMM}/day${dayDD}/allNode`
+      const errMsg = util.generateErrLog(
+        yyyyMM,
+        dayDD,
+        "allNodesAllSubstancesDailyAverages",
+        "docSnapshot does not exists",
+        query
       );
+      console.log(errMsg);
       return res.status(500).send({
-        error: `(documentRef does not exists) daily-data/${yyyyMM}/day${dayDD}/allNode`,
+        error: errMsg,
       });
     }
 
     dataObject["data"] = docSnapshot.data();
-    let numberOfNode = util.countNodesFromJson(dataObject);
-    dataObject["numberOfNode"] = numberOfNode;
+    dataObject["numberOfNode"] = util.countNodesFromJson(dataObject);
   } catch (error) {
-    console.log(
-      `[${yyyyMM}-${dayDD}] allNodesAllSubstancesDailyAverages(error)  ${error}`
+    const errMsg = util.generateErrLog(
+      yyyyMM,
+      dayDD,
+      "allNodesAllSubstancesDailyAverages",
+      "Internal Server Error",
+      error
     );
-    return res.status(500).json({ error: error });
+    console.log(errMsg);
+    return res.status(500).json({
+      error: errMsg,
+    });
   }
+
   console.log(`[${yyyyMM}-${dayDD}] allNodesAllSubstancesDailyAverages(done)`);
+  return res.status(200).json(dataObject);
+};
+
+/* 
+    request body
+    {
+      ”date”:”2024-01-15”
+      ”nodeAddressName”: "오석관"
+    }
+  */
+exports.NodeAllSubstancesDailyAverages = async (req, res) => {
+  const { date, nodeAddressName } = req.body;
+  if (!date || !nodeAddressName)
+    return res.status(400).json({ error: "All fields are required" });
+  if (!isValidDateFormat(date))
+    return res.status(400).send({ error: "Date is not valid date format" });
+
+  const yyyyMM = date.slice(0, 7);
+  const dayDD = date.slice(8);
+  const nodeAddressNumber = nodeAddressOptions[nodeAddressName];
+  let dataObject = {
+    type: "node-all-substances-daily-averages",
+    date: req.body.date,
+    substance: "ALL",
+    data: {},
+  };
+  const query = querys.getNodeAllSubstancesDailyAveragesQuery(
+    yyyyMM,
+    dayDD,
+    nodeAddressNumber
+  );
+
+  try {
+    const dailyAverageRef = doc(db, query);
+    const docSnapshot = await getDoc(dailyAverageRef);
+
+    if (!docSnapshot.exists()) {
+      const errMsg = util.generateErrLog(
+        yyyyMM,
+        dayDD,
+        "NodeAllSubstancesDailyAverages",
+        "docSnapshot does not exists",
+        query
+      );
+      console.log(errMsg);
+      return res.status(500).send({
+        error: errMsg,
+      });
+    }
+    dataObject["data"] = docSnapshot.data();
+  } catch (error) {
+    const errMsg = util.generateErrLog(
+      yyyyMM,
+      dayDD,
+      "NodeAllSubstancesDailyAverages",
+      "Internal Server Error",
+      error
+    );
+    console.log(errMsg);
+    return res.status(500).json({ error: errMsg });
+  }
+
+  console.log(`[${yyyyMM}-${dayDD}] NodeAllSubstancesDailyAverages(done)`);
   return res.status(200).json(dataObject);
 };
 
@@ -81,50 +152,60 @@ exports.nodeAllSubstancesAllHourlyAverages = async (req, res) => {
     }
   */
 
-  const { date, nodeAddress } = req.body;
-  let dataObject, yyyyMM, dayDD;
-
-  if (!date || !nodeAddress)
+  let { date, nodeAddressName } = req.body;
+  if (!date || !nodeAddressName)
     return res.status(400).json({ error: "All fields are required" });
-
   if (!isValidDateFormat(date))
     return res.status(400).send({ error: "Date is not valid date format" });
 
+  let dataObject, yyyyMM, dayDD;
+  const nodeAddress = nodeAddressOptions[nodeAddressName];
+  const query = querys.getNodeAllSubstancesAllHourlyAveragesQuery(
+    yyyyMM,
+    dayDD,
+    nodeAddress
+  );
   yyyyMM = date.slice(0, 7);
   dayDD = date.slice(8);
+
   dataObject = {
     type: "node-all-substances-all-hourly-averages",
-    numberOfNode: nodeAddress,
     date: date,
     substance: "ALL",
     data: {},
   };
 
   try {
-    const allHourlyAverageRef = doc(
-      db,
-      `hourly-data/${yyyyMM}/day${dayDD}/node${nodeAddress}/allHour/allHour`
-    );
+    const allHourlyAverageRef = doc(db, query);
 
     const docSnapshot = await getDoc(allHourlyAverageRef);
     if (!docSnapshot.exists()) {
-      console.log(
-        "🚀 ~ exports.nodeAllSubstancesAllHourlyAverages= ~ !docSnapshot.exists():",
-        !docSnapshot.exists()
+      const errMsg = util.generateErrLog(
+        yyyyMM,
+        dayDD,
+        "nodeAllSubstancesAllHourlyAverages",
+        "docSnapshot does not exists",
+        query
       );
+      console.log(errMsg);
       return res.status(500).json({
-        error: `hourly-data/${yyyyMM}/day${dayDD}/hour${hour}/allNode/allNode : docSnapshot doesn't exist`,
+        error: errMsg,
       });
     }
 
     const nodeData = docSnapshot.data();
     dataObject["data"] = nodeData;
+    dataObject["numberOfNode"] = util.countNodesFromJson(dataObject);
   } catch (error) {
-    console.log(
-      "🚀 ~ exports.nodeAllSubstancesAllHourlyAverages= ~ error:",
+    const errMsg = util.generateErrLog(
+      yyyyMM,
+      dayDD,
+      "nodeAllSubstancesAllHourlyAverages",
+      "Internal Server Error",
       error
     );
-    return res.status(500).json({ error: error });
+    console.log(errMsg);
+    return res.status(500).json({ error: errMsg });
   }
 
   return res.status(200).json({ dataObject });
@@ -187,65 +268,6 @@ exports.allNodesAllSubstancesHourlyAverages = async (req, res) => {
   }
 
   return res.status(200).json({ dataObject });
-};
-
-exports.NodeAllSubstancesDailyAverages = async (req, res) => {
-  /* 
-    request body
-    {
-      ”date”:”2024-01-15”
-      ”nodeAddress”: 9
-    }
-  */
-
-  let { date, nodeAddress } = req.body;
-  let dataObject, yyyyMM, dayDD;
-
-  if (!date || !nodeAddress)
-    return res.status(400).json({ error: "All fields are required" });
-
-  if (!isValidDateFormat(date))
-    return res.status(400).send({ error: "Date is not valid date format" });
-
-  yyyyMM = date.slice(0, 7);
-  dayDD = date.slice(8);
-  nodeAddress = nodeAddressOptions[nodeAddress];
-
-  dataObject = {
-    type: "node-all-substances-daily-averages",
-    numberOfNode: nodeAddress,
-    date: req.body.date,
-    substance: "ALL",
-    data: {},
-  };
-
-  try {
-    const dailyAverageRef = doc(
-      db,
-      `daily-data/${yyyyMM}/day${dayDD}/node${nodeAddress}`
-    );
-    const docSnapshot = await getDoc(dailyAverageRef);
-
-    if (!docSnapshot.exists()) {
-      console.log(
-        `[${yyyyMM}-${dayDD}] NodeAllSubstancesDailyAverages(docSnapshot does not exists)  daily-data/${yyyyMM}/day${dayDD}/node${nodeAddress}`
-      );
-      return res.status(500).send({
-        error: `daily-data/${yyyyMM}/day${dayDD}/node${nodeAddress} : documentRef does not exists`,
-      });
-    }
-
-    const nodeData = docSnapshot.data();
-    dataObject["data"] = nodeData;
-  } catch (error) {
-    console.log(
-      `[${yyyyMM}-${dayDD}] NodeAllSubstancesDailyAverages(error)  ${error}`
-    );
-    return res.status(500).json({ error: error });
-  }
-
-  console.log(`[${yyyyMM}-${dayDD}] NodeAllSubstancesDailyAverages(done)`);
-  return res.status(200).json(dataObject);
 };
 
 exports.nodeAllSubstancesHourlyAverages = async (req, res) => {

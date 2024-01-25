@@ -81,3 +81,21 @@ exports.generateHHMMSStoHH = (hhmmss) => {
   let hh = hhmmss.slice(0, 2);
   return hh;
 };
+
+exports.printErrLog = (yyyyMM, dayDD, functionName, content, ref) => {
+  console.log(`[${yyyyMM}-${dayDD}] ${functionName} (${content}) ${ref}`);
+  return;
+};
+
+exports.printDoneLog = (yyyyMM, dayDD, functionName, content, ref) => {
+  console.log(`[${yyyyMM}-${dayDD}] ${functionName} (${content}) ${ref}`);
+  return;
+};
+
+exports.generateErrLog = (yyyyMM, dayDD, functionName, content, ref) => {
+  return `[${yyyyMM}-${dayDD}] ${functionName} (${content}) ${ref}`;
+};
+
+exports.generateDoneLog = (yyyyMM, dayDD, functionName) => {
+  return `[${yyyyMM}-${dayDD}] ${functionName} (done)`;
+};
