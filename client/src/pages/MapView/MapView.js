@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import './MapView.css';
 import CurrentDate from '../../components/CurrentDate';
+import GoogleMap from '../../components/GoogleMap/GoogleMap';
+import { Wrapper } from "@googlemaps/react-wrapper";
 
 function MapView() {
-    const [selectedNode, setSelectedNode] = useState('전체');
-    const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [selectedNode, setSelectedNode] = useState('전체');
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [option, setOption] = useState('pm25'); // 초미세먼지 기본값으로 초기화
 
   const [legendTitle, setLegendTitle] = useState('초미세먼지');
   const [selectedButtonId, setSelectedButtonId] = useState(1);
@@ -19,49 +22,48 @@ function MapView() {
   };
 
     const selectedButtonAction = (buttonId) => {
-
         setSelectedButtonId(buttonId);
 
+        var newOption = 'pm25';
         if(buttonId === 1){
-            setLegendTitle('초미세먼지');
-            setlegendValueGood('0~15');
-            setlegendValueNormal('16~35');
-            setlegendValueBad('36~75');
-            setlegendValueWorse('76~');
+          newOption = 'pm25'; // 초미세먼지
+          setLegendTitle('초미세먼지');
+          setlegendValueGood('0~15');
+          setlegendValueNormal('16~35');
+          setlegendValueBad('36~75');
+          setlegendValueWorse('76~');
         }
         else if (buttonId === 2){
-            setLegendTitle('미세먼지');
-            setlegendValueGood('0~30');
-            setlegendValueNormal('31~80');
-            setlegendValueBad('81~150');
-            setlegendValueWorse('151~');
+          newOption = 'pm10';
+          setLegendTitle('미세먼지');
+          setlegendValueGood('0~30');
+          setlegendValueNormal('31~80');
+          setlegendValueBad('81~150');
+          setlegendValueWorse('151~');
         }
         else {
-            setLegendTitle('포름알데히드');
-            setlegendValueGood('0~');
-            setlegendValueNormal('');
-            setlegendValueBad('');
-            setlegendValueWorse('');
+          newOption = 'HCHO';
+          setLegendTitle('포름알데히드');
+          setlegendValueGood('0~');
+          setlegendValueNormal('');
+          setlegendValueBad('');
+          setlegendValueWorse('');
         }
-    }
 
-    const toggleDropdown = () => {
-        setDropdownOpen(!dropdownOpen);
-    };
+        setOption(newOption);
+    }
 
   return (
     <div className='main-container'>
-      <img src='img/map.png' alt='map' className='map' />
-      <div className='building-image-container'>
-        <img src='img/student_building.png' alt='student_building' className='student_building' />
-        <img src='img/grace_building.png' alt='grace_building' className='grace_building' />
-      </div>
+      <Wrapper apiKey={"AIzaSyCjp5Sxe-c5mUn1GtfLqEatR0mt7cXYdIM"}>
+         <GoogleMap option={option} />
+      </Wrapper>
 
-      <div className='option-container'>
-                <button className={selectedButtonId === 1 ? 'active' : ''} onClick={() => selectedButtonAction(1)}>초미세먼지</button>
-                <button className={selectedButtonId === 2 ? 'active' : ''} onClick={() => selectedButtonAction(2)}>미세먼지</button>
-                <button className={selectedButtonId === 3 ? 'active' : ''} onClick={() => selectedButtonAction(3)}>포름알데히드</button>
-            </div>
+        <div className='option-container'>
+            <button className={selectedButtonId === 1 ? 'active' : ''} onClick={() => selectedButtonAction(1)}>초미세먼지</button>
+            <button className={selectedButtonId === 2 ? 'active' : ''} onClick={() => selectedButtonAction(2)}>미세먼지</button>
+            <button className={selectedButtonId === 3 ? 'active' : ''} onClick={() => selectedButtonAction(3)}>포름알데히드</button>
+        </div>
 
       <div className='info-container'>
         <div className='node-info'>

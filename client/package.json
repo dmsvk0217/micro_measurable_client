@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@googlemaps/react-wrapper": "^1.1.35",
     "@tanstack/react-table": "^8.11.7",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.6.5",
+    "axios": "^1.6.6",
     "chart.js": "^4.4.1",
     "chartjs-plugin-annotation": "^3.0.1",
     "file-saver": "^2.0.5",
