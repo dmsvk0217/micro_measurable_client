@@ -12,17 +12,12 @@ function RTTSubmitButton({
   const [responseError, setResponseError] = useState(null);
 
   const handleTableSubmit = async () => {
-    console.log("🚀 ~ handleTableSubmit ~ selectedHour:", selectedHour);
-    console.log("🚀 ~ handleTableSubmit ~ selectedLocation:", selectedLocation);
-    console.log("🚀 ~ handleTableSubmit ~ selectedUnit:", selectedUnit);
-    console.log("🚀 ~ handleTableSubmit ~ selectedDate:", selectedDate);
-
     let requestURL;
     const requestBody = {
       date: selectedDate.toISOString().split("T")[0],
     };
 
-    if (selectedLocation.match("0") && selectedUnit.match("일평균")) {
+    if (selectedLocation.match("전체") && selectedUnit.match("일평균")) {
       console.log("전체노드 일평균");
       requestURL =
         "http://localhost:4000/api/all-nodes/all-substances/daily-averages";
@@ -35,7 +30,7 @@ function RTTSubmitButton({
       */
     }
 
-    if (!selectedLocation.match("0") && selectedUnit.match("일평균")) {
+    if (!selectedLocation.match("전체") && selectedUnit.match("일평균")) {
       console.log("특정노드 일평균");
       requestBody["nodeAddress"] = selectedLocation;
       requestURL =
@@ -51,7 +46,7 @@ function RTTSubmitButton({
     }
 
     if (
-      selectedLocation.match("0") &&
+      selectedLocation.match("전체") &&
       selectedUnit.match("시간평균") &&
       selectedHour.match("전체")
     ) {
@@ -60,7 +55,7 @@ function RTTSubmitButton({
     }
 
     if (
-      selectedLocation.match("0") &&
+      selectedLocation.match("전체") &&
       selectedUnit.match("시간평균") &&
       !selectedHour.match("전체")
     ) {
@@ -79,7 +74,7 @@ function RTTSubmitButton({
     }
 
     if (
-      !selectedLocation.match("0") &&
+      !selectedLocation.match("전체") &&
       selectedUnit.match("시간평균") &&
       selectedHour.match("전체")
     ) {
@@ -98,7 +93,7 @@ function RTTSubmitButton({
     }
 
     if (
-      !selectedLocation.match("0") &&
+      !selectedLocation.match("전체") &&
       selectedUnit.match("시간평균") &&
       !selectedHour.match("전체")
     ) {

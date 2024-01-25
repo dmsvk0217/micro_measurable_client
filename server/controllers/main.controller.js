@@ -52,10 +52,11 @@ exports.allNodesAllSubstancesDailyAverages = async (req, res) => {
 
     if (!docSnapshot.exists()) {
       console.log(
-        "🚀 ~ exports.allNodesAllSubstancesDailyAverages= ~ !docSnapshot.exists():",
-        !docSnapshot.exists()
+        `[${yyyyMM}-${dayDD}] allNodesAllSubstancesDailyAverages(docSnapshot does not exists) daily-data/${yyyyMM}/day${dayDD}/allNode`
       );
-      return res.status(500).json({ error: "docSnapshot doesn't exist" });
+      return res.status(500).send({
+        error: `(documentRef does not exists) daily-data/${yyyyMM}/day${dayDD}/allNode`,
+      });
     }
 
     dataObject["data"] = docSnapshot.data();
@@ -63,13 +64,12 @@ exports.allNodesAllSubstancesDailyAverages = async (req, res) => {
     dataObject["numberOfNode"] = numberOfNode;
   } catch (error) {
     console.log(
-      "🚀 ~ exports.allNodesAllSubstancesDailyAverages= ~ error:",
-      error
+      `[${yyyyMM}-${dayDD}] allNodesAllSubstancesDailyAverages(error)  ${error}`
     );
     return res.status(500).json({ error: error });
   }
-
-  return res.status(200).json({ dataObject });
+  console.log(`[${yyyyMM}-${dayDD}] allNodesAllSubstancesDailyAverages(done)`);
+  return res.status(200).json(dataObject);
 };
 
 exports.nodeAllSubstancesAllHourlyAverages = async (req, res) => {
@@ -228,7 +228,7 @@ exports.NodeAllSubstancesDailyAverages = async (req, res) => {
 
     if (!docSnapshot.exists()) {
       console.log(
-        `[${dayDD}day] NodeAllSubstancesDailyAverages(docSnapshot does not exists)  daily-data/${yyyyMM}/day${dayDD}/node${nodeAddress}`
+        `[${yyyyMM}-${dayDD}] NodeAllSubstancesDailyAverages(docSnapshot does not exists)  daily-data/${yyyyMM}/day${dayDD}/node${nodeAddress}`
       );
       return res.status(500).send({
         error: `daily-data/${yyyyMM}/day${dayDD}/node${nodeAddress} : documentRef does not exists`,
@@ -238,10 +238,13 @@ exports.NodeAllSubstancesDailyAverages = async (req, res) => {
     const nodeData = docSnapshot.data();
     dataObject["data"] = nodeData;
   } catch (error) {
-    console.log("🚀 ~ exports.NodeAllSubstancesDailyAverages= ~ error:", error);
+    console.log(
+      `[${yyyyMM}-${dayDD}] NodeAllSubstancesDailyAverages(error)  ${error}`
+    );
     return res.status(500).json({ error: error });
   }
 
+  console.log(`[${yyyyMM}-${dayDD}] NodeAllSubstancesDailyAverages(done)`);
   return res.status(200).json(dataObject);
 };
 

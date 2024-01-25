@@ -10,7 +10,6 @@ exports.getDate = () => {
 exports.countNodesFromJson = (dataObject) => {
   // dataObject JSON 데이터에서 "data" 부분 추출
   const data = dataObject.data;
-  console.log("🚀 ~ data:", data);
 
   // 노드 이름 추출하여 중복 제거 후 개수 계산
   const uniqueNodes = new Set();
