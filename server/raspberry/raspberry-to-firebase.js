@@ -20,6 +20,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const util = require("../util.js");
 
 const currentDate = new Date();
 const yyyyMM = currentDate.toISOString().slice(0, 7); // YYYY-MM format
@@ -30,15 +31,8 @@ const hhmmss = currentDate.toLocaleTimeString("en-US", { hour12: false }); // HH
 const substanceType = ["humidity", "tempareture", "pm10", "pm25", "ch2o"];
 
 async function addLoraDataToFirestore() {
-  const loraContent = [
-    "1/24/21/8/8/0.04//2/21/21/9/9/0.04//",
-    "3/21/21/9/9/0.04//4/21/21/9/9/0.04//5/21/21/9/9/0.04//",
-    "6/24/21/8/8/0.04//+ERR=14//",
-    "7/21/21/9/9/0.04//8/21/21/9/9/0.04//9/21/21/9/9/0.04//10/21/21/9/9/0.04//",
-    "11/24/21/8/8/0.04//12/21/21/9/9/0.04//13/21/21/9/9/0.04//14/21/21/9/9/0.04//15/21/21/9/9/0.04//",
-  ];
-
-  const loraContent2 = ["1/24/21/8/8/0.04//2/21/21/9/9/0.04//"];
+  const loraContent = util.generateAllnodesTestData();
+  console.log("🚀 ~ addLoraDataToFirestore ~ loraContent:", loraContent);
 
   for (let index = 0; index < loraContent.length; index++) {
     let numberOfNodes = 0;
@@ -75,7 +69,10 @@ async function addLoraDataToFirestore() {
     console.log("All Node Data Array:", allSubstanceDataArray);
 
     if (errContainFlag) {
-      console.log("🚀 ~ loraContent:", loraContent[index]);
+      console.log(
+        "🚀 ~ addLoraDataToFirestore ~ errContainFlag:",
+        errContainFlag
+      );
       addErrData(loraContent[index]);
     }
     addRawData(loraContent[index]);
@@ -95,7 +92,7 @@ async function addLoraDataToFirestore() {
   return;
 }
 
-async function addMonthlyRawData(nodeAddress, substanceDataArray) {
+function addMonthlyRawData(nodeAddress, substanceDataArray) {
   for (let i = 0; i < substanceDataArray.length; i++) {
     const substanceData = substanceDataArray[i];
     const substanceName = substanceType[i];
@@ -112,12 +109,12 @@ async function addMonthlyRawData(nodeAddress, substanceDataArray) {
       [substanceName]: substanceData,
     };
 
-    await addDoc(monthlyRawDataRef, dataObject);
+    addDoc(monthlyRawDataRef, dataObject);
     console.log("Monthly done");
   }
 }
 
-async function addDailyRawData(nodeAddress, substanceDataArray) {
+function addDailyRawData(nodeAddress, substanceDataArray) {
   const dailyRawDataRef = collection(
     db,
     `daily-raw-data/${yyyyMM}/day${dayDD}/node${nodeAddress}/data`
@@ -134,11 +131,11 @@ async function addDailyRawData(nodeAddress, substanceDataArray) {
     [substanceType[4]]: substanceDataArray[4],
   };
 
-  await addDoc(dailyRawDataRef, dataObject);
+  addDoc(dailyRawDataRef, dataObject);
   console.log("Daily done");
 }
 
-async function addHourlyRawData(nodeAddress, substanceDataArray) {
+function addHourlyRawData(nodeAddress, substanceDataArray) {
   const hh = currentDate.getHours().toString().padStart(2, "0"); // HH format
   const hour = (parseInt(hh, 10) + 1).toString();
 
@@ -158,7 +155,7 @@ async function addHourlyRawData(nodeAddress, substanceDataArray) {
     [substanceType[4]]: substanceDataArray[4],
   };
 
-  await setDoc(
+  setDoc(
     doc(
       hourlyNodeRawDataRef,
       `node${nodeAddress} : ${yyyyMM}-${dayDD} ${hhmmss}`
@@ -168,7 +165,7 @@ async function addHourlyRawData(nodeAddress, substanceDataArray) {
   console.log("hourly Node done");
 }
 
-async function addErrData(loraContent) {
+function addErrData(loraContent) {
   const errDataRef = collection(db, `err-data`);
   const dataObject = {
     date: `${yyyyMM}-${dayDD}`,
@@ -176,10 +173,10 @@ async function addErrData(loraContent) {
     errData: loraContent,
   };
 
-  await addDoc(errDataRef, dataObject);
+  addDoc(errDataRef, dataObject);
 }
 
-async function addRawData(loraContent) {
+function addRawData(loraContent) {
   const errDataRef = collection(db, `raw-data/${yyyyMM}/day${dayDD}`);
   const dataObject = {
     date: `${yyyyMM}-${dayDD}`,
@@ -187,8 +184,9 @@ async function addRawData(loraContent) {
     errData: loraContent,
   };
 
-  await addDoc(errDataRef, dataObject);
+  addDoc(errDataRef, dataObject);
 }
 
 // cal_monthly_data();
 addLoraDataToFirestore();
+console.log("start");

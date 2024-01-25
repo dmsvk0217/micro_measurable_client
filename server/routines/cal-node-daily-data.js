@@ -14,18 +14,15 @@ const {
   substanceDailyAverageType,
 } = require("../const.js");
 
-module.exports = function calNodeDailyAverage() {
-  const { hhmmss } = util.getDate();
-  console.log(`[${hhmmss}] calNodeDailyAverage`);
-
-  for (let i = 0; i < NUMBEROFNODE; i++) {
-    calDailyAverageWithNode(i);
-  }
+module.exports = function calNodeDailyAverage(yyyyMM, dayDD, hhmmss) {
+  // const { hhmmss } = util.getDate();
+  for (let i = 0; i < NUMBEROFNODE; i++)
+    calDailyAverageWithNode(i, yyyyMM, dayDD, hhmmss);
   return;
 };
 
-async function calDailyAverageWithNode(i) {
-  const { yyyyMM, dayDD, hhmmss } = util.getDate();
+async function calDailyAverageWithNode(i, yyyyMM, dayDD, hhmmss) {
+  // const { yyyyMM, dayDD, hhmmss } = util.getDate();
   let avgValue;
   let dataObject = {
     "node-address": i + 1,
@@ -35,7 +32,7 @@ async function calDailyAverageWithNode(i) {
 
   const dailyRawDataRef = collection(
     db,
-    `daily-raw-data/${yyyyMM}/day${dayDD}/node${i + 1}/data`
+    `daily-raw-data/${yyyyMM}/day${dayDD}/node${i + 1}/node${i + 1}`
   );
   const dailyAverageRef = collection(db, `daily-data/${yyyyMM}/day${dayDD}`);
 
@@ -43,7 +40,11 @@ async function calDailyAverageWithNode(i) {
     const querySnapshot = await getDocs(query(dailyRawDataRef));
 
     if (querySnapshot.docs.length === 0) {
-      console.log("🚀 ~ calDailyAverageWithNode docs.length = 0");
+      console.log(
+        `[${dayDD}day: ${hhmmss}] calNodeDailyAverage(querySnapshot.docs.length == 0) daily-raw-data/${yyyyMM}/day${dayDD}/node${
+          i + 1
+        }/node${i + 1}`
+      );
       return;
     }
 
@@ -59,9 +60,11 @@ async function calDailyAverageWithNode(i) {
     }
 
     await setDoc(doc(dailyAverageRef, `node${i + 1}`), dataObject);
-    console.log(`🚀 ~ calDayAverageWithNodeSubstance ~ done : node${i + 1}`);
+    console.log(`[${dayDD}day: ${hhmmss}] calNodeDailyAverage done`);
   } catch (error) {
-    console.log("🚀 ~ calDayAverageWithNodeSubstance ~ error:", error);
+    console.log(
+      `[${dayDD}day: ${hhmmss}] calNodeDailyAverage(error) : ${error}`
+    );
   }
   return;
 }

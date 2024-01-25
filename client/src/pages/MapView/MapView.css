@@ -4,7 +4,7 @@
 }
 
 .map {
-    width: 85%;
+    width: 100%;
 }
 
 .building-image-container img {
@@ -35,6 +35,7 @@
     top: 5%;
     right: 0%;
     width: 450px;
+    padding-right: 30px;
 }
 
 .node-info {
@@ -325,6 +326,8 @@
     top: 5%;
     left: 0%;
     width: 300px;
+    padding-left: 30px;
+    padding-top: 30px;
 }
 
 .option-container button {
