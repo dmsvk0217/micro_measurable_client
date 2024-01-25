@@ -17,18 +17,15 @@ const {
 
 module.exports = async function calHourlyAverage(yyyyMM, dayDD, hhmmss) {
   // const { yyyyMM, dayDD, hhmmss } = util.getDate();
-  console.log(`[${hhmmss}] calHourlyAverage `);
-
   for (let i = 0; i < NUMBEROFNODE; i++) {
-    calHourlyAverageWithNodeAndHour(i);
+    calHourlyAverageWithNodeAndHour(i, yyyyMM, dayDD, hhmmss);
   }
-  console.log("calHourlyAverage done");
   return;
 };
 
-async function calHourlyAverageWithNodeAndHour(i) {
-  const { yyyyMM, dayDD, hhmmss, hh } = util.getDate();
-  const hour = (parseInt(hh, 10) + 1).toString();
+async function calHourlyAverageWithNodeAndHour(i, yyyyMM, dayDD, hhmmss) {
+  // const { yyyyMM, dayDD, hhmmss, hh } = util.getDate();
+  const hour = util.generateHHMMSStoHH(hhmmss);
   let avgValue;
   let dataObject = {
     "node-address": i + 1,
@@ -51,7 +48,11 @@ async function calHourlyAverageWithNodeAndHour(i) {
 
   const querySnapshot = await getDocs(query(hourlyNodeRawDataRef));
   if (querySnapshot.docs.length === 0) {
-    console.log("🚀 ~ calHourlyAverageWithNodeAndHour docs.length = 0");
+    console.log(
+      `[${dayDD}day: ${hhmmss}] calHourlyAverageWithNodeAndHour(querySnapshot.docs.length == 0) hourly-raw-data/${yyyyMM}/day${dayDD}/hour${hour}/node${
+        i + 1
+      }`
+    );
     return;
   }
 
@@ -78,11 +79,14 @@ async function calHourlyAverageWithNodeAndHour(i) {
   );
   const nodeAllHoursSnapshot = await getDocs(query(nodeAllHoursRef));
   if (nodeAllHoursSnapshot.docs.length === 0) {
-    setDoc(doc(nodeAllHoursRef, "allHour"), { [`hour${hour}`]: dataObject });
+    await setDoc(doc(nodeAllHoursRef, "allHour"), {
+      [`hour${hour}`]: dataObject,
+    });
   } else {
-    updateDoc(doc(nodeAllHoursRef, "allHour"), { [`hour${hour}`]: dataObject });
+    await updateDoc(doc(nodeAllHoursRef, "allHour"), {
+      [`hour${hour}`]: dataObject,
+    });
   }
-
-  console.log(`🚀 ~ nodeHourlyDataRef ~ node${i + 1}:`);
+  console.log(`[${dayDD}day: ${hhmmss}] calHourlyAverage done`);
   return;
 }

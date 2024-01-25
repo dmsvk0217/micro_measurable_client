@@ -17,23 +17,25 @@ const {
 
 module.exports = async function calHourlyAllNodeAverage(yyyyMM, dayDD, hhmmss) {
   // const { yyyyMM, dayDD, hhmmss } = util.getDate();
-  console.log(`[${hhmmss}] calHourlyAverage `);
   let hourlyAllNodeObject = {
     date: `${yyyyMM}-${dayDD}`,
     timestamp: hhmmss,
   };
 
   for (let i = 0; i < NUMBEROFNODE; i++) {
-    await getHourlyAllNodeObject(i, hourlyAllNodeObject);
+    await getHourlyAllNodeObject(i, hourlyAllNodeObject, yyyyMM, dayDD, hhmmss);
   }
-  addHourlyAllNodeAverageObject(hourlyAllNodeObject);
-  console.log("addHourlyAllNodeAverageObject done");
+  addHourlyAllNodeAverageObject(hourlyAllNodeObject, yyyyMM, dayDD, hhmmss);
   return;
 };
 
-async function addHourlyAllNodeAverageObject(hourlyAllNodeObject) {
-  const { yyyyMM, dayDD, hhmmss, hh } = util.getDate();
-  const hour = (parseInt(hh, 10) + 1).toString();
+async function addHourlyAllNodeAverageObject(
+  hourlyAllNodeObject,
+  yyyyMM,
+  dayDD,
+  hhmmss
+) {
+  const hour = util.generateHHMMSStoHH(hhmmss);
 
   const hourlyAllNodeObjectRef = collection(
     db,
@@ -41,6 +43,7 @@ async function addHourlyAllNodeAverageObject(hourlyAllNodeObject) {
   );
 
   const hourlyAllNodeSnapshot = await getDocs(query(hourlyAllNodeObjectRef));
+
   if (hourlyAllNodeSnapshot.docs.length === 0) {
     await setDoc(doc(hourlyAllNodeObjectRef, "allNode"), hourlyAllNodeObject);
   } else {
@@ -49,11 +52,18 @@ async function addHourlyAllNodeAverageObject(hourlyAllNodeObject) {
       hourlyAllNodeObject
     );
   }
+  console.log(`[${dayDD}day: ${hhmmss}] addHourlyAllNodeAverageObject done`);
 }
 
-async function getHourlyAllNodeObject(i, hourlyAllNodeObject) {
-  const { yyyyMM, dayDD, hh, hhmmss } = util.getDate();
-  const hour = (parseInt(hh, 10) + 1).toString();
+async function getHourlyAllNodeObject(
+  i,
+  hourlyAllNodeObject,
+  yyyyMM,
+  dayDD,
+  hhmmss
+) {
+  // const { yyyyMM, dayDD, hh, hhmmss } = util.getDate();
+  const hour = util.generateHHMMSStoHH(hhmmss);
   let avgValue;
   let dataObject = {
     "node-address": i + 1,
@@ -68,7 +78,11 @@ async function getHourlyAllNodeObject(i, hourlyAllNodeObject) {
 
   const querySnapshot = await getDocs(query(hourlyNodeRawDataRef));
   if (querySnapshot.docs.length === 0) {
-    console.log("🚀 ~ getHourlyAllNodeObject docs.length = 0");
+    console.log(
+      `[${dayDD}day: ${hhmmss}] getHourlyAllNodeObject(querySnapshot.docs.length == 0) hourly-raw-data/${yyyyMM}/day${dayDD}/hour${hour}/node${
+        i + 1
+      }`
+    );
     return;
   }
 
@@ -84,7 +98,5 @@ async function getHourlyAllNodeObject(i, hourlyAllNodeObject) {
 
   // make hourlyAllNodeObject
   hourlyAllNodeObject[`node${i + 1}`] = dataObject;
-  console.log(`🚀 ~ hourlyNodeDataRef ~ node${i + 1}:`);
-
   return;
 }

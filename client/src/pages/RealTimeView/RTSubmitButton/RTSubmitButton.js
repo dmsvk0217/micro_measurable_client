@@ -12,17 +12,12 @@ function RTTSubmitButton({
   const [responseError, setResponseError] = useState(null);
 
   const handleTableSubmit = async () => {
-    console.log("🚀 ~ handleTableSubmit ~ selectedHour:", selectedHour);
-    console.log("🚀 ~ handleTableSubmit ~ selectedLocation:", selectedLocation);
-    console.log("🚀 ~ handleTableSubmit ~ selectedUnit:", selectedUnit);
-    console.log("🚀 ~ handleTableSubmit ~ selectedDate:", selectedDate);
-
     let requestURL;
     const requestBody = {
       date: selectedDate.toISOString().split("T")[0],
     };
 
-    if (selectedLocation.match("0") && selectedUnit.match("일평균")) {
+    if (selectedLocation.match("전체") && selectedUnit.match("일평균")) {
       console.log("전체노드 일평균");
       requestURL =
         "http://localhost:4000/api/all-nodes/all-substances/daily-averages";
@@ -35,9 +30,9 @@ function RTTSubmitButton({
       */
     }
 
-    if (!selectedLocation.match("0") && selectedUnit.match("일평균")) {
+    if (!selectedLocation.match("전체") && selectedUnit.match("일평균")) {
       console.log("특정노드 일평균");
-      requestBody["nodeAddress"] = selectedLocation;
+      requestBody["nodeAddressName"] = selectedLocation;
       requestURL =
         "http://localhost:4000/api/node/all-substances/daily-averages";
       /*
@@ -45,13 +40,13 @@ function RTTSubmitButton({
         /api/node/all-substances/daily-averages
         {
           "date":"2024-01-15"
-          "nodeAddress": "2"
+          "nodeAddressName": "2"
         }
       */
     }
 
     if (
-      selectedLocation.match("0") &&
+      selectedLocation.match("전체") &&
       selectedUnit.match("시간평균") &&
       selectedHour.match("전체")
     ) {
@@ -60,7 +55,7 @@ function RTTSubmitButton({
     }
 
     if (
-      selectedLocation.match("0") &&
+      selectedLocation.match("전체") &&
       selectedUnit.match("시간평균") &&
       !selectedHour.match("전체")
     ) {
@@ -79,12 +74,12 @@ function RTTSubmitButton({
     }
 
     if (
-      !selectedLocation.match("0") &&
+      !selectedLocation.match("전체") &&
       selectedUnit.match("시간평균") &&
       selectedHour.match("전체")
     ) {
       console.log("특정노드 시간평균 전체시간");
-      requestBody["nodeAddress"] = selectedLocation;
+      requestBody["nodeAddressName"] = selectedLocation;
       requestURL =
         "http://localhost:4000/api/node/all-substances/all-hourly-averages";
       /*
@@ -92,19 +87,19 @@ function RTTSubmitButton({
         /api/node/all-substances/all-hourly-averages
         {
           ”date”:”2024-01”
-          ”nodeAddress” : “4”
+          ”nodeAddressName” : “4”
         }
       */
     }
 
     if (
-      !selectedLocation.match("0") &&
+      !selectedLocation.match("전체") &&
       selectedUnit.match("시간평균") &&
       !selectedHour.match("전체")
     ) {
       console.log("특정노드 시간평균 특정시간");
       requestBody["hour"] = selectedHour;
-      requestBody["nodeAddress"] = selectedLocation;
+      requestBody["nodeAddressName"] = selectedLocation;
       requestURL =
         "http://localhost:4000/api/node/all-substances/hourly-averages";
       /*
@@ -113,27 +108,27 @@ function RTTSubmitButton({
         {
           ”date”:”2024-01-15”
           ”hour”:”21”
-          ”nodeAddress”:13
+          ”nodeAddressName”:13
         }
       */
     }
 
-    // try {
-    //   console.log("🚀 ~ handleTableSubmit ~ requestURL:", requestURL);
-    //   console.log("🚀 ~ handleTableSubmit ~ requestBody:", requestBody);
+    try {
+      console.log("🚀 ~ handleTableSubmit ~ requestURL:", requestURL);
+      console.log("🚀 ~ handleTableSubmit ~ requestBody:", requestBody);
 
-    //   const response = await axios.post(requestURL, requestBody);
-    //   setResponseData(response.data);
-    //   console.log("🚀 ~ handleTableSubmit ~ response.data:", response.data);
-    // } catch (error) {
-    //   setResponseError(error);
-    //   console.log("🚀 ~ handleTableSubmit ~ error:", error);
-    // }
+      const response = await axios.post(requestURL, requestBody);
+      setResponseData(response.data);
+      console.log("🚀 ~ handleTableSubmit ~ response.data:", response.data);
+    } catch (error) {
+      setResponseError(error);
+      console.log("🚀 ~ handleTableSubmit ~ error:", error);
+    }
   };
 
   return (
     <div className="search-btn-container">
-      <button className="search-btn" onClick={handleTableSubmit}>
+      <button type="button" className="search-btn" onClick={handleTableSubmit}>
         검색
       </button>
     </div>

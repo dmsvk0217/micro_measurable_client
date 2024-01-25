@@ -10,10 +10,10 @@ const calMonthlyAverage = require("./routines/cal-monthly-data.js");
 const calHourlyAverage = require("./routines/cal-hourly-data.js");
 
 // "초(option) 분 시 일 월 요일"
-cron.schedule("0 * * * *", calHourlyAverage); // 매시간
-cron.schedule("0 0 * * *", calAllNodeDailyAverage); // 매일
-cron.schedule("0 0 * * *", calNodeDailyAverage); // 매일
-cron.schedule("0 0 * * *", calMonthlyAverage); // 매일
+// cron.schedule("0 * * * *", calHourlyAverage); // 매시간
+// cron.schedule("0 0 * * *", calAllNodeDailyAverage); // 매일
+// cron.schedule("0 0 * * *", calNodeDailyAverage); // 매일
+// cron.schedule("0 0 * * *", calMonthlyAverage); // 매일
 
 const app = express();
 

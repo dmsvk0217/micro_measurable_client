@@ -8,7 +8,6 @@ const util = require("../util.js");
 for (let i = 0; i < 31; i++) {
   for (let j = 0; j < 24; j++) {
     let hhmmss = generateRandomTime(j);
-    console.log("🚀 ~ hhmmss:", hhmmss);
     let dayDD = generateDayDD(i + 1);
     const { yyyyMM } = util.getDate();
     calAllNodeDailyAverage(yyyyMM, dayDD, hhmmss);
