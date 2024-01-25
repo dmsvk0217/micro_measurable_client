@@ -14,4 +14,4 @@ function StatisticsDayView(){
     );
 }
 
-export default StatisticsDayView;
+export default StatisticsDayView;                                                  

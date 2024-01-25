@@ -3,8 +3,8 @@ import './MapView.css';
 import CurrentDate from '../../components/CurrentDate';
 
 function MapView() {
-    const [selectedNode, setSelectedNode] = useState('전체');
-    const [dropdownOpen, setDropdownOpen] = useState(false);
+const [selectedNode, setSelectedNode] = useState('전체');
+const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const [legendTitle, setLegendTitle] = useState('초미세먼지');
   const [selectedButtonId, setSelectedButtonId] = useState(1);
