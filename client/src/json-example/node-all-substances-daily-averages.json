@@ -1,18 +1,16 @@
 {
-  "dataObject": {
-    "type": "node-all-substances-daily-averages",
-    "numberOfNode": "13",
+  "type": "node-all-substances-daily-averages",
+  "numberOfNode": "13",
+  "date": "2024-01-18",
+  "substance": "ALL",
+  "data": {
+    "node-address": 13,
+    "timestamp": "10:39:14",
+    "ch2o-Daily-Average": 0.04,
+    "tempareture-Daily-Average": 21,
+    "humidity-Daily-Average": 21,
+    "pm10-Daily-Average": 9,
     "date": "2024-01-18",
-    "substance": "ALL",
-    "data": {
-      "node-address": 13,
-      "timestamp": "10:39:14",
-      "ch2o-Daily-Average": 0.04,
-      "tempareture-Daily-Average": 21,
-      "humidity-Daily-Average": 21,
-      "pm10-Daily-Average": 9,
-      "date": "2024-01-18",
-      "pm25-Daily-Average": 9
-    }
+    "pm25-Daily-Average": 9
   }
 }
