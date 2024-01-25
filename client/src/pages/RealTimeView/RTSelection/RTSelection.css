@@ -55,11 +55,24 @@ css */
   font-size: 0.8em;
 }
 
+.time-dropdown {
+  display: flex;
+  width: 120px;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 10px;
+  background-color: #fff;
+  border-color: transparent;
+  cursor: pointer;
+  align-items: center;
+}
+
 .RT-table-location,
 .RT-table-unit,
 .RT-table-time {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .react-datepicker__navigation--next {
@@ -68,21 +81,6 @@ css */
 
 .react-datepicker__navigation--previous {
   right: 50px;
-}
-
-.search-btn-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.search-btn {
-  background-color: rgba(85, 183, 107);
-  border: none;
-  padding: 10px 50px;
-  border-radius: 10px;
-  color: white;
-  font-weight: bold;
 }
 
 /*

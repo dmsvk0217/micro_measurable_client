@@ -1,51 +1,40 @@
-.RT-graph{
-    
+.RT-graph {
 }
 .RT-graph-title {
-    font-weight: bold;
-    font-size: 1.1em;
+  font-weight: bold;
+  font-size: 1.1em;
 }
 
-.RT-graph-select-container{
-    background-color: #EBF0EB;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px 0;
-    margin-bottom: 20px;
+.RT-graph-select-container {
+  background-color: #ebf0eb;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  margin-bottom: 20px;
 }
 
-.RT-graph-select-container p{
-    font-weight: bold;
-    margin-right: 10px;
+.RT-graph-select-container p {
+  font-weight: bold;
+  margin-right: 10px;
 }
 
 /* 오늘 일자 css */
-.current-date{
-    font-size: 0.8em;
-    font-weight: bold;
+.current-date {
+  font-size: 0.8em;
+  font-weight: bold;
 }
 
-.RT-graph-location , .RT-graph-matter {
-    display: flex;
-    align-items: center;
+.RT-graph-selectedLocation {
+  display: flex;
 }
 
-.RT-graph-dropdown select {
-    border:none;
-    width: 100%;
+.RT-graph-selectedSubstance {
+  display: flex;
 }
 
-.RT-graph-dropdown{
-    width: 100px;
-    padding: 8px;
-    font-size: 14px;
-    border-radius: 10px;
-    background-color: #fff;
-    border-color: transparent;
-    cursor: pointer;
-}
-
-.RT-graph-dropdown select:focus {
-    outline: none;
+.RT-graph-location,
+.RT-graph-matter {
+  display: flex;
+  align-items: center;
 }

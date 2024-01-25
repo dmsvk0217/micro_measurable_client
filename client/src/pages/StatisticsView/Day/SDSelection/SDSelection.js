@@ -1,41 +1,83 @@
 import React, { useState, useEffect } from "react";
-import CurrentDate from '../../../../components/CurrentDate';
+import {
+  selectMonthOptions,
+  selectYearOptions,
+  selectLocationOptions,
+  selectSubstanceOptions,
+} from "../../../../constants/selectOption";
+import CustomDropDown from "../../../../components/CustomDropDown/CustomDropDown";
+import SDSubmitButton from "../SDSubmitButton/SDSubmitButton";
+import "./SDSelection.css";
 
-import './SDSelection.css';
+function SDSelection() {
+  const [selectedYear, setSelectedYear] = useState(selectYearOptions[0]);
+  const [selectedMonth, setSelectedMonth] = useState(selectMonthOptions[0]);
+  const [selectedLocation, setSelectedLocation] = useState(
+    selectLocationOptions[0]
+  );
+  const [selectedSubstance, setSelectedSubstance] = useState(
+    selectSubstanceOptions[0]
+  );
 
+  const handleYearChange = (year) => {
+    setSelectedYear(year);
+  };
 
-function SDSelection(){
-    const [month, setMonth] = useState('');
-    const months = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
-    const handleMonthChange = (event) => {
-        setMonth(event.target.value);
-    };
+  const handleMonthChange = (month) => {
+    setSelectedMonth(month);
+  };
 
-    return(
-        <div className='RT-graph-select-container'>
-                <div className='RT-graph-location'>
-                    <p>측정위치</p>
-                    <div className='RT-graph-dropdown'>
-                        {/* <select value={location} onChange={handleLocationChange}>
-                            <option value="option1">뉴턴홀</option>
-                            <option value="option2">오석관</option>
-                            <option value="option3">느헤미야홀</option>
-                        </select> */}
-                    </div>
-                </div>
-                <div className='RT-graph-matter'>
-                    <p>측정물질</p>
-                    <div className='RT-graph-dropdown'>
-                        <select value={month} onChange={handleMonthChange}>
-                            {months.map((month, index) => (
-                                 <option value={index+1} key={index}>{month}</option>
-                            ))}
-                        </select>
-                    </div>
-                </div>
-                <CurrentDate/>
-            </div>
-    );
+  const handleLocationChange = (location) => {
+    setSelectedLocation(location);
+  };
+
+  const handleSubstanceChange = (substance) => {
+    setSelectedSubstance(substance);
+  };
+
+  return (
+    <div className="SD-select">
+      <div className="SD-select-container">
+        <div className="SD-select-comp">
+          <p>측정위치</p>
+          <CustomDropDown
+            optionData={selectLocationOptions}
+            selectedValue={selectedLocation}
+            handleSelectedValue={handleLocationChange}
+          />
+        </div>
+
+        <div className="SD-select-comp">
+          <p>측정기간</p>
+          <CustomDropDown
+            optionData={selectYearOptions}
+            selectedValue={selectedYear}
+            handleSelectedValue={handleYearChange}
+          />
+          <CustomDropDown
+            optionData={selectMonthOptions}
+            selectedValue={selectedMonth}
+            handleSelectedValue={handleMonthChange}
+          />
+        </div>
+
+        <div className="SD-select-comp">
+          <p>측정물질</p>
+          <CustomDropDown
+            optionData={selectSubstanceOptions}
+            selectedValue={selectedSubstance}
+            handleSelectedValue={handleSubstanceChange}
+          />
+        </div>
+      </div>
+      <SDSubmitButton
+        selectedYear={selectedYear}
+        selectedMonth={selectedMonth}
+        selectedLocation={selectedLocation}
+        selectedSubstance={selectedSubstance}
+      />
+    </div>
+  );
 }
 
 export default SDSelection;
