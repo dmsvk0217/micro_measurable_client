@@ -3,11 +3,10 @@ import "./StatisticsDayView.css";
 import CustomGraph from "../../../components/CustomGraph/CustomGraph";
 import CustomTable from "../../../components/CustomTable/CustomTable";
 import SDSelection from "./SDSelection/SDSelection";
-import { chartData,chartOptions } from "./SDGraphConfig"
+import { chartData, chartOptions } from "./SDGraphConfig";
 import { data, columns } from "./SDTableConfig";
 
 function StatisticsDayView() {
-
   return (
     <div className="SD-container">
       <p className="SD-title">통계 보기 &gt; 일별</p>
