@@ -149,7 +149,7 @@ exports.NodeAllSubstancesDailyAverages = async (req, res) => {
     request body
     {
       ”date”:”2024-01-15”
-      ”nodeAddress”:13
+      ”nodeAddressName”: "오석관"
     }
   */
 exports.nodeAllSubstancesAllHourlyAverages = async (req, res) => {
@@ -272,6 +272,8 @@ exports.allNodesAllSubstancesHourlyAverages = async (req, res) => {
       error: errMsg,
     });
   }
+
+  console.log(`[${yyyyMM}-${dayDD}] allNodesAllSubstancesHourlyAverages(done)`);
   return res.status(200).json(dataObject);
 };
 
@@ -279,7 +281,7 @@ exports.allNodesAllSubstancesHourlyAverages = async (req, res) => {
     request body
     {
       ”date”:”2024-01-15”
-      ”hour”:”21”
+      ”hour”:”21:00”
       ”nodeAddressName”:"현동홀"
     }
   */
@@ -346,137 +348,140 @@ exports.nodeAllSubstancesHourlyAverages = async (req, res) => {
   return res.status(200).json(dataObject);
 };
 
-exports.nodesSubstanceMonthlyAverages = async (req, res) => {
-  /* 
+/* 
     request body
     {
       ”date”:”2024-01”
       ”substance”: "pm10"
-      ”nodeAddressesArray”: [”3”, ”8”, “14”]
+      nodeAddressNameArray: [”3”, ”8”, “14”]
     }
   */
-
-  const { date, substance, nodeAddressesArray } = req.body;
-  let dataObject, yyyyMM;
-
-  if (!date || !substance || !nodeAddressesArray)
+exports.nodesSubstanceMonthlyAverages = async (req, res) => {
+  const { date, substance, nodeAddressNameArray } = req.body;
+  if (!date || !substance || !nodeAddressNameArray)
     return res.status(400).json({ error: "'All fields are required'" });
-
   if (!isValidYYYYMMFormat(date))
     return res.status(400).send({ error: "Date is not valid date format" });
-
   if (!substanceType.includes(substance))
     return res.status(400).send({ error: "substance is invalid" });
 
-  yyyyMM = date;
-  dataObject = {
+  const yyyyMM = date.slice(0, 7);
+  const hh = hour.slice(0, 2);
+  const nodeAddressNumber = nodeAddressOptions[nodeAddressName];
+  let dataObject = {
     type: "nodes-substance-monthly-averages",
     date: date,
     substance: substance,
-    nodeAddressesArray: nodeAddressesArray,
+    nodeAddressNameArray: nodeAddressNameArray,
     data: {},
   };
+  const query = querys.getNodesSubstanceMonthlyAveragesQuery(yyyyMM, substance);
 
   try {
-    const documentRef = doc(
-      db,
-      `monthly-data/${yyyyMM}/${substance}`,
-      "allNode"
-    );
-
+    const documentRef = doc(db, query);
     const docSnapshot = await getDoc(documentRef);
 
     if (!docSnapshot.exists()) {
+      const errMsg = util.generateErrLog(
+        yyyyMM,
+        "",
+        "nodesSubstanceMonthlyAverages",
+        "docSnapshot does not exists",
+        query
+      );
+      console.log(errMsg);
       return res.status(500).send({
-        error: `monthly-data/${yyyyMM}/${substance}/allNode : documentRef does not exists`,
+        error: errMsg,
       });
     }
 
-    const data = docSnapshot.data();
     const resultData = util.getTargetNodesDatafromJson(
-      data,
-      nodeAddressesArray
+      docSnapshot.data(),
+      nodeAddressNameArray
     );
     dataObject["data"] = resultData;
-    console.log(
-      "🚀 ~ exports.nodesSubstanceMonthlyAverages= ~ resultData:",
-      resultData
-    );
-
-    let numberOfNode = util.countNodesFromJson(dataObject);
-    dataObject["numberOfNode"] = numberOfNode;
+    dataObject["numberOfNode"] = util.countNodesFromJson(dataObject);
   } catch (error) {
-    console.log(
-      "🚀 ~ exports.nodeAllSubstancesHourlyAverages= ~ error:",
+    const errMsg = util.generateErrLog(
+      yyyyMM,
+      "",
+      "nodesSubstanceMonthlyAverages",
+      "Internal Server Error",
       error
     );
-    return res.status(500).json({ error: error });
+    console.log(errMsg);
+    return res.status(500).json({
+      error: errMsg,
+    });
   }
 
-  return res.status(200).json({ dataObject });
+  console.log(`[${yyyyMM}] nodesSubstanceMonthlyAverages(done)`);
+  return res.status(200).json(dataObject);
 };
 
-exports.allNodesSubstanceMonthlyAverages = async (req, res) => {
-  /* 
+/* 
     request body
     {
       ”date”:”2024-01”
       ”substance”: "pm10"
     }
   */
-
+exports.allNodesSubstanceMonthlyAverages = async (req, res) => {
   const { date, substance } = req.body;
-  let dataObject, yyyyMM;
-
   if (!date || !substance)
     return res.status(400).json({ error: "'All fields are required'" });
-
   if (!isValidYYYYMMFormat(date))
     return res.status(400).send({ error: "Date is not valid date format" });
-
   if (!substanceType.includes(substance))
     return res.status(400).send({ error: "substance is invalid" });
 
-  yyyyMM = date;
-  dataObject = {
+  const yyyyMM = date;
+  const nodeAddressNumber = nodeAddressOptions[nodeAddressName];
+  let dataObject = {
     type: "all-node-substance-monthly-averages",
     date: date,
     substance: substance,
     data: {},
   };
+  const query = querys.getAllNodesSubstanceMonthlyAveragesQuery(
+    yyyyMM,
+    substance
+  );
 
   try {
-    const documentRef = doc(
-      db,
-      `monthly-data/${yyyyMM}/${substance}`,
-      "allNode"
-    );
-
+    const documentRef = doc(db, query);
     const docSnapshot = await getDoc(documentRef);
 
     if (!docSnapshot.exists()) {
-      console.log(
-        "🚀 ~ exports.allNodesSubstanceMonthlyAverages= ~ documentRef.exists():",
-        documentRef.exists()
+      const errMsg = util.generateErrLog(
+        yyyyMM,
+        dayDD,
+        "allNodesSubstanceMonthlyAverages",
+        "docSnapshot does not exists",
+        query
       );
+      console.log(errMsg);
       return res.status(500).send({
-        error: `monthly-data/${yyyyMM}/${substance}/allNode : documentRef does not exists`,
+        error: errMsg,
       });
     }
-    const data = docSnapshot.data();
-    dataObject["data"] = data;
-    console.log("🚀 ~ exports.allNodesSubstanceMonthlyAverages= ~ data:", data);
-
-    let numberOfNode = util.countNodesFromJson(dataObject);
-    dataObject["numberOfNode"] = numberOfNode;
+    dataObject["data"] = docSnapshot.data();
+    dataObject["numberOfNode"] = util.countNodesFromJson(dataObject);
   } catch (error) {
-    console.log(
-      "🚀 ~ exports.nodeAllSubstancesHourlyAverages= ~ error:",
+    const errMsg = util.generateErrLog(
+      yyyyMM,
+      "",
+      "allNodesSubstanceMonthlyAverages",
+      "Internal Server Error",
       error
     );
-    return res.status(500).json({ error: error });
+    console.log(errMsg);
+    return res.status(500).json({
+      error: errMsg,
+    });
   }
 
+  console.log(`[${yyyyMM}-${dayDD}] allNodesSubstanceMonthlyAverages(done)`);
   return res.status(200).json({ dataObject });
 };
 

@@ -30,3 +30,11 @@ exports.getNodeAllSubstancesHourlyAveragesQuery = (
 exports.getAllNodesAllSubstancesHourlyAveragesQuery = (yyyyMM, dayDD, hour) => {
   return `hourly-data/${yyyyMM}/day${dayDD}/hour${hour}/allNode/allNode`;
 };
+
+exports.getNodesSubstanceMonthlyAveragesQuery = (yyyyMM, substance) => {
+  return `monthly-data/${yyyyMM}/${substance}allNode`;
+};
+
+exports.getAllNodesSubstanceMonthlyAveragesQuery = (yyyyMM, substance) => {
+  return `monthly-data/${yyyyMM}/${substance}/allNode`;
+};

@@ -93,7 +93,9 @@ exports.printDoneLog = (yyyyMM, dayDD, functionName, content, ref) => {
 };
 
 exports.generateErrLog = (yyyyMM, dayDD, functionName, content, ref) => {
-  return `[${yyyyMM}-${dayDD}] ${functionName} (${content}) ${ref}`;
+  return `[${yyyyMM}${
+    dayDD == "" ? "" : "-"
+  }${dayDD}] ${functionName} (${content}) ${ref}`;
 };
 
 exports.generateDoneLog = (yyyyMM, dayDD, functionName) => {
