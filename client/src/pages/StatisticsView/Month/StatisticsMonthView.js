@@ -1,9 +1,11 @@
 import React from 'react'
 import './StatisticsMonthView.css'
-import SMTable from './SMTable/SMTable';
-import SMGraph from './SMGraph/SMGraph';
+import CustomGraph from "../../../components/CustomGraph/CustomGraph";
+import CustomTable from "../../../components/CustomTable/CustomTable";
 import SMSelection from './SMSelection/SMSelection';
-import SDSelection from '../Day/SDSelection/SDSelection';
+import { chartData, chartOptions } from './SMGraphConfig';
+import { data, columns } from "./SMTableConfig";
+import DownloadButton from "../../../components/DownloadButton/DownloadButton";
 
 function StatisticsMonthView(){
     return (
@@ -11,9 +13,10 @@ function StatisticsMonthView(){
             <p className='SM-title'>통계 보기 &gt; 월별</p>
             <div className='SM-content-container'>
                 <SMSelection/>
-                <SMTable/>
+                <DownloadButton data={data}></DownloadButton>
+                <CustomTable data={data} columns={columns}></CustomTable>
                 <hr className='SM-Month'></hr>
-                <SMGraph/>
+                <CustomGraph data={chartData} options={chartOptions}></CustomGraph>
             </div>
         </div>
     );

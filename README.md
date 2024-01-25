@@ -10,7 +10,7 @@ cd /server <br/>
 npm i<br/>
 
 <br/><br/>
-(server clinet 동시실행) : npm run dev <br/>
-(clinet) : npm run start <br/>
+(server client 동시실행) : npm run dev <br/>
+(client) : npm run start <br/>
 (server) : nodemon server.js <br/>
 

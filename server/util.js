@@ -1,3 +1,5 @@
+const { nodeAddressOptions, nodeAddressOptionsJson } = require("./const.js");
+
 exports.getDate = () => {
   const currentDate = new Date();
   const yyyyMM = currentDate.toISOString().slice(0, 7); // YYYY-MM format
@@ -80,4 +82,47 @@ exports.generateDayDD = (dayDD) => {
 exports.generateHHMMSStoHH = (hhmmss) => {
   let hh = hhmmss.slice(0, 2);
   return hh;
+};
+
+exports.printErrLog = (yyyyMM, dayDD, functionName, content, ref) => {
+  console.log(`[${yyyyMM}-${dayDD}] ${functionName} (${content}) ${ref}`);
+  return;
+};
+
+exports.printDoneLog = (yyyyMM, dayDD, functionName, content, ref) => {
+  console.log(`[${yyyyMM}-${dayDD}] ${functionName} (${content}) ${ref}`);
+  return;
+};
+
+exports.generateErrLog = (yyyyMM, dayDD, functionName, content, ref) => {
+  return `[${yyyyMM}${
+    dayDD == "" ? "" : "-"
+  }${dayDD}] ${functionName} (${content}) ${ref}`;
+};
+
+exports.generateDoneLog = (yyyyMM, dayDD, functionName) => {
+  return `[${yyyyMM}-${dayDD}] ${functionName} (done)`;
+};
+
+exports.translateSubstanceArrNameToNumber = (nodeAddressNameArray) => {
+  const resultArray = [];
+
+  for (const nodeAddressName of nodeAddressNameArray) {
+    if (nodeAddressOptionsJson[nodeAddressName]) {
+      resultArray.push(nodeAddressOptionsJson[nodeAddressName]);
+    }
+  }
+
+  return resultArray;
+};
+
+exports.checkIsAllNodeVaild = (nodeAddressNameArray) => {
+  let result = true;
+
+  for (const nodeAddressName of nodeAddressNameArray) {
+    if (!nodeAddressOptions.includes(nodeAddressName)) {
+      result = false;
+    }
+  }
+  return result;
 };
