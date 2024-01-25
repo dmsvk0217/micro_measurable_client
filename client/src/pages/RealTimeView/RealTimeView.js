@@ -1,8 +1,10 @@
 import React from "react";
 import "./RealTimeView.css";
-import RTTable from "./RTTable/RTTable";
-import RTGraph from "./RTGraph/RTGraph";
 import RTSelection from "./RTSelection/RTSelection";
+import { chartData,chartOptions } from "./RTGraphConfig"
+import { data, columns } from "./RTTableConfig";
+import CustomGraph from "../../components/CustomGraph/CustomGraph";
+import CustomTable from "../../components/CustomTable/CustomTable";
 
 function RealTimeView() {
   return (
@@ -10,9 +12,9 @@ function RealTimeView() {
       <p className="RT-title">실시간 정보 보기</p>
       <div className="RT-content-container">
         <RTSelection />
-        <RTTable />
-        <hr className="RT-hr"></hr>
-        <RTGraph />
+        <CustomTable data={data} columns={columns}></CustomTable>
+        <hr className="SD-hr"></hr>
+        <CustomGraph data={chartData} options={chartOptions}></CustomGraph>
       </div>
     </div>
   );

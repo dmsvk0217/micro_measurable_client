@@ -1,19 +1,83 @@
-import React, { useState } from "react";
-import {
-  createColumnHelper,
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from "@tanstack/react-table";
+import { createColumnHelper } from "@tanstack/react-table";
 
-import "react-datepicker/dist/react-datepicker.css";
-import "./RTTable.css";
-import { tableData } from "./tableData";
+export const data = [
+    {
+      date: "24-01-17 14:00",
+      node: "뉴턴홀",
+      pm25: "76",
+      pm10: "151",
+      HCHO: "0.002",
+      wind_speed: "5m/s",
+      wind_direction: "남서",
+      temperature: "8 °C",
+      humidity: "30%"
+    },
+    {
+      date: "24-01-17 14:00",
+      node: "그레이스홀",
+      pm25: "56",
+      pm10: "81",
+      HCHO: "0.002",
+      wind_speed: "5m/s",
+      wind_direction: "남서",
+      temperature: "8 °C",
+      humidity: "30%"
+    },
+    {
+      date: "24-01-17 14:00",
+      node: "현동홀",
+      pm25: "13",
+      pm10: "15",
+      HCHO: "0.002",
+      wind_speed: "5m/s",
+      wind_direction: "남서",
+      temperature: "8 °C",
+      humidity: "30%"
+    },
+    {
+      date: "24-01-17 14:00",
+      node: "느헤미야홀",
+      pm25: "46",
+      pm10: "42",
+      HCHO: "0.002",
+      wind_speed: "5m/s",
+      wind_direction: "남서",
+      temperature: "8 °C",
+      humidity: "30%"
+    },
+    {
+      date: "24-01-17 14:00",
+      node: "오석관",
+      pm25: "26",
+      pm10: "98",
+      HCHO: "0.002",
+      wind_speed: "5m/s",
+      wind_direction: "남서",
+      temperature: "8 °C",
+      humidity: "30%"
+    },
+    {
+      date: "24-01-17 14:00",
+      node: "채플별관",
+      pm25: "77",
+      pm10: "67",
+      HCHO: "0.002",
+      wind_speed: "5m/s",
+      wind_direction: "남서",
+      temperature: "8 °C",
+      humidity: "30%"
+    }
+  ];
+  
 
-function RTTable() {
-  const [data] = useState([...tableData]);
-  const columnHelper = createColumnHelper();
-  const columns = [
+const columnHelper = createColumnHelper();
+
+const months = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+];
+
+export const columns = [
     columnHelper.accessor("date", { header: "측정일시", size: 120 }),
     columnHelper.accessor("node", {
       header: "측정위치",
@@ -147,43 +211,4 @@ function RTTable() {
       size: 80,
     }),
   ];
-  const table = useReactTable({
-    data,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-  });
 
-  return (
-    <table>
-      <thead>
-        {table.getHeaderGroups().map((headerGroup) => (
-          <tr key={headerGroup.id}>
-            {headerGroup.headers.map((header) => (
-              <th key={header.id} style={{ width: header.getSize() }}>
-                {header.isPlaceholder
-                  ? null
-                  : flexRender(
-                      header.column.columnDef.header,
-                      header.getContext()
-                    )}
-              </th>
-            ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody>
-        {table.getRowModel().rows.map((row) => (
-          <tr key={row.id}>
-            {row.getVisibleCells().map((cell) => (
-              <td key={cell.id}>
-                {flexRender(cell.column.columnDef.cell, cell.getContext())}
-              </td>
-            ))}
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-}
-
-export default RTTable;
