@@ -2,11 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./SMSubmitButton.css";
 
-function SMSubmitButton({
-  selectedYear,
-  selectedLocation,
-  selectedSubstance,
-}) {
+function SMSubmitButton({ selectedYear, selectedLocation, selectedSubstance }) {
   const [responseData, setResponseData] = useState(null);
   const [responseError, setResponseError] = useState(null);
 
@@ -17,9 +13,7 @@ function SMSubmitButton({
     };
 
     if (selectedLocation.match("전체")) {
-      console.log(
-        `전체노드 ${selectedSubstance} ${selectedYear} 연간 월평균`
-      );
+      console.log(`전체노드 ${selectedSubstance} ${selectedYear} 연간 월평균`);
       requestURL =
         "http://localhost:4000/api/all-nodes/substance/monthly-averages";
       /*

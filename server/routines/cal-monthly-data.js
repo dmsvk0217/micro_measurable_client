@@ -12,14 +12,14 @@ const db = require("../firebase.js");
 const util = require("../util.js");
 const {
   NUMBEROFNODE,
-  substanceType,
+  substanceEnType,
   substanceDailyAverageType,
 } = require("../const.js");
 
 module.exports = async function calMonthlyDayAverage(yyyyMM, dayDD, hhmmss) {
   // const { yyyyMM, dayDD, hhmmss } = util.getDate();
 
-  for (let i = 0; i < substanceType.length; i++) {
+  for (let i = 0; i < substanceEnType.length; i++) {
     let monthlyDayObject = {};
     for (let j = 0; j < NUMBEROFNODE; j++) {
       await calDayAverageWithNodeAndSubstance(
@@ -33,7 +33,7 @@ module.exports = async function calMonthlyDayAverage(yyyyMM, dayDD, hhmmss) {
     }
     await addSubstanceAllNodeObject(
       monthlyDayObject,
-      substanceType[i],
+      substanceEnType[i],
       yyyyMM,
       dayDD,
       hhmmss
@@ -45,14 +45,14 @@ module.exports = async function calMonthlyDayAverage(yyyyMM, dayDD, hhmmss) {
 
 async function addSubstanceAllNodeObject(
   monthlyDayObject,
-  substanceType,
+  substanceEnType,
   yyyyMM,
   dayDD,
   hhmmss
 ) {
   const substanceRef = collection(
     db,
-    `monthly-data/${yyyyMM}/${substanceType}`
+    `monthly-data/${yyyyMM}/${substanceEnType}`
   );
 
   // 문서 조회
@@ -86,11 +86,11 @@ async function calDayAverageWithNodeAndSubstance(
 ) {
   const monthlyRawDataRef = collection(
     db,
-    `monthly-raw-data/${yyyyMM}/${substanceType[j]}/node${i + 1}/day${dayDD}`
+    `monthly-raw-data/${yyyyMM}/${substanceEnType[j]}/node${i + 1}/day${dayDD}`
   );
   const substanceCollectionRef = collection(
     db,
-    `monthly-data/${yyyyMM}/${substanceType[j]}`
+    `monthly-data/${yyyyMM}/${substanceEnType[j]}`
   );
 
   try {
@@ -99,14 +99,14 @@ async function calDayAverageWithNodeAndSubstance(
     if (querySnapshot.docs.length === 0) {
       console.log(
         `[${dayDD}day: ${hhmmss}] calDayAverageWithNodeAndSubstance(querySnapshot.docs.length == 0) monthly-raw-data/${yyyyMM}/${
-          substanceType[j]
+          substanceEnType[j]
         }/node${i + 1}/day${dayDD}`
       );
       return;
     }
 
     const valueArray = querySnapshot.docs.map(
-      (doc) => doc.data()[substanceType[j]]
+      (doc) => doc.data()[substanceEnType[j]]
     );
 
     const avgValue =

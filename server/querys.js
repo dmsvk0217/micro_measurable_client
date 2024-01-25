@@ -32,7 +32,7 @@ exports.getAllNodesAllSubstancesHourlyAveragesQuery = (yyyyMM, dayDD, hour) => {
 };
 
 exports.getNodesSubstanceMonthlyAveragesQuery = (yyyyMM, substance) => {
-  return `monthly-data/${yyyyMM}/${substance}allNode`;
+  return `monthly-data/${yyyyMM}/${substance}/allNode`;
 };
 
 exports.getAllNodesSubstanceMonthlyAveragesQuery = (yyyyMM, substance) => {
