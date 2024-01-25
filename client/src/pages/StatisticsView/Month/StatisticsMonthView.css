@@ -1,0 +1,14 @@
+.SM-container{
+    max-width: 1000px;
+    margin: 0 auto; /* 좌우 마진을 auto */
+}
+
+.SM-title{
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.SM-content-container{
+    border: 1px solid #d3d3d3;
+    padding: 20px;
+}
