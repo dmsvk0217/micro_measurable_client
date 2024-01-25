@@ -17,3 +17,16 @@ exports.getNodeAllSubstancesDailyAveragesQuery = (
 ) => {
   return `daily-data/${yyyyMM}/day${dayDD}/node${nodeAddress}`;
 };
+
+exports.getNodeAllSubstancesHourlyAveragesQuery = (
+  yyyyMM,
+  dayDD,
+  hour,
+  nodeAddress
+) => {
+  return `hourly-data/${yyyyMM}/day${dayDD}/hour${hour}/node${nodeAddress}/node${nodeAddress}`;
+};
+
+exports.getAllNodesAllSubstancesHourlyAveragesQuery = (yyyyMM, dayDD, hour) => {
+  return `hourly-data/${yyyyMM}/day${dayDD}/hour${hour}/allNode/allNode`;
+};
