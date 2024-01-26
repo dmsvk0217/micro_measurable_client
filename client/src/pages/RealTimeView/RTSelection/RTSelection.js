@@ -124,9 +124,9 @@ function RTSelection() {
           />
         </div>
       </div>
-      <p>
+      <div className="RT-table-title-container">
         <span className="RT-table-title">| 측정 일시 |</span> <CurrentDate />
-      </p>
+      </div>
     </div>
   );
 }

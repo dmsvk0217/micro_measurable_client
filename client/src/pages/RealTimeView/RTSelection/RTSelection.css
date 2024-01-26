@@ -10,6 +10,10 @@ css */
   border: 0;
 }
 
+.RT-table-title-container {
+  padding: 10px;
+}
+
 .RT-table-title {
   font-weight: bold;
   font-size: 1.1em;

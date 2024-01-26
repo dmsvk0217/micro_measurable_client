@@ -22,6 +22,16 @@ export const selectSubstanceOptions = [
   "풍속",
 ];
 
+export const substanceEnOptions = [
+  "ch2o",
+  "humidity",
+  "PM25",
+  "PM10",
+  "temperature",
+  "wind_direction",
+  "wind_speed",
+];
+
 export const selectLocationOptions = [
   "전체",
   "뉴턴홀",
