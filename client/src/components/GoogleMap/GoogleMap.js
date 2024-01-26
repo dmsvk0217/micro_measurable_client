@@ -10,8 +10,8 @@ const GoogleMap = ({ option }) => {
 
     useEffect(() => {
         const newMap = new window.google.maps.Map(ref.current, {
-            center: { lat: 36.1032210, lng: 129.3888414 },
-            zoom: 17.1,
+            center: { lat: 36.1032734, lng: 129.3893488 },
+            zoom: 17.0,
         });
 
         const markerColors = {
@@ -25,32 +25,40 @@ const GoogleMap = ({ option }) => {
         // 노드 정보 가져오기
         const markers = nodeConfig.map((node) => {
             let value;
+            let sub_level = '';
 
             switch (option) {
                 case 'pm25':
                     value = node.pm25;
+                    if (value >= 76)
+                        sub_level = 'worst';
+                    else if (value >= 36) 
+                        sub_level = 'bad';
+                    else if (value >= 16) 
+                        sub_level = 'normal';
+                    else if (value >= 0) 
+                        sub_level = 'good';
+                    else 
+                        sub_level = 'undefined'
                     break;
                 case 'pm10':
                     value = node.pm10;
+                    if (value >= 151)
+                        sub_level = 'worst';
+                    else if (value >= 81) 
+                        sub_level = 'bad';
+                    else if (value > 31) 
+                        sub_level = 'normal';
+                    else if (value >= 0) 
+                        sub_level = 'good';
+                    else 
+                        sub_level = 'undefined'
                     break;
                 case 'HCHO':
                     value = node.HCHO;
                     break;
                 default:
                     value = undefined;
-            }
-
-            let sub_level = '';
-            if (value > 76) {
-                sub_level = 'worst';
-            } else if (value > 36) {
-                sub_level = 'bad';
-            } else if (value > 16) {
-                sub_level = 'normal';
-            } else if (value > 0) {
-                sub_level = 'good';
-            } else {
-                sub_level = 'undefined'
             }
 
             const markerColor = markerColors[sub_level];
