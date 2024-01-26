@@ -15,7 +15,7 @@ function NavigationBar(){
     return (
         <nav className="navbar">
             <div className="navbar-logo">
-                <NavLink to="/"><img src="/img/logo.png" alt="Logo" /></NavLink>
+                <NavLink to="/"><img src="/img/logo.png" alt="Logo" className="logo"/></NavLink>
             </div>
             <ul className="nav-links">
                 <li><NavLink to="/" className={({ isActive }) => isActive ? 'nav-link-active' : 'nav-link'}>지도 보기</NavLink></li>
