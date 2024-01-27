@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@googlemaps/react-wrapper": "^1.1.35",
+    "@tanstack/react-query": "^5.17.19",
     "@tanstack/react-table": "^8.11.7",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -22,7 +23,8 @@
     "react-router-dom": "^6.21.2",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "zustand": "^4.5.0"
   },
   "scripts": {
     "start": "react-scripts start",

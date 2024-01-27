@@ -1,26 +1,26 @@
-import React, { useState } from "react";
-import axios from "axios";
-import "./RTSubmitButton.css";
+import axiosInstance from './axiosInstance';
 
-function RTTSubmitButton({
-  selectedLocation,
-  selectedDate,
-  selectedUnit,
-  selectedHour,
-}) {
-  const [responseData, setResponseData] = useState(null);
-  const [responseError, setResponseError] = useState(null);
+export const fetchRTTableData = async ({selectedLocation, selectedDate, selectedUnit, selectedHour}) => {
+    
 
-  const handleTableSubmit = async () => {
+    let formattedDate;
     let requestURL;
+
+    //시차 영향 제거
+    if (selectedDate) {
+        const offset = selectedDate.getTimezoneOffset() * 60000;
+        const adjustedDate = new Date(selectedDate.getTime() - offset);
+        formattedDate = adjustedDate.toISOString().split('T')[0];
+    }
+
     const requestBody = {
-      date: selectedDate.toISOString().split("T")[0],
+        date: formattedDate,
     };
 
     if (selectedLocation.match("전체") && selectedUnit.match("일평균")) {
       console.log("전체노드 일평균");
       requestURL =
-        "http://localhost:4000/api/all-nodes/all-substances/daily-averages";
+        "/all-nodes/all-substances/daily-averages";
       /*
         모든 노드에 대한 모든 물질의 일평균 데이터
         /api/all-nodes/all-substances/daily-averages
@@ -34,7 +34,7 @@ function RTTSubmitButton({
       console.log("특정노드 일평균");
       requestBody["nodeAddressName"] = selectedLocation;
       requestURL =
-        "http://localhost:4000/api/node/all-substances/daily-averages";
+        "/node/all-substances/daily-averages";
       /*
         특정 노드에 대한 모든 물질의 일평균 데이터
         /api/node/all-substances/daily-averages
@@ -62,7 +62,7 @@ function RTTSubmitButton({
       console.log("전체노드 시간평균 특정시간");
       requestBody["hour"] = selectedHour;
       requestURL =
-        "http://localhost:4000/api/all-nodes/all-substances/hourly-averages";
+        "/all-nodes/all-substances/hourly-averages";
       /*
         모든 노드에 대한 모든 물질의 시간평균 데이터
         /api/all-nodes/all-substances/hourly-averages
@@ -81,7 +81,7 @@ function RTTSubmitButton({
       console.log("특정노드 시간평균 전체시간");
       requestBody["nodeAddressName"] = selectedLocation;
       requestURL =
-        "http://localhost:4000/api/node/all-substances/all-hourly-averages";
+        "/node/all-substances/all-hourly-averages";
       /*
         특정 노드에 대한 모든 물질의 일간 시간평균 데이터
         /api/node/all-substances/all-hourly-averages
@@ -101,7 +101,7 @@ function RTTSubmitButton({
       requestBody["hour"] = selectedHour;
       requestBody["nodeAddressName"] = selectedLocation;
       requestURL =
-        "http://localhost:4000/api/node/all-substances/hourly-averages";
+        "/node/all-substances/hourly-averages";
       /*
         특정 노드에 대한 모든 물질의 시간평균 데이터
         /api/node/all-substances/hourly-averages
@@ -113,26 +113,11 @@ function RTTSubmitButton({
       */
     }
 
-    try {
-      console.log("🚀 ~ handleTableSubmit ~ requestURL:", requestURL);
-      console.log("🚀 ~ handleTableSubmit ~ requestBody:", requestBody);
+    console.log("🚀 ~ handleTableSubmit ~ requestURL:", requestURL);
+    console.log("🚀 ~ handleTableSubmit ~ requestBody:", requestBody);
 
-      const response = await axios.post(requestURL, requestBody);
-      setResponseData(response.data);
-      console.log("🚀 ~ handleTableSubmit ~ response.data:", response.data);
-    } catch (error) {
-      setResponseError(error);
-      console.log("🚀 ~ handleTableSubmit ~ error:", error);
-    }
-  };
+    const response = await axiosInstance.post(requestURL, requestBody);
 
-  return (
-    <div className="search-btn-container">
-      <button type="button" className="search-btn" onClick={handleTableSubmit}>
-        검색
-      </button>
-    </div>
-  );
-}
+    return response.data;
+};
 
-export default RTTSubmitButton;
