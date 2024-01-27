@@ -3,6 +3,7 @@ const {
   substanceFromNumberOptions,
   substanceHourlyAverageFromNumberOptions,
 } = require("./const.js");
+const _ = require("lodash");
 
 module.exports = async function calHourlyData(yyyyMM, dayDD, hhmmss) {
   const hhStart = hhmmss.slice(0, 2);
@@ -21,15 +22,20 @@ module.exports = async function calHourlyData(yyyyMM, dayDD, hhmmss) {
   }
   console.log(snapshot.size);
 
-  let avgData = new Array(16).fill([]).map(() => new Array(8).fill(0));
-  let count = new Array(16).fill(0);
+  let avgData = Array.from({ length: 16 }, () =>
+    Array.from({ length: 8 }, () => 0)
+  );
+  let windDirectionArray = Array.from({ length: 16 }, () => []);
+  let count = Array.from({ length: 16 }, () => 0);
 
   snapshot.forEach((doc) => {
     const nodeAddress = doc.data()["nodeAddress"];
     count[nodeAddress]++;
 
     for (let i = 1; i <= 7; i++) {
-      avgData[nodeAddress][i] += doc.data()[substanceFromNumberOptions[i]];
+      const value = doc.data()[substanceFromNumberOptions[i]];
+      if (i == 6) windDirectionArray[nodeAddress].push(value);
+      else avgData[nodeAddress][i] += value;
     }
   });
 
@@ -48,8 +54,15 @@ module.exports = async function calHourlyData(yyyyMM, dayDD, hhmmss) {
       nodeAddress: i,
     };
     for (let j = 1; j <= 7; j++) {
-      resultObject[`node${i}`][substanceHourlyAverageFromNumberOptions[j]] =
-        avgData[i][j];
+      if (j == 6) {
+        const windDirection = getMostFrequentlyWindDirectionFromArray(
+          windDirectionArray[i]
+        );
+        resultObject[`node${i}`][substanceHourlyAverageFromNumberOptions[j]] =
+          windDirection;
+      } else
+        resultObject[`node${i}`][substanceHourlyAverageFromNumberOptions[j]] =
+          avgData[i][j];
     }
   }
 
@@ -69,3 +82,9 @@ module.exports = async function calHourlyData(yyyyMM, dayDD, hhmmss) {
 
   return;
 };
+
+function getMostFrequentlyWindDirectionFromArray(windDirectionArray) {
+  const countByResult = _.countBy(windDirectionArray);
+  const modeValue = _.maxBy(_.keys(countByResult), (key) => countByResult[key]);
+  return modeValue;
+}

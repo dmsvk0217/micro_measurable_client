@@ -1,15 +1,24 @@
 const calHourlyData = require("./cal-hourly-data.js");
-const util = require("./util.js");
+const util = require("../util.js");
 
-for (let i = 2; i <= 2; i++) {
-  for (let j = 2; j < 3; j++) {
-    let hhmmss = util.generateRandomTime(j);
-    let dayDD = util.generateDayDD(i);
-    const { yyyyMM } = util.getDate();
-    // calAllNodeDailyAverage(yyyyMM, dayDD, hhmmss);
-    // calNodeDailyAverage(yyyyMM, dayDD, hhmmss);
-    // calMonthlyAverage(yyyyMM, dayDD, hhmmss);
-    // calHourlyAverage(yyyyMM, dayDD, hhmmss);
-    calHourlyData(yyyyMM, dayDD, hhmmss);
+const dayStart = 1;
+const dayEnd = 1;
+const hourStart = 0;
+const hourEnd = 23;
+
+async function testRoutine() {
+  for (let i = dayStart; i <= dayEnd; i++) {
+    for (let j = hourStart; j <= hourEnd; j++) {
+      let hhmmss = util.generateRandomTime(j);
+      let dayDD = util.generateDayDD(i);
+      const { yyyyMM } = util.getDate();
+      await calHourlyData(yyyyMM, dayDD, hhmmss);
+
+      // calAllNodeDailyAverage(yyyyMM, dayDD, hhmmss);
+      // calNodeDailyAverage(yyyyMM, dayDD, hhmmss);
+      // calMonthlyAverage(yyyyMM, dayDD, hhmmss);
+    }
   }
 }
+
+testRoutine();
