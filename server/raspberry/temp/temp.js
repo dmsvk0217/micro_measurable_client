@@ -20,7 +20,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const util = require("../util.js");
+const util = require("../../util.js");
 
 const currentDate = new Date();
 const yyyyMM = currentDate.toISOString().slice(0, 7); // YYYY-MM format
