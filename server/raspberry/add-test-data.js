@@ -1,8 +1,8 @@
 const addLoraDataToFirestore = require("./add-data-to-raw-data.js");
 const util = require("./util.js");
 
-const dayStart = 3;
-const dayEnd = 5;
+const dayStart = 12;
+const dayEnd = 31;
 const hourStart = 0;
 const hourEnd = 23;
 const periodInHour = 4;

@@ -1,7 +1,6 @@
 const db = require("../firebase/firebase.js");
 const util = require("./util.js");
 const constants = require("./constants.js");
-const { collection, addDoc } = require("firebase/firestore");
 
 module.exports = function addLoraDataToFirestore(yyyyMM, dayDD, hhmmss) {
   // 1~15노드 한번에 합친 로라 랜덤 데이터 생성

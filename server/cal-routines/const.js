@@ -17,3 +17,23 @@ exports.substanceHourlyAverageFromNumberOptions = {
   6: "wind-direction-hourly-average",
   7: "wind-speed-hourly-average",
 };
+
+exports.substanceDailyAverageFromNumberOptions = {
+  1: "humidity-daily-average",
+  2: "temperature-daily-average",
+  3: "pm10-daily-average",
+  4: "pm25-daily-average",
+  5: "ch2o-daily-average",
+  6: "wind-direction-daily-average",
+  7: "wind-speed-daily-average",
+};
+
+exports.substanceMonthlyAverageFromNumberOptions = {
+  1: "humidity-monthly-average",
+  2: "temperature-monthly-average",
+  3: "pm10-monthly-average",
+  4: "pm25-monthly-average",
+  5: "ch2o-monthly-average",
+  6: "wind-direction-monthly-average",
+  7: "wind-speed-monthly-average",
+};

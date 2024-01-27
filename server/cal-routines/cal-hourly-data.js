@@ -6,21 +6,19 @@ const {
 const _ = require("lodash");
 
 module.exports = async function calHourlyData(yyyyMM, dayDD, hhmmss) {
+  console.log(`calHourlyData ${yyyyMM}-${dayDD} ${hhmmss}`);
   const hhStart = hhmmss.slice(0, 2);
-  console.log("🚀 ~ calHourlyData ~ hhStart:", hhStart);
   const hhEnd = (parseInt(hhStart, 10) + 1).toString().padStart(2, "0");
-  console.log("🚀 ~ calHourlyData ~ hhEnd:", hhEnd);
 
-  const rawDataRef = db.collection(`raw-data/${yyyyMM}/day${dayDD}`);
-  const snapshot = await rawDataRef
+  const rawDataRef = db
+    .collection(`raw-data/${yyyyMM}/day${dayDD}`)
     .where("timestamp", ">=", `${hhStart}:00:00`)
-    .where("timestamp", "<", `${hhEnd}:00:00`)
-    .get();
+    .where("timestamp", "<", `${hhEnd}:00:00`);
+  const snapshot = await rawDataRef.get();
   if (snapshot.empty) {
     console.log("No matching documents.");
     return;
   }
-  console.log(snapshot.size);
 
   let avgData = Array.from({ length: 16 }, () =>
     Array.from({ length: 8 }, () => 0)
@@ -49,6 +47,7 @@ module.exports = async function calHourlyData(yyyyMM, dayDD, hhmmss) {
     date: `${yyyyMM}-${dayDD}`,
     timestamp: hhmmss,
   };
+
   for (let i = 1; i <= 15; i++) {
     resultObject[`node${i}`] = {
       nodeAddress: i,
@@ -66,18 +65,16 @@ module.exports = async function calHourlyData(yyyyMM, dayDD, hhmmss) {
     }
   }
 
-  for (let i = 1; i <= 15; i++) {
-    console.log(resultObject[`node${i}`]);
-  }
+  const hourlyDataRef = db
+    .collection(`/hourly-data/${yyyyMM}/day${dayDD}`)
+    .doc("data");
 
-  const hourlyDataRef = db.collection(`/hourly-data/${yyyyMM}/day${dayDD}`);
-  const doc = await hourlyDataRef.doc("data").get();
-  console.log("🚀 ~ calHourlyData ~ doc.exists:", doc.exists);
+  const doc = await hourlyDataRef.get();
 
   if (doc.exists) {
-    hourlyDataRef.doc(`data`).update({ [`hour${hhStart}`]: resultObject });
+    await hourlyDataRef.update({ [`hour${hhStart}`]: resultObject });
   } else {
-    hourlyDataRef.doc(`data`).set({ [`hour${hhStart}`]: resultObject });
+    await hourlyDataRef.set({ [`hour${hhStart}`]: resultObject });
   }
 
   return;
