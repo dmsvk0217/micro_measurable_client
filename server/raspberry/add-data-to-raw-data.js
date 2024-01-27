@@ -1,4 +1,4 @@
-const db = require("./firebase.js");
+const db = require("../firebase/firebase.js");
 const util = require("./util.js");
 const constants = require("./constants.js");
 const { collection, addDoc } = require("firebase/firestore");
@@ -59,7 +59,7 @@ module.exports = function addLoraDataToFirestore(yyyyMM, dayDD, hhmmss) {
   for (let i = 0; i < numberOfNodes; i++) {
     const nodeAddress = nodeAddressArray[i];
     const nodeSubstancesArray = allNodeSubstancesArray[i];
-    // addRawData(nodeAddress, nodeSubstancesArray, yyyyMM, dayDD, hhmmss);
+    addRawData(nodeAddress, nodeSubstancesArray, yyyyMM, dayDD, hhmmss);
   }
   return;
 };
@@ -71,7 +71,7 @@ async function addRawData(
   dayDD,
   hhmmss
 ) {
-  const rawDataRef = collection(db, `raw-data/${yyyyMM}/day${dayDD}`);
+  const rawDataRef = db.collection(`raw-data/${yyyyMM}/day${dayDD}`);
   const substanceType = constants.substanceType;
   const dataObject = {
     nodeAddress: nodeAddress,
@@ -86,21 +86,21 @@ async function addRawData(
     [substanceType[6]]: nodeSubstancesArray[6],
   };
 
-  addDoc(rawDataRef, dataObject);
+  rawDataRef.add(dataObject);
   console.log(
     `[addRawData] ${yyyyMM}-${dayDD} ${hhmmss} node${nodeAddress}(${nodeSubstancesArray}) done`
   );
 }
 
 function addErrData(loraContent, yyyyMM, dayDD, hhmmss) {
-  const errDataRef = collection(db, `err-data/${yyyyMM}/day${dayDD}`);
+  const errDataRef = db.collection(`err-data/${yyyyMM}/day${dayDD}`);
   const dataObject = {
     date: `${yyyyMM}-${dayDD}`,
     timestamp: hhmmss,
     errData: loraContent,
   };
 
-  addDoc(errDataRef, dataObject);
+  errDataRef.add(dataObject);
 }
 
 function isNodeSubstancesArrayValid(nodeSubstancesArray) {

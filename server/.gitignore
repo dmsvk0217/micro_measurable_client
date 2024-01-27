@@ -6,7 +6,7 @@
 /.pnp
 .pnp.js
 
-/firebase.js
+/firebase
 /node_modules
 /test/*
 

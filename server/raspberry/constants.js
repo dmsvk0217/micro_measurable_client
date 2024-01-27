@@ -1,6 +1,6 @@
 exports.substanceType = [
   "humidity",
-  "tempareture",
+  "temperature",
   "pm10",
   "pm25",
   "ch2o",
