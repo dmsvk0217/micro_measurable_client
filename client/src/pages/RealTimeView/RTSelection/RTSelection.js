@@ -6,8 +6,10 @@ import "./RTSelection.css";
 import { FaCalendarAlt } from "react-icons/fa";
 import CurrentDate from "../../../components/CurrentDate";
 import CustomDropDown from "../../../components/CustomDropDown/CustomDropDown";
-import RTTSubmitButton from "../RTSubmitButton/RTSubmitButton";
-import {
+
+import { useRTDataMutation } from '../../../hooks/useRTDataMutation';
+
+import { 
   selectLocationOptions,
   selectUnitOptions,
   selectHourOptions,
@@ -63,6 +65,20 @@ function RTSelection() {
     setSelectedDate(nearestHour);
   }, []);
 
+  // const mutation = useMutation({
+  //   mutationFn: () => {
+  //     // event.preventDefault()
+      
+  //     return fetchRTTableData(selectedLocation,selectedDate,selectedUnit,selectedHour,);
+  //   },
+  // })
+
+  const { mutate, isLoading } = useRTDataMutation();
+
+  const handleSearchButton = () => {
+    mutate({ selectedLocation, selectedDate, selectedUnit, selectedHour });
+  };
+
   return (
     <div className="RTTable">
       {/* table container section */}
@@ -116,12 +132,11 @@ function RTSelection() {
               ) : null}
             </div>
           </div>
-          <RTTSubmitButton
-            selectedLocation={selectedLocation}
-            selectedDate={selectedDate}
-            selectedUnit={selectedUnit}
-            selectedHour={selectedHour}
-          />
+
+          <div className="search-btn-container">
+            <button className="search-btn" onClick={handleSearchButton }> 검색 </button>
+          </div>
+          
         </div>
       </div>
       <div className="RT-table-title-container">
