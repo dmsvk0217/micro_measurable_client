@@ -105,7 +105,7 @@ function MapView() {
                 </div>
             </div>
             <div className="no-level">
-                <div className="sub">
+                <div className="sub"> 
                     <p>풍향</p>
                     <p>풍속</p>
                     <p>온도</p>
