@@ -60,26 +60,24 @@ function MapView() {
           <GoogleMap option={option} options={{ disableDefaultUI: true }} />
         </Wrapper>
       </div>
-      <div className="option-and-info-container">
-        <div className="option-and-info-flex-container">
-          <OptionContainer
-            selectedButtonId={selectedButtonId}
-            selectedButtonAction={selectedButtonAction}
+      <div className="option-and-info-flex-container">
+        <OptionContainer
+          selectedButtonId={selectedButtonId}
+          selectedButtonAction={selectedButtonAction}
+        />
+        <div className="info-container">
+          <NodeInfo
+            selectedNode={selectedNode}
+            handleNodeSelect={handleNodeSelect}
           />
-          <div className="info-container">
-            <NodeInfo
-              selectedNode={selectedNode}
-              handleNodeSelect={handleNodeSelect}
-            />
-            <div className="info-container-dividier"></div>
-            <LegendInfo
-              legendTitle={legendTitle}
-              legendValueGood={legendValueGood}
-              legendValueNormal={legendValueNormal}
-              legendValueBad={legendValueBad}
-              legendValueWorse={legendValueWorse}
-            />
-          </div>
+          <div className="info-container-dividier"></div>
+          <LegendInfo
+            legendTitle={legendTitle}
+            legendValueGood={legendValueGood}
+            legendValueNormal={legendValueNormal}
+            legendValueBad={legendValueBad}
+            legendValueWorse={legendValueWorse}
+          />
         </div>
       </div>
     </div>

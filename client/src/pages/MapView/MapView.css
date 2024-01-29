@@ -45,12 +45,6 @@
   color: black;
 }
 
-.option-and-info-container {
-  display: absolute;
-  top: 100px;
-  left: 0px;
-}
-
 .map-container {
   position: absolute;
   width: 100%;
@@ -59,10 +53,17 @@
 
 .option-and-info-flex-container {
   display: flex;
+  max-width: 1440px;
   justify-content: space-between;
-  padding: 30px;
+  padding: 30px 5vw;
 }
 
 .info-container-dividier {
   height: 20px;
+}
+
+@media screen and (max-width: 850px) {
+  .option-and-info-flex-container {
+    flex-direction: column;
+  }
 }
