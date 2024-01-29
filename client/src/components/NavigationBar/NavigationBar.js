@@ -13,7 +13,7 @@ function NavigationBar(){
 
 
     return (
-        <nav className="navbar">
+        <nav className="navbar"> 
             <div className="navbar-logo">
                 <NavLink to="/"><img src="/img/logo.png" alt="Logo" className="logo"/></NavLink>
             </div>
@@ -26,4 +26,4 @@ function NavigationBar(){
     );
 }
 
-export default NavigationBar;
+export default NavigationBar; 
