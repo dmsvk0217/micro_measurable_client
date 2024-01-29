@@ -49,14 +49,17 @@ exports.generateAllnodesTestData = () => {
 };
 
 exports.generateRandomTestData = (i) => {
-  var firstNumber = i + 1;
-  var secondNumber = (Math.random() * (30 - -10) + -10).toFixed(0);
-  var thirdNumber = (Math.random() * (30 - -10) + -10).toFixed(0);
-  var fourthNumber = (Math.random() * (15 - 5) + 5).toFixed(0);
-  var fifthNumber = (Math.random() * (15 - 5) + 5).toFixed(0);
-  var sixthNumber = (Math.random() * (0.05 - 0) + 0).toFixed(2);
+  // 노드번호/습도/온도/pm10/pm2.5/포름알데히드/풍향/풍속
+  var nodeNumber = i + 1;
+  var humidity = (Math.random() * (30 - -10) + -10).toFixed(0);
+  var temperature = (Math.random() * (30 - -10) + -10).toFixed(0);
+  var pm10 = (Math.random() * (15 - 5) + 5).toFixed(0);
+  var pm25 = (Math.random() * (15 - 5) + 5).toFixed(0);
+  var ch2o = (Math.random() * (0.05 - 0) + 0).toFixed(2);
+  var wind_direction = (Math.random() * (0.05 - 0) + 0).toFixed(2);
+  var wind_speed = (Math.random() * (30 - 0) + 0).toFixed(0);
 
-  var data = `${firstNumber}/${secondNumber}/${thirdNumber}/${fourthNumber}/${fifthNumber}/${sixthNumber}`;
+  var data = `${nodeNumber}/${humidity}/${temperature}/${pm10}/${pm25}/${ch2o}/${wind_direction}/${wind_speed}//`;
   return data;
 };
 

@@ -6,8 +6,10 @@ import "./RTSelection.css";
 import { FaCalendarAlt } from "react-icons/fa";
 import CurrentDate from "../../../components/CurrentDate";
 import CustomDropDown from "../../../components/CustomDropDown/CustomDropDown";
-import RTTSubmitButton from "../RTSubmitButton/RTSubmitButton";
-import {
+
+import { useRTDataMutation } from '../../../hooks/useRTDataMutation';
+
+import { 
   selectLocationOptions,
   selectUnitOptions,
   selectHourOptions,
@@ -49,23 +51,32 @@ function RTSelection() {
   ));
 
   // 시간 배열 생성
-  useEffect(() => {
-    const now = new Date();
-    const nearestHour = new Date(
-      now.getFullYear(),
-      now.getMonth(),
-      now.getDate(),
-      now.getHours(),
-      0,
-      0,
-      0
-    );
-    setSelectedDate(nearestHour);
-  }, []);
+  // useEffect(() => {
+  //   const now = new Date();
+  //   const nearestHour = new Date(
+  //     now.getFullYear(),
+  //     now.getMonth(),
+  //     now.getDate(),
+  //     now.getHours(),
+  //     0,
+  //     0,
+  //     0
+  //   );
+  //   setSelectedDate(nearestHour);
+  // }, []);
+
+  const { mutate, isLoading } = useRTDataMutation();
+
+  const handleSearchButton = () => {
+    mutate({ selectedLocation, selectedDate, selectedUnit, selectedHour });
+  };
 
   return (
     <div className="RTTable">
-      {/* table container section */}
+      <div className="RT-table-title-container">
+        <span className="RT-table-title">| 측정 일시 |</span> 
+        { new Date(selectedDate).toLocaleDateString() }
+      </div>
       <div className="RT-table-select-container">
         <div>
           <div className="location-and-unit">
@@ -116,16 +127,12 @@ function RTSelection() {
               ) : null}
             </div>
           </div>
-          <RTTSubmitButton
-            selectedLocation={selectedLocation}
-            selectedDate={selectedDate}
-            selectedUnit={selectedUnit}
-            selectedHour={selectedHour}
-          />
+
+          <div className="search-btn-container">
+            <button className="search-btn" onClick={handleSearchButton }> 검색 </button>
+          </div>
+          
         </div>
-      </div>
-      <div className="RT-table-title-container">
-        <span className="RT-table-title">| 측정 일시 |</span> <CurrentDate />
       </div>
     </div>
   );

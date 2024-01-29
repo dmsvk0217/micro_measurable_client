@@ -17,17 +17,18 @@ const locationFromNodeNumberOptions = {
   15: "창조관",
 };
 
+
 exports.generateResultFromResponse = (responseJson) => {
   const transformedArray = [];
   const responseJsonData = responseJson.data;
 
   // 데이터 구조를 순회하면서 변환
   for (const [key, value] of Object.entries(responseJsonData)) {
-    console.log("🚀 ~ key:", key);
-    console.log("🚀 ~ value:", value);
+    // console.log("🚀 ~ key:", key);
+    // console.log("🚀 ~ value:", value);
     if (!key.startsWith("node")) continue;
     const nodeNumber = key.slice(4);
-    console.log("🚀 ~ nodeNumber:", nodeNumber);
+    // console.log("🚀 ~ nodeNumber:", nodeNumber);
     transformedArray.push({
       date: responseJsonData.date,
       location: locationFromNodeNumberOptions[nodeNumber],
@@ -40,7 +41,7 @@ exports.generateResultFromResponse = (responseJson) => {
       humidity: `${value["humidity-Daily-Average"].toFixed(2)} %`,
     });
   }
-  console.log("🚀 ~ transformedArray:", transformedArray);
+  // console.log("🚀 ~ transformedArray:", transformedArray);
   return transformedArray;
 };
 

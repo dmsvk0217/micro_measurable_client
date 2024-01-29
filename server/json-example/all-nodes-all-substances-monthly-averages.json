@@ -1,0 +1,160 @@
+{
+  "type": "all-nodes-all-substances-monthly-averages",
+  "date": "2024",
+  "data": {
+    "month01": {
+      "date": "2024-01-31",
+      "node10": {
+        "temperature-monthly-average": 10.325892857142858,
+        "ch2o-monthly-average": 0.025178571428571436,
+        "pm25-monthly-average": 10.03720238095238,
+        "pm10-monthly-average": 10.035714285714286,
+        "wind-direction-monthly-average": "0",
+        "nodeAddress": 10,
+        "humidity-monthly-average": 10.389880952380953,
+        "wind-speed-monthly-average": 15.30357142857143
+      },
+      "node11": {
+        "temperature-monthly-average": 10.363095238095239,
+        "ch2o-monthly-average": 0.02492559523809525,
+        "pm25-monthly-average": 9.970238095238097,
+        "pm10-monthly-average": 9.867559523809524,
+        "wind-direction-monthly-average": "45",
+        "nodeAddress": 11,
+        "humidity-monthly-average": 10.260416666666666,
+        "wind-speed-monthly-average": 15.500000000000002
+      },
+      "node12": {
+        "temperature-monthly-average": 9.836309523809524,
+        "ch2o-monthly-average": 0.024672619047619047,
+        "pm25-monthly-average": 9.80654761904762,
+        "pm10-monthly-average": 9.90625,
+        "wind-direction-monthly-average": "0",
+        "nodeAddress": 12,
+        "humidity-monthly-average": 10.42261904761905,
+        "wind-speed-monthly-average": 14.772321428571429
+      },
+      "node13": {
+        "temperature-monthly-average": 9.936011904761907,
+        "ch2o-monthly-average": 0.02377976190476191,
+        "pm25-monthly-average": 10.004464285714286,
+        "pm10-monthly-average": 9.970238095238093,
+        "wind-direction-monthly-average": "0",
+        "nodeAddress": 13,
+        "humidity-monthly-average": 10.117559523809522,
+        "wind-speed-monthly-average": 15.593750000000002
+      },
+      "node14": {
+        "temperature-monthly-average": 9.806547619047619,
+        "ch2o-monthly-average": 0.024910714285714286,
+        "pm25-monthly-average": 9.883928571428571,
+        "pm10-monthly-average": 9.830357142857142,
+        "wind-direction-monthly-average": "0",
+        "nodeAddress": 14,
+        "humidity-monthly-average": 9.976190476190476,
+        "wind-speed-monthly-average": 14.680059523809522
+      },
+      "node15": {
+        "temperature-monthly-average": 10.20386904761905,
+        "ch2o-monthly-average": 0.025714285714285717,
+        "pm25-monthly-average": 10.096726190476192,
+        "pm10-monthly-average": 10.03720238095238,
+        "wind-direction-monthly-average": "0",
+        "nodeAddress": 15,
+        "humidity-monthly-average": 10.916666666666668,
+        "wind-speed-monthly-average": 14.997023809523808
+      },
+      "node1": {
+        "temperature-monthly-average": 10.324404761904761,
+        "ch2o-monthly-average": 0.024806547619047624,
+        "pm25-monthly-average": 9.872023809523808,
+        "pm10-monthly-average": 9.851190476190478,
+        "wind-direction-monthly-average": "0",
+        "nodeAddress": 1,
+        "humidity-monthly-average": 10.38095238095238,
+        "wind-speed-monthly-average": 14.809523809523808
+      },
+      "node4": {
+        "temperature-monthly-average": 9.638392857142858,
+        "ch2o-monthly-average": 0.0249702380952381,
+        "pm25-monthly-average": 10.132440476190478,
+        "pm10-monthly-average": 10.21577380952381,
+        "wind-direction-monthly-average": "0",
+        "nodeAddress": 4,
+        "humidity-monthly-average": 10.61904761904762,
+        "wind-speed-monthly-average": 14.66220238095238
+      },
+      "node5": {
+        "temperature-monthly-average": 10.802083333333332,
+        "ch2o-monthly-average": 0.02501488095238096,
+        "pm25-monthly-average": 9.936011904761903,
+        "pm10-monthly-average": 10.154761904761907,
+        "wind-direction-monthly-average": "0",
+        "nodeAddress": 5,
+        "humidity-monthly-average": 9.709821428571429,
+        "wind-speed-monthly-average": 15.075892857142858
+      },
+      "node2": {
+        "temperature-monthly-average": 10.729166666666666,
+        "ch2o-monthly-average": 0.025505952380952386,
+        "pm25-monthly-average": 10.092261904761907,
+        "pm10-monthly-average": 10.019345238095237,
+        "wind-direction-monthly-average": "0",
+        "nodeAddress": 2,
+        "humidity-monthly-average": 10.590773809523808,
+        "wind-speed-monthly-average": 14.293154761904763
+      },
+      "node3": {
+        "temperature-monthly-average": 10.086309523809522,
+        "ch2o-monthly-average": 0.023541666666666673,
+        "pm25-monthly-average": 10.080357142857142,
+        "pm10-monthly-average": 10.102678571428571,
+        "wind-direction-monthly-average": "0",
+        "nodeAddress": 3,
+        "humidity-monthly-average": 10.145833333333334,
+        "wind-speed-monthly-average": 14.822916666666668
+      },
+      "node8": {
+        "temperature-monthly-average": 9.266369047619047,
+        "ch2o-monthly-average": 0.024642857142857143,
+        "pm25-monthly-average": 9.809523809523808,
+        "pm10-monthly-average": 9.822916666666668,
+        "wind-direction-monthly-average": "0",
+        "nodeAddress": 8,
+        "humidity-monthly-average": 9.697916666666668,
+        "wind-speed-monthly-average": 15.363095238095239
+      },
+      "node9": {
+        "temperature-monthly-average": 9.898809523809524,
+        "ch2o-monthly-average": 0.025,
+        "pm25-monthly-average": 9.955357142857142,
+        "pm10-monthly-average": 10.150297619047619,
+        "wind-direction-monthly-average": "0",
+        "nodeAddress": 9,
+        "humidity-monthly-average": 10.755952380952381,
+        "wind-speed-monthly-average": 14.322916666666668
+      },
+      "node6": {
+        "temperature-monthly-average": 10.104166666666668,
+        "ch2o-monthly-average": 0.02620535714285715,
+        "pm25-monthly-average": 9.97172619047619,
+        "pm10-monthly-average": 9.883928571428571,
+        "wind-direction-monthly-average": "0",
+        "nodeAddress": 6,
+        "humidity-monthly-average": 10.178571428571427,
+        "wind-speed-monthly-average": 15.276785714285714
+      },
+      "node7": {
+        "temperature-monthly-average": 10.129464285714286,
+        "ch2o-monthly-average": 0.02461309523809524,
+        "pm25-monthly-average": 10.074404761904761,
+        "pm10-monthly-average": 10.105654761904761,
+        "wind-direction-monthly-average": "0",
+        "nodeAddress": 7,
+        "humidity-monthly-average": 10.427083333333332,
+        "wind-speed-monthly-average": 15.288690476190476
+      },
+      "timestamp": "23:17:13"
+    }
+  }
+}

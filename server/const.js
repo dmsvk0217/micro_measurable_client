@@ -14,8 +14,8 @@ const substanceEnType = [
   "pm25",
   "tempareture",
   "humidity",
-  // "wind-direction",
-  // "wind-speed",
+  "wind-direction",
+  "wind-speed",
 ];
 
 const substanceKrToEn = {
@@ -43,7 +43,7 @@ const substanceHourlyAverageType = [
   "ch2o-hourly-Average",
 ];
 
-const NUMBEROFSUBSTANCE = 5;
+const NUMBEROFSUBSTANCE = 7;
 const NUMBEROFNODE = 15;
 const NUMBEROFHOUR = 24;
 
