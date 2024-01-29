@@ -30,8 +30,6 @@ function RTGraphSelection() {
   };
 
 
-  const { mutate: tableMutate } = useRTTableDataMutation();
-
 
   return (
     <div className="RTTable">
