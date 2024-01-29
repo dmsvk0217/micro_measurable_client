@@ -10,7 +10,6 @@ import DownloadButton from "../../components/DownloadButton/DownloadButton";
 import useRTSotre from "../../store/RTStore.js";
 import { useRTTableDataMutation } from '../../hooks/useRTDataMutation.js';
 
-import util from "../../util.js";
 
 
 
@@ -23,15 +22,15 @@ function RealTimeView() {
     tableMutate({selectedLocation:"전체", selectedDate: new Date(2024, 0, 1), selectedUnit:"일평균", selectedHour:""});
   }, []);
   
-  const transformedData = tableData ? util.generateResultFromResponse(tableData) : [];
+  
 
   return (
     <div className="RT-container">
       <p className="RT-title">실시간 정보 보기</p>
       <div className="RT-content-container">
         <RTSelection />
-        <DownloadButton data={transformedData}></DownloadButton>
-        <CustomTable data={transformedData} columns={columns}></CustomTable>
+        <DownloadButton data={tableData}></DownloadButton>
+        <CustomTable data={tableData} columns={columns}></CustomTable>
         <hr className="SD-hr"></hr>
         <CustomGraph data={chartData} options={chartOptions}></CustomGraph>
       </div>
