@@ -20,14 +20,16 @@ function NavigationBar(){
             <ul className="nav-links">
                 <li><NavLink to="/" className={({ isActive }) => isActive ? 'nav-link-active' : 'nav-link'}>지도 보기</NavLink></li>
                 <li><NavLink to="/realTime" className={({ isActive }) => isActive ? 'nav-link-active' : 'nav-link'}>실시간 정보 보기</NavLink></li>
-                <li className="nav-item">
+                <li><NavLink to="/statisticsDay" className={({ isActive }) => isActive ? 'nav-link-active' : 'nav-link'}>통계 보기</NavLink></li>
+                
+                {/* <li className="nav-item">
                     <button className={isStatisticsActive() ? 'nav-link-active' : 'nav-link'}>통계 보기</button>
                     <div className="nav-dropdown">
                         <NavLink to="/statisticsDay" className={({ isActive }) => isActive ? 'nav-link-active' : 'nav-link'}>일별 통계</NavLink>
                         <hr></hr>
                         <NavLink to="/statisticsMonth" className={({ isActive }) => isActive ? 'nav-link-active' : 'nav-link'}>월별 통계</NavLink>
                     </div>
-                </li>
+                </li> */}
             </ul>
         </nav>
     );
