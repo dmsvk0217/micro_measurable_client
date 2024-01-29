@@ -1,0 +1,31 @@
+.SD-select {
+  background-color: #ebf0eb;
+  padding: 10px;
+}
+
+.SD-graph-title {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.SD-select-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.SD-select-container p {
+  font-weight: bold;
+}
+
+/* 오늘 일자 css */
+.current-date {
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.SD-select-comp {
+  display: flex;
+  align-items: center;
+}

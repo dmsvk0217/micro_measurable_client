@@ -15,7 +15,11 @@ function MapView() {
   const [legendValueNormal, setlegendValueNormal] = useState('16~35');
   const [legendValueBad, setlegendValueBad] = useState('36~75');
   const [legendValueWorse, setlegendValueWorse] = useState('76~');
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 541bc0373969ea84724be533c433b7b99108086a
   const handleNodeSelect = (node) => {
     setSelectedNode(node);
     setDropdownOpen(false);
@@ -56,9 +60,13 @@ function MapView() {
   return (
     <div className='main-container'>
       <Wrapper apiKey={"AIzaSyCjp5Sxe-c5mUn1GtfLqEatR0mt7cXYdIM"}>
+<<<<<<< HEAD
          <GoogleMap option={option}
           options={{disableDefaultUI: true}}
           />
+=======
+         <GoogleMap option={option} />
+>>>>>>> 541bc0373969ea84724be533c433b7b99108086a
       </Wrapper>
 
         <div className='option-container'>

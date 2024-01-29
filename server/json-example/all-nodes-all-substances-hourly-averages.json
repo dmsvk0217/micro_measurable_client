@@ -1,0 +1,3702 @@
+{
+  "type": "all-nodes-all-substances-hourly-averages",
+  "date": "2024-01-01",
+  "data": {
+    "hour00": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 18.5,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 16.25,
+        "temperature-hourly-average": 13.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 8.5,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 11.5
+      },
+      "node11": {
+        "wind-speed-hourly-average": 9.5,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 16.75,
+        "temperature-hourly-average": 10.5,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 8
+      },
+      "node12": {
+        "wind-speed-hourly-average": 11.75,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 17.25,
+        "temperature-hourly-average": 10.25,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 11.5,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 11.25
+      },
+      "node13": {
+        "wind-speed-hourly-average": 7.25,
+        "ch2o-hourly-average": 0.0175,
+        "humidity-hourly-average": 11,
+        "temperature-hourly-average": 2.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10.5,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 9.25
+      },
+      "node14": {
+        "wind-speed-hourly-average": 9.75,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 7,
+        "temperature-hourly-average": 6.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 8.5,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 11.5
+      },
+      "node15": {
+        "wind-speed-hourly-average": 9.25,
+        "ch2o-hourly-average": 0.019999999999999997,
+        "humidity-hourly-average": 16.75,
+        "temperature-hourly-average": 5,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 10.25
+      },
+      "node1": {
+        "wind-speed-hourly-average": 14.25,
+        "ch2o-hourly-average": 0.027500000000000004,
+        "humidity-hourly-average": 13.5,
+        "temperature-hourly-average": 10,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 11
+      },
+      "node4": {
+        "wind-speed-hourly-average": 8.5,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 18.25,
+        "temperature-hourly-average": 9.25,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 10.75,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 9.75
+      },
+      "node5": {
+        "wind-speed-hourly-average": 13.75,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 16,
+        "temperature-hourly-average": 17.5,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 7.5,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 9.25
+      },
+      "node2": {
+        "wind-speed-hourly-average": 11.75,
+        "ch2o-hourly-average": 0.035,
+        "humidity-hourly-average": 13.25,
+        "temperature-hourly-average": 16,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 9.5,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 12.75
+      },
+      "node3": {
+        "wind-speed-hourly-average": 18.5,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 5.5,
+        "temperature-hourly-average": 3,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 12.25,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 11.5
+      },
+      "node8": {
+        "wind-speed-hourly-average": 14.5,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 13.75,
+        "temperature-hourly-average": 10.5,
+        "wind-direction-hourly-average": "270",
+        "pm10-hourly-average": 11.5,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 9.5
+      },
+      "node9": {
+        "wind-speed-hourly-average": 15,
+        "ch2o-hourly-average": 0.015000000000000001,
+        "humidity-hourly-average": 4,
+        "temperature-hourly-average": 8.5,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 10
+      },
+      "node6": {
+        "wind-speed-hourly-average": 23.75,
+        "ch2o-hourly-average": 0.015,
+        "humidity-hourly-average": 4.5,
+        "temperature-hourly-average": 3.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 11.5
+      },
+      "node7": {
+        "wind-speed-hourly-average": 18.75,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 20,
+        "temperature-hourly-average": 19.5,
+        "wind-direction-hourly-average": "315",
+        "pm10-hourly-average": 6.75,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 11
+      },
+      "timestamp": "00:01:01"
+    },
+    "hour01": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 13.25,
+        "ch2o-hourly-average": 0.015,
+        "humidity-hourly-average": 18,
+        "temperature-hourly-average": 6.25,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10.5,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 8.5
+      },
+      "node11": {
+        "wind-speed-hourly-average": 15,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 2.75,
+        "temperature-hourly-average": 8.25,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 11.25
+      },
+      "node12": {
+        "wind-speed-hourly-average": 15,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 18.5,
+        "temperature-hourly-average": 2.25,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 10.75
+      },
+      "node13": {
+        "wind-speed-hourly-average": 15.5,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 9,
+        "temperature-hourly-average": 8.25,
+        "wind-direction-hourly-average": "315",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 10.25
+      },
+      "node14": {
+        "wind-speed-hourly-average": 15,
+        "ch2o-hourly-average": 0.0125,
+        "humidity-hourly-average": 23.25,
+        "temperature-hourly-average": 17,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 9.25
+      },
+      "node15": {
+        "wind-speed-hourly-average": 22.5,
+        "ch2o-hourly-average": 0.017499999999999998,
+        "humidity-hourly-average": 11,
+        "temperature-hourly-average": 18,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 10.25
+      },
+      "node1": {
+        "wind-speed-hourly-average": 19.25,
+        "ch2o-hourly-average": 0.0375,
+        "humidity-hourly-average": 15.25,
+        "temperature-hourly-average": 8,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 12,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 7.25
+      },
+      "node4": {
+        "wind-speed-hourly-average": 19.5,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 5.5,
+        "temperature-hourly-average": 15,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 12.25,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 11.25
+      },
+      "node5": {
+        "wind-speed-hourly-average": 18.25,
+        "ch2o-hourly-average": 0.045000000000000005,
+        "humidity-hourly-average": 6.5,
+        "temperature-hourly-average": 12.25,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10.5,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 11.75
+      },
+      "node2": {
+        "wind-speed-hourly-average": 12.25,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 17.5,
+        "temperature-hourly-average": 20.5,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 9.5
+      },
+      "node3": {
+        "wind-speed-hourly-average": 13.5,
+        "ch2o-hourly-average": 0.030000000000000002,
+        "humidity-hourly-average": 13,
+        "temperature-hourly-average": 10,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 10.75
+      },
+      "node8": {
+        "wind-speed-hourly-average": 11.5,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 14,
+        "temperature-hourly-average": 1.25,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 8.75
+      },
+      "node9": {
+        "wind-speed-hourly-average": 16,
+        "ch2o-hourly-average": 0.027500000000000004,
+        "humidity-hourly-average": 8.25,
+        "temperature-hourly-average": 10,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 8.25,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 11.5
+      },
+      "node6": {
+        "wind-speed-hourly-average": 10.25,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 10.75,
+        "temperature-hourly-average": 2.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.5,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 8.25
+      },
+      "node7": {
+        "wind-speed-hourly-average": 19.25,
+        "ch2o-hourly-average": 0.037500000000000006,
+        "humidity-hourly-average": 9,
+        "temperature-hourly-average": 5,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 10
+      },
+      "timestamp": "01:30:01"
+    },
+    "hour02": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 15.75,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 18.5,
+        "temperature-hourly-average": 15.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 12.25
+      },
+      "node11": {
+        "wind-speed-hourly-average": 19.75,
+        "ch2o-hourly-average": 0.035,
+        "humidity-hourly-average": 16,
+        "temperature-hourly-average": 6.75,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 9.75
+      },
+      "node12": {
+        "wind-speed-hourly-average": 7,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 3.25,
+        "temperature-hourly-average": 11,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 8,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 10.75
+      },
+      "node13": {
+        "wind-speed-hourly-average": 14.25,
+        "ch2o-hourly-average": 0.04000000000000001,
+        "humidity-hourly-average": -5,
+        "temperature-hourly-average": 15.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 7.25
+      },
+      "node14": {
+        "wind-speed-hourly-average": 20.25,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 18.5,
+        "temperature-hourly-average": 4.25,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 9.25
+      },
+      "node15": {
+        "wind-speed-hourly-average": 14,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 14.25,
+        "temperature-hourly-average": -1,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 8.75
+      },
+      "node1": {
+        "wind-speed-hourly-average": 15.75,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 11.5,
+        "temperature-hourly-average": 7.5,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 11.5
+      },
+      "node4": {
+        "wind-speed-hourly-average": 15.75,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 9.25,
+        "temperature-hourly-average": 4.25,
+        "wind-direction-hourly-average": "315",
+        "pm10-hourly-average": 6,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 9.25
+      },
+      "node5": {
+        "wind-speed-hourly-average": 21.5,
+        "ch2o-hourly-average": 0.0375,
+        "humidity-hourly-average": 7.75,
+        "temperature-hourly-average": 10.75,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 11.75,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 11.75
+      },
+      "node2": {
+        "wind-speed-hourly-average": 10,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 9.75,
+        "temperature-hourly-average": 12.5,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 10.25
+      },
+      "node3": {
+        "wind-speed-hourly-average": 20.25,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 10.5,
+        "temperature-hourly-average": 13.75,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 11.5,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 12.25
+      },
+      "node8": {
+        "wind-speed-hourly-average": 12,
+        "ch2o-hourly-average": 0.0175,
+        "humidity-hourly-average": 10.5,
+        "temperature-hourly-average": 14.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 13,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 9.25
+      },
+      "node9": {
+        "wind-speed-hourly-average": 19.5,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 16.5,
+        "temperature-hourly-average": -2.5,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 10.25
+      },
+      "node6": {
+        "wind-speed-hourly-average": 16.5,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 6.25,
+        "temperature-hourly-average": 6,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 8.5,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 7.5
+      },
+      "node7": {
+        "wind-speed-hourly-average": 12.75,
+        "ch2o-hourly-average": 0.030000000000000002,
+        "humidity-hourly-average": 7.5,
+        "temperature-hourly-average": 11.25,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 9.75
+      },
+      "timestamp": "02:59:26"
+    },
+    "hour03": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 22.25,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 9.25,
+        "temperature-hourly-average": 13,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 9,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 9.75
+      },
+      "node11": {
+        "wind-speed-hourly-average": 21,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 9,
+        "temperature-hourly-average": 10,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 10.5,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 9.5
+      },
+      "node12": {
+        "wind-speed-hourly-average": 14.25,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 22.25,
+        "temperature-hourly-average": 13.5,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 7.75
+      },
+      "node13": {
+        "wind-speed-hourly-average": 18,
+        "ch2o-hourly-average": 0.030000000000000002,
+        "humidity-hourly-average": 14.75,
+        "temperature-hourly-average": 0.5,
+        "wind-direction-hourly-average": "315",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 11.25
+      },
+      "node14": {
+        "wind-speed-hourly-average": 14,
+        "ch2o-hourly-average": 0.0175,
+        "humidity-hourly-average": 11,
+        "temperature-hourly-average": 18,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 10.5
+      },
+      "node15": {
+        "wind-speed-hourly-average": 12.25,
+        "ch2o-hourly-average": 0.037500000000000006,
+        "humidity-hourly-average": 7.25,
+        "temperature-hourly-average": 14,
+        "wind-direction-hourly-average": "315",
+        "pm10-hourly-average": 10.75,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 11.25
+      },
+      "node1": {
+        "wind-speed-hourly-average": 10,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 6.5,
+        "temperature-hourly-average": 11.75,
+        "wind-direction-hourly-average": "315",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 7.75
+      },
+      "node4": {
+        "wind-speed-hourly-average": 16,
+        "ch2o-hourly-average": 0.035,
+        "humidity-hourly-average": 7.25,
+        "temperature-hourly-average": 4.25,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 9,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 9.25
+      },
+      "node5": {
+        "wind-speed-hourly-average": 11.5,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 9.5,
+        "temperature-hourly-average": 6,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10.75,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 9
+      },
+      "node2": {
+        "wind-speed-hourly-average": 12.75,
+        "ch2o-hourly-average": 0.04,
+        "humidity-hourly-average": 4,
+        "temperature-hourly-average": 7.5,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 12.25,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 12.5
+      },
+      "node3": {
+        "wind-speed-hourly-average": 4.5,
+        "ch2o-hourly-average": 0.022500000000000003,
+        "humidity-hourly-average": 12.75,
+        "temperature-hourly-average": 12,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 9.5,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 10
+      },
+      "node8": {
+        "wind-speed-hourly-average": 15.5,
+        "ch2o-hourly-average": 0.015,
+        "humidity-hourly-average": 5.5,
+        "temperature-hourly-average": 3.25,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 8.75,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 12.25
+      },
+      "node9": {
+        "wind-speed-hourly-average": 16.25,
+        "ch2o-hourly-average": 0.030000000000000002,
+        "humidity-hourly-average": 1.25,
+        "temperature-hourly-average": 0.5,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 13.25,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 10.25
+      },
+      "node6": {
+        "wind-speed-hourly-average": 15.25,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 4.25,
+        "temperature-hourly-average": 19,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 9.25
+      },
+      "node7": {
+        "wind-speed-hourly-average": 14,
+        "ch2o-hourly-average": 0.030000000000000002,
+        "humidity-hourly-average": 13,
+        "temperature-hourly-average": 14.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 10.75
+      },
+      "timestamp": "03:18:45"
+    },
+    "hour04": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 12,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 5,
+        "temperature-hourly-average": 19.75,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 11.5,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 8.5
+      },
+      "node11": {
+        "wind-speed-hourly-average": 16.75,
+        "ch2o-hourly-average": 0.022500000000000003,
+        "humidity-hourly-average": 17.5,
+        "temperature-hourly-average": 5.5,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 9.5
+      },
+      "node12": {
+        "wind-speed-hourly-average": 21.25,
+        "ch2o-hourly-average": 0.015000000000000001,
+        "humidity-hourly-average": 11,
+        "temperature-hourly-average": 10.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 7,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 10.25
+      },
+      "node13": {
+        "wind-speed-hourly-average": 18.25,
+        "ch2o-hourly-average": 0.0175,
+        "humidity-hourly-average": 6.5,
+        "temperature-hourly-average": 1.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 11.5
+      },
+      "node14": {
+        "wind-speed-hourly-average": 10.75,
+        "ch2o-hourly-average": 0.030000000000000002,
+        "humidity-hourly-average": 8.5,
+        "temperature-hourly-average": 7,
+        "wind-direction-hourly-average": "315",
+        "pm10-hourly-average": 13,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 12
+      },
+      "node15": {
+        "wind-speed-hourly-average": 12,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 17.75,
+        "temperature-hourly-average": 14.5,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 10.75
+      },
+      "node1": {
+        "wind-speed-hourly-average": 8.75,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 0.75,
+        "temperature-hourly-average": 12.5,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 13.75,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 9.25
+      },
+      "node4": {
+        "wind-speed-hourly-average": 11.5,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 9,
+        "temperature-hourly-average": 11.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10.5,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 9.25
+      },
+      "node5": {
+        "wind-speed-hourly-average": 16.5,
+        "ch2o-hourly-average": 0.015,
+        "humidity-hourly-average": 6.75,
+        "temperature-hourly-average": 16.75,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 9.75
+      },
+      "node2": {
+        "wind-speed-hourly-average": 10.5,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 6.25,
+        "temperature-hourly-average": 7,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 8.25,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 8.5
+      },
+      "node3": {
+        "wind-speed-hourly-average": 17.75,
+        "ch2o-hourly-average": 0.0175,
+        "humidity-hourly-average": 17.25,
+        "temperature-hourly-average": 3.5,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 9.5
+      },
+      "node8": {
+        "wind-speed-hourly-average": 21.25,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 1.75,
+        "temperature-hourly-average": 8.75,
+        "wind-direction-hourly-average": "315",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 9
+      },
+      "node9": {
+        "wind-speed-hourly-average": 9.75,
+        "ch2o-hourly-average": 0.019999999999999997,
+        "humidity-hourly-average": 18.25,
+        "temperature-hourly-average": 9.25,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10.75,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 10.75
+      },
+      "node6": {
+        "wind-speed-hourly-average": 12.5,
+        "ch2o-hourly-average": 0.015000000000000001,
+        "humidity-hourly-average": 4.75,
+        "temperature-hourly-average": 0.75,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 8.5,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 9
+      },
+      "node7": {
+        "wind-speed-hourly-average": 17.25,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 14.75,
+        "temperature-hourly-average": 9,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 12,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 10.75
+      },
+      "timestamp": "04:32:29"
+    },
+    "hour05": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 16.25,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 17,
+        "temperature-hourly-average": 17.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 11
+      },
+      "node11": {
+        "wind-speed-hourly-average": 8.75,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": -1,
+        "temperature-hourly-average": 13.75,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 9.25,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 10
+      },
+      "node12": {
+        "wind-speed-hourly-average": 21.75,
+        "ch2o-hourly-average": 0.0125,
+        "humidity-hourly-average": 7.75,
+        "temperature-hourly-average": 12,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 10.75,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 9.25
+      },
+      "node13": {
+        "wind-speed-hourly-average": 17,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 19.25,
+        "temperature-hourly-average": 4.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 9.5,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 10.75
+      },
+      "node14": {
+        "wind-speed-hourly-average": 10,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 9.5,
+        "temperature-hourly-average": 16.75,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 7.5,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 10.25
+      },
+      "node15": {
+        "wind-speed-hourly-average": 11.75,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 10,
+        "temperature-hourly-average": -4.5,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 8.25,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 10.25
+      },
+      "node1": {
+        "wind-speed-hourly-average": 11.25,
+        "ch2o-hourly-average": 0.030000000000000002,
+        "humidity-hourly-average": 5.75,
+        "temperature-hourly-average": 10,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 9.5,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 11.25
+      },
+      "node4": {
+        "wind-speed-hourly-average": 10,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 15.5,
+        "temperature-hourly-average": 10.75,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 11.75,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 11.25
+      },
+      "node5": {
+        "wind-speed-hourly-average": 16,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 3.25,
+        "temperature-hourly-average": 9.25,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 10.5
+      },
+      "node2": {
+        "wind-speed-hourly-average": 15.75,
+        "ch2o-hourly-average": 0.015,
+        "humidity-hourly-average": 3,
+        "temperature-hourly-average": 8.75,
+        "wind-direction-hourly-average": "315",
+        "pm10-hourly-average": 12.75,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 11.25
+      },
+      "node3": {
+        "wind-speed-hourly-average": 18.75,
+        "ch2o-hourly-average": 0.0175,
+        "humidity-hourly-average": 6.25,
+        "temperature-hourly-average": 9.75,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 9.25,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 10.25
+      },
+      "node8": {
+        "wind-speed-hourly-average": 8.5,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 8.5,
+        "temperature-hourly-average": 18.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 8.25,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 10.75
+      },
+      "node9": {
+        "wind-speed-hourly-average": 10.5,
+        "ch2o-hourly-average": 0.030000000000000002,
+        "humidity-hourly-average": 15.25,
+        "temperature-hourly-average": 18,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.75,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 11
+      },
+      "node6": {
+        "wind-speed-hourly-average": 21.25,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 16.5,
+        "temperature-hourly-average": 7.25,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 13.75,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 10.75
+      },
+      "node7": {
+        "wind-speed-hourly-average": 21.5,
+        "ch2o-hourly-average": 0.015000000000000001,
+        "humidity-hourly-average": 17.75,
+        "temperature-hourly-average": 2.25,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 9
+      },
+      "timestamp": "05:41:10"
+    },
+    "hour06": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 12.75,
+        "ch2o-hourly-average": 0.022500000000000003,
+        "humidity-hourly-average": 20.5,
+        "temperature-hourly-average": 14.25,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 11.75
+      },
+      "node11": {
+        "wind-speed-hourly-average": 15.75,
+        "ch2o-hourly-average": 0.027499999999999997,
+        "humidity-hourly-average": 5,
+        "temperature-hourly-average": 14,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 9.25,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 9.5
+      },
+      "node12": {
+        "wind-speed-hourly-average": 7.5,
+        "ch2o-hourly-average": 0.035,
+        "humidity-hourly-average": 5.25,
+        "temperature-hourly-average": 6,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 8.5
+      },
+      "node13": {
+        "wind-speed-hourly-average": 14.5,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 4.5,
+        "temperature-hourly-average": 3.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 10.25
+      },
+      "node14": {
+        "wind-speed-hourly-average": 14,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 2.25,
+        "temperature-hourly-average": 4.5,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 11.75
+      },
+      "node15": {
+        "wind-speed-hourly-average": 14.25,
+        "ch2o-hourly-average": 0.035,
+        "humidity-hourly-average": 15.5,
+        "temperature-hourly-average": 0.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 9.25,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 8.5
+      },
+      "node1": {
+        "wind-speed-hourly-average": 11.75,
+        "ch2o-hourly-average": 0.030000000000000002,
+        "humidity-hourly-average": 3.75,
+        "temperature-hourly-average": 15.75,
+        "wind-direction-hourly-average": "315",
+        "pm10-hourly-average": 12,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 8.75
+      },
+      "node4": {
+        "wind-speed-hourly-average": 14.5,
+        "ch2o-hourly-average": 0.027500000000000004,
+        "humidity-hourly-average": 14.5,
+        "temperature-hourly-average": 0,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 11.5,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 7.75
+      },
+      "node5": {
+        "wind-speed-hourly-average": 12.75,
+        "ch2o-hourly-average": 0.0175,
+        "humidity-hourly-average": 15.25,
+        "temperature-hourly-average": 3,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 7.75,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 9
+      },
+      "node2": {
+        "wind-speed-hourly-average": 16,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 15.5,
+        "temperature-hourly-average": 4.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 11.75,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 8.5
+      },
+      "node3": {
+        "wind-speed-hourly-average": 11.5,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 15.5,
+        "temperature-hourly-average": 10.75,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 12,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 9.5
+      },
+      "node8": {
+        "wind-speed-hourly-average": 14.5,
+        "ch2o-hourly-average": 0.019999999999999997,
+        "humidity-hourly-average": 7,
+        "temperature-hourly-average": 6.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 10
+      },
+      "node9": {
+        "wind-speed-hourly-average": 14.75,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 10.75,
+        "temperature-hourly-average": 2.5,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 9.5,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 12
+      },
+      "node6": {
+        "wind-speed-hourly-average": 11.25,
+        "ch2o-hourly-average": 0.017499999999999998,
+        "humidity-hourly-average": 13,
+        "temperature-hourly-average": 18.75,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 9,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 8.75
+      },
+      "node7": {
+        "wind-speed-hourly-average": 7.5,
+        "ch2o-hourly-average": 0.024999999999999998,
+        "humidity-hourly-average": 0,
+        "temperature-hourly-average": 17.75,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 9.5,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 8.5
+      },
+      "timestamp": "06:49:00"
+    },
+    "hour07": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 8.25,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 17,
+        "temperature-hourly-average": 8.75,
+        "wind-direction-hourly-average": "270",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 7.75
+      },
+      "node11": {
+        "wind-speed-hourly-average": 14.75,
+        "ch2o-hourly-average": 0.0175,
+        "humidity-hourly-average": 9,
+        "temperature-hourly-average": 15,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 10.5
+      },
+      "node12": {
+        "wind-speed-hourly-average": 20.25,
+        "ch2o-hourly-average": 0.024999999999999998,
+        "humidity-hourly-average": 19.25,
+        "temperature-hourly-average": 10.5,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 12
+      },
+      "node13": {
+        "wind-speed-hourly-average": 4.75,
+        "ch2o-hourly-average": 0.015,
+        "humidity-hourly-average": 19.75,
+        "temperature-hourly-average": 5.5,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 11.25
+      },
+      "node14": {
+        "wind-speed-hourly-average": 14.75,
+        "ch2o-hourly-average": 0.015,
+        "humidity-hourly-average": 13.75,
+        "temperature-hourly-average": 6,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 11.75
+      },
+      "node15": {
+        "wind-speed-hourly-average": 7.25,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 19.5,
+        "temperature-hourly-average": 18.25,
+        "wind-direction-hourly-average": "315",
+        "pm10-hourly-average": 8.75,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 13
+      },
+      "node1": {
+        "wind-speed-hourly-average": 14.25,
+        "ch2o-hourly-average": 0.015,
+        "humidity-hourly-average": 2.75,
+        "temperature-hourly-average": 3.75,
+        "wind-direction-hourly-average": "270",
+        "pm10-hourly-average": 9.5,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 12.5
+      },
+      "node4": {
+        "wind-speed-hourly-average": 10.75,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 7.25,
+        "temperature-hourly-average": 8.75,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 9,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 9.75
+      },
+      "node5": {
+        "wind-speed-hourly-average": 10.5,
+        "ch2o-hourly-average": 0.024999999999999998,
+        "humidity-hourly-average": 6.25,
+        "temperature-hourly-average": 12.75,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 12.75,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 11.25
+      },
+      "node2": {
+        "wind-speed-hourly-average": 8.75,
+        "ch2o-hourly-average": 0.01,
+        "humidity-hourly-average": 6.75,
+        "temperature-hourly-average": 7.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 10.75
+      },
+      "node3": {
+        "wind-speed-hourly-average": 20.25,
+        "ch2o-hourly-average": 0.04,
+        "humidity-hourly-average": 9.25,
+        "temperature-hourly-average": 12,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 9,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 11.25
+      },
+      "node8": {
+        "wind-speed-hourly-average": 21.25,
+        "ch2o-hourly-average": 0.027500000000000004,
+        "humidity-hourly-average": 15,
+        "temperature-hourly-average": 11.25,
+        "wind-direction-hourly-average": "270",
+        "pm10-hourly-average": 10.5,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 9
+      },
+      "node9": {
+        "wind-speed-hourly-average": 13.5,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 2,
+        "temperature-hourly-average": 11.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.5,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 13.75
+      },
+      "node6": {
+        "wind-speed-hourly-average": 12.75,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 11.25,
+        "temperature-hourly-average": 3.75,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 10.75,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 8.75
+      },
+      "node7": {
+        "wind-speed-hourly-average": 10.75,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 4.75,
+        "temperature-hourly-average": 6.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 9.5,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 11.5
+      },
+      "timestamp": "07:23:06"
+    },
+    "hour08": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 11.5,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 13.25,
+        "temperature-hourly-average": 11.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 9.25,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 10.25
+      },
+      "node11": {
+        "wind-speed-hourly-average": 21.25,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 8,
+        "temperature-hourly-average": 16,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 10.75,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 10
+      },
+      "node12": {
+        "wind-speed-hourly-average": 14.75,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 4.75,
+        "temperature-hourly-average": 11,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 7.5,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 9.5
+      },
+      "node13": {
+        "wind-speed-hourly-average": 18.75,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 11.25,
+        "temperature-hourly-average": 8.5,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 7.25,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 10.5
+      },
+      "node14": {
+        "wind-speed-hourly-average": 11,
+        "ch2o-hourly-average": 0.037500000000000006,
+        "humidity-hourly-average": 20.75,
+        "temperature-hourly-average": 6,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10.5,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 8.25
+      },
+      "node15": {
+        "wind-speed-hourly-average": 11,
+        "ch2o-hourly-average": 0.030000000000000002,
+        "humidity-hourly-average": 13.75,
+        "temperature-hourly-average": 13.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10.75,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 12
+      },
+      "node1": {
+        "wind-speed-hourly-average": 10.5,
+        "ch2o-hourly-average": 0.024999999999999998,
+        "humidity-hourly-average": 2.75,
+        "temperature-hourly-average": -1.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 7.25,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 10
+      },
+      "node4": {
+        "wind-speed-hourly-average": 17,
+        "ch2o-hourly-average": 0.035,
+        "humidity-hourly-average": 4.75,
+        "temperature-hourly-average": 8.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 12.25,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 10.75
+      },
+      "node5": {
+        "wind-speed-hourly-average": 14,
+        "ch2o-hourly-average": 0.04,
+        "humidity-hourly-average": 10.25,
+        "temperature-hourly-average": 12,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 10.75,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 8.25
+      },
+      "node2": {
+        "wind-speed-hourly-average": 8,
+        "ch2o-hourly-average": 0.037500000000000006,
+        "humidity-hourly-average": 4.25,
+        "temperature-hourly-average": 6,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 13
+      },
+      "node3": {
+        "wind-speed-hourly-average": 19.25,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 7.25,
+        "temperature-hourly-average": 20.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 11.5,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 10.25
+      },
+      "node8": {
+        "wind-speed-hourly-average": 11.75,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 13.75,
+        "temperature-hourly-average": 13.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 7.25,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 9.5
+      },
+      "node9": {
+        "wind-speed-hourly-average": 14.75,
+        "ch2o-hourly-average": 0.022500000000000003,
+        "humidity-hourly-average": 15.25,
+        "temperature-hourly-average": 11.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10.5,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 11.25
+      },
+      "node6": {
+        "wind-speed-hourly-average": 19.25,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 4.5,
+        "temperature-hourly-average": 9.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 9.25
+      },
+      "node7": {
+        "wind-speed-hourly-average": 18.75,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 20.75,
+        "temperature-hourly-average": 6.5,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 9.75
+      },
+      "timestamp": "08:07:14"
+    },
+    "hour09": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 11.25,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 6.75,
+        "temperature-hourly-average": 15,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 7,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 12.75
+      },
+      "node11": {
+        "wind-speed-hourly-average": 14,
+        "ch2o-hourly-average": 0.035,
+        "humidity-hourly-average": 11,
+        "temperature-hourly-average": 10.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.5,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 7.5
+      },
+      "node12": {
+        "wind-speed-hourly-average": 18,
+        "ch2o-hourly-average": 0.030000000000000002,
+        "humidity-hourly-average": 10,
+        "temperature-hourly-average": 17.25,
+        "wind-direction-hourly-average": "270",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 9
+      },
+      "node13": {
+        "wind-speed-hourly-average": 15.5,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 20,
+        "temperature-hourly-average": 10.75,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 8.75,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 9.5
+      },
+      "node14": {
+        "wind-speed-hourly-average": 15.75,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 7,
+        "temperature-hourly-average": 10.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10.75,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 12.5
+      },
+      "node15": {
+        "wind-speed-hourly-average": 14,
+        "ch2o-hourly-average": 0.045,
+        "humidity-hourly-average": 6,
+        "temperature-hourly-average": 1.25,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 11.75,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 9.75
+      },
+      "node1": {
+        "wind-speed-hourly-average": 14,
+        "ch2o-hourly-average": 0.019999999999999997,
+        "humidity-hourly-average": 15,
+        "temperature-hourly-average": 20,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 7.75,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 11
+      },
+      "node4": {
+        "wind-speed-hourly-average": 20,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 8.25,
+        "temperature-hourly-average": 11.5,
+        "wind-direction-hourly-average": "270",
+        "pm10-hourly-average": 8,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 10.75
+      },
+      "node5": {
+        "wind-speed-hourly-average": 18,
+        "ch2o-hourly-average": 0.024999999999999998,
+        "humidity-hourly-average": 12,
+        "temperature-hourly-average": 18.75,
+        "wind-direction-hourly-average": "270",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 12
+      },
+      "node2": {
+        "wind-speed-hourly-average": 18.5,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 20,
+        "temperature-hourly-average": 5.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 10
+      },
+      "node3": {
+        "wind-speed-hourly-average": 16.5,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 6.75,
+        "temperature-hourly-average": 4.25,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 6.5,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 9
+      },
+      "node8": {
+        "wind-speed-hourly-average": 14.25,
+        "ch2o-hourly-average": 0.0375,
+        "humidity-hourly-average": 8.25,
+        "temperature-hourly-average": 18,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 8.75,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 10
+      },
+      "node9": {
+        "wind-speed-hourly-average": 9.5,
+        "ch2o-hourly-average": 0.027499999999999997,
+        "humidity-hourly-average": 6.75,
+        "temperature-hourly-average": 7.5,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 7.25
+      },
+      "node6": {
+        "wind-speed-hourly-average": 22,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 8,
+        "temperature-hourly-average": 7.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 10
+      },
+      "node7": {
+        "wind-speed-hourly-average": 18.25,
+        "ch2o-hourly-average": 0.0125,
+        "humidity-hourly-average": 14.25,
+        "temperature-hourly-average": 12.75,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 12.75,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 11
+      },
+      "timestamp": "09:05:10"
+    },
+    "hour10": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 19,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 16,
+        "temperature-hourly-average": 13.5,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 10.25
+      },
+      "node11": {
+        "wind-speed-hourly-average": 14,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 8,
+        "temperature-hourly-average": 6.25,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 9.25,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 12.75
+      },
+      "node12": {
+        "wind-speed-hourly-average": 14.75,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 11,
+        "temperature-hourly-average": 7.25,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 11
+      },
+      "node13": {
+        "wind-speed-hourly-average": 10.5,
+        "ch2o-hourly-average": 0.017499999999999998,
+        "humidity-hourly-average": 15.5,
+        "temperature-hourly-average": 18,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 11.75,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 9.5
+      },
+      "node14": {
+        "wind-speed-hourly-average": 8.25,
+        "ch2o-hourly-average": 0.015,
+        "humidity-hourly-average": 12,
+        "temperature-hourly-average": 7.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 8.5,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 10.75
+      },
+      "node15": {
+        "wind-speed-hourly-average": 22.75,
+        "ch2o-hourly-average": 0.017499999999999998,
+        "humidity-hourly-average": 10.5,
+        "temperature-hourly-average": 6.25,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 12,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 9.75
+      },
+      "node1": {
+        "wind-speed-hourly-average": 19.25,
+        "ch2o-hourly-average": 0.0075,
+        "humidity-hourly-average": 6.75,
+        "temperature-hourly-average": 14.5,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 10
+      },
+      "node4": {
+        "wind-speed-hourly-average": 13.25,
+        "ch2o-hourly-average": 0.0175,
+        "humidity-hourly-average": 8.5,
+        "temperature-hourly-average": 13,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 10.25
+      },
+      "node5": {
+        "wind-speed-hourly-average": 13.5,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 4,
+        "temperature-hourly-average": 11.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 10.5
+      },
+      "node2": {
+        "wind-speed-hourly-average": 11.5,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 6.25,
+        "temperature-hourly-average": 19,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.5,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 9.5
+      },
+      "node3": {
+        "wind-speed-hourly-average": 12.5,
+        "ch2o-hourly-average": 0.0425,
+        "humidity-hourly-average": 7.25,
+        "temperature-hourly-average": 1.75,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 11.75,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 13
+      },
+      "node8": {
+        "wind-speed-hourly-average": 18.25,
+        "ch2o-hourly-average": 0.015,
+        "humidity-hourly-average": 14.75,
+        "temperature-hourly-average": 12,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 11.5,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 8.5
+      },
+      "node9": {
+        "wind-speed-hourly-average": 17.75,
+        "ch2o-hourly-average": 0.027500000000000004,
+        "humidity-hourly-average": 18.25,
+        "temperature-hourly-average": 13.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 12,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 10.5
+      },
+      "node6": {
+        "wind-speed-hourly-average": 17.25,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": -3.5,
+        "temperature-hourly-average": 18.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 11.5
+      },
+      "node7": {
+        "wind-speed-hourly-average": 20.5,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 2.25,
+        "temperature-hourly-average": 15.5,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 11.25
+      },
+      "timestamp": "10:19:34"
+    },
+    "hour11": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 12.5,
+        "ch2o-hourly-average": 0.035,
+        "humidity-hourly-average": 7,
+        "temperature-hourly-average": 10.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 8.5
+      },
+      "node11": {
+        "wind-speed-hourly-average": 11,
+        "ch2o-hourly-average": 0.015,
+        "humidity-hourly-average": 14.25,
+        "temperature-hourly-average": 8.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 9
+      },
+      "node12": {
+        "wind-speed-hourly-average": 8.75,
+        "ch2o-hourly-average": 0.024999999999999998,
+        "humidity-hourly-average": 8,
+        "temperature-hourly-average": 11.5,
+        "wind-direction-hourly-average": "315",
+        "pm10-hourly-average": 8.25,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 8.5
+      },
+      "node13": {
+        "wind-speed-hourly-average": 15.75,
+        "ch2o-hourly-average": 0.030000000000000002,
+        "humidity-hourly-average": 7.5,
+        "temperature-hourly-average": 5.5,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 8,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 10.75
+      },
+      "node14": {
+        "wind-speed-hourly-average": 21.25,
+        "ch2o-hourly-average": 0.022500000000000003,
+        "humidity-hourly-average": 12.75,
+        "temperature-hourly-average": 9,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 12,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 9.5
+      },
+      "node15": {
+        "wind-speed-hourly-average": 15,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 7,
+        "temperature-hourly-average": 4.5,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 10.5,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 9.75
+      },
+      "node1": {
+        "wind-speed-hourly-average": 11.5,
+        "ch2o-hourly-average": 0.04,
+        "humidity-hourly-average": 5.25,
+        "temperature-hourly-average": 6.25,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 8.5,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 11
+      },
+      "node4": {
+        "wind-speed-hourly-average": 9.25,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 10.5,
+        "temperature-hourly-average": 5.75,
+        "wind-direction-hourly-average": "270",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 12.25
+      },
+      "node5": {
+        "wind-speed-hourly-average": 15.75,
+        "ch2o-hourly-average": 0.015000000000000001,
+        "humidity-hourly-average": 10.5,
+        "temperature-hourly-average": 16.25,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 11.75,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 8
+      },
+      "node2": {
+        "wind-speed-hourly-average": 10.5,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 12.25,
+        "temperature-hourly-average": 5,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 10.5,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 9
+      },
+      "node3": {
+        "wind-speed-hourly-average": 15.25,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 6.5,
+        "temperature-hourly-average": 11.25,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 9,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 8.5
+      },
+      "node8": {
+        "wind-speed-hourly-average": 18.25,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 5.5,
+        "temperature-hourly-average": 5.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 12,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 10.25
+      },
+      "node9": {
+        "wind-speed-hourly-average": 14.75,
+        "ch2o-hourly-average": 0.022500000000000003,
+        "humidity-hourly-average": 12,
+        "temperature-hourly-average": 4.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 9
+      },
+      "node6": {
+        "wind-speed-hourly-average": 15.5,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 17.5,
+        "temperature-hourly-average": 7.5,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 6.25,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 9.75
+      },
+      "node7": {
+        "wind-speed-hourly-average": 18,
+        "ch2o-hourly-average": 0.0175,
+        "humidity-hourly-average": 14.5,
+        "temperature-hourly-average": 17.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 12.75,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 9
+      },
+      "timestamp": "11:44:33"
+    },
+    "hour12": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 11,
+        "ch2o-hourly-average": 0.01,
+        "humidity-hourly-average": 13.25,
+        "temperature-hourly-average": 7.75,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 7.75,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 10.75
+      },
+      "node11": {
+        "wind-speed-hourly-average": 17.25,
+        "ch2o-hourly-average": 0.0125,
+        "humidity-hourly-average": 9.5,
+        "temperature-hourly-average": 9.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 6.5,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 10.5
+      },
+      "node12": {
+        "wind-speed-hourly-average": 15.5,
+        "ch2o-hourly-average": 0.015000000000000001,
+        "humidity-hourly-average": 3,
+        "temperature-hourly-average": 3.75,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 10.5
+      },
+      "node13": {
+        "wind-speed-hourly-average": 9.25,
+        "ch2o-hourly-average": 0.030000000000000002,
+        "humidity-hourly-average": 5.75,
+        "temperature-hourly-average": 9,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 11
+      },
+      "node14": {
+        "wind-speed-hourly-average": 11.5,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 9.5,
+        "temperature-hourly-average": 5.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 8,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 10.5
+      },
+      "node15": {
+        "wind-speed-hourly-average": 16,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 4.25,
+        "temperature-hourly-average": 5.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 13,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 10.25
+      },
+      "node1": {
+        "wind-speed-hourly-average": 12.5,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 14.25,
+        "temperature-hourly-average": 4,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 12.25,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 7.75
+      },
+      "node4": {
+        "wind-speed-hourly-average": 9,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 8.75,
+        "temperature-hourly-average": 2.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 8.75,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 9.75
+      },
+      "node5": {
+        "wind-speed-hourly-average": 19.25,
+        "ch2o-hourly-average": 0.017499999999999998,
+        "humidity-hourly-average": 10.25,
+        "temperature-hourly-average": 15.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 9,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 9
+      },
+      "node2": {
+        "wind-speed-hourly-average": 13,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 17.5,
+        "temperature-hourly-average": 10.5,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 9,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 10.5
+      },
+      "node3": {
+        "wind-speed-hourly-average": 11.75,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": -3.75,
+        "temperature-hourly-average": 9,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 12
+      },
+      "node8": {
+        "wind-speed-hourly-average": 10.75,
+        "ch2o-hourly-average": 0.017499999999999998,
+        "humidity-hourly-average": 10,
+        "temperature-hourly-average": 15,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 11.25
+      },
+      "node9": {
+        "wind-speed-hourly-average": 20,
+        "ch2o-hourly-average": 0.015,
+        "humidity-hourly-average": 17.75,
+        "temperature-hourly-average": 13,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 14,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 10.5
+      },
+      "node6": {
+        "wind-speed-hourly-average": 8,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 6.75,
+        "temperature-hourly-average": 14.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 8
+      },
+      "node7": {
+        "wind-speed-hourly-average": 20,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 16,
+        "temperature-hourly-average": 22.5,
+        "wind-direction-hourly-average": "315",
+        "pm10-hourly-average": 9.5,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 12.5
+      },
+      "timestamp": "12:35:44"
+    },
+    "hour13": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 14,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 3,
+        "temperature-hourly-average": 10.5,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 9.25,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 11.75
+      },
+      "node11": {
+        "wind-speed-hourly-average": 13.75,
+        "ch2o-hourly-average": 0.015,
+        "humidity-hourly-average": 20,
+        "temperature-hourly-average": 17.25,
+        "wind-direction-hourly-average": "270",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 10
+      },
+      "node12": {
+        "wind-speed-hourly-average": 12.25,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 5.5,
+        "temperature-hourly-average": 11.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.75,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 11.5
+      },
+      "node13": {
+        "wind-speed-hourly-average": 23.75,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 9.25,
+        "temperature-hourly-average": 25.5,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 10.5
+      },
+      "node14": {
+        "wind-speed-hourly-average": 9.5,
+        "ch2o-hourly-average": 0.0175,
+        "humidity-hourly-average": 10,
+        "temperature-hourly-average": 4.5,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 12.5,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 10.5
+      },
+      "node15": {
+        "wind-speed-hourly-average": 13.75,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 13.25,
+        "temperature-hourly-average": 19.5,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 10.5
+      },
+      "node1": {
+        "wind-speed-hourly-average": 14.25,
+        "ch2o-hourly-average": 0.034999999999999996,
+        "humidity-hourly-average": 12.5,
+        "temperature-hourly-average": 12.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 7.25,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 11.75
+      },
+      "node4": {
+        "wind-speed-hourly-average": 12.75,
+        "ch2o-hourly-average": 0.030000000000000002,
+        "humidity-hourly-average": 0.75,
+        "temperature-hourly-average": 7,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 10
+      },
+      "node5": {
+        "wind-speed-hourly-average": 22.75,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 1.5,
+        "temperature-hourly-average": 11.5,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 8.5,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 8.75
+      },
+      "node2": {
+        "wind-speed-hourly-average": 13.5,
+        "ch2o-hourly-average": 0.0175,
+        "humidity-hourly-average": 15,
+        "temperature-hourly-average": 12,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 11
+      },
+      "node3": {
+        "wind-speed-hourly-average": 17.75,
+        "ch2o-hourly-average": 0.01,
+        "humidity-hourly-average": 3.75,
+        "temperature-hourly-average": 11.5,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 9.5,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 8
+      },
+      "node8": {
+        "wind-speed-hourly-average": 14.25,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 5.5,
+        "temperature-hourly-average": 15.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 11.75,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 11.5
+      },
+      "node9": {
+        "wind-speed-hourly-average": 11.25,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 15.25,
+        "temperature-hourly-average": 12.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 9.25,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 12.75
+      },
+      "node6": {
+        "wind-speed-hourly-average": 15.25,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 9,
+        "temperature-hourly-average": 9,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 9.25
+      },
+      "node7": {
+        "wind-speed-hourly-average": 10.5,
+        "ch2o-hourly-average": 0.035,
+        "humidity-hourly-average": 5.5,
+        "temperature-hourly-average": 13.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 9.25,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 12
+      },
+      "timestamp": "13:18:29"
+    },
+    "hour14": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 13.5,
+        "ch2o-hourly-average": 0.035,
+        "humidity-hourly-average": 12,
+        "temperature-hourly-average": 2.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 9.25
+      },
+      "node11": {
+        "wind-speed-hourly-average": 9.75,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 5.5,
+        "temperature-hourly-average": 6.5,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10.5,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 6.75
+      },
+      "node12": {
+        "wind-speed-hourly-average": 11,
+        "ch2o-hourly-average": 0.0125,
+        "humidity-hourly-average": 9.25,
+        "temperature-hourly-average": 10,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 12,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 10
+      },
+      "node13": {
+        "wind-speed-hourly-average": 22,
+        "ch2o-hourly-average": 0.0375,
+        "humidity-hourly-average": 5,
+        "temperature-hourly-average": 17.5,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 10
+      },
+      "node14": {
+        "wind-speed-hourly-average": 13.25,
+        "ch2o-hourly-average": 0.027500000000000004,
+        "humidity-hourly-average": 7.25,
+        "temperature-hourly-average": 19.75,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 7,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 12.5
+      },
+      "node15": {
+        "wind-speed-hourly-average": 13.75,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 16,
+        "temperature-hourly-average": 4.25,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 9.5,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 9.25
+      },
+      "node1": {
+        "wind-speed-hourly-average": 17.25,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 3.75,
+        "temperature-hourly-average": 12.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 7.75,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 11.75
+      },
+      "node4": {
+        "wind-speed-hourly-average": 18,
+        "ch2o-hourly-average": 0.0375,
+        "humidity-hourly-average": 19.25,
+        "temperature-hourly-average": 0.25,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 12.25
+      },
+      "node5": {
+        "wind-speed-hourly-average": 24.75,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 14.5,
+        "temperature-hourly-average": -3.25,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 11.75,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 12.25
+      },
+      "node2": {
+        "wind-speed-hourly-average": 19.25,
+        "ch2o-hourly-average": 0.015000000000000001,
+        "humidity-hourly-average": 9,
+        "temperature-hourly-average": 11.75,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 9.25,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 7.5
+      },
+      "node3": {
+        "wind-speed-hourly-average": 5.25,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 7.5,
+        "temperature-hourly-average": 14,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 10.5
+      },
+      "node8": {
+        "wind-speed-hourly-average": 16.5,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 9.25,
+        "temperature-hourly-average": 6.75,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 11.5,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 7.5
+      },
+      "node9": {
+        "wind-speed-hourly-average": 16,
+        "ch2o-hourly-average": 0.0075,
+        "humidity-hourly-average": 8.25,
+        "temperature-hourly-average": 8.5,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10.75,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 10.5
+      },
+      "node6": {
+        "wind-speed-hourly-average": 15.25,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 16.25,
+        "temperature-hourly-average": 7.5,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 9,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 9.75
+      },
+      "node7": {
+        "wind-speed-hourly-average": 16.5,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 6,
+        "temperature-hourly-average": 6.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 8,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 13
+      },
+      "timestamp": "14:15:16"
+    },
+    "hour15": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 22.25,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 12.75,
+        "temperature-hourly-average": 9.5,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 10.75
+      },
+      "node11": {
+        "wind-speed-hourly-average": 22.5,
+        "ch2o-hourly-average": 0.015000000000000001,
+        "humidity-hourly-average": 13.75,
+        "temperature-hourly-average": 17.25,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 9.25,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 12.25
+      },
+      "node12": {
+        "wind-speed-hourly-average": 12,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": -0.25,
+        "temperature-hourly-average": 12.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 8.75
+      },
+      "node13": {
+        "wind-speed-hourly-average": 13,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 1.5,
+        "temperature-hourly-average": 5,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 9.5,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 12
+      },
+      "node14": {
+        "wind-speed-hourly-average": 21.5,
+        "ch2o-hourly-average": 0.027499999999999997,
+        "humidity-hourly-average": 10.5,
+        "temperature-hourly-average": 6,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 9,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 10.5
+      },
+      "node15": {
+        "wind-speed-hourly-average": 12.25,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 7.75,
+        "temperature-hourly-average": 13,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 9,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 10
+      },
+      "node1": {
+        "wind-speed-hourly-average": 9.25,
+        "ch2o-hourly-average": 0.030000000000000002,
+        "humidity-hourly-average": 13,
+        "temperature-hourly-average": 13.5,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 10.5,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 10.75
+      },
+      "node4": {
+        "wind-speed-hourly-average": 17,
+        "ch2o-hourly-average": 0.037500000000000006,
+        "humidity-hourly-average": 10.75,
+        "temperature-hourly-average": 21.5,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 12,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 9.25
+      },
+      "node5": {
+        "wind-speed-hourly-average": 22,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 10.25,
+        "temperature-hourly-average": -0.75,
+        "wind-direction-hourly-average": "270",
+        "pm10-hourly-average": 13,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 9.5
+      },
+      "node2": {
+        "wind-speed-hourly-average": 10.75,
+        "ch2o-hourly-average": 0.027500000000000004,
+        "humidity-hourly-average": 16,
+        "temperature-hourly-average": 21.5,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 9.25,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 11.25
+      },
+      "node3": {
+        "wind-speed-hourly-average": 12.75,
+        "ch2o-hourly-average": 0.017499999999999998,
+        "humidity-hourly-average": 7,
+        "temperature-hourly-average": 7.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 8.5
+      },
+      "node8": {
+        "wind-speed-hourly-average": 19.5,
+        "ch2o-hourly-average": 0.0175,
+        "humidity-hourly-average": 7.75,
+        "temperature-hourly-average": 6,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 10.25
+      },
+      "node9": {
+        "wind-speed-hourly-average": 8.5,
+        "ch2o-hourly-average": 0.0175,
+        "humidity-hourly-average": 13,
+        "temperature-hourly-average": 10.25,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 12.25,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 6.25
+      },
+      "node6": {
+        "wind-speed-hourly-average": 20,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 7,
+        "temperature-hourly-average": 6.75,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 9.5
+      },
+      "node7": {
+        "wind-speed-hourly-average": 19.25,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 7,
+        "temperature-hourly-average": 9.25,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 8.75,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 11
+      },
+      "timestamp": "15:49:47"
+    },
+    "hour16": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 14,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 11.25,
+        "temperature-hourly-average": 2,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 9.25,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 11.25
+      },
+      "node11": {
+        "wind-speed-hourly-average": 17.5,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 14.5,
+        "temperature-hourly-average": 7.25,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 8.5,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 10
+      },
+      "node12": {
+        "wind-speed-hourly-average": 15.75,
+        "ch2o-hourly-average": 0.0175,
+        "humidity-hourly-average": 9.75,
+        "temperature-hourly-average": 17.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 9.25,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 9
+      },
+      "node13": {
+        "wind-speed-hourly-average": 20.25,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 13,
+        "temperature-hourly-average": 12.25,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 8.5,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 9.5
+      },
+      "node14": {
+        "wind-speed-hourly-average": 16.5,
+        "ch2o-hourly-average": 0.027500000000000004,
+        "humidity-hourly-average": 9.5,
+        "temperature-hourly-average": 1,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 8.75
+      },
+      "node15": {
+        "wind-speed-hourly-average": 15,
+        "ch2o-hourly-average": 0.0125,
+        "humidity-hourly-average": 19,
+        "temperature-hourly-average": 10.25,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 11
+      },
+      "node1": {
+        "wind-speed-hourly-average": 10.75,
+        "ch2o-hourly-average": 0.024999999999999998,
+        "humidity-hourly-average": 14.25,
+        "temperature-hourly-average": 12.25,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 6.75
+      },
+      "node4": {
+        "wind-speed-hourly-average": 18,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 12.5,
+        "temperature-hourly-average": 0.25,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 8.25
+      },
+      "node5": {
+        "wind-speed-hourly-average": 7,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 8.25,
+        "temperature-hourly-average": 14.75,
+        "wind-direction-hourly-average": "315",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 9.75
+      },
+      "node2": {
+        "wind-speed-hourly-average": 15.75,
+        "ch2o-hourly-average": 0.015000000000000001,
+        "humidity-hourly-average": 15.5,
+        "temperature-hourly-average": 6.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 13
+      },
+      "node3": {
+        "wind-speed-hourly-average": 14,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 7.75,
+        "temperature-hourly-average": 8,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 10.25
+      },
+      "node8": {
+        "wind-speed-hourly-average": 12.75,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 15.75,
+        "temperature-hourly-average": -0.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 7.75,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 11.25
+      },
+      "node9": {
+        "wind-speed-hourly-average": 15,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 13,
+        "temperature-hourly-average": 8.5,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10.5,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 11.5
+      },
+      "node6": {
+        "wind-speed-hourly-average": 19.25,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 13.5,
+        "temperature-hourly-average": -4.25,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 12,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 9.25
+      },
+      "node7": {
+        "wind-speed-hourly-average": 20.25,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 18.5,
+        "temperature-hourly-average": 4.5,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.75,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 10.5
+      },
+      "timestamp": "16:18:27"
+    },
+    "hour17": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 6.25,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 9.75,
+        "temperature-hourly-average": 12.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 8.25
+      },
+      "node11": {
+        "wind-speed-hourly-average": 14.5,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 6.5,
+        "temperature-hourly-average": 4.5,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 9.5
+      },
+      "node12": {
+        "wind-speed-hourly-average": 12.75,
+        "ch2o-hourly-average": 0.035,
+        "humidity-hourly-average": 19.5,
+        "temperature-hourly-average": 17,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 10.5,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 9.25
+      },
+      "node13": {
+        "wind-speed-hourly-average": 13.5,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 11.25,
+        "temperature-hourly-average": -1.75,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 7.25
+      },
+      "node14": {
+        "wind-speed-hourly-average": 13.25,
+        "ch2o-hourly-average": 0.019999999999999997,
+        "humidity-hourly-average": 12.25,
+        "temperature-hourly-average": 10.5,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 10.5,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 9
+      },
+      "node15": {
+        "wind-speed-hourly-average": 17.75,
+        "ch2o-hourly-average": 0.0175,
+        "humidity-hourly-average": 18.25,
+        "temperature-hourly-average": 9,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 7.75,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 9.25
+      },
+      "node1": {
+        "wind-speed-hourly-average": 8,
+        "ch2o-hourly-average": 0.037500000000000006,
+        "humidity-hourly-average": 11,
+        "temperature-hourly-average": 16.75,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 10
+      },
+      "node4": {
+        "wind-speed-hourly-average": 10.75,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 5.75,
+        "temperature-hourly-average": 4,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 10.5
+      },
+      "node5": {
+        "wind-speed-hourly-average": 17,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 2.25,
+        "temperature-hourly-average": 7.5,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 8
+      },
+      "node2": {
+        "wind-speed-hourly-average": 18.25,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 5.5,
+        "temperature-hourly-average": 8.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10.5,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 10.75
+      },
+      "node3": {
+        "wind-speed-hourly-average": 17,
+        "ch2o-hourly-average": 0.035,
+        "humidity-hourly-average": 4,
+        "temperature-hourly-average": 10.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 12.5
+      },
+      "node8": {
+        "wind-speed-hourly-average": 23.75,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 9.75,
+        "temperature-hourly-average": 4.5,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 9.5,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 11
+      },
+      "node9": {
+        "wind-speed-hourly-average": 13,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 3.5,
+        "temperature-hourly-average": 1.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 8.75,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 10.25
+      },
+      "node6": {
+        "wind-speed-hourly-average": 14.75,
+        "ch2o-hourly-average": 0.035,
+        "humidity-hourly-average": 5,
+        "temperature-hourly-average": 11.5,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 9.25
+      },
+      "node7": {
+        "wind-speed-hourly-average": 9.25,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 3,
+        "temperature-hourly-average": 12.25,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10.75,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 10.5
+      },
+      "timestamp": "17:20:38"
+    },
+    "hour18": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 17.75,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": -0.5,
+        "temperature-hourly-average": 10.25,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 8.25,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 11.5
+      },
+      "node11": {
+        "wind-speed-hourly-average": 14.75,
+        "ch2o-hourly-average": 0.0125,
+        "humidity-hourly-average": 14.75,
+        "temperature-hourly-average": 14.5,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 8.5,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 8
+      },
+      "node12": {
+        "wind-speed-hourly-average": 21.25,
+        "ch2o-hourly-average": 0.015000000000000001,
+        "humidity-hourly-average": 14.75,
+        "temperature-hourly-average": 12.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10.75,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 9.5
+      },
+      "node13": {
+        "wind-speed-hourly-average": 9,
+        "ch2o-hourly-average": 0.027500000000000004,
+        "humidity-hourly-average": 0.5,
+        "temperature-hourly-average": 2,
+        "wind-direction-hourly-average": "270",
+        "pm10-hourly-average": 9.5,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 10.5
+      },
+      "node14": {
+        "wind-speed-hourly-average": 16,
+        "ch2o-hourly-average": 0.0375,
+        "humidity-hourly-average": 9,
+        "temperature-hourly-average": 12.25,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 8,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 7.75
+      },
+      "node15": {
+        "wind-speed-hourly-average": 16.25,
+        "ch2o-hourly-average": 0.04,
+        "humidity-hourly-average": 20,
+        "temperature-hourly-average": 16.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.75,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 10
+      },
+      "node1": {
+        "wind-speed-hourly-average": 12.5,
+        "ch2o-hourly-average": 0.030000000000000002,
+        "humidity-hourly-average": 8,
+        "temperature-hourly-average": 7.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 10
+      },
+      "node4": {
+        "wind-speed-hourly-average": 14.5,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 5.5,
+        "temperature-hourly-average": 6,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 9.5
+      },
+      "node5": {
+        "wind-speed-hourly-average": 15.25,
+        "ch2o-hourly-average": 0.035,
+        "humidity-hourly-average": 2.5,
+        "temperature-hourly-average": 14,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 8.25,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 11
+      },
+      "node2": {
+        "wind-speed-hourly-average": 15.25,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 7.75,
+        "temperature-hourly-average": 0.5,
+        "wind-direction-hourly-average": "270",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 8.75
+      },
+      "node3": {
+        "wind-speed-hourly-average": 10.5,
+        "ch2o-hourly-average": 0.035,
+        "humidity-hourly-average": 14.25,
+        "temperature-hourly-average": 23,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 8.75
+      },
+      "node8": {
+        "wind-speed-hourly-average": 9.25,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 1,
+        "temperature-hourly-average": 14.5,
+        "wind-direction-hourly-average": "315",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 9
+      },
+      "node9": {
+        "wind-speed-hourly-average": 17.75,
+        "ch2o-hourly-average": 0.015000000000000001,
+        "humidity-hourly-average": 7.25,
+        "temperature-hourly-average": 5.25,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 10.75,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 9.5
+      },
+      "node6": {
+        "wind-speed-hourly-average": 15.5,
+        "ch2o-hourly-average": 0.027500000000000004,
+        "humidity-hourly-average": 11.5,
+        "temperature-hourly-average": 2.5,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 7.5,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 11
+      },
+      "node7": {
+        "wind-speed-hourly-average": 22.75,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 17.25,
+        "temperature-hourly-average": 7.5,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 11.75,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 11.5
+      },
+      "timestamp": "18:29:59"
+    },
+    "hour19": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 20.5,
+        "ch2o-hourly-average": 0.015,
+        "humidity-hourly-average": 10,
+        "temperature-hourly-average": 10,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 12.25,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 11
+      },
+      "node11": {
+        "wind-speed-hourly-average": 10,
+        "ch2o-hourly-average": 0.0375,
+        "humidity-hourly-average": 14,
+        "temperature-hourly-average": 4.5,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 9.25,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 7.25
+      },
+      "node12": {
+        "wind-speed-hourly-average": 17.5,
+        "ch2o-hourly-average": 0.035,
+        "humidity-hourly-average": 5.25,
+        "temperature-hourly-average": -0.25,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 12
+      },
+      "node13": {
+        "wind-speed-hourly-average": 19,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 22,
+        "temperature-hourly-average": 12.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 7.75,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 9.75
+      },
+      "node14": {
+        "wind-speed-hourly-average": 14,
+        "ch2o-hourly-average": 0.015000000000000001,
+        "humidity-hourly-average": 6,
+        "temperature-hourly-average": 19.75,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 9,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 11
+      },
+      "node15": {
+        "wind-speed-hourly-average": 13.75,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 16.5,
+        "temperature-hourly-average": 9,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 12.25,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 9.75
+      },
+      "node1": {
+        "wind-speed-hourly-average": 22,
+        "ch2o-hourly-average": 0.037500000000000006,
+        "humidity-hourly-average": 14.75,
+        "temperature-hourly-average": 14.25,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 8.5,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 12
+      },
+      "node4": {
+        "wind-speed-hourly-average": 19.75,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 6,
+        "temperature-hourly-average": 21.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 7.5,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 11
+      },
+      "node5": {
+        "wind-speed-hourly-average": 18,
+        "ch2o-hourly-average": 0.0375,
+        "humidity-hourly-average": 5,
+        "temperature-hourly-average": 13,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 12,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 10
+      },
+      "node2": {
+        "wind-speed-hourly-average": 16.25,
+        "ch2o-hourly-average": 0.027500000000000004,
+        "humidity-hourly-average": 10.75,
+        "temperature-hourly-average": 10.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 11.25
+      },
+      "node3": {
+        "wind-speed-hourly-average": 20.5,
+        "ch2o-hourly-average": 0.015,
+        "humidity-hourly-average": 9.5,
+        "temperature-hourly-average": 3.5,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 10
+      },
+      "node8": {
+        "wind-speed-hourly-average": 15.75,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 22,
+        "temperature-hourly-average": 10,
+        "wind-direction-hourly-average": "315",
+        "pm10-hourly-average": 10.5,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 10
+      },
+      "node9": {
+        "wind-speed-hourly-average": 10.5,
+        "ch2o-hourly-average": 0.024999999999999998,
+        "humidity-hourly-average": 15.5,
+        "temperature-hourly-average": 2.75,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 9.75
+      },
+      "node6": {
+        "wind-speed-hourly-average": 13.5,
+        "ch2o-hourly-average": 0.027500000000000004,
+        "humidity-hourly-average": 17.75,
+        "temperature-hourly-average": 11.5,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 9,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 12
+      },
+      "node7": {
+        "wind-speed-hourly-average": 12,
+        "ch2o-hourly-average": 0.0075,
+        "humidity-hourly-average": 3.75,
+        "temperature-hourly-average": 10.5,
+        "wind-direction-hourly-average": "315",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 8.5
+      },
+      "timestamp": "19:17:31"
+    },
+    "hour20": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 10.5,
+        "ch2o-hourly-average": 0.015000000000000001,
+        "humidity-hourly-average": 7.5,
+        "temperature-hourly-average": 20.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10.5,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 11.5
+      },
+      "node11": {
+        "wind-speed-hourly-average": 13.25,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 12,
+        "temperature-hourly-average": 25.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10.75,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 7.75
+      },
+      "node12": {
+        "wind-speed-hourly-average": 15.25,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 14.75,
+        "temperature-hourly-average": 3,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 8,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 11.25
+      },
+      "node13": {
+        "wind-speed-hourly-average": 17.75,
+        "ch2o-hourly-average": 0.0375,
+        "humidity-hourly-average": 4.5,
+        "temperature-hourly-average": 10,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10.75,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 11.5
+      },
+      "node14": {
+        "wind-speed-hourly-average": 6,
+        "ch2o-hourly-average": 0.04,
+        "humidity-hourly-average": 5.5,
+        "temperature-hourly-average": 5.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 8.25,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 10.25
+      },
+      "node15": {
+        "wind-speed-hourly-average": 13.25,
+        "ch2o-hourly-average": 0.035,
+        "humidity-hourly-average": 12.25,
+        "temperature-hourly-average": 10,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 9
+      },
+      "node1": {
+        "wind-speed-hourly-average": 14.25,
+        "ch2o-hourly-average": 0.030000000000000002,
+        "humidity-hourly-average": 3,
+        "temperature-hourly-average": 12,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.5,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 7.75
+      },
+      "node4": {
+        "wind-speed-hourly-average": 14.75,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 7,
+        "temperature-hourly-average": -1.25,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 9
+      },
+      "node5": {
+        "wind-speed-hourly-average": 6,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 15.25,
+        "temperature-hourly-average": 16,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 13
+      },
+      "node2": {
+        "wind-speed-hourly-average": 16.5,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 13.25,
+        "temperature-hourly-average": 15.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 9.5
+      },
+      "node3": {
+        "wind-speed-hourly-average": 10.75,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 19.5,
+        "temperature-hourly-average": 17,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 10.5
+      },
+      "node8": {
+        "wind-speed-hourly-average": 18.5,
+        "ch2o-hourly-average": 0.030000000000000002,
+        "humidity-hourly-average": 10.75,
+        "temperature-hourly-average": -1.5,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 9.25,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 8
+      },
+      "node9": {
+        "wind-speed-hourly-average": 20,
+        "ch2o-hourly-average": 0.019999999999999997,
+        "humidity-hourly-average": 15.25,
+        "temperature-hourly-average": 14.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 11
+      },
+      "node6": {
+        "wind-speed-hourly-average": 15.5,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 14.5,
+        "temperature-hourly-average": 11.25,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 10.25
+      },
+      "node7": {
+        "wind-speed-hourly-average": 10.5,
+        "ch2o-hourly-average": 0.027500000000000004,
+        "humidity-hourly-average": 12.25,
+        "temperature-hourly-average": 14.5,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 9.5,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 10.75
+      },
+      "timestamp": "20:57:36"
+    },
+    "hour21": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 16.5,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 9.75,
+        "temperature-hourly-average": 14.5,
+        "wind-direction-hourly-average": "315",
+        "pm10-hourly-average": 10.75,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 11
+      },
+      "node11": {
+        "wind-speed-hourly-average": 13.25,
+        "ch2o-hourly-average": 0.024999999999999998,
+        "humidity-hourly-average": 16.25,
+        "temperature-hourly-average": 14.75,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 11.5,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 7.25
+      },
+      "node12": {
+        "wind-speed-hourly-average": 20.5,
+        "ch2o-hourly-average": 0.01,
+        "humidity-hourly-average": 2,
+        "temperature-hourly-average": 15.25,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 9
+      },
+      "node13": {
+        "wind-speed-hourly-average": 9.5,
+        "ch2o-hourly-average": 0.01,
+        "humidity-hourly-average": 11,
+        "temperature-hourly-average": 8.5,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 7,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 11.75
+      },
+      "node14": {
+        "wind-speed-hourly-average": 20.75,
+        "ch2o-hourly-average": 0.024999999999999998,
+        "humidity-hourly-average": 8.5,
+        "temperature-hourly-average": 10.5,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 9.5,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 9.75
+      },
+      "node15": {
+        "wind-speed-hourly-average": 9.75,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 18.25,
+        "temperature-hourly-average": 10.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 8,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 9
+      },
+      "node1": {
+        "wind-speed-hourly-average": 13.75,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 18.5,
+        "temperature-hourly-average": 14.75,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 10.75,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 10.75
+      },
+      "node4": {
+        "wind-speed-hourly-average": 18.5,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 14.75,
+        "temperature-hourly-average": 8,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 9.5,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 10.5
+      },
+      "node5": {
+        "wind-speed-hourly-average": 6,
+        "ch2o-hourly-average": 0.015,
+        "humidity-hourly-average": 17.25,
+        "temperature-hourly-average": 5,
+        "wind-direction-hourly-average": "270",
+        "pm10-hourly-average": 11,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 10
+      },
+      "node2": {
+        "wind-speed-hourly-average": 12.5,
+        "ch2o-hourly-average": 0.0175,
+        "humidity-hourly-average": 4.75,
+        "temperature-hourly-average": 13,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 9.5,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 8.75
+      },
+      "node3": {
+        "wind-speed-hourly-average": 15.75,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 15.25,
+        "temperature-hourly-average": 20,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 11.25
+      },
+      "node8": {
+        "wind-speed-hourly-average": 15,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 15.25,
+        "temperature-hourly-average": 2.25,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 9.25
+      },
+      "node9": {
+        "wind-speed-hourly-average": 20.25,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 17.25,
+        "temperature-hourly-average": 7,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 9,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 8.5
+      },
+      "node6": {
+        "wind-speed-hourly-average": 10.5,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 5.5,
+        "temperature-hourly-average": 6.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 6.5,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 11.75
+      },
+      "node7": {
+        "wind-speed-hourly-average": 8.25,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 1,
+        "temperature-hourly-average": 15,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 8.75,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 10
+      },
+      "timestamp": "21:49:44"
+    },
+    "hour22": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 14.25,
+        "ch2o-hourly-average": 0.035,
+        "humidity-hourly-average": 6.5,
+        "temperature-hourly-average": 15.75,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 9.25,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 12.75
+      },
+      "node11": {
+        "wind-speed-hourly-average": 17.5,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 9.75,
+        "temperature-hourly-average": 12,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 12,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 8.75
+      },
+      "node12": {
+        "wind-speed-hourly-average": 18.5,
+        "ch2o-hourly-average": 0.024999999999999998,
+        "humidity-hourly-average": 5.25,
+        "temperature-hourly-average": 18.25,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 12,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 10.5
+      },
+      "node13": {
+        "wind-speed-hourly-average": 14.5,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 8.5,
+        "temperature-hourly-average": 11.5,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.5,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 9.75
+      },
+      "node14": {
+        "wind-speed-hourly-average": 19.75,
+        "ch2o-hourly-average": 0.0275,
+        "humidity-hourly-average": 4.25,
+        "temperature-hourly-average": 15.25,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 10.5
+      },
+      "node15": {
+        "wind-speed-hourly-average": 13.75,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 15.25,
+        "temperature-hourly-average": 8.25,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 11.75
+      },
+      "node1": {
+        "wind-speed-hourly-average": 17,
+        "ch2o-hourly-average": 0.0175,
+        "humidity-hourly-average": 15.75,
+        "temperature-hourly-average": 13.25,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 7.5,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 10.25
+      },
+      "node4": {
+        "wind-speed-hourly-average": 15.75,
+        "ch2o-hourly-average": 0.015,
+        "humidity-hourly-average": 9.25,
+        "temperature-hourly-average": 10.75,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 10.5
+      },
+      "node5": {
+        "wind-speed-hourly-average": 19.5,
+        "ch2o-hourly-average": 0.0325,
+        "humidity-hourly-average": 3.75,
+        "temperature-hourly-average": 14,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 8.75
+      },
+      "node2": {
+        "wind-speed-hourly-average": 15,
+        "ch2o-hourly-average": 0.024999999999999998,
+        "humidity-hourly-average": 17,
+        "temperature-hourly-average": 1,
+        "wind-direction-hourly-average": "270",
+        "pm10-hourly-average": 8.5,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 10.5
+      },
+      "node3": {
+        "wind-speed-hourly-average": 14.25,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 12,
+        "temperature-hourly-average": 14.5,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 11.5,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 8.5
+      },
+      "node8": {
+        "wind-speed-hourly-average": 15.75,
+        "ch2o-hourly-average": 0.034999999999999996,
+        "humidity-hourly-average": 22.5,
+        "temperature-hourly-average": 5.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 9.5,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 10
+      },
+      "node9": {
+        "wind-speed-hourly-average": 14.75,
+        "ch2o-hourly-average": 0.0175,
+        "humidity-hourly-average": 14.25,
+        "temperature-hourly-average": 12.5,
+        "wind-direction-hourly-average": "135",
+        "pm10-hourly-average": 8.25,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 9.5
+      },
+      "node6": {
+        "wind-speed-hourly-average": 9.25,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 7.25,
+        "temperature-hourly-average": 4.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 9.75,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 8.25
+      },
+      "node7": {
+        "wind-speed-hourly-average": 24.75,
+        "ch2o-hourly-average": 0.035,
+        "humidity-hourly-average": 16.25,
+        "temperature-hourly-average": 17.25,
+        "wind-direction-hourly-average": "315",
+        "pm10-hourly-average": 7.5,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 9.25
+      },
+      "timestamp": "22:34:05"
+    },
+    "hour23": {
+      "date": "2024-01-01",
+      "node10": {
+        "wind-speed-hourly-average": 11,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 15.5,
+        "temperature-hourly-average": 3.25,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 9,
+        "nodeAddress": 10,
+        "pm25-hourly-average": 8
+      },
+      "node11": {
+        "wind-speed-hourly-average": 13.25,
+        "ch2o-hourly-average": 0.022500000000000003,
+        "humidity-hourly-average": 12.75,
+        "temperature-hourly-average": 7.5,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 9,
+        "nodeAddress": 11,
+        "pm25-hourly-average": 7
+      },
+      "node12": {
+        "wind-speed-hourly-average": 15.25,
+        "ch2o-hourly-average": 0.015000000000000001,
+        "humidity-hourly-average": 8.75,
+        "temperature-hourly-average": 16.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 8,
+        "nodeAddress": 12,
+        "pm25-hourly-average": 10
+      },
+      "node13": {
+        "wind-speed-hourly-average": 16.25,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 2,
+        "temperature-hourly-average": 15.75,
+        "wind-direction-hourly-average": "0",
+        "pm10-hourly-average": 11.5,
+        "nodeAddress": 13,
+        "pm25-hourly-average": 7.25
+      },
+      "node14": {
+        "wind-speed-hourly-average": 16.75,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 14,
+        "temperature-hourly-average": 2.75,
+        "wind-direction-hourly-average": "270",
+        "pm10-hourly-average": 8.25,
+        "nodeAddress": 14,
+        "pm25-hourly-average": 9.75
+      },
+      "node15": {
+        "wind-speed-hourly-average": 8.75,
+        "ch2o-hourly-average": 0.03,
+        "humidity-hourly-average": 7.25,
+        "temperature-hourly-average": 2,
+        "wind-direction-hourly-average": "225",
+        "pm10-hourly-average": 11.5,
+        "nodeAddress": 15,
+        "pm25-hourly-average": 10.75
+      },
+      "node1": {
+        "wind-speed-hourly-average": 26.25,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 8,
+        "temperature-hourly-average": 10.5,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 8.75,
+        "nodeAddress": 1,
+        "pm25-hourly-average": 11.5
+      },
+      "node4": {
+        "wind-speed-hourly-average": 10.25,
+        "ch2o-hourly-average": 0.02,
+        "humidity-hourly-average": 15.75,
+        "temperature-hourly-average": 13.75,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 9.25,
+        "nodeAddress": 4,
+        "pm25-hourly-average": 11.25
+      },
+      "node5": {
+        "wind-speed-hourly-average": 15,
+        "ch2o-hourly-average": 0.015,
+        "humidity-hourly-average": 9.25,
+        "temperature-hourly-average": 2,
+        "wind-direction-hourly-average": "315",
+        "pm10-hourly-average": 9,
+        "nodeAddress": 5,
+        "pm25-hourly-average": 12
+      },
+      "node2": {
+        "wind-speed-hourly-average": 23.5,
+        "ch2o-hourly-average": 0.04,
+        "humidity-hourly-average": 11,
+        "temperature-hourly-average": 6.5,
+        "wind-direction-hourly-average": "90",
+        "pm10-hourly-average": 10.25,
+        "nodeAddress": 2,
+        "pm25-hourly-average": 13.5
+      },
+      "node3": {
+        "wind-speed-hourly-average": 18.75,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 3.5,
+        "temperature-hourly-average": 4.25,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 8.75,
+        "nodeAddress": 3,
+        "pm25-hourly-average": 10
+      },
+      "node8": {
+        "wind-speed-hourly-average": 14.75,
+        "ch2o-hourly-average": 0.025,
+        "humidity-hourly-average": 21,
+        "temperature-hourly-average": 4.5,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 8,
+        "nodeAddress": 8,
+        "pm25-hourly-average": 9
+      },
+      "node9": {
+        "wind-speed-hourly-average": 15,
+        "ch2o-hourly-average": 0.035,
+        "humidity-hourly-average": 11,
+        "temperature-hourly-average": 13,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 10,
+        "nodeAddress": 9,
+        "pm25-hourly-average": 6.25
+      },
+      "node6": {
+        "wind-speed-hourly-average": 13.75,
+        "ch2o-hourly-average": 0.027500000000000004,
+        "humidity-hourly-average": 2.25,
+        "temperature-hourly-average": 19.5,
+        "wind-direction-hourly-average": "180",
+        "pm10-hourly-average": 7,
+        "nodeAddress": 6,
+        "pm25-hourly-average": 9.5
+      },
+      "node7": {
+        "wind-speed-hourly-average": 10.25,
+        "ch2o-hourly-average": 0.0225,
+        "humidity-hourly-average": 9.5,
+        "temperature-hourly-average": 4.5,
+        "wind-direction-hourly-average": "45",
+        "pm10-hourly-average": 11.25,
+        "nodeAddress": 7,
+        "pm25-hourly-average": 7.75
+      },
+      "timestamp": "23:31:57"
+    }
+  }
+}
