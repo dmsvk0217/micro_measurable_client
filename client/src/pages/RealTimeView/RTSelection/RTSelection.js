@@ -51,27 +51,19 @@ function RTSelection() {
   ));
 
   // 시간 배열 생성
-  useEffect(() => {
-    const now = new Date();
-    const nearestHour = new Date(
-      now.getFullYear(),
-      now.getMonth(),
-      now.getDate(),
-      now.getHours(),
-      0,
-      0,
-      0
-    );
-    setSelectedDate(nearestHour);
-  }, []);
-
-  // const mutation = useMutation({
-  //   mutationFn: () => {
-  //     // event.preventDefault()
-      
-  //     return fetchRTTableData(selectedLocation,selectedDate,selectedUnit,selectedHour,);
-  //   },
-  // })
+  // useEffect(() => {
+  //   const now = new Date();
+  //   const nearestHour = new Date(
+  //     now.getFullYear(),
+  //     now.getMonth(),
+  //     now.getDate(),
+  //     now.getHours(),
+  //     0,
+  //     0,
+  //     0
+  //   );
+  //   setSelectedDate(nearestHour);
+  // }, []);
 
   const { mutate, isLoading } = useRTDataMutation();
 
@@ -81,7 +73,10 @@ function RTSelection() {
 
   return (
     <div className="RTTable">
-      {/* table container section */}
+      <div className="RT-table-title-container">
+        <span className="RT-table-title">| 측정 일시 |</span> 
+        { new Date(selectedDate).toLocaleDateString() }
+      </div>
       <div className="RT-table-select-container">
         <div>
           <div className="location-and-unit">
@@ -138,9 +133,6 @@ function RTSelection() {
           </div>
           
         </div>
-      </div>
-      <div className="RT-table-title-container">
-        <span className="RT-table-title">| 측정 일시 |</span> <CurrentDate />
       </div>
     </div>
   );

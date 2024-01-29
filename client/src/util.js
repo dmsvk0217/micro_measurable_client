@@ -17,6 +17,7 @@ const locationFromNodeNumberOptions = {
   15: "창조관",
 };
 
+
 exports.generateResultFromResponse = (responseJson) => {
   const transformedArray = [];
   const responseJsonData = responseJson.data;
