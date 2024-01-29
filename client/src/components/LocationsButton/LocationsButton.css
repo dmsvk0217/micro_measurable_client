@@ -1,0 +1,40 @@
+
+.SD-select-location {
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 10px;
+    width: 100%;
+  }
+
+.location-buttons-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap; /* Buttons wrap to the next line if necessary */
+  justify-content: center; /* Center buttons horizontally */
+}
+
+li {
+  list-style-type: none;
+  display: inline-block; 
+}
+
+.location-button {
+  border: none;
+  background-color: white;
+  width: 100px;
+  padding: 5px;
+  margin: 5px 5px;
+}
+
+.location-button:hover {
+  color: #55B7A6;
+}
+
+.location-button-active {
+  border: 2px solid #55B7A6;
+  background-color: white;
+  width: 100px;
+  padding: 5px;
+  margin: 5px 5px;
+}

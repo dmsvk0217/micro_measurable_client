@@ -79,7 +79,7 @@ function MapView() {
           </div>
         </div>
       </div>
-    </div>
+    </div> 
   );
 }
 
@@ -167,7 +167,7 @@ function NodeInfo(props) {
           </div>
           <div className="empty"></div>
           <div className="value">
-            <p>남서풍</p>
+            <p>남서풍</p> 
             <p>5m/s</p>
             <p>7 °C</p>
             <p>30%</p>

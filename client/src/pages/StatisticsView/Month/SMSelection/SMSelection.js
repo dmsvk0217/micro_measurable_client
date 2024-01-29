@@ -6,6 +6,8 @@ import {
 } from "../../../../constants/selectOption";
 import CustomDropDown from "../../../../components/CustomDropDown/CustomDropDown";
 import SMSubmitButton from "../SMSubmitButton/SMSubmitButton";
+import LocationsButton from "../../../../components/LocationsButton/LocationsButton";
+
 import './SMSelection.css';
 
 
@@ -17,12 +19,18 @@ function SMSelection(){
     const [selectedSubstance, setSelectedSubstance] = useState(
         selectSubstanceOptions[0]
     );
+    const [selectedLocations, setSelectedLocations] = useState([selectLocationOptions[0]]);
+
     
     const handleYearChange = (year) => {
         setSelectedYear(year);
     };
     const handleLocationChange = (location) => {
-        setSelectedLocation(location);
+        const updatedLocations = selectedLocations.includes(location)
+          ? selectedLocations.filter((loc) => loc !== location)
+          : [...selectedLocations, location];
+    
+        setSelectedLocations(updatedLocations);
     };
     const handleSubstanceChange = (substance) => {
         setSelectedSubstance(substance);
@@ -31,14 +39,6 @@ function SMSelection(){
     return(
         <div className="SM-select">
             <div className='SM-select-container'>
-                <div className="SM-select-comp">
-                    <p>측정위치</p>
-                    <CustomDropDown
-                        optionData={selectLocationOptions}
-                        selectedValue={selectedLocation}
-                        handleSelectedValue={handleLocationChange}
-                    />
-                </div>
                 <div className="SM-select-comp">
                     <p>측정기간</p>
                     <CustomDropDown
@@ -56,6 +56,19 @@ function SMSelection(){
                     />
                 </div>
             </div>
+            <div className="SD-select-location">
+        <p className="location-title">측정 위치</p>
+        <div className="location-buttons-container">
+          {selectLocationOptions.map((location) => (
+            <LocationsButton
+              key={location.value}
+              location={location}
+              selectedLocations={selectedLocations}
+              handleLocationChange={handleLocationChange}
+            />
+          ))}
+        </div>
+      </div>
             <SMSubmitButton
                 selectedYear={selectedYear}
                 selectedLocation={selectedLocation}

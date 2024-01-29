@@ -319,6 +319,7 @@
 .option-container {
   width: 150px;
   z-index: 0;
+  margin-top: 40px;
 }
 
 .option-and-info-container {
