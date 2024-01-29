@@ -30,11 +30,7 @@
 }
 
 .info-container {
-  position: absolute;
-  top: 5%;
-  right: 0%;
-  width: 25%;
-  padding-right: 30px;
+  width: 320px;
 }
 
 .node-info {
@@ -321,13 +317,26 @@
 }
 
 .option-container {
-  margin: auto;
+  width: 150px;
+  z-index: 0;
+}
+
+.option-and-info-container {
+  display: absolute;
+  top: 100px;
+  left: 0px;
+}
+
+.map-container {
   position: absolute;
-  top: 5%;
-  left: 0%;
-  width: 19%;
-  padding-left: 30px;
-  padding-top: 30px;
+  width: 100%;
+  height: 100%;
+}
+
+.option-and-info-flex-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
 }
 
 .option-container button {
