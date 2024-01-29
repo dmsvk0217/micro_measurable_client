@@ -7,7 +7,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 import CurrentDate from "../../../components/CurrentDate";
 import CustomDropDown from "../../../components/CustomDropDown/CustomDropDown";
 
-import { useRTDataMutation } from '../../../hooks/useRTDataMutation';
+import { useRTTableDataMutation } from '../../../hooks/useRTDataMutation';
 
 import { 
   selectLocationOptions,
@@ -50,25 +50,10 @@ function RTSelection() {
     </button>
   ));
 
-  // 시간 배열 생성
-  // useEffect(() => {
-  //   const now = new Date();
-  //   const nearestHour = new Date(
-  //     now.getFullYear(),
-  //     now.getMonth(),
-  //     now.getDate(),
-  //     now.getHours(),
-  //     0,
-  //     0,
-  //     0
-  //   );
-  //   setSelectedDate(nearestHour);
-  // }, []);
-
-  const { mutate, isLoading } = useRTDataMutation();
+  const { mutate: tableMutate } = useRTTableDataMutation();
 
   const handleSearchButton = () => {
-    mutate({ selectedLocation, selectedDate, selectedUnit, selectedHour });
+    tableMutate({ selectedLocation, selectedDate, selectedUnit, selectedHour });
   };
 
   return (

@@ -13,24 +13,17 @@ function NavigationBar(){
 
 
     return (
-        <nav className="navbar">
+        <nav className="navbar"> 
             <div className="navbar-logo">
                 <NavLink to="/"><img src="/img/logo.png" alt="Logo" className="logo"/></NavLink>
             </div>
             <ul className="nav-links">
                 <li><NavLink to="/" className={({ isActive }) => isActive ? 'nav-link-active' : 'nav-link'}>지도 보기</NavLink></li>
                 <li><NavLink to="/realTime" className={({ isActive }) => isActive ? 'nav-link-active' : 'nav-link'}>실시간 정보 보기</NavLink></li>
-                <li className="nav-item">
-                    <button className={isStatisticsActive() ? 'nav-link-active' : 'nav-link'}>통계 보기</button>
-                    <div className="nav-dropdown">
-                        <NavLink to="/statisticsDay" className={({ isActive }) => isActive ? 'nav-link-active' : 'nav-link'}>일별 통계</NavLink>
-                        <hr></hr>
-                        <NavLink to="/statisticsMonth" className={({ isActive }) => isActive ? 'nav-link-active' : 'nav-link'}>월별 통계</NavLink>
-                    </div>
-                </li>
+                <li><NavLink to="/statisticsDay" className={({ isActive }) => isActive ? 'nav-link-active' : 'nav-link'}>통계 보기</NavLink></li>
             </ul>
         </nav>
     );
 }
 
-export default NavigationBar;
+export default NavigationBar; 
