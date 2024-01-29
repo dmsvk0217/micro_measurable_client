@@ -57,7 +57,7 @@ const GoogleMap = ({ option }) => {
         path: window.google.maps.SymbolPath.CIRCLE,
         fillColor: markerColor,
         fillOpacity: 0.7,
-        scale: 25,
+        scale: 20,
         strokeColor: markerColor,
         strokeWeight: 3,
       };
@@ -69,7 +69,7 @@ const GoogleMap = ({ option }) => {
         label: {
           text: node.label,
           color: "white",
-          fontSize: "15px",
+          fontSize: "1.1em",
           fontWeight: "500",
         },
         optimized: false,
