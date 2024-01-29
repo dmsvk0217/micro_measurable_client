@@ -10,19 +10,28 @@ function OptionContainer(props) {
         className={selectedButtonId === 1 ? "active" : ""}
         onClick={() => selectedButtonAction(1)}
       >
-        초미세먼지
+        <div className="substance-option-one-container">
+          <div className="substance-option-name">초미세먼지</div>
+          <div className="substance-option-name-en">PM-2.5</div>
+        </div>
       </button>
       <button
         className={selectedButtonId === 2 ? "active" : ""}
         onClick={() => selectedButtonAction(2)}
       >
-        미세먼지
+        <div className="substance-option-one-container">
+          <div className="substance-option-name">미세먼지</div>
+          <div className="substance-option-name-en">PM-10</div>
+        </div>
       </button>
       <button
         className={selectedButtonId === 3 ? "active" : ""}
         onClick={() => selectedButtonAction(3)}
       >
-        포름알데히드
+        <div className="substance-option-one-container">
+          <div className="substance-option-name">포름알데히드</div>
+          <div className="substance-option-name-en">CH2O</div>
+        </div>
       </button>
     </div>
   );

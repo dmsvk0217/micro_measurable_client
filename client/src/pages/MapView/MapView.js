@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./MapView.css";
-import CurrentDate from "../../components/CurrentDate";
 import GoogleMap from "../../components/GoogleMap/GoogleMap";
 import { Wrapper } from "@googlemaps/react-wrapper";
 import OptionContainer from "./OptionContainer/OptionContainer";
+import LegendInfo from "./LegendInfo/LegendInfo";
+import NodeInfo from "./NodeInfo/NodeInfo";
 
 function MapView() {
   const [selectedNode, setSelectedNode] = useState("전체");
@@ -59,25 +60,24 @@ function MapView() {
           <GoogleMap option={option} options={{ disableDefaultUI: true }} />
         </Wrapper>
       </div>
-      <div className="option-and-info-container">
-        <div className="option-and-info-flex-container">
-          <OptionContainer
-            selectedButtonId={selectedButtonId}
-            selectedButtonAction={selectedButtonAction}
+      <div className="option-and-info-flex-container">
+        <OptionContainer
+          selectedButtonId={selectedButtonId}
+          selectedButtonAction={selectedButtonAction}
+        />
+        <div className="info-container">
+          <NodeInfo
+            selectedNode={selectedNode}
+            handleNodeSelect={handleNodeSelect}
           />
-          <div className="info-container">
-            <NodeInfo
-              selectedNode={selectedNode}
-              handleNodeSelect={handleNodeSelect}
-            />
-            <LegendInfo
-              legendTitle={legendTitle}
-              legendValueGood={legendValueGood}
-              legendValueNormal={legendValueNormal}
-              legendValueBad={legendValueBad}
-              legendValueWorse={legendValueWorse}
-            />
-          </div>
+          <div className="info-container-dividier"></div>
+          <LegendInfo
+            legendTitle={legendTitle}
+            legendValueGood={legendValueGood}
+            legendValueNormal={legendValueNormal}
+            legendValueBad={legendValueBad}
+            legendValueWorse={legendValueWorse}
+          />
         </div>
       </div>
     </div> 
@@ -85,96 +85,3 @@ function MapView() {
 }
 
 export default MapView;
-
-function LegendInfo(props) {
-  const legendTitle = props.legendTitle;
-  const legendValueGood = props.legendValueGood;
-  const legendValueNormal = props.legendValueNormal;
-  const legendValueBad = props.legendValueBad;
-  const legendValueWorse = props.legendValueWorse;
-  return (
-    <div className="legend-info">
-      <p className="legend-title">
-        <span className="option">{legendTitle}</span> 범례
-      </p>
-      <div className="legend-content">
-        <div className="legend-option-status">
-          <p className="good">좋음</p>
-          <p className="normal">보통</p>
-          <p className="bad">나쁨</p>
-          <p className="worse">매우 나쁨</p>
-        </div>
-        <div className="legend-option-value">
-          <p className="good">{legendValueGood}</p>
-          <p className="normal">{legendValueNormal}</p>
-          <p className="bad">{legendValueBad}</p>
-          <p className="worse">{legendValueWorse}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function NodeInfo(props) {
-  const selectedNode = props.electedNode;
-  const handleNodeSelect = props.handleNodeSelect;
-  return (
-    <div className="node-info">
-      <div className="select-node">
-        <img src="img/leaf.png" alt="leaf" className="leaf" />
-        <div className="dropdown">
-          <select
-            value={selectedNode}
-            onChange={(e) => handleNodeSelect(e.target.value)}
-            className="node-dropdown"
-          >
-            <option value="Node 1">Node 1</option>
-            <option value="Node 2">Node 2</option>
-            <option value="Node 3">Node 3</option>
-            <option value="Node 4">Node 4</option>
-          </select>
-        </div>
-      </div>
-      <div>
-        <span className="current-time" style={{ fontWeight: "400" }}>
-          <CurrentDate />
-        </span>
-        <hr className="node-info-divider"></hr>
-      </div>
-      <div className="value">
-        <div className="is-level">
-          <div className="sub">
-            <p>초미세먼지</p>
-            <p>미세먼지</p>
-            <p>포름알데히드</p>
-          </div>
-          <div className="number">
-            <p className="worse">151 ㎍/㎥</p>
-            <p className="normal">120 ㎍/㎥ </p>
-            <p className="good">0.002 ppm</p>
-          </div>
-          <div className="status">
-            <p className="worse">위험</p>
-            <p className="normal">보통</p>
-            <p className="good">좋음</p>
-          </div>
-        </div>
-        <div className="no-level">
-          <div className="sub">
-            <p>풍향</p>
-            <p>풍속</p>
-            <p>온도</p>
-            <p>습도</p>
-          </div>
-          <div className="empty"></div>
-          <div className="value">
-            <p>남서풍</p> 
-            <p>5m/s</p>
-            <p>7 °C</p>
-            <p>30%</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}

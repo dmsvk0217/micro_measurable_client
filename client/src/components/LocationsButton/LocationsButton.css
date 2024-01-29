@@ -28,11 +28,11 @@ li {
 }
 
 .location-button:hover {
-  color: #55B7A6;
+  color: #55B6A7;
 }
 
 .location-button-active {
-  border: 2px solid #55B7A6;
+  border: 2px solid rgba(85, 183, 107);
   background-color: white;
   width: 100px;
   padding: 5px;

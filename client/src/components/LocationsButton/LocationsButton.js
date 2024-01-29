@@ -4,7 +4,9 @@ import './LocationsButton.css'
 
 const LocationsButton = ({ location, selectedLocations, handleLocationChange }) => {
   return (
-      <li className={selectedLocations.includes(location) ? 'active' : ''}>
+      <li 
+        key = {location.value}
+        className={selectedLocations.includes(location) ? 'active' : ''}>
         <button
           className={selectedLocations.includes(location) ? 'location-button-active' : 'location-button'}
           onClick={() => handleLocationChange(location)}
