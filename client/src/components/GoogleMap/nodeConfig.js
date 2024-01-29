@@ -74,7 +74,7 @@ const nodeConfig = [
     },
     {
         id: 9,
-        position: { lat: 36.1039562, lng: 129.3920427 },
+        position: { lat: 36.1025642, lng: 129.3872500 },
         pm25: '11',
         pm10: '11',
         HCHO: '0.001',

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './StatisticsMonthView.css'
 import CustomGraph from "../../../components/CustomGraph/CustomGraph";
 import CustomTable from "../../../components/CustomTable/CustomTable";
@@ -7,7 +7,18 @@ import { chartData, chartOptions } from './SMGraphConfig';
 import { data, columns } from "./SMTableConfig";
 import DownloadButton from "../../../components/DownloadButton/DownloadButton";
 
+import useSMStore from '../../../store/SMStore';
+import { useSMDataMutation } from '../../../hooks/useSMDataMutation';
+
+import util from "../../../util.js";
+
 function StatisticsMonthView(){
+    const { tableData } = useSMStore();
+    const { mutate, isLoading } = useSMDataMutation();
+
+    useEffect(() => {
+        mutate({selectedLocation:"전체", selectedDate: new Date(2024, 0, 1), selectedUnit:"일평균", selectedHour:""});
+    })
     return (
         <div className='SM-container'>
             <p className='SM-title'>통계 보기 &gt; 월별</p>
