@@ -3,6 +3,12 @@
   width: 100%;
 }
 
+.info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
 .building-image-container img {
   filter: drop-shadow(4px 4px 5px white);
 }
@@ -37,10 +43,6 @@
   margin: 0;
   font-size: 1.2em;
   color: black;
-}
-
-.empty {
-  padding: 30px;
 }
 
 .option-and-info-container {
