@@ -9,6 +9,7 @@ import DownloadButton from "../../components/DownloadButton/DownloadButton";
 
 import useRTSotre from "../../store/RTStore.js";
 import { useRTTableDataMutation } from '../../hooks/useRTDataMutation.js';
+import RTGraphSelection from "./RTGraphSelection/RTGraphSelection.js";
 
 
 
@@ -29,9 +30,10 @@ function RealTimeView() {
       <p className="RT-title">실시간 정보 보기</p>
       <div className="RT-content-container">
         <RTSelection />
-        <DownloadButton data={tableData}></DownloadButton>
-        <CustomTable data={tableData} columns={columns}></CustomTable>
+        <DownloadButton data={tableData?tableData:[]}></DownloadButton>
+        <CustomTable data={tableData?tableData:[]} columns={columns}></CustomTable>
         <hr className="SD-hr"></hr>
+        <RTGraphSelection></RTGraphSelection>
         <CustomGraph data={chartData} options={chartOptions}></CustomGraph>
       </div>
     </div>
