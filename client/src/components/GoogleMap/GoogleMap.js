@@ -11,7 +11,7 @@ const GoogleMap = ({ option }) => {
   useEffect(() => {
     const newMap = new window.google.maps.Map(ref.current, {
       center: { lat: 36.1032734, lng: 129.3893488 },
-      zoom: 17.0,
+      zoom: 16.3,
     });
 
     const markerColors = {

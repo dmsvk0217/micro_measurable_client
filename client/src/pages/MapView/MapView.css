@@ -51,14 +51,11 @@
 }
 
 .node-info .select-node .leaf {
-  padding-top: 7%;
-  margin-left: -10%;
   width: 80px;
   height: 70px;
 }
 
 .dropdown {
-  margin-top: 6%;
   position: relative;
   display: inline-block;
 }
@@ -315,6 +312,7 @@
 .legend-option-value .worse {
   padding: 5px;
 }
+<<<<<<< HEAD
 
 .option-container {
   width: 150px;
@@ -322,6 +320,8 @@
   margin-top: 40px;
 }
 
+=======
+>>>>>>> 83cac2b8124e8e084e255f002a4623154403410b
 .option-and-info-container {
   display: absolute;
   top: 100px;
@@ -340,25 +340,6 @@
   padding: 30px;
 }
 
-.option-container button {
-  display: block;
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 15px 0;
-
-  border: 1px solid #e9e9e9;
-  border-radius: 10px;
-  background-color: white;
-  box-shadow: 2px 3px 4px 0px #afafaf;
-
-  font-size: medium;
-  font-weight: bold;
-}
-
-.option-container button:last-child {
-  margin-bottom: 0;
-}
-
 button.active {
   background-color: #55b76b;
   color: white;
@@ -366,5 +347,5 @@ button.active {
 }
 
 button.selected {
-    border: 2px solid #55B76B;
-} 
+  border: 2px solid #55b76b;
+}
