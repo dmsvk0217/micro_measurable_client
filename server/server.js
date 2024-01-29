@@ -4,11 +4,6 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const cron = require("node-cron");
 
-const calAllNodeDailyAverage = require("./routines/cal-all-node-daily-data.js");
-const calNodeDailyAverage = require("./routines/cal-node-daily-data.js");
-const calMonthlyAverage = require("./routines/cal-monthly-data.js");
-const calHourlyAverage = require("./routines/cal-hourly-data.js");
-
 // "초(option) 분 시 일 월 요일"
 // cron.schedule("0 * * * *", calHourlyAverage); // 매시간
 // cron.schedule("0 0 * * *", calAllNodeDailyAverage); // 매일
