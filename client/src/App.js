@@ -19,7 +19,7 @@ function App() {
           <Route path="/" element={<MapView />} />
           <Route path="/realTime" element={<RealTimeView />} />
           <Route path="/statisticsDay" element={<StatisticsDayView />} />
-          <Route path="/statisticsMonth" element={<StatisticsMonthView />} />
+          {/* <Route path="/statisticsMonth" element={<StatisticsMonthView />} /> */}
         </Routes>
       </div>
       <Footer />

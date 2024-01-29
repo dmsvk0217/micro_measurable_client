@@ -2,12 +2,12 @@
 .main-content {
   /* ✅ navigationbar hgith+margin 수정 필요 */
   min-height: max(calc(100vh - 100px), 800px);
-  padding: 0px 60px;
+  padding: 0px 0px;
 }
 
-.nav-hr{
-  border: none; 
+.nav-hr {
+  border: none;
   height: 1px;
-  background-color: #d3d3d3; 
+  background-color: #d3d3d3;
   margin: 0 60px 0 60px;
 }
