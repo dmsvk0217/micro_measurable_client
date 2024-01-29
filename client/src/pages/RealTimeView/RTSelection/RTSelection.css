@@ -11,13 +11,16 @@ css */
 }
 
 .RT-table-title-container {
-  padding: 10px;
+  padding: 5px 0px;
+  display: flex;
+  align-items: center;
 }
 
 .RT-table-title {
   font-weight: bold;
   font-size: 1.1em;
   align-items: center;
+  margin-right: 10px;
 }
 
 .location-and-unit {
