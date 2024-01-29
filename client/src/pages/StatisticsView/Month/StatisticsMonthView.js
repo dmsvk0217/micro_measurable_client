@@ -10,7 +10,6 @@ import DownloadButton from "../../../components/DownloadButton/DownloadButton";
 function StatisticsMonthView(){
     return (
         <div className='SM-container'>
-            <p className='SM-title'>통계 보기 &gt; 월별</p>
             <div className='SM-content-container'>
                 <SMSelection/>
                 <DownloadButton data={data}></DownloadButton>
