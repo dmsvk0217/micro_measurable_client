@@ -121,3 +121,12 @@ export const fetchRTTableData = async ({selectedLocation, selectedDate, selected
     return response.data;
 };
 
+
+export const fetchRTGraphData = async ({selectedLocation, selectedDate, selectedUnit, selectedHour}) => {
+  let requestURL;
+  const requestBody = {};
+
+  const response = await axiosInstance.post(requestURL, requestBody);
+
+  return response.data;
+};

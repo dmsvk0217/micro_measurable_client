@@ -8,7 +8,7 @@ import CustomTable from "../../components/CustomTable/CustomTable";
 import DownloadButton from "../../components/DownloadButton/DownloadButton";
 
 import useRTSotre from "../../store/RTStore.js";
-import { useRTDataMutation } from '../../hooks/useRTDataMutation.js';
+import { useRTTableDataMutation } from '../../hooks/useRTDataMutation.js';
 
 import util from "../../util.js";
 
@@ -16,11 +16,11 @@ import util from "../../util.js";
 
 function RealTimeView() {
   const { tableData } = useRTSotre();
-  const { mutate, isLoading } = useRTDataMutation();
+  const { mutate: tableMutate, isLoading } = useRTTableDataMutation();
   
   useEffect(() => {
     // Todo: 전체노드 전체물질 일평균 데이터 받기 - selectedDate: new Date() 로 변경해줘야 함.
-    mutate({selectedLocation:"전체", selectedDate: new Date(2024, 0, 1), selectedUnit:"일평균", selectedHour:""});
+    tableMutate({selectedLocation:"전체", selectedDate: new Date(2024, 0, 1), selectedUnit:"일평균", selectedHour:""});
   }, []);
   
   const transformedData = tableData ? util.generateResultFromResponse(tableData) : [];
