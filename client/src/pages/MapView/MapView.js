@@ -71,6 +71,7 @@ function MapView() {
               selectedNode={selectedNode}
               handleNodeSelect={handleNodeSelect}
             />
+            <div className="info-container-dividier"></div>
             <LegendInfo
               legendTitle={legendTitle}
               legendValueGood={legendValueGood}

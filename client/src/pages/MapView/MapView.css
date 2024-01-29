@@ -62,3 +62,7 @@
   justify-content: space-between;
   padding: 30px;
 }
+
+.info-container-dividier {
+  height: 20px;
+}
