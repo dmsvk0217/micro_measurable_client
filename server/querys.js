@@ -1,6 +1,15 @@
-exports.getAllNodesAllSubstancesDailyAveragesQuery = (yyyyMM, dayDD) => {
-  return `daily-data/${yyyyMM}/day${dayDD}/allNode`;
+exports.getAllNodesAllSubstancesHourlyAveragesQuery = (yyyyMM, dayDD) => {
+  return `hourly-data/${yyyyMM}/day${dayDD}/data`;
 };
+exports.getAllNodesAllSubstancesDailyAveragesQuery = (yyyyMM) => {
+  return `daily-data/${yyyyMM}`;
+};
+
+exports.getAllNodesAllSubstancesMonthlyAveragesQuery = (yyyy) => {
+  return `monthly-data/${yyyy}`;
+};
+
+//////////////////////////////////////////////////////////////////////////////////////////
 
 exports.getNodeAllSubstancesAllHourlyAveragesQuery = (
   yyyyMM,
@@ -25,10 +34,6 @@ exports.getNodeAllSubstancesHourlyAveragesQuery = (
   nodeAddress
 ) => {
   return `hourly-data/${yyyyMM}/day${dayDD}/hour${hour}/node${nodeAddress}/node${nodeAddress}`;
-};
-
-exports.getAllNodesAllSubstancesHourlyAveragesQuery = (yyyyMM, dayDD, hour) => {
-  return `hourly-data/${yyyyMM}/day${dayDD}/hour${hour}/allNode/allNode`;
 };
 
 exports.getNodesSubstanceMonthlyAveragesQuery = (yyyyMM, substance) => {

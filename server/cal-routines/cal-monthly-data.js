@@ -41,6 +41,7 @@ module.exports = async function calMonthlyData(yyyyMM, dayDD, hhmmss) {
     }
   }
 
+  console.log("🚀 ~ calMonthlyData ~ avgData:", avgData);
   for (let i = 1; i <= 15; i++) {
     for (let j = 1; j <= 7; j++) {
       avgData[i][j] /= count[i];
@@ -68,13 +69,14 @@ module.exports = async function calMonthlyData(yyyyMM, dayDD, hhmmss) {
           avgData[i][j];
     }
   }
-  console.log(resultObject);
+  // console.log(resultObject);
 
   const monthlyDataRef = db.collection("/monthly-data").doc(`${yyyy}`);
   const monthlyDoc = await monthlyDataRef.get();
 
   console.log("monthlyDoc.exists:", monthlyDoc.exists);
-  if (monthlyDoc.exists) dailyDataRef.update({ [`month${mm}`]: resultObject });
+  if (monthlyDoc.exists)
+    monthlyDataRef.update({ [`month${mm}`]: resultObject });
   else monthlyDataRef.set({ [`month${mm}`]: resultObject });
 
   return;
@@ -82,10 +84,6 @@ module.exports = async function calMonthlyData(yyyyMM, dayDD, hhmmss) {
 
 function getMostFrequentlyWindDirectionFromArray(windDirectionArray) {
   const countByResult = _.countBy(windDirectionArray);
-  console.log(
-    "🚀 ~ getMostFrequentlyWindDirectionFromArray ~ countByResult:",
-    countByResult
-  );
   const modeValue = _.maxBy(_.keys(countByResult), (key) => countByResult[key]);
   return modeValue;
 }
