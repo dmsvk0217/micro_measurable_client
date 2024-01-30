@@ -153,15 +153,6 @@ th {
   margin-top: 20px;
 }
 
-.search-btn {
-  background-color: rgba(85, 183, 107);
-  border: none;
-  padding: 10px 30px;
-  border-radius: 10px;
-  color: white;
-  font-weight: bold;
-}
-
 .RT-table-select-container p {
   font-weight: bold;
   margin-right: 8px;
