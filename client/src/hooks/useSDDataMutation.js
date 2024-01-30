@@ -1,13 +1,13 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { fetchSMTableData } from '../api/SMTableApi';
-import useSMStore from '../store/SMStore';
+import { fetchSDTableData } from '../api/SDTableApi';
+import useSDStore from '../store/SDStore';
 
-export const useSMTableDataMutation = () => {
+export const useSDTableDataMutation = () => {
   // const queryClient = useQueryClient();
-  const { setTableData } = useSMStore();
+  const { setTableData } = useSDStore();
 
   const tableMutate = (selectOption) => {
-    return fetchSMTableData(selectOption);
+    return fetchSDTableData(selectOption);
   };
 
   const mutation = useMutation({

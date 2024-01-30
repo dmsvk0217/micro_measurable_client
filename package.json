@@ -3,7 +3,10 @@
     "@tanstack/react-query": "^5.17.19",
     "concurrently": "^8.2.2",
     "nodemon": "^3.0.2",
+<<<<<<< HEAD
+=======
     "react": "^18.2.0",
+>>>>>>> b24eb22e31c73e9f5373e2b146dc1d838997bcf0
     "zustand": "^4.5.0"
   },
   "scripts": {

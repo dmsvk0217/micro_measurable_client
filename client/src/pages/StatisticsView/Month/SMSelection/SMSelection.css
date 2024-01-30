@@ -64,8 +64,26 @@
     align-items: start;
     width: 100%;
   }
+<<<<<<< HEAD
+  
+  .search-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .search-btn {
+    background-color: rgba(85, 183, 107);
+    border: none;
+    padding: 10px 50px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+  }
+=======
   .SM-select p {
     margin-top: 15px;
     margin-bottom: 5px;
   }
 }
+>>>>>>> b24eb22e31c73e9f5373e2b146dc1d838997bcf0
