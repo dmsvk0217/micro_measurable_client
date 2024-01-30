@@ -170,6 +170,7 @@ th {
 @media screen and (max-width: 900px) {
   .RT-table-select-container {
     flex-direction: column;
+    padding-top: 10px;
   }
   .location-and-unit {
     flex-direction: column;
@@ -200,6 +201,7 @@ th {
 
   .RT-table-select-container p {
     margin-left: 0px;
+    margin-top: 10px;
     margin-bottom: 5px;
   }
 }

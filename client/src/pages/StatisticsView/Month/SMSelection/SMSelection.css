@@ -38,6 +38,13 @@
   text-align: center;
 }
 
+.location-buttons-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap; /* Buttons wrap to the next line if necessary */
+  justify-content: start; /* Center buttons horizontally */
+}
+
 @media screen and (max-width: 900px) {
   .SM-select {
     padding: 10px 10px 15px 10px;
@@ -49,5 +56,9 @@
     flex-direction: column;
     align-items: start;
     width: 100%;
+  }
+  .SM-select p {
+    margin-top: 15px;
+    margin-bottom: 5px;
   }
 }
