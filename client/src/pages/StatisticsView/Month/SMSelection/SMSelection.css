@@ -45,6 +45,11 @@
   justify-content: start; /* Center buttons horizontally */
 }
 
+.location-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
 @media screen and (max-width: 900px) {
   .SM-select {
     padding: 10px 10px 15px 10px;
