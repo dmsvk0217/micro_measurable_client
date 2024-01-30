@@ -4,9 +4,10 @@ css */
 .RT-table-select-container {
   background-color: #ebf0eb;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding: 10px 10px;
+  padding: 20px 10px 15px 10px;
   border: 0;
 }
 
@@ -25,8 +26,8 @@ css */
 
 .location-and-unit {
   display: flex;
-  align-items: center;
-  gap: 20px;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 .RT-graph-location-dropdown {
@@ -66,6 +67,7 @@ css */
   display: flex;
   width: 120px;
   padding: 8px;
+  margin-right: 5px;
   font-size: 14px;
   border-radius: 10px;
   background-color: #fff;
@@ -90,4 +92,107 @@ css */
   right: 50px;
 }
 
+/*
+Table CSS
+*/
 
+table {
+  width: 100%;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  background-color: #fff;
+  font-size: 12px;
+  text-align: center;
+}
+
+tfoot {
+  background-color: #eee;
+}
+
+td .isWorse {
+  background-color: rgba(187, 115, 115);
+  padding: 0 0;
+}
+
+td .isBad {
+  background-color: rgba(215, 224, 103);
+  padding: 0 0;
+}
+
+td .isNormal {
+  background-color: rgba(110, 176, 87);
+  padding: 0 0;
+}
+
+td .isGood {
+  background-color: rgba(125, 157, 219);
+  padding: 0 0;
+}
+
+th,
+td {
+  position: relative;
+  padding: 8px 8px;
+  border-right: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+th,
+td:last-child {
+  border-right: none;
+}
+
+th {
+  border-bottom: 1px solid lightgray;
+  background-color: rgba(245, 251, 246);
+}
+
+.search-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.RT-table-select-container p {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+@media screen and (max-width: 900px) {
+  .RT-table-select-container {
+    flex-direction: column;
+    padding-top: 10px;
+  }
+  .location-and-unit {
+    flex-direction: column;
+    width: 100%;
+  }
+  .RT-table-location {
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+  }
+  .RT-table-unit {
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+  }
+  .RT-table-time {
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+  }
+
+  .time-dropdown {
+    justify-content: space-between;
+    /* 왜 100%로 하면 상위 div바깥으로 삐져나가는지 모르겠다. datePicker문제인가?! */
+    width: 98%;
+    margin: 0px 0px 5px 0px;
+  }
+
+  .RT-table-select-container p {
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+}

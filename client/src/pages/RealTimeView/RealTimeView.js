@@ -15,7 +15,7 @@ import RTGraphSelection from "./RTGraphSelection/RTGraphSelection.js";
 
 
 function RealTimeView() {
-  const { tableData } = useRTSotre();
+  const { tableData, graphData } = useRTSotre();
   const { mutate: tableMutate, isLoading } = useRTTableDataMutation();
   
   useEffect(() => {
@@ -32,13 +32,12 @@ function RealTimeView() {
         <RTSelection />
         <DownloadButton data={tableData?tableData:[]}></DownloadButton>
         <CustomTable data={tableData?tableData:[]} columns={columns}></CustomTable>
-        {/* <hr className="RT-hr"></hr> */}
+        <hr className="RT-hr"></hr>
         <RTGraphSelection></RTGraphSelection>
-        <CustomGraph data={chartData} options={chartOptions}></CustomGraph>
+        <CustomGraph data={{ ...chartData, datasets: [{ ...chartData.datasets[0], data: graphData }] }} options={chartOptions}></CustomGraph>
       </div>
     </div>
   );
 }
 
 export default RealTimeView;
-

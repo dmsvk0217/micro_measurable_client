@@ -6,9 +6,20 @@
 .SD-title{
     font-size: 1.5em;
     text-align: center;
+    margin: 20px;
 }
 
 .SD-content-container{
     border: 1px solid #d3d3d3;
     padding: 20px;
+}
+
+.SD-Month {
+    margin-top: 20px;
+}
+
+.SD-graph-title {
+    font-size: 1em;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./SMSubmitButton.css";
+import "../../../../components/SubmitButton/SubmitButton.css";
 
 function SMSubmitButton({ selectedYear, selectedLocation, selectedSubstance }) {
   const [responseData, setResponseData] = useState(null);

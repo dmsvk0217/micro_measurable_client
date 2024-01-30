@@ -2,27 +2,76 @@
 css */
 
 .RT-graph-select-container {
-    background-color: #ebf0eb;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px 10px;
-    border: 0;
-  }
-  
-  .RT-graph-title-container {
-    padding: 10px 0;
-  }
-  
-  .RT-graph-title {
-    font-weight: bold;
-    font-size: 1.1em;
-    align-items: center;
-  }
-  
-  .location-and-substance {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  
+  background-color: #ebf0eb;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 10px;
+  border: 0;
+}
+
+.RT-graph-title-container {
+  padding: 10px;
+}
+
+.RT-graph-title {
+  font-weight: bold;
+  font-size: 1.1em;
+  align-items: center;
+}
+
+.location-and-substance {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.RT-graph-location-dropdown {
+  position: relative;
+}
+
+.dropdown-title {
+  text-align: center;
+  align-items: center;
+  color: black;
+  font-size: 1.1em;
+  border: none;
+  font-size: 0.8em;
+  align-items: center;
+  display: flex;
+}
+
+.dropdown .dropbtn {
+  align-items: center;
+  color: black;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 7px;
+  width: 100px;
+  /* height: 25px; */
+  font-size: 0.8em;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.dropdown-content {
+  font-size: 0.8em;
+}
+
+.RT-graph-location,
+.RT-graph-unit,
+.RT-graph-time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.react-datepicker__navigation--next {
+  left: 200px;
+}
+
+.react-datepicker__navigation--previous {
+  right: 50px;
+}
+

@@ -1,40 +1,40 @@
 import React, { useState, useEffect } from "react";
-import DatePicker from "react-datepicker";
 
 import "./RTGraphSelection.css";
-import { FaCalendarAlt } from "react-icons/fa";
 import CurrentDate from "../../../components/CurrentDate";
 import CustomDropDown from "../../../components/CustomDropDown/CustomDropDown";
 
 import { useRTGraphDataMutation } from '../../../hooks/useRTDataMutation';
 
-import { 
-  selectLocationOptions,
-  selectSubstanceOptions
-} from "../../../constants/selectOption";
+import { selectLocationOptions, selectSubstanceOptions } from "../../../constants/selectOption";
+
+import useRTStore from '../../../store/RTStore';
 
 function RTGraphSelection() {
-  const [selectedLocation, setSelectedLocation] = useState(
-    selectLocationOptions[0]
-  );
-  const [selectedSubstance, setSelectedSubstance] = useState(
-    selectSubstanceOptions[0]
-  );
+
+  const { graphLocation, graphSubstance, setGraphLocation, setGraphSubstance } = useRTStore();
 
   const handleNodeSelect = (node) => {
-    setSelectedLocation(node);
+    setGraphLocation(node);
     handleSearchButton();
   };
 
   const handleSubstanceChange = (substance) => {
-    setSelectedSubstance(substance);
+    setGraphSubstance(substance);
     handleSearchButton();
   };
+
+  useEffect(() => {
+    setGraphLocation(selectLocationOptions[1]);
+    setGraphSubstance(selectSubstanceOptions[1]);
+
+    handleSearchButton();
+  }, []);
 
   const { mutate: graphMutate } = useRTGraphDataMutation();
 
   const handleSearchButton = () => {
-    graphMutate({ selectedLocation, selectedSubstance});
+    graphMutate();
   };
 
 
@@ -42,7 +42,7 @@ function RTGraphSelection() {
   return (
     <div className="RTTable">
       <div className="RT-graph-title-container">
-        <span className="RT-graph-title">| 그래프 보기 | </span> 
+        <span className="RT-graph-title">| 그래프 보기 |</span> 
       </div>
       <div className="RT-table-select-container">
         <div>
@@ -53,7 +53,7 @@ function RTGraphSelection() {
               </p>
               <CustomDropDown
                 optionData={selectLocationOptions}
-                selectedValue={selectedLocation}
+                selectedValue={graphLocation}
                 handleSelectedValue={handleNodeSelect}
               />
             </div>
@@ -61,7 +61,7 @@ function RTGraphSelection() {
                 <p style={{ fontWeight: "bold", marginRight: "10px" }}>측정물질</p>
                 <CustomDropDown
                     optionData={selectSubstanceOptions}
-                    selectedValue={selectedSubstance}
+                    selectedValue={graphSubstance}
                     handleSelectedValue={handleSubstanceChange}
                 />
             </div>
