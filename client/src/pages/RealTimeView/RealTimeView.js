@@ -32,7 +32,7 @@ function RealTimeView() {
         <RTSelection />
         <DownloadButton data={tableData?tableData:[]}></DownloadButton>
         <CustomTable data={tableData?tableData:[]} columns={columns}></CustomTable>
-        <hr className="SD-hr"></hr>
+        {/* <hr className="RT-hr"></hr> */}
         <RTGraphSelection></RTGraphSelection>
         <CustomGraph data={chartData} options={chartOptions}></CustomGraph>
       </div>

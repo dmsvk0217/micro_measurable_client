@@ -1,7 +1,7 @@
 import axiosInstance from './axiosInstance';
 import  { locationFromNodeNumberOptions } from "../util.js";
 
-export const makeFormattedTable = (responseJson,day) => {
+export const makeFormattedTable = (responseJson,day,location) => {
   const transformedArray = [];
   const responseJsonData = responseJson.data;
 
@@ -9,6 +9,9 @@ export const makeFormattedTable = (responseJson,day) => {
   for( const [key,value] of Object.entries(responseJsonData["day"+day])){
     if (!key.startsWith("node")) continue;
     
+    if(!location.match("전체"))
+      if(!location.match(locationFromNodeNumberOptions[parseInt(key.replace("node",""),10)])) continue;
+      
     transformedArray.push({
       date: responseJsonData["day"+day]["date"],
       location: locationFromNodeNumberOptions[parseInt(key.replace("node",""),10)],
@@ -60,7 +63,7 @@ export const fetchRTTableData = async ({selectedLocation, selectedDate, selected
     const response = await axiosInstance.post(requestURL, requestBody);
 
 
-    return makeFormattedTable(response.data, day);
+    return makeFormattedTable(response.data, day, selectedLocation);
 
     // return response.data;
 };

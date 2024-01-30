@@ -1,6 +1,7 @@
 .custom-dropdown select {
   border: none;
   width: 100%;
+  background-color: #fff;
 }
 
 .custom-dropdown {

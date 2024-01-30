@@ -6,7 +6,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 import CurrentDate from "../../../components/CurrentDate";
 import CustomDropDown from "../../../components/CustomDropDown/CustomDropDown";
 
-import { useRTTableDataMutation } from '../../../hooks/useRTDataMutation';
+import { useRTGraphDataMutation } from '../../../hooks/useRTDataMutation';
 
 import { 
   selectLocationOptions,
@@ -23,10 +23,18 @@ function RTGraphSelection() {
 
   const handleNodeSelect = (node) => {
     setSelectedLocation(node);
+    handleSearchButton();
   };
 
   const handleSubstanceChange = (substance) => {
     setSelectedSubstance(substance);
+    handleSearchButton();
+  };
+
+  const { mutate: graphMutate } = useRTGraphDataMutation();
+
+  const handleSearchButton = () => {
+    graphMutate({ selectedLocation, selectedSubstance});
   };
 
 
@@ -57,6 +65,7 @@ function RTGraphSelection() {
                     handleSelectedValue={handleSubstanceChange}
                 />
             </div>
+            <CurrentDate></CurrentDate>
           </div>
         </div>
       </div>

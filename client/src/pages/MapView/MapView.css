@@ -78,7 +78,7 @@
   font-size: 1.5em;
 }
 
-.dropdown .dropbtn {
+/* .dropdown .dropbtn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,9 +94,9 @@
   margin-left: 15px;
   font-size: 0.7em;
   vertical-align: middle;
-}
+} */
 
-.dropdown-content {
+/* .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
@@ -119,7 +119,7 @@
 
 .dropdown:hover .dropdown-content {
   display: block;
-}
+} */
 
 .time {
   display: flex;
