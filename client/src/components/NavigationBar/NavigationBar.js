@@ -4,7 +4,7 @@ import "./NavigationBar.css";
 
 function NavigationBar() {
   const location = useLocation();
-
+  
   // 현재 경로가 통계 관련 경로인지 확인하는 함수
   const isStatisticsActive = () => {
     return (
