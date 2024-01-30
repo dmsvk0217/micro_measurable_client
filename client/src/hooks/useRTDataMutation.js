@@ -21,7 +21,7 @@ export const useRTTableDataMutation = () => {
         console.log("🚨 RTStore table error", error);
       },
       onSettled: (data, error, variables, context) => {
-        console.log("🚀 Loading table ...");
+        // console.log("🚀 Loading table ...");
       },
       //retry: 1,//오류 발생시, 1회 더 시도
   });
@@ -49,7 +49,7 @@ export const useRTGraphDataMutation = () => {
         console.log("🚨 RTStore graph error", error);
       },
       onSettled: (data, error, variables, context) => {
-        console.log("🚀 Loading graph...");
+        // console.log("🚀 Loading graph...");
       },
       //retry: 1,//오류 발생시, 1회 더 시도
   });

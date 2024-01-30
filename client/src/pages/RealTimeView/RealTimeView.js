@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./RealTimeView.css";
 import RTTableSelection from "./RTTableSelection/RTTableSelection.js";
-import { chartData, chartOptions } from "./RTGraphConfig";
+import { graphDataConfig , graphOptionsConfig } from "./RTGraphConfig";
 import { columns } from "./RTTableConfig";
 import CustomGraph from "../../components/CustomGraph/CustomGraph";
 import CustomTable from "../../components/CustomTable/CustomTable";
@@ -34,7 +34,7 @@ function RealTimeView() {
         <CustomTable data={tableData?tableData:[]} columns={columns}></CustomTable>
         <hr className="RT-hr"></hr>
         <RTGraphSelection/>
-        <CustomGraph data={{ ...chartData, datasets: [{ ...chartData.datasets[0], data: graphData }] }} options={chartOptions}></CustomGraph>
+        <CustomGraph data={{ ...graphDataConfig, datasets: [{ ...graphDataConfig.datasets[0], data: graphData }] }} options={graphOptionsConfig}></CustomGraph>
       </div>
     </div>
   );
