@@ -1,6 +1,7 @@
 // GoogleMap.js
 
 import React, { useState, useEffect, useRef } from "react";
+
 import nodeConfig from "./nodeConfig";
 
 const GoogleMap = ({ option }) => {
@@ -12,64 +13,24 @@ const GoogleMap = ({ option }) => {
     const newMap = new window.google.maps.Map(ref.current, {
       center: { lat: 36.1032734, lng: 129.3893488 },
       zoom: 16.3,
+      disableDefaultUI: true,
+       zoomControl: false, panControl: false,
+      mapTypeControl: false,
+      scaleControl: false,
+      streetViewControl: false,
+      overviewMapControl: false,      
       styles: 
-      // 기호에 맞게 스타일 변경할 것!!! (상의)
-      // [
-      //   {
-      //     "elementType": "labels",
-      //     "stylers": [
-      //       {
-      //         "visibility": "off"
-      //       }
-      //     ]
-      //   },
-      //   {
-      //     "featureType": "administrative.land_parcel",
-      //     "stylers": [
-      //       {
-      //         "visibility": "off"
-      //       }
-      //     ]
-      //   },
-      //   {
-      //     "featureType": "administrative.neighborhood",
-      //     "stylers": [
-      //       {
-      //         "visibility": "off"
-      //       }
-      //     ]
-      //   },
-      //   {
-      //     "featureType": "road.arterial",
-      //     "elementType": "labels",
-      //     "stylers": [
-      //       {
-      //         "visibility": "off"
-      //       }
-      //     ]
-      //   },
-      //   {
-      //     "featureType": "road.highway",
-      //     "elementType": "labels",
-      //     "stylers": [
-      //       {
-      //         "visibility": "off"
-      //       }
-      //     ]
-      //   },
-      //   {
-      //     "featureType": "road.local",
-      //     "stylers": [
-      //       {
-      //         "visibility": "off"
-      //       }
-      //     ]
-      //   }
-      // ]
       [
         {
+          "elementType": "labels",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
           "featureType": "administrative.land_parcel",
-          "elementType": "labels",
           "stylers": [
             {
               "visibility": "off"
@@ -77,17 +38,7 @@ const GoogleMap = ({ option }) => {
           ]
         },
         {
-          "featureType": "poi",
-          "elementType": "labels.text",
-          "stylers": [
-            {
-              "visibility": "off"
-            }
-          ]
-        },
-        {
-          "featureType": "road.local",
-          "elementType": "labels",
+          "featureType": "administrative.neighborhood",
           "stylers": [
             {
               "visibility": "off"

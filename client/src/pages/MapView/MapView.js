@@ -57,7 +57,10 @@ function MapView() {
     <div className="main-container">
       <div className="map-container">
         <Wrapper apiKey={"AIzaSyCjp5Sxe-c5mUn1GtfLqEatR0mt7cXYdIM"}>
-          <GoogleMap option={option} options={{ disableDefaultUI: true, zoomControl: false, }} />
+          <GoogleMap option={option} 
+          options={{ 
+          }} 
+          />
         </Wrapper>
       </div>
       <div className="option-and-info-flex-container">
