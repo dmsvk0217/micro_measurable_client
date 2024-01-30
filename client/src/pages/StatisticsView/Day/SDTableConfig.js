@@ -87,9 +87,10 @@ export const data = [
 
 const columnHelper = createColumnHelper();
 
-const months = [
-  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+const days = [
+  "1", "2","3","4","5","6","7","8","9","10",
+  "11","12","13","14","15","16","17","18","19","20",
+  "21","22","23","24","25","26","27","28","29","30"
 ];
 
 export const columns = [
@@ -104,10 +105,10 @@ export const columns = [
   // ... 다른 열
 ];
 
-for (const month of months) {
+for (const day of days) {
   columns.push(
-    columnHelper.accessor(month, {
-      header: `${months.indexOf(month) + 1}월`,
+    columnHelper.accessor(day, {
+      header: `${days.indexOf(day) + 1}일`,
       size: 80,
     })
   );

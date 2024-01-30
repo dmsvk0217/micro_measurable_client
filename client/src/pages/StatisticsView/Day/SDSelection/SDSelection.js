@@ -9,6 +9,8 @@ import CustomDropDown from "../../../../components/CustomDropDown/CustomDropDown
 import SDSubmitButton from "../SDSubmitButton/SDSubmitButton";
 import "./SDSelection.css";
 
+import { useSDTableDataMutation } from "../../../../hooks/useSDDataMutation";
+
 function SDSelection() {
   const [selectedYear, setSelectedYear] = useState(selectYearOptions[0]);
   const [selectedMonth, setSelectedMonth] = useState(selectMonthOptions[0]);
@@ -35,17 +37,25 @@ function SDSelection() {
     setSelectedSubstance(substance);
   };
 
+  const { mutate: tableMutate } = useSDTableDataMutation();
+
+  const handleSearchButton = () => {
+      tableMutate({ selectedYear, selectedMonth, selectedLocation, selectedSubstance});
+  };
+
   return (
     <div className="SD-select">
       <div className="SD-select-container">
-        {/* <div className="SD-select-comp">
+        {
+        <div className="SD-select-comp">
           <p>측정위치</p>
           <CustomDropDown
             optionData={selectLocationOptions}
             selectedValue={selectedLocation}
             handleSelectedValue={handleLocationChange}
           />
-        </div> */}
+        </div>
+        }
 
         <div className="SD-select-comp">
           <p>측정기간</p>
@@ -70,12 +80,9 @@ function SDSelection() {
           />
         </div>
       </div>
-      <SDSubmitButton
-        selectedYear={selectedYear}
-        selectedMonth={selectedMonth}
-        selectedLocation={selectedLocation}
-        selectedSubstance={selectedSubstance}
-      />
+      <div className="search-btn-container">
+          <button className="search-btn" onClick={handleSearchButton}> 검색 </button>
+      </div>
     </div>
   );
 }
