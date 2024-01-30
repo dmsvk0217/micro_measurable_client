@@ -1,31 +1,52 @@
 .SM-select {
-    background-color: #ebf0eb;
-    padding: 10px;
+  background-color: #ebf0eb;
+  padding: 10px;
+}
+.SM-graph-title {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.SM-select-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.SM-select-container p {
+  font-weight: bold;
+}
+
+/* 오늘 일자 css */
+.current-date {
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.SM-select-comp {
+  display: flex;
+  align-items: center;
+}
+
+.SM-select p {
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 900px) {
+  .SM-select {
+    padding: 10px 10px 15px 10px;
   }
-  .SM-graph-title {
-    font-weight: bold;
-    font-size: 1.1em;
-  }
-  
   .SM-select-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding-bottom: 10px;
+    flex-direction: column;
   }
-  
-  .SM-select-container p {
-    font-weight: bold;
-  }
-  
-  /* 오늘 일자 css */
-  .current-date {
-    font-size: 0.8em;
-    font-weight: bold;
-  }
-  
   .SM-select-comp {
-    display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
   }
-  
+  .SM-select p {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+}

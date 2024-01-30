@@ -38,14 +38,14 @@ function SDSelection() {
   return (
     <div className="SD-select">
       <div className="SD-select-container">
-        {/* <div className="SD-select-comp">
+        <div className="SD-select-comp">
           <p>측정위치</p>
           <CustomDropDown
             optionData={selectLocationOptions}
             selectedValue={selectedLocation}
             handleSelectedValue={handleLocationChange}
           />
-        </div> */}
+        </div>
 
         <div className="SD-select-comp">
           <p>측정기간</p>
@@ -54,6 +54,7 @@ function SDSelection() {
             selectedValue={selectedYear}
             handleSelectedValue={handleYearChange}
           />
+          <div className="SD-select-comp-sizedBox"></div>
           <CustomDropDown
             optionData={selectMonthOptions}
             selectedValue={selectedMonth}

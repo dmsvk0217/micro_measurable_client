@@ -11,9 +11,14 @@
   background-color: #fff;
   border-color: transparent;
   cursor: pointer;
-  margin-left: 10px;
 }
 
 .custom-dropdown select:focus {
   outline: none;
+}
+
+@media screen and (max-width: 900px) {
+  .custom-dropdown {
+    width: 100%;
+  }
 }

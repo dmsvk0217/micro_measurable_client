@@ -7,9 +7,9 @@ import { FaCalendarAlt } from "react-icons/fa";
 import CurrentDate from "../../../components/CurrentDate";
 import CustomDropDown from "../../../components/CustomDropDown/CustomDropDown";
 
-import { useRTTableDataMutation } from '../../../hooks/useRTDataMutation';
+import { useRTTableDataMutation } from "../../../hooks/useRTDataMutation";
 
-import { 
+import {
   selectLocationOptions,
   selectUnitOptions,
   selectHourOptions,
@@ -59,64 +59,54 @@ function RTSelection() {
   return (
     <div className="RTTable">
       <div className="RT-table-title-container">
-        <span className="RT-table-title">| 측정 일시 |</span> 
-        { new Date(selectedDate).toLocaleDateString() }
+        <span className="RT-table-title">| 측정 일시 |</span>
+        {new Date(selectedDate).toLocaleDateString()}
       </div>
       <div className="RT-table-select-container">
-        <div>
-          <div className="location-and-unit">
-            <div className="RT-table-location">
-              <p style={{ fontWeight: "bold", marginRight: "10px" }}>
-                측정위치
-              </p>
-              <CustomDropDown
-                optionData={selectLocationOptions}
-                selectedValue={selectedLocation}
-                handleSelectedValue={handleNodeSelect}
-              />
-            </div>
-            <div className="RT-table-unit">
-              <p style={{ fontWeight: "bold", marginRight: "10px" }}>
-                측정단위
-              </p>
-              <CustomDropDown
-                optionData={selectUnitOptions}
-                selectedValue={selectedUnit}
-                handleSelectedValue={handleUnitSelect}
-              />
-            </div>
-            <div className="RT-table-time">
-              <p style={{ fontWeight: "bold", marginRight: "10px" }}>
-                측정일시
-              </p>
-              <div className="time-dropdown" style={{ marginRight: "10px" }}>
-                {selectedDate && (
-                  <div style={{ marginLeft: "10px", marginRight: "10px" }}>
-                    {selectedDate.toLocaleDateString()}
-                  </div>
-                )}
-                <DatePicker
-                  selected={selectedDate}
-                  onChange={handleDateChange}
-                  showTimeSelect={false}
-                  dateFormat="MMMM d, yyyy h:mm aa"
-                  customInput={<CustomDatePickerIcon />}
-                />
-              </div>
-              {selectedUnit == "시간평균" ? (
-                <CustomDropDown
-                  optionData={selectHourOptions}
-                  selectedValue={selectedHour}
-                  handleSelectedValue={handleHourSelect}
-                />
-              ) : null}
-            </div>
+        <div className="location-and-unit">
+          <div className="RT-table-location">
+            <p>측정위치</p>
+            <CustomDropDown
+              optionData={selectLocationOptions}
+              selectedValue={selectedLocation}
+              handleSelectedValue={handleNodeSelect}
+            />
           </div>
+          <div className="RT-table-unit">
+            <p>측정단위</p>
+            <CustomDropDown
+              optionData={selectUnitOptions}
+              selectedValue={selectedUnit}
+              handleSelectedValue={handleUnitSelect}
+            />
+          </div>
+          <div className="RT-table-time">
+            <p>측정일시</p>
+            <div className="time-dropdown">
+              {selectedDate && <div>{selectedDate.toLocaleDateString()}</div>}
+              <DatePicker
+                selected={selectedDate}
+                onChange={handleDateChange}
+                showTimeSelect={false}
+                dateFormat="MMMM d, yyyy h:mm aa"
+                customInput={<CustomDatePickerIcon />}
+              />
+            </div>
+            {selectedUnit == "시간평균" ? (
+              <CustomDropDown
+                optionData={selectHourOptions}
+                selectedValue={selectedHour}
+                handleSelectedValue={handleHourSelect}
+              />
+            ) : null}
+          </div>
+        </div>
 
-          <div className="search-btn-container">
-            <button className="search-btn" onClick={handleSearchButton }> 검색 </button>
-          </div>
-          
+        <div className="search-btn-container">
+          <button className="search-btn" onClick={handleSearchButton}>
+            {" "}
+            검색{" "}
+          </button>
         </div>
       </div>
     </div>
