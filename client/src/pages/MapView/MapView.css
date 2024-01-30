@@ -1,6 +1,10 @@
 .main-container {
-  position: relative;
   width: 100%;
+}
+
+.map-and-info-container {
+  width: 100%;
+  position: relative;
 }
 
 .info-container {
@@ -66,5 +70,6 @@
 @media screen and (max-width: 850px) {
   .option-and-info-flex-container {
     flex-direction: column;
+    padding: 0px;
   }
 }
