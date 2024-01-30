@@ -75,3 +75,20 @@
 .legend-option-value .worse {
   padding: 5px;
 }
+
+@media screen and (max-width: 850px) {
+  .legend-info {
+    margin: 10px;
+    width: 120px;
+    padding: 5px;
+  }
+  .legend-container .legend-option-value {
+    font-size: 11px;
+  }
+  .legend-container {
+    font-size: 11px;
+  }
+  .legend-title {
+    font-size: 13px;
+  }
+}

@@ -58,6 +58,7 @@
 .option-and-info-flex-container {
   display: flex;
   max-width: 1440px;
+  height: 750px;
   justify-content: space-between;
   padding: 30px 5vw;
   margin: auto;
@@ -71,5 +72,6 @@
   .option-and-info-flex-container {
     flex-direction: column;
     padding: 0px;
+    height: 500px;
   }
 }
