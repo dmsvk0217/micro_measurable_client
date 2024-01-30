@@ -33,6 +33,11 @@
   margin-right: 10px;
 }
 
+.location-title {
+  font-weight: bold;
+  text-align: center;
+}
+
 @media screen and (max-width: 900px) {
   .SM-select {
     padding: 10px 10px 15px 10px;
@@ -44,9 +49,5 @@
     flex-direction: column;
     align-items: start;
     width: 100%;
-  }
-  .SM-select p {
-    margin-top: 10px;
-    margin-bottom: 5px;
   }
 }

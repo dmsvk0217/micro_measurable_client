@@ -27,7 +27,8 @@ function StatisticsDayView() {
             <SDSelection />
             <DownloadButton data={data}></DownloadButton>
             <CustomTable data={data} columns={columns}></CustomTable>
-            <hr className="SD-hr"></hr>
+            <hr className="SD-Month"></hr>
+            <p className="SD-graph-title">| 그래프 보기 |</p>
             <CustomGraph data={chartData} options={chartOptions}></CustomGraph>
           </div>
         )}

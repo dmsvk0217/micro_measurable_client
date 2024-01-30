@@ -26,6 +26,7 @@ function StatisticsMonthView(){
                 <DownloadButton data={data}></DownloadButton>
                 <CustomTable data={data} columns={columns}></CustomTable>
                 <hr className='SM-Month'></hr>
+                <p className="SM-graph-title"> | 그래프 보기 | </p>
                 <CustomGraph data={chartData} options={chartOptions}></CustomGraph>
             </div>
         </div>

@@ -39,6 +39,26 @@
   height: 0px;
 }
 
+.SD-select-location {
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.location-buttons-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap; /* Buttons wrap to the next line if necessary */
+  justify-content: center; /* Center buttons horizontally */
+}
+
+.location-title {
+  font-weight: bold;
+  text-align: center;
+}
+
 @media screen and (max-width: 900px) {
   .SD-select {
     padding: 10px 10px 15px 10px;

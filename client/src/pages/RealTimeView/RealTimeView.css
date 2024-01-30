@@ -6,6 +6,7 @@
 .RT-title{
     font-size: 1.5em;
     text-align: center;
+    margin: 20px;
 }
 
 .RT-content-container{
@@ -17,4 +18,5 @@
     border: none; 
     height: 2px;
     background-color: #d3d3d3; 
+    margin-top: 20px;
 }
