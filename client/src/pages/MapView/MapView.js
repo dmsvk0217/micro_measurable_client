@@ -56,7 +56,6 @@ function MapView() {
 
   return (
     <div className="main-container">
-<<<<<<< HEAD
       <div className="map-and-info-container">
         <div className="map-container">
           <Wrapper apiKey={"AIzaSyCjp5Sxe-c5mUn1GtfLqEatR0mt7cXYdIM"}>
@@ -70,33 +69,6 @@ function MapView() {
           <OptionContainer
             selectedButtonId={selectedButtonId}
             selectedButtonAction={selectedButtonAction}
-=======
-      <div className="map-container">
-        <Wrapper apiKey={"AIzaSyCjp5Sxe-c5mUn1GtfLqEatR0mt7cXYdIM"}>
-          <GoogleMap option={option} 
-          options={{ 
-          }} 
-          />
-        </Wrapper>
-      </div>
-      <div className="option-and-info-flex-container">
-        <OptionContainer
-          selectedButtonId={selectedButtonId}
-          selectedButtonAction={selectedButtonAction}
-        />
-        <div className="info-container">
-          <NodeInfo
-            selectedNode={selectedNode}
-            handleNodeSelect={handleNodeSelect}
-          />
-          <div className="info-container-dividier"></div>
-          <LegendInfo
-            legendTitle={legendTitle}
-            legendValueGood={legendValueGood}
-            legendValueNormal={legendValueNormal}
-            legendValueBad={legendValueBad}
-            legendValueWorse={legendValueWorse}
->>>>>>> d70153d05610885baa85777148b281a90787976f
           />
           <div className="info-container">
             <NodeInfo
