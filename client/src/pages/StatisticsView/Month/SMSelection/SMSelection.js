@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import {
-    selectYearOptions,
-    selectLocationOptions,
-    selectSubstanceOptions,
+  selectYearOptions,
+  selectLocationOptions,
+  selectSubstanceOptions,
 } from "../../../../constants/selectOption";
 import CustomDropDown from "../../../../components/CustomDropDown/CustomDropDown";
 import SMSubmitButton from "../SMSubmitButton/SMSubmitButton";
-import './SMSelection.css';
+import LocationsButton from "../../../../components/LocationsButton/LocationsButton";
 
-import {useSMTableDataMutation} from "../../../../hooks/useSMDataMutation";
 
 function SMSelection(){
     const [selectedYear, setSelectedYear] = useState(selectYearOptions[0]);
@@ -27,12 +26,6 @@ function SMSelection(){
     };
     const handleSubstanceChange = (substance) => {
         setSelectedSubstance(substance);
-    };
-
-    const { mutate: tableMutate } = useSMTableDataMutation();
-
-    const handleSearchButton = () => {
-        tableMutate({ selectedYear, selectedLocation, selectedSubstance});
     };
 
     return(
@@ -63,9 +56,11 @@ function SMSelection(){
                     />
                 </div>
             </div>
-            <div className="search-btn-container">
-                <button className="search-btn" onClick={handleSearchButton}> 검색 </button>
-            </div>
+            <SMSubmitButton
+                selectedYear={selectedYear}
+                selectedLocation={selectedLocation}
+                selectedSubstance={selectedSubstance}
+            />
         </div>
     );
 }

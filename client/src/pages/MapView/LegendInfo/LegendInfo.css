@@ -1,0 +1,94 @@
+.legend-info {
+  border: 1px solid #e9e9e9;
+  width: 130px;
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+  opacity: 99%;
+}
+
+.legend-title {
+  font-size: 15px;
+  text-align: left;
+  margin: 4px 0px;
+}
+
+.legend-divider {
+  background-color: lightgray;
+  width: 100%;
+  height: 1px;
+}
+
+.legend-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.legend-container {
+  font-size: 13px;
+}
+
+.legend-option-content {
+  margin-top: 4px;
+}
+
+.legend-option-value {
+}
+
+.legend-option-content {
+  padding: 5px 8px;
+}
+
+.legend-status-good {
+  background-color: #7d9ddb;
+}
+
+.legend-status-normal {
+  background-color: #6eb057;
+}
+
+.legend-status-bad {
+  background-color: #d7e067;
+}
+
+.legend-status-worse {
+  background-color: #bb7373;
+}
+
+.legend-container .legend-option-value {
+  font-size: small;
+}
+
+.legend-option-value .good {
+  padding: 5px;
+}
+
+.legend-option-value .normal {
+  padding: 5px;
+}
+
+.legend-option-value .bad {
+  padding: 5px;
+}
+
+.legend-option-value .worse {
+  padding: 5px;
+}
+
+@media screen and (max-width: 850px) {
+  .legend-info {
+    margin: 10px;
+    width: 120px;
+    padding: 5px;
+  }
+  .legend-container .legend-option-value {
+    font-size: 11px;
+  }
+  .legend-container {
+    font-size: 11px;
+  }
+  .legend-title {
+    font-size: 13px;
+  }
+}

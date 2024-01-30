@@ -35,9 +35,16 @@ function StatisticsDayView() {
         {selectedOption === '일별' && (
           <div className="SD-content-container">
             <SDSelection />
+<<<<<<< HEAD
             <DownloadButton data={tableData?tableData:[]}></DownloadButton>
             <CustomTable data={tableData?tableData:[]} columns={columns}></CustomTable>
             <hr className="SD-hr"></hr>
+=======
+            <DownloadButton data={data}></DownloadButton>
+            <CustomTable data={data} columns={columns}></CustomTable>
+            <hr className="SD-Month"></hr>
+            <p className="SD-graph-title">| 그래프 보기 |</p>
+>>>>>>> b24eb22e31c73e9f5373e2b146dc1d838997bcf0
             <CustomGraph data={chartData} options={chartOptions}></CustomGraph>
           </div>
         )}

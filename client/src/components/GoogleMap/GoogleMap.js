@@ -11,7 +11,40 @@ const GoogleMap = ({ option }) => {
   useEffect(() => {
     const newMap = new window.google.maps.Map(ref.current, {
       center: { lat: 36.1032734, lng: 129.3893488 },
-      zoom: 17.0,
+      zoom: 16.3,
+      disableDefaultUI: true,
+      zoomControl: false,
+      panControl: false,
+      mapTypeControl: false,
+      scaleControl: false,
+      streetViewControl: false,
+      overviewMapControl: false,
+      styles: [
+        {
+          elementType: "labels",
+          stylers: [
+            {
+              visibility: "off",
+            },
+          ],
+        },
+        {
+          featureType: "administrative.land_parcel",
+          stylers: [
+            {
+              visibility: "off",
+            },
+          ],
+        },
+        {
+          featureType: "administrative.neighborhood",
+          stylers: [
+            {
+              visibility: "off",
+            },
+          ],
+        },
+      ],
     });
 
     const markerColors = {
@@ -57,7 +90,7 @@ const GoogleMap = ({ option }) => {
         path: window.google.maps.SymbolPath.CIRCLE,
         fillColor: markerColor,
         fillOpacity: 0.7,
-        scale: 25,
+        scale: 20,
         strokeColor: markerColor,
         strokeWeight: 3,
       };
@@ -69,7 +102,7 @@ const GoogleMap = ({ option }) => {
         label: {
           text: node.label,
           color: "white",
-          fontSize: "15px",
+          fontSize: "1.1em",
           fontWeight: "500",
         },
         optimized: false,
@@ -100,7 +133,7 @@ const GoogleMap = ({ option }) => {
   }, [option]);
 
   return (
-    <div ref={ref} id="map" style={{ width: "100%", height: "90vh" }}></div>
+    <div ref={ref} id="map" style={{ width: "100%", height: "100%" }}></div>
   );
 };
 

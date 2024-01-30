@@ -12,3 +12,13 @@
     border: 1px solid #d3d3d3;
     padding: 20px;
 }
+
+.SM-Month {
+    margin-top: 20px;
+}
+
+.SM-graph-title {
+    font-size: 1em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,130 @@
+.node-info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 250px;
+
+  border: 1px solid #e9e9e9;
+  background-color: white;
+  opacity: 99%;
+}
+
+.node-info-header {
+  display: flex;
+  margin: 15px 10px 10px 10px;
+}
+
+.selected-node-name {
+  display: flex;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.leaf {
+  width: 50px;
+  height: 40px;
+}
+
+.node-info-divider {
+  background-color: lightgray;
+  width: 100%;
+  height: 1px;
+}
+
+.current-time {
+  margin-top: 5px;
+  margin-left: 3px;
+  font-size: 11.5px;
+  color: gray;
+}
+
+.display-substance-container {
+  width: 100%;
+  font-size: 13px;
+}
+
+/* substance-container */
+.one-substance-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0px;
+}
+.substance-name {
+  width: 30%;
+  font-weight: bold;
+}
+.substance-name-en {
+  width: 20%;
+  color: gray;
+}
+.substance-value {
+  width: 25%;
+}
+.substance-status {
+  width: 20%;
+}
+.status-good {
+  color: white;
+  background-color: #7d9ddb;
+  border-radius: 10px;
+  padding: 3px 1px 3px 1px;
+  width: 35px;
+  text-align: center;
+  font-size: small;
+}
+.status-normal {
+  color: white;
+  background-color: #6eb057;
+  border-radius: 10px;
+  padding: 3px 1px 3px 1px;
+  width: 35px;
+  text-align: center;
+  font-size: small;
+}
+.status-worse {
+  color: white;
+  background-color: #bb7373;
+  border-radius: 10px;
+  padding: 3px 1px 3px 1px;
+  width: 35px;
+  text-align: center;
+  font-size: small;
+}
+.substance-worse {
+  color: #bb7373;
+}
+.substance-normal {
+  color: #6eb057;
+}
+.substance-good {
+  color: #7d9ddb;
+}
+
+/* value-container */
+.value-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+.one-value-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.value-body {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.value-name {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 850px) {
+  .node-info {
+    display: none;
+  }
+}
