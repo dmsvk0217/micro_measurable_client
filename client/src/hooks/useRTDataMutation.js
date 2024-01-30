@@ -4,10 +4,10 @@ import useRTStore from '../store/RTStore';
 
 export const useRTTableDataMutation = () => {
   // const queryClient = useQueryClient();
-  const { setTableData } = useRTStore();
+  const { setTableData, tableLocation, tableUnit, tableDate, tableHour } = useRTStore();
 
-  const tableMutate = (selectOption) => {
-    return fetchRTTableData(selectOption);
+  const tableMutate = () => {
+    return fetchRTTableData(tableLocation, tableUnit, tableDate, tableHour);
   };
 
   const mutation = useMutation({
@@ -23,7 +23,7 @@ export const useRTTableDataMutation = () => {
       onSettled: (data, error, variables, context) => {
         console.log("🚀 Loading table ...");
       },
-      retry: 1,//오류 발생시, 1회 더 시도
+      //retry: 1,//오류 발생시, 1회 더 시도
   });
 
   return mutation;

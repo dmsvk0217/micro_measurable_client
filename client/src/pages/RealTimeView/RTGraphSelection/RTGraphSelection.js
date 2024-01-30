@@ -1,34 +1,34 @@
 import React, { useState, useEffect } from "react";
-
 import "./RTGraphSelection.css";
 import CurrentDate from "../../../components/CurrentDate";
 import CustomDropDown from "../../../components/CustomDropDown/CustomDropDown";
-
 import { useRTGraphDataMutation } from '../../../hooks/useRTDataMutation';
-
 import { selectLocationOptions, selectSubstanceOptions } from "../../../constants/selectOption";
-
 import useRTStore from '../../../store/RTStore';
 
 function RTGraphSelection() {
 
   const { graphLocation, graphSubstance, setGraphLocation, setGraphSubstance } = useRTStore();
 
-  const handleNodeSelect = (node) => {
-    setGraphLocation(node);
+  const handleNodeSelect = async (node) => {
+    await setGraphLocation(node);
     handleSearchButton();
   };
 
-  const handleSubstanceChange = (substance) => {
-    setGraphSubstance(substance);
+  const handleSubstanceChange = async (substance) => {
+    await setGraphSubstance(substance);
     handleSearchButton();
   };
 
   useEffect(() => {
-    setGraphLocation(selectLocationOptions[1]);
-    setGraphSubstance(selectSubstanceOptions[1]);
 
-    handleSearchButton();
+    const loadData = async () => {
+      await setGraphLocation(selectLocationOptions[1]);
+      await setGraphSubstance(selectSubstanceOptions[1]);
+      handleSearchButton();
+    }
+
+    loadData();
   }, []);
 
   const { mutate: graphMutate } = useRTGraphDataMutation();

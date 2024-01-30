@@ -15,11 +15,11 @@ const useRTStore = create((set) => ({
     //table 관련
     tableLocation: null,
     tableUnit:null,
-    tableDate:null,
+    tableDate: new Date(),
     tableHour:null,
 
     setTableLocation: tableLocation => set({tableLocation: tableLocation}),
-    setTableUnit: tablehUnit => set({tablehUnit: tablehUnit}),
+    setTableUnit: tableUnit => set({tableUnit: tableUnit}),
     setTableDate: tableDate => set({tableDate: tableDate}),
     setTableHour: tableHour => set({tableHour: tableHour}),
 

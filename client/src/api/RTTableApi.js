@@ -24,7 +24,6 @@ export const makeFormattedTable = (responseJson,day,location) => {
       temperature: `${value["temperature-daily-average"].toFixed(2)} °C`,
       humidity: `${value["humidity-daily-average"].toFixed(2)} %`,
     });
-
   }
 
   return transformedArray;
@@ -33,23 +32,23 @@ export const makeFormattedTable = (responseJson,day,location) => {
 export const makeFormattedGraph = (responseJson,graphLocation, graphSubstance ) => {
   const transformedArray = [];
   const responseJsonData = responseJson["data"];
-  console.log("🏁",responseJson);
+  // console.log("🏁",responseJson);
 
 
   // 데이터 구조를 순회하면서 변환
   for( const [hourKey,hourNode] of Object.entries(responseJsonData["data"])){//key -> hour00
 
-    console.log("🕖",hourKey);
+    // console.log("🕖",hourKey);
       
     for(const [nodeKey,nodeValue] of Object.entries(hourNode)){
       if(!nodeKey.includes("node")) continue;
       if(!graphLocation.match(locationFromNodeNumberOptions[parseInt(nodeKey.replace("node",""),10)])) continue;//특정 location으로 거르기
-      console.log("📍",nodeKey,locationFromNodeNumberOptions[parseInt(nodeKey.replace("node",""),10)]);
+      // console.log("📍",nodeKey,locationFromNodeNumberOptions[parseInt(nodeKey.replace("node",""),10)]);
      
 
       for(const [substanceKey,substanceValue] of Object.entries(nodeValue)){
         if(!substanceKey.match(substanceEnum[graphSubstance])) continue;
-        console.log("🌡️",graphSubstance);
+        // console.log("🌡️",graphSubstance);
 
         transformedArray.push(
           substanceValue
@@ -64,9 +63,10 @@ export const makeFormattedGraph = (responseJson,graphLocation, graphSubstance ) 
 };
 
 
-export const fetchRTTableData = async ({selectedLocation, selectedDate, selectedUnit, selectedHour}) => {
-    
+export const fetchRTTableData = async (selectedLocation,  selectedUnit, selectedDate, selectedHour) => {
 
+  console.log("🥲",selectedLocation,  selectedUnit, selectedDate);
+  
     let formattedDate;
     let requestURL;
     let requestBody;
