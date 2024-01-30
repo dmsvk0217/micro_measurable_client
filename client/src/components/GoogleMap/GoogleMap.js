@@ -1,7 +1,6 @@
 // GoogleMap.js
 
 import React, { useState, useEffect, useRef } from "react";
-
 import nodeConfig from "./nodeConfig";
 
 const GoogleMap = ({ option }) => {
