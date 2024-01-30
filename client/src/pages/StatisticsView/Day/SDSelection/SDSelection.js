@@ -10,13 +10,9 @@ import SDSubmitButton from "../SDSubmitButton/SDSubmitButton";
 import LocationsButton from "../../../../components/LocationsButton/LocationsButton";
 import "./SDSelection.css";
 
-<<<<<<< HEAD
 import { useSDTableDataMutation } from "../../../../hooks/useSDDataMutation";
 
 function SDSelection() {
-=======
-const SDSelection = () => {
->>>>>>> b24eb22e31c73e9f5373e2b146dc1d838997bcf0
   const [selectedYear, setSelectedYear] = useState(selectYearOptions[0]);
   const [selectedMonth, setSelectedMonth] = useState(selectMonthOptions[0]);
   const [selectedLocations, setSelectedLocations] = useState([
@@ -55,10 +51,7 @@ const SDSelection = () => {
   return (
     <div className="SD-select">
       <div className="SD-select-container">
-<<<<<<< HEAD
         {
-=======
->>>>>>> b24eb22e31c73e9f5373e2b146dc1d838997bcf0
         <div className="SD-select-comp">
           <p>측정위치</p>
           <CustomDropDown
@@ -67,10 +60,7 @@ const SDSelection = () => {
             handleSelectedValue={handleLocationChange}
           />
         </div>
-<<<<<<< HEAD
         }
-=======
->>>>>>> b24eb22e31c73e9f5373e2b146dc1d838997bcf0
 
         <div className="SD-select-comp">
           <p>측정기간</p>
@@ -96,33 +86,9 @@ const SDSelection = () => {
           />
         </div>
       </div>
-<<<<<<< HEAD
       <div className="search-btn-container">
           <button className="search-btn" onClick={handleSearchButton}> 검색 </button>
       </div>
-=======
-
-      <div className="SD-select-location">
-        <p className="location-title">측정 위치</p>
-        <div className="location-buttons-container">
-          {selectLocationOptions.map((location) => (
-            <LocationsButton
-              key={location.value}
-              location={location}
-              selectedLocations={selectedLocations}
-              handleLocationChange={handleLocationChange}
-            />
-          ))}
-        </div>
-      </div>
-
-      <SDSubmitButton
-        selectedYear={selectedYear}
-        selectedMonth={selectedMonth}
-        selectedLocation={selectedLocations}
-        selectedSubstance={selectedSubstance}
-      />
->>>>>>> b24eb22e31c73e9f5373e2b146dc1d838997bcf0
     </div>
   );
 };
