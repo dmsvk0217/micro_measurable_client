@@ -45,7 +45,7 @@ function SDSelection() {
   const { mutate: tableMutate } = useSDTableDataMutation();
 
   const handleSearchButton = () => {
-      tableMutate({ selectedYear, selectedMonth, selectedLocation, selectedSubstance});
+      tableMutate({ selectedYear, selectedMonth, selectedLocations, selectedSubstance});
   };
 
   return (
@@ -84,6 +84,19 @@ function SDSelection() {
             selectedValue={selectedSubstance}
             handleSelectedValue={handleSubstanceChange}
           />
+        </div>
+      </div>
+      <div className="SD-select-location">
+        <p className="location-title">측정 위치</p>
+        <div className="location-buttons-container">
+          {selectLocationOptions.map((location) => (
+            <LocationsButton
+              key={location.value}
+              location={location}
+              selectedLocations={selectedLocations}
+              handleLocationChange={handleLocationChange}
+            />
+          ))}
         </div>
       </div>
       <div className="search-btn-container">

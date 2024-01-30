@@ -9,6 +9,7 @@
 }
 
 .SM-select-container {
+
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -46,7 +47,13 @@
   flex-wrap: wrap; /* Buttons wrap to the next line if necessary */
   justify-content: start; /* Center buttons horizontally */
 }
-
+.SM-select-location {
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 10px;
+  width: 100%;
+}
 .location-container {
   width: 100%;
   margin: 0 auto;
@@ -64,26 +71,8 @@
     align-items: start;
     width: 100%;
   }
-<<<<<<< HEAD
-  
-  .search-btn-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-  }
-  
-  .search-btn {
-    background-color: rgba(85, 183, 107);
-    border: none;
-    padding: 10px 50px;
-    border-radius: 10px;
-    color: white;
-    font-weight: bold;
-  }
-=======
   .SM-select p {
     margin-top: 15px;
     margin-bottom: 5px;
   }
 }
->>>>>>> b24eb22e31c73e9f5373e2b146dc1d838997bcf0
