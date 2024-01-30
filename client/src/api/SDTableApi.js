@@ -26,7 +26,7 @@ export const makeFormattedTable = (responseJson,day) => {
   return transformedArray;
 };
 
-export const fetchSMTableData = async ({selectedLocation, selectedYear, selectedSubstance}) => {
+export const fetchSDTableData = async ({selectedLocation, selectedDate, selectedSubstance, selectedUnit}) => {
     
 
     let formattedDate;
