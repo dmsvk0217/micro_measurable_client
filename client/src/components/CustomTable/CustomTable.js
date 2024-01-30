@@ -17,7 +17,7 @@ const CustomTable = ({ data, columns }) => {
   });
 
   return (
-    <div className="CustomTable">
+    <div className="CustomTable" >
       <table>
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (

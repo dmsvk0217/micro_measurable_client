@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../../../../components/SubmitButton/SubmitButton.css";
 
-function SMSubmitButton({ selectedYear, selectedLocation, selectedSubstance }) {
+function SMSubmitButton({ 
+  selectedYear, 
+  selectedLocation, 
+  selectedSubstance 
+}) {
   const [responseData, setResponseData] = useState(null);
   const [responseError, setResponseError] = useState(null);
 
   const handleTableSubmit = async () => {
     let requestURL;
-    const requestBody = {
-      date: `${selectedYear}`,
-    };
+    let requestBody = {};
 
     if (selectedLocation.match("전체")) {
       console.log(`전체노드 ${selectedSubstance} ${selectedYear} 연간 월평균`);

@@ -9,6 +9,7 @@
 }
 
 .SM-select-container {
+
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -46,7 +47,13 @@
   flex-wrap: wrap; /* Buttons wrap to the next line if necessary */
   justify-content: start; /* Center buttons horizontally */
 }
-
+.SM-select-location {
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 10px;
+  width: 100%;
+}
 .location-container {
   width: 100%;
   margin: 0 auto;
