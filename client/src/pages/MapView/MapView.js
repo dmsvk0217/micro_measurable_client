@@ -7,6 +7,7 @@ import LegendInfo from "./LegendInfo/LegendInfo";
 import NodeInfo from "./NodeInfo/NodeInfo";
 import NodeInfoResponsive from "./NodeInfoResponsive/NodeInfoResponsive";
 import { useMapDataMutation } from "../../hooks/useMapDataMutation";
+import useMapStore from "../../store/MapStore";
 
 function MapView() {
   const [selectedNode, setSelectedNode] = useState("전체");
@@ -32,7 +33,7 @@ function MapView() {
     if (buttonId === 1) {
       newOption = "pm25"; // 초미세먼지
       setLegendTitle("초미세먼지");
-      setlegendValueGood("0~15");
+      setlegendValueGood( "0~15");
       setlegendValueNormal("16~35");
       setlegendValueBad("36~75");
       setlegendValueWorse("76~");
@@ -46,17 +47,16 @@ function MapView() {
     } else {
       newOption = "HCHO";
       setLegendTitle("포름알데히드");
-      setlegendValueGood("");
-      setlegendValueNormal("");
-      setlegendValueBad("");
-      setlegendValueWorse("");
+      setlegendValueGood("-");
+      setlegendValueNormal("-");
+      setlegendValueBad("-");
+      setlegendValueWorse("-");
     }
 
     setOption(newOption);
   };
 
   const { mutate: mapMutate } = useMapDataMutation();
-
 
   useEffect(() => {
     // 초기 데이터 로드

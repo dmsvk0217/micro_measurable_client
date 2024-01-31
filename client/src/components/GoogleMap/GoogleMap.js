@@ -1,16 +1,17 @@
 // GoogleMap.js
-
 import React, { useState, useEffect, useRef } from "react";
-import nodeConfig from "./nodeConfig";
 import useMapStore from "../../store/MapStore";
 
 const GoogleMap = ({ option }) => {
   // const [map, setMap] = useState(null);
   const ref = useRef();
   const markerRefs = useRef([]);
-  
+
   //생성
   const { setMapLocation, mapData } = useMapStore();
+
+
+  
 
   useEffect(() => {
     const newMap = new window.google.maps.Map(ref.current, {
@@ -146,7 +147,7 @@ const GoogleMap = ({ option }) => {
     return () => {
       window.google.maps.event.removeListener(zoomChangedListener);
     };
-  }, [option]);
+  }, [option, mapData]);
 
   // 생성
   const handleMarkerClick = (label) => {
