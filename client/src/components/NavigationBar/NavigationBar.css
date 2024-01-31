@@ -87,13 +87,17 @@
   height: 17%;
 }
 
-svg .hamburger {
+.hamburger {
   display: none;
 }
 
 @media screen and (max-width: 600px) {
   .nav-links {
     font-size: 15px;
+  }
+
+  .hamburger {
+    display: block;
   }
 
 }
@@ -112,7 +116,7 @@ svg .hamburger {
     height: 40px;
   }
 
-  svg .hamburger{
+  .hamburger{
     display: block;
     width: 3.5em;
     margin-top: 1%;
