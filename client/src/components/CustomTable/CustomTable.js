@@ -7,6 +7,8 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
+import "./CustomTable.css";
+
 const CustomTable = ({ data, columns }) => {
   const table = useReactTable({
     data,
