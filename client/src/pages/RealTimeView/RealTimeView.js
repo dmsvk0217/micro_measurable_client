@@ -16,12 +16,12 @@ import RTGraphSelection from "./RTGraphSelection/RTGraphSelection.js";
 
 function RealTimeView() {
   const { tableData, graphData } = useRTSotre();
-  const { mutate: tableMutate, isLoading } = useRTTableDataMutation();
+  // const { mutate: tableMutate, isLoading } = useRTTableDataMutation();
   
-  useEffect(() => {
-    // Todo: 전체노드 전체물질 일평균 데이터 받기 - selectedDate: new Date() 로 변경해줘야 함.
-    tableMutate({selectedLocation:"전체", selectedDate: new Date(2024, 0, 1), selectedUnit:"일평균", selectedHour:""});
-  }, []);
+  // useEffect(() => {
+  //   // Todo: 전체노드 전체물질 일평균 데이터 받기 - selectedDate: new Date() 로 변경해줘야 함.
+  //   tableMutate({selectedLocation:"전체", selectedDate: new Date(2024, 0, 1), selectedUnit:"일평균", selectedHour:""});
+  // }, []);
   
   
 
