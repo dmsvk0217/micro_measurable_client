@@ -14,9 +14,11 @@
   display: flex;
   padding: 0;
   margin: 0;
+  text-align: center;
 }
 
 .nav-links li {
+  width: 120px;
   margin-left: 5vw;
 }
 
@@ -96,7 +98,7 @@ svg {
 
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 720px) {
   .logo {
     width: 150px;
     height: 50px;
