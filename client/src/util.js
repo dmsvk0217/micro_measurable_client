@@ -16,3 +16,14 @@ export const locationFromNodeNumberOptions = {
   14: "벧엘관",
   15: "창조관",
 };
+
+
+export const substanceEnum = {
+  "포름알데히드": "ch2o-hourly-average",
+  "습도": "humidity-hourly-average",
+  "PM10": "pm10-hourly-average",
+  "PM2.5": "pm25-hourly-average",
+  "온도": "temperature-hourly-average",
+  "풍향": "wind-direction-hourly-average",
+  "풍속": "wind-speed-hourly-average",
+};
