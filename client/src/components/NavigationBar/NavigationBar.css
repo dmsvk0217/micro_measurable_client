@@ -81,12 +81,49 @@
 
 .logo {
   padding-top: 25px;
-  width: 30%;
+  width: max(30%, 200px);
   height: 17%;
 }
 
 svg {
   display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .nav-links {
+    font-size: 15px;
+  }
+
+}
+
+@media screen and (max-width: 450px) {
+  .logo {
+    width: 150px;
+    height: 50px;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px 20px 20px;
+    height: 40px;
+  }
+
+  svg {
+    display: block;
+    width: 3.5em;
+    margin-top: 1%;
+    margin-right: 3%;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .sidebar {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 450px) {

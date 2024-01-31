@@ -42,12 +42,16 @@
     cursor: pointer;
 }
 
-.nav-link {
+.nav-link-side {
+    text-decoration: none;
+    color: black;
     font-size: 1.1em;
     padding: 20px 0 20px 20px;
 }
 
-.nav-link-active {
+.nav-link-side-active {
+    text-decoration: none;
+    color: #55b76b;
     font-size: 1.1em;
     padding: 20px 0 20px 20px;
 }
