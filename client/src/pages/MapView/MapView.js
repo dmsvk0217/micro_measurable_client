@@ -5,6 +5,7 @@ import { Wrapper } from "@googlemaps/react-wrapper";
 import OptionContainer from "./OptionContainer/OptionContainer";
 import LegendInfo from "./LegendInfo/LegendInfo";
 import NodeInfo from "./NodeInfo/NodeInfo";
+import NodeInfoResponsive from "./NodeInfoResponsive/NodeInfoResponsive";
 
 function MapView() {
   const [selectedNode, setSelectedNode] = useState("전체");
@@ -55,35 +56,41 @@ function MapView() {
 
   return (
     <div className="main-container">
-      <div className="map-container">
-        <Wrapper apiKey={"AIzaSyCjp5Sxe-c5mUn1GtfLqEatR0mt7cXYdIM"}>
-          <GoogleMap option={option} 
-          options={{ 
-          }} 
+      <div className="map-and-info-container">
+        <div className="map-container">
+          <Wrapper apiKey={"AIzaSyCjp5Sxe-c5mUn1GtfLqEatR0mt7cXYdIM"}>
+            <GoogleMap
+              option={option}
+              options={{ disableDefaultUI: true, zoomControl: false }}
+            />
+          </Wrapper>
+        </div>
+        <div className="option-and-info-flex-container">
+          <OptionContainer
+            selectedButtonId={selectedButtonId}
+            selectedButtonAction={selectedButtonAction}
           />
-        </Wrapper>
-      </div>
-      <div className="option-and-info-flex-container">
-        <OptionContainer
-          selectedButtonId={selectedButtonId}
-          selectedButtonAction={selectedButtonAction}
-        />
-        <div className="info-container">
-          <NodeInfo
-            selectedNode={selectedNode}
-            handleNodeSelect={handleNodeSelect}
-          />
-          <div className="info-container-dividier"></div>
-          <LegendInfo
-            legendTitle={legendTitle}
-            legendValueGood={legendValueGood}
-            legendValueNormal={legendValueNormal}
-            legendValueBad={legendValueBad}
-            legendValueWorse={legendValueWorse}
-          />
+          <div className="info-container">
+            <NodeInfo
+              selectedNode={selectedNode}
+              handleNodeSelect={handleNodeSelect}
+            />
+            <div className="info-container-dividier"></div>
+            <LegendInfo
+              legendTitle={legendTitle}
+              legendValueGood={legendValueGood}
+              legendValueNormal={legendValueNormal}
+              legendValueBad={legendValueBad}
+              legendValueWorse={legendValueWorse}
+            />
+          </div>
         </div>
       </div>
-    </div> 
+      <NodeInfoResponsive
+        selectedNode={selectedNode}
+        handleNodeSelect={handleNodeSelect}
+      />
+    </div>
   );
 }
 

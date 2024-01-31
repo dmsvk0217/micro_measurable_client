@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import "./StatisticsDayView.css";
 import CustomGraph from "../../../components/CustomGraph/CustomGraph";
@@ -10,12 +10,22 @@ import DownloadButton from "../../../components/DownloadButton/DownloadButton";
 import DayorMonthButton from "../../../components/DayorMonthButton/DayorMonthButton";
 import StatisticsMonthView from "../Month/StatisticsMonthView";
 
+import useSDStore from "../../../store/SDStore";
+import { useSDTableDataMutation } from '../../../hooks/useSDDataMutation';
+
 function StatisticsDayView() {
+  const { tableData } = useSDStore();
+  const { mutate: tableMutate, isLoading } = useSDTableDataMutation();
+
   const [selectedOption, setSelectedOption] = React.useState('일별');
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
   };
+
+  useEffect(() => {
+    tableMutate({selectedLocation:"전체", selectedDate: new Date(2024, 0, 1), selectedSubstance:"포름알데히드"});
+  }, []);
 
   return (
     <div className="SD-container">
@@ -25,10 +35,9 @@ function StatisticsDayView() {
         {selectedOption === '일별' && (
           <div className="SD-content-container">
             <SDSelection />
-            <DownloadButton data={data}></DownloadButton>
-            <CustomTable data={data} columns={columns}></CustomTable>
-            <hr className="SD-Month"></hr>
-            <p className="SD-graph-title">| 그래프 보기 |</p>
+            <DownloadButton data={tableData?tableData:[]}></DownloadButton>
+            <CustomTable data={tableData?tableData:[]} columns={columns}></CustomTable>
+            <hr className="SD-hr"></hr>
             <CustomGraph data={chartData} options={chartOptions}></CustomGraph>
           </div>
         )}

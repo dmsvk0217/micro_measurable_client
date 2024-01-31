@@ -13,38 +13,38 @@ const GoogleMap = ({ option }) => {
       center: { lat: 36.1032734, lng: 129.3893488 },
       zoom: 16.3,
       disableDefaultUI: true,
-       zoomControl: false, panControl: false,
+      zoomControl: false,
+      panControl: false,
       mapTypeControl: false,
       scaleControl: false,
       streetViewControl: false,
-      overviewMapControl: false,      
-      styles: 
-      [
+      overviewMapControl: false,
+      styles: [
         {
-          "elementType": "labels",
-          "stylers": [
+          elementType: "labels",
+          stylers: [
             {
-              "visibility": "off"
-            }
-          ]
+              visibility: "off",
+            },
+          ],
         },
         {
-          "featureType": "administrative.land_parcel",
-          "stylers": [
+          featureType: "administrative.land_parcel",
+          stylers: [
             {
-              "visibility": "off"
-            }
-          ]
+              visibility: "off",
+            },
+          ],
         },
         {
-          "featureType": "administrative.neighborhood",
-          "stylers": [
+          featureType: "administrative.neighborhood",
+          stylers: [
             {
-              "visibility": "off"
-            }
-          ]
-        }
-      ]
+              visibility: "off",
+            },
+          ],
+        },
+      ],
     });
 
     const markerColors = {
@@ -133,7 +133,7 @@ const GoogleMap = ({ option }) => {
   }, [option]);
 
   return (
-    <div ref={ref} id="map" style={{ width: "100%", height: "90vh" }}></div>
+    <div ref={ref} id="map" style={{ width: "100%", height: "100%" }}></div>
   );
 };
 

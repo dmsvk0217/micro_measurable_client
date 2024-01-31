@@ -1,0 +1,76 @@
+/* Sidebar.css */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -80%;
+    width: 80%;
+    height: 100vh;
+    background-color: #fff;
+    transition: left 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.side-header {
+    background-color: #55b76b;
+    height: 5%;
+}
+
+.side-header p {
+    text-align: center;
+    margin-top: 4%;
+    color: white;
+}
+
+.sidebar.open {
+    left: 0;
+    z-index: 100;
+}
+
+.side-nav-links {
+    display: flex;
+    flex-direction: column;
+    /* padding: 20px; */
+}
+
+.side-nav-links li {
+    display: flex;
+    align-content: center;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+.nav-link {
+    font-size: 1.1em;
+    padding: 20px 0 20px 20px;
+}
+
+.nav-link-active {
+    font-size: 1.1em;
+    padding: 20px 0 20px 20px;
+}
+
+.side-nav-links svg {
+    align-items: center;
+    font-size: 1.3em;
+    width: 30px;
+    padding: 15px 0 20px 20px;
+}
+  
+.nav-back {
+    display: none;
+}
+  
+.nav-back.open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: block;
+    z-index: 99;
+}
+  
