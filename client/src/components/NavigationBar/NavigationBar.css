@@ -14,9 +14,11 @@
   display: flex;
   padding: 0;
   margin: 0;
+  text-align: center;
 }
 
 .nav-links li {
+  width: 120px;
   margin-left: 5vw;
 }
 
@@ -81,12 +83,53 @@
 
 .logo {
   padding-top: 25px;
-  width: 30%;
+  width: max(30%, 200px);
   height: 17%;
 }
 
-svg {
+.hamburger {
   display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .nav-links {
+    font-size: 15px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+}
+
+@media screen and (max-width: 720px) {
+  .logo {
+    width: 150px;
+    height: 50px;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px 20px 20px;
+    height: 40px;
+  }
+
+  .hamburger{
+    display: block;
+    width: 3.5em;
+    margin-top: 1%;
+    margin-right: 3%;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .sidebar {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 450px) {

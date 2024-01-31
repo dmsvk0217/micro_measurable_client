@@ -17,8 +17,13 @@
   margin: 0 60px 0 60px;
 }
 
-.sidebar {
+@media screen and (max-width: 720px) {
+  .nav-hr {
+    margin: 0;
+  }
+}
+/* .sidebar {
   height: 100%;
   width: 20%;
   background-color: blue;
-}
+} */

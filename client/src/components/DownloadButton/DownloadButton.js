@@ -10,7 +10,7 @@ const DownloadButton = ({data}) => {
   };
 
   return (
-    <button onClick={handleDownload} className="download-button">엑셀파일 다운로드 <FaFileDownload /></button>
+    <button onClick={handleDownload} className="download-button">엑셀파일 다운로드 <FaFileDownload className="file"/></button>
   );
 };
 

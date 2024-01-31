@@ -156,6 +156,7 @@ th {
 .RT-table-select-container p {
   font-weight: bold;
   margin-right: 8px;
+  margin: 15px;
 }
 
 @media screen and (max-width: 900px) {
