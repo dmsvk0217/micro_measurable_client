@@ -80,6 +80,7 @@ function MapView() {
 
   },[]);
 
+
   return (
     <div className="main-container">
       <div className="map-and-info-container">
@@ -118,6 +119,7 @@ function MapView() {
       />
     </div>
   );
+  
 }
 
 export default MapView;

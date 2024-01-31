@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { fetchMapData } from '../api/MapApi';
 import useMapStore from '../store/MapStore';
+import  { locationFromNodeNumberOptions, positionOfNode } from "../util.js";
 
 
 export const useMapDataMutation = () => {
@@ -11,42 +12,62 @@ export const useMapDataMutation = () => {
     return fetchMapData(mapLocation);
   };
 
-  const makeFormattedSubstance = (responseJson) => {
-    const transformedArray = [];
+  const findLatestHourData = (data) => {//가장 최근에 기록된 시간을 찾기
+    let maxHour = -1;
+    let latestDataKey = null;
+
+    for( const key in data) {
+        const hour = parseInt(key.slice(4,6));
+
+        if(hour > maxHour){
+            maxHour = hour;
+            latestDataKey = key;
+        }
+    }
+
+    console.log("🔑",latestDataKey);
+
+    return latestDataKey;
+  };
+
+
+  const makeFormattedMapData = (responseJson) => {//
+    const transformedData = [];
     const responseJsonData = responseJson.data;
+    const latestDataKey = findLatestHourData(responseJsonData);
 
-    console.log(responseJsonData);
+    // console.log("😆",responseJsonData[latestDataKey]);
 
-    // 데이터 구조를 순회하면서 변환
-    // for( const [key,value] of Object.entries(responseJsonData["day"+day])){
-    //     if (!key.startsWith("node")) continue;
+    for(const [nodeKey,nodeValue] of Object.entries(responseJsonData[latestDataKey])){
+        if(!nodeKey.includes("node")) continue;
+       
+        let id = parseInt(nodeKey.replace("node",""),10);
+        let location = locationFromNodeNumberOptions[id];
         
-    //     if(!location.match("전체"))
-    //     if(!location.match(locationFromNodeNumberOptions[parseInt(key.replace("node",""),10)])) continue;
+        transformedData.push({
+            id: id,
+            label: location,
+            position: positionOfNode[id],
+            pm25: nodeValue["pm25-hourly-average"],
+            pm10: nodeValue["pm10-hourly-average"],
+            ch2o: nodeValue["ch2o-hourly-average"],
+            wind_speed: nodeValue["wind-speed-hourly-average"],
+            wind_direction: nodeValue["wind-direction-hourly-average"],
+            temperature: nodeValue["temperature-hourly-average"],
+            humidity: nodeValue["humidity-hourly-average"],
+        });
+    }
+    console.log(transformedData);
 
-    //     transformedArray.push({
-    //     date: responseJsonData["day"+day]["date"],
-    //     location: locationFromNodeNumberOptions[parseInt(key.replace("node",""),10)],
-    //     pm25: String(value["pm25-daily-average"].toFixed(2)),
-    //     pm10: String(value["pm10-daily-average"].toFixed(2)),
-    //     ch2o: String(value["ch2o-daily-average"].toFixed(2)),
-    //     wind_speed: String(value["wind-speed-daily-average"].toFixed(2)), // 임의의 값으로 설정
-    //     wind_direction: value["wind-direction-daily-average"], // 임의의 값으로 설정
-    //     temperature: `${value["temperature-daily-average"].toFixed(2)} °C`,
-    //     humidity: `${value["humidity-daily-average"].toFixed(2)} %`,
-    //     });
-    // }
-
-    return transformedArray;
+    return transformedData;
   };
 
   const mutation = useMutation({
       mutationFn: mapMutate,
-      onSuccess: (data, variables, context) => {
+      onSuccess: async (data, variables, context) =>  {
         // const queryClient = useQueryClient(); // 캐시 데이터된 무효화 -> 다시 실행 -> 최신 데이터
-        setMapData(data);
+        setMapData(makeFormattedMapData(data));
         console.log("✅  MapStore fetch success", data, new Date());
-        makeFormattedSubstance(data);
       },
       onError: (error, variables, context) => {
         console.log("🚨 MapStore fetch error", error);
