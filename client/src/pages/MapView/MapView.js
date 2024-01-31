@@ -45,7 +45,7 @@ function MapView() {
     } else {
       newOption = "HCHO";
       setLegendTitle("포름알데히드");
-      setlegendValueGood("0~");
+      setlegendValueGood("");
       setlegendValueNormal("");
       setlegendValueBad("");
       setlegendValueWorse("");
