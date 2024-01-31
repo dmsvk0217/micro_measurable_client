@@ -24,7 +24,7 @@ function NavigationBar() {
             <img src="/img/logo.png" alt="Logo" className="logo" />
           </NavLink>
         </div>
-        <RxHamburgerMenu onClick={toggleSidebar} />
+        <RxHamburgerMenu onClick={toggleSidebar}  className="hamburger"  />
 
         <ul className="nav-links">
           <li>

@@ -87,7 +87,7 @@
   height: 17%;
 }
 
-svg {
+svg .hamburger {
   display: none;
 }
 
@@ -112,7 +112,7 @@ svg {
     height: 40px;
   }
 
-  svg {
+  svg .hamburger{
     display: block;
     width: 3.5em;
     margin-top: 1%;
