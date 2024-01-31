@@ -45,3 +45,31 @@ export const positionOfNode = {
   14:{ lat: 36.1028711, lng: 129.3912290 },
   15:{ lat: 36.1044213, lng: 129.3922963 },
 };
+
+export const evaluateSubstance = (option, value) => {
+  let sub_level = "-";
+
+  switch (option) {
+    case "pm25":
+      if (value >= 76) sub_level = "매우 나쁨";
+      else if (value >= 36) sub_level = "나쁨";
+      else if (value >= 16) sub_level = "보통";
+      else if (value >= 0) sub_level = "좋음";
+      else sub_level = "-";
+      break;
+    case "pm10":
+      if (value >= 151) sub_level = "매우 나쁨";
+      else if (value >= 81) sub_level = "나쁨";
+      else if (value > 31) sub_level = "보통";
+      else if (value >= 0) sub_level = "좋음";
+      else sub_level = "-";
+      break;
+    case "ch2o":
+      sub_level = "-";
+      break;
+    default:
+      sub_level = "-";
+  }
+
+  return sub_level;
+}
