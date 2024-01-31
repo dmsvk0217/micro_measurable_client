@@ -16,3 +16,9 @@
   background-color: #d3d3d3;
   margin: 0 60px 0 60px;
 }
+
+.sidebar {
+  height: 100%;
+  width: 20%;
+  background-color: blue;
+}

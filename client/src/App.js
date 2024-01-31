@@ -15,11 +15,13 @@ function App() {
       <NavigationBar />
       <hr className="nav-hr"></hr>
       <div className="main-content">
+        <div className="sidebar">
+          
+        </div>
         <Routes>
           <Route path="/" element={<MapView />} />
           <Route path="/realTime" element={<RealTimeView />} />
           <Route path="/statisticsDay" element={<StatisticsDayView />} />
-          {/* <Route path="/statisticsMonth" element={<StatisticsMonthView />} /> */}
         </Routes>
       </div>
       <Footer />

@@ -23,7 +23,7 @@
 .nav-link {
   text-decoration: none;
   color: black;
-  font-size: 18px;
+  font-size: 1.1em;
 }
 
 .nav-link:hover {
@@ -55,18 +55,9 @@
   position: absolute;
   top: 100%;
   width: max-content;
-
-  /* transform: translateX(30%);  */
-  /* 버튼 바로 아래에 표시 */
   left: -10px;
-  /* background-color: white; */
-  /* z-index: 100; */
-  /* font-size: 0.8em; */
   border: 1px solid #d9d9d9;
-  /* border-top: none; */
   padding: 12px 10px;
-  /* border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px; */
   box-shadow: #d9d9d9;
   background-color: white;
 }
@@ -90,6 +81,40 @@
 
 .logo {
   padding-top: 25px;
-  width: 325px;
-  height: 100px;
+  width: 30%;
+  height: 17%;
+}
+
+svg {
+  display: none;
+}
+
+@media screen and (max-width: 450px) {
+  .logo {
+    width: 150px;
+    height: 50px;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px 20px 20px;
+    height: 40px;
+  }
+
+  svg {
+    display: block;
+    width: 3.5em;
+    margin-top: 1%;
+    margin-right: 3%;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .sidebar {
+    display: block;
+  }
 }
