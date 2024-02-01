@@ -83,9 +83,6 @@ function SDSelection() {
         <p className="location-title">측정 위치</p>
         <div className="location-buttons-container">
           {selectLocationOptions.map((location) => (
-              console.log("👻 "+selectedLocations),
-              console.log("🙊"+selectedLocations[0]),
-
             <LocationsButton
               key={location.value}
               location={location}
