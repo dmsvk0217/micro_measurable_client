@@ -39,7 +39,6 @@ function SDSelection() {
         ? selectedLocations.filter((loc) => loc !== location && loc !== '전체')
         : [location, ...selectedLocations.filter((loc) => loc !== '전체')];
   
-
     setSelectedLocations(updatedLocations);
   };
 
