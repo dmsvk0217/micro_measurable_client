@@ -20,7 +20,6 @@ export const makeFormattedTable = (responseJson,day) => {
       temperature: `${value["temperature-daily-average"].toFixed(2)} °C`,
       humidity: `${value["humidity-daily-average"].toFixed(2)} %`,
     });
-
   }
 
   return transformedArray;
