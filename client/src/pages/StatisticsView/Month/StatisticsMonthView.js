@@ -15,7 +15,7 @@ function StatisticsMonthView(){
     const { mutate: tableMutate, isLoading } = useSMTableDataMutation();
 
     useEffect(() => {
-        tableMutate({selectedLocation:"전체", selectedYear: new Date(2024, 0, 1), selectedSubstance:"포름알데히드"});
+        tableMutate({selectedLocation:"전체", selectedYear: new Date(2024, 0, 1).getFullYear(), selectedSubstance:"포름알데히드"});
     }, []);
 
     return (

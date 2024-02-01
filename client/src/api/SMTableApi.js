@@ -1,13 +1,35 @@
 import axiosInstance from './axiosInstance';
 import  { locationFromNodeNumberOptions } from "../util.js";
 
-export const makeFormattedTable = (responseJson,day) => {
+export const makeFormattedTable = (responseJson, year, substance, location) => {
   const transformedArray = [];
   const responseJsonData = responseJson.data;
 
   // 데이터 구조를 순회하면서 변환
-  for( const [key,value] of Object.entries(responseJsonData["day"+day])){
+  /*for( const [key,value] of Object.entries(responseJsonData["day"+day])){//한 년을 들고 와서 한 달씩 
     if (!key.startsWith("node")) continue;
+
+    if (selectedSubstance === "포름알데히드"){
+      
+    }
+    else if (selectedSubstance === "PM10"){
+
+    }
+    else if (selectedSubstance === "PM2.5"){
+
+    }
+    else if (selectedSubstance === "온도"){
+
+    }
+    else if (selectedSubstance === "습도"){
+
+    }
+    else if (selectedSubstance === "풍향"){
+
+    }
+    else {//풍속
+
+    }
     
     transformedArray.push({
       date: responseJsonData["day"+day]["date"],
@@ -20,10 +42,11 @@ export const makeFormattedTable = (responseJson,day) => {
       temperature: `${value["temperature-daily-average"].toFixed(2)} °C`,
       humidity: `${value["humidity-daily-average"].toFixed(2)} %`,
     });
-
+    
   }
 
   return transformedArray;
+  */
 };
 
 export const fetchSMTableData = async ({selectedLocation, selectedYear, selectedSubstance}) => {
@@ -33,22 +56,15 @@ export const fetchSMTableData = async ({selectedLocation, selectedYear, selected
     let requestURL;
     let requestBody;
 
-    const offset = selectedDate.getTimezoneOffset() * 60000;
-    const adjustedDate = new Date(selectedDate.getTime() - offset);
-    const isoString = adjustedDate.toISOString(); // ISO 8601 형식의 문자열로 변환
-    const day = isoString.split('T')[0].slice(8, 10);
+    //const offset = selectedDate.getTimezoneOffset() * 60000;
+    //const adjustedDate = new Date(selectedDate.getTime() - offset);
+    //const isoString = adjustedDate.toISOString(); // ISO 8601 형식의 문자열로 변환
+    //const day = isoString.split('T')[0].slice(8, 10);
 
-
-    if(selectedUnit.match("일평균")){
-      requestURL = "/all-nodes/all-substances/daily-averages";
-
-      formattedDate = isoString.split('T')[0].slice(0, 7); // 'YYYY-MM' 형식으로 변환
-    }
-    else{
-      requestURL = "/all-nodes/all-substances/hourly-averages";
-      formattedDate = adjustedDate.toISOString().split('T')[0];
-    }
-
+    requestURL = "/api/all-nodes/all-substances/monthly-averages";
+    formattedDate = selectedYear;
+    //isoString.split('T')[0].slice(0, 4);
+  
     requestBody = {
       date: formattedDate,
     };
@@ -60,7 +76,7 @@ export const fetchSMTableData = async ({selectedLocation, selectedYear, selected
     const response = await axiosInstance.post(requestURL, requestBody);
 
 
-    return makeFormattedTable(response.data, day);
+    return makeFormattedTable(response.data, selectedYear, selectedSubstance, selectedLocation);
 
     // return response.data;
 };

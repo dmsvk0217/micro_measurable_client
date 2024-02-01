@@ -51,17 +51,6 @@ function SDSelection() {
   return (
     <div className="SD-select">
       <div className="SD-select-container">
-        {
-        <div className="SD-select-comp">
-          <p>측정위치</p>
-          <CustomDropDown
-            optionData={selectLocationOptions}
-            selectedValue={selectedLocations}
-            handleSelectedValue={handleLocationChange}
-          />
-        </div>
-        }
-
         <div className="SD-select-comp">
           <p>측정기간</p>
           <CustomDropDown
