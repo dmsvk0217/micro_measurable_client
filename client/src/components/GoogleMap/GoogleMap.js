@@ -1,12 +1,17 @@
 // GoogleMap.js
-
 import React, { useState, useEffect, useRef } from "react";
-import nodeConfig from "./nodeConfig";
+import useMapStore from "../../store/MapStore";
 
 const GoogleMap = ({ option }) => {
-  const [map, setMap] = useState(null);
+  // const [map, setMap] = useState(null);
   const ref = useRef();
   const markerRefs = useRef([]);
+
+  //생성
+  const { setMapLocation, mapData } = useMapStore();
+
+
+  
 
   useEffect(() => {
     const newMap = new window.google.maps.Map(ref.current, {
@@ -56,7 +61,8 @@ const GoogleMap = ({ option }) => {
     };
 
     // 노드 정보 가져오기
-    const markers = nodeConfig.map((node) => {
+    mapData.map((node) => {
+      console.log("👀",node);
       let value;
       let sub_level = "";
 
@@ -77,8 +83,8 @@ const GoogleMap = ({ option }) => {
           else if (value >= 0) sub_level = "good";
           else sub_level = "undefined";
           break;
-        case "HCHO":
-          value = node.HCHO;
+        case "ch2o":
+          value = node.ch2o;
           break;
         default:
           value = undefined;
@@ -95,7 +101,8 @@ const GoogleMap = ({ option }) => {
         strokeWeight: 3,
       };
 
-      return new window.google.maps.Marker({
+      //변경
+      const marker =  new window.google.maps.Marker({
         position: node.position,
         map: newMap,
         icon: customMarkerIcon,
@@ -107,12 +114,22 @@ const GoogleMap = ({ option }) => {
         },
         optimized: false,
       });
+
+      //생성
+      marker.addListener("click", () => {
+        handleMarkerClick(node.label);
+      });
+
+      console.log("📍📍",marker);
+
+      //생성
+      markerRefs.current.push(marker);
     });
 
     // markers를 markerRefs.current에 저장
-    markerRefs.current = markers;
+    //markerRefs.current = markers;
 
-    setMap(newMap);
+    // setMap(newMap);
 
     const zoomChangedListener = newMap.addListener("zoom_changed", () => {
       const currentZoom = newMap.getZoom();
@@ -130,7 +147,13 @@ const GoogleMap = ({ option }) => {
     return () => {
       window.google.maps.event.removeListener(zoomChangedListener);
     };
-  }, [option]);
+  }, [option, mapData]);
+
+  // 생성
+  const handleMarkerClick = (label) => {
+    setMapLocation(label);
+    console.log("🖱️click: ",label);
+  };
 
   return (
     <div ref={ref} id="map" style={{ width: "100%", height: "100%" }}></div>

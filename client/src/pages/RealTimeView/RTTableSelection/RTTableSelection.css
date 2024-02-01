@@ -159,6 +159,10 @@ th {
   margin: 15px;
 }
 
+.date-container {
+  margin-right: 10px;
+}
+
 @media screen and (max-width: 900px) {
   .RT-table-select-container {
     flex-direction: column;

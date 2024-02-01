@@ -1,10 +1,13 @@
 import React from "react";
 import "./NodeInfo.css";
 import CurrentDate from "../../../components/CurrentDate";
+import useMapStore from "../../../store/MapStore";
 
 function NodeInfo(props) {
   const selectedNode = props.electedNode;
   const handleNodeSelect = props.handleNodeSelect;
+
+  const { tableData, graphData } = useMapStore();
 
   return (
     <div className="node-info">

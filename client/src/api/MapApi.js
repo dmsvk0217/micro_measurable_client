@@ -1,9 +1,6 @@
 import axiosInstance from './axiosInstance';
 
-
 export const fetchMapData = async (graphLocation, graphSubstance) => {
-
-
     //시차 영향 제거
     const offset = new Date().getTimezoneOffset() * 60000;
     const adjustedDate = new Date(new Date().getTime() - offset);
@@ -16,7 +13,6 @@ export const fetchMapData = async (graphLocation, graphSubstance) => {
     
     const response = await axiosInstance.post(requestURL, requestBody);
   
-    //console.log(makeFormattedGraph(response,selectedLocation,selectedSubstance));
   
-    return makeFormattedGraph(response,graphLocation, graphSubstance );
+    return response.data;
   };
