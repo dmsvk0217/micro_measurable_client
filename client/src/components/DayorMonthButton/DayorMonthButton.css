@@ -26,3 +26,9 @@ dd.active {
   color: #55b76b;
   font-weight: bold;
 }
+
+@media screen and (max-width: 450px) {
+  dl {
+    font-size: 0.7em;
+  }
+}

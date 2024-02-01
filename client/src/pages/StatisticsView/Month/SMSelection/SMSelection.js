@@ -27,9 +27,13 @@ function SMSelection(){
         setSelectedYear(year);
     };
     const handleLocationChange = (location) => {
-        const updatedLocations = selectedLocations.includes(location)
-          ? selectedLocations.filter((loc) => loc !== location)
-          : [...selectedLocations, location];
+        const updatedLocations = location === '전체'
+        ? ['전체']
+        : selectedLocations.includes('전체')
+        ? [location]
+        : selectedLocations.includes(location)
+            ? selectedLocations.filter((loc) => loc !== location && loc !== '전체')
+            : [location, ...selectedLocations.filter((loc) => loc !== '전체')];
     
         setSelectedLocations(updatedLocations);
       };
