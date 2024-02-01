@@ -45,7 +45,7 @@ function Sidebar({ isOpen, onClose }) {
                 지도 보기
                 </NavLink>
             </li>
-            <hr></hr>
+            <hr className="side-div"></hr>
             <li>
                 <LiaDatabaseSolid/>
                 <NavLink
@@ -58,7 +58,7 @@ function Sidebar({ isOpen, onClose }) {
                 실시간 정보 보기
                 </NavLink>
             </li>
-            <hr></hr>
+            <hr className="side-div"></hr>
             <li>
                 <GoGraph/>
                 <NavLink
@@ -71,7 +71,7 @@ function Sidebar({ isOpen, onClose }) {
                 통계 보기
                 </NavLink>
             </li>
-            <hr></hr>
+            <hr className="side-div"></hr>
         </ul>
     </div>
     <span className={`nav-back ${isOpen ? "open" : ""}`} onClick={onClose}></span>

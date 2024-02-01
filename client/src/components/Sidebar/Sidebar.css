@@ -78,3 +78,7 @@
     z-index: 99;
 }
   
+hr {
+    color: rgb(215, 215, 215);
+    opacity: 40%;
+}
