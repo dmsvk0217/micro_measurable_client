@@ -59,33 +59,41 @@
 .substance-status {
   width: 20%;
 }
+
 .status-good {
   color: white;
   background-color: #7d9ddb;
-  border-radius: 10px;
   padding: 3px 1px 3px 1px;
-  width: 35px;
+  width: 50px;
   text-align: center;
   font-size: small;
 }
 .status-normal {
   color: white;
   background-color: #6eb057;
-  border-radius: 10px;
   padding: 3px 1px 3px 1px;
-  width: 35px;
+  width: 50px;
   text-align: center;
   font-size: small;
 }
 .status-worse {
   color: white;
   background-color: #bb7373;
-  border-radius: 10px;
   padding: 3px 1px 3px 1px;
-  width: 35px;
+  width: 50px;
   text-align: center;
   font-size: small;
 }
+
+.status-undefined {
+  color: white;
+  color: black;
+  width: 50px;
+  padding: 3px 1px 3px 1px;
+  text-align: center;
+  font-size: small;
+}
+
 .substance-worse {
   color: #bb7373;
 }

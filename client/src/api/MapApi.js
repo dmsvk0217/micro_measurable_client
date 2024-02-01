@@ -8,7 +8,7 @@ export const fetchMapData = async (graphLocation, graphSubstance) => {
   
     let requestURL = "/api/all-nodes/all-substances/hourly-averages";
     const requestBody = {
-      date : "2024-01-01",// formattedDate
+      date : "2024-01-01",// formattedDate"2024-01-01"
     };
     
     const response = await axiosInstance.post(requestURL, requestBody);
