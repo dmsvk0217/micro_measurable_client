@@ -5,7 +5,7 @@
     color: rgba(85,183,107);
     padding: 10px;
     display: flex;
-    width: 170px;
+    width: fit-content;
 }
 
 .download-button:hover{

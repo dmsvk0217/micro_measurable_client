@@ -31,9 +31,14 @@ function SDSelection() {
   };
 
   const handleLocationChange = (location) => {
-    const updatedLocations = selectedLocations.includes(location)
-      ? selectedLocations.filter((loc) => loc !== location)
-      : [...selectedLocations, location];
+    const updatedLocations = location === '전체'
+    ? ['전체']
+    : selectedLocations.includes('전체')
+      ? [location]
+      : selectedLocations.includes(location)
+        ? selectedLocations.filter((loc) => loc !== location && loc !== '전체')
+        : [location, ...selectedLocations.filter((loc) => loc !== '전체')];
+  
 
     setSelectedLocations(updatedLocations);
   };
@@ -51,17 +56,6 @@ function SDSelection() {
   return (
     <div className="SD-select">
       <div className="SD-select-container">
-        {
-        <div className="SD-select-comp">
-          <p>측정위치</p>
-          <CustomDropDown
-            optionData={selectLocationOptions}
-            selectedValue={selectedLocations}
-            handleSelectedValue={handleLocationChange}
-          />
-        </div>
-        }
-
         <div className="SD-select-comp">
           <p>측정기간</p>
           <CustomDropDown
@@ -90,6 +84,9 @@ function SDSelection() {
         <p className="location-title">측정 위치</p>
         <div className="location-buttons-container">
           {selectLocationOptions.map((location) => (
+              console.log("👻 "+selectedLocations),
+              console.log("🙊"+selectedLocations[0]),
+
             <LocationsButton
               key={location.value}
               location={location}
