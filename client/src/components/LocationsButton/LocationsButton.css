@@ -25,6 +25,7 @@ li {
   width: 100px;
   padding: 7px;
   margin: 5px 5px;
+  color: black;
 }
 
 .location-button:hover {
@@ -37,4 +38,5 @@ li {
   width: 100px;
   padding: 5px;
   margin: 5px 5px;
+  color: black;
 }
