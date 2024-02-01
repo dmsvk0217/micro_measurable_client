@@ -108,7 +108,7 @@ export const columns = [
 for (const day of days) {
   columns.push(
     columnHelper.accessor(day, {
-      header: `${days.indexOf(day) + 1}일`,
+      header: `${days.indexOf(day) + 1}`,
       size: 80,
     })
   );

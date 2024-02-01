@@ -55,3 +55,14 @@ table {
     border-bottom: 1px solid lightgray;
     background-color: rgba(245, 251, 246);
   }
+
+  @media screen and (max-width: 450px) {
+    th {
+      font-size: 0.7em;
+    }
+
+    th,
+    td {
+      padding: 3px 3px;
+    }
+  }
