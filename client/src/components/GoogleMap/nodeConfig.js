@@ -1,4 +1,3 @@
-// nodeConfig.js
 const nodeConfig = [
     {
         id: 1,
