@@ -88,7 +88,7 @@ function RTTableSelection() {
           <div className="RT-table-time">
             <p>측정일시</p>
             <div className="time-dropdown">
-              {tableDate && <div>{tableDate.toLocaleDateString()}</div>}
+              {tableDate && <div className="date-container">{tableDate.toLocaleDateString()}</div>}
               <DatePicker
                 selected={tableDate}
                 onChange={handleDateChange}
