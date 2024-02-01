@@ -43,19 +43,23 @@ export const useMapDataMutation = () => {
        
         let id = parseInt(nodeKey.replace("node",""),10);
         let location = locationFromNodeNumberOptions[id];
+
+        const offset = new Date().getTimezoneOffset() * 60000;
+        const adjustedDate = new Date(new Date().getTime() - offset);
         
         transformedData.push({
             id: id,
             label: location,
             position: positionOfNode[id],
-            pm25: nodeValue["pm25-hourly-average"],
-            pm10: nodeValue["pm10-hourly-average"],
-            ch2o: nodeValue["ch2o-hourly-average"],
-            wind_speed: nodeValue["wind-speed-hourly-average"],
+            date: adjustedDate.toISOString().split('T')[0] +" "+ latestDataKey.slice(4,6)+"시",
+            pm25: nodeValue["pm25-hourly-average"].toFixed(2),
+            pm10: nodeValue["pm10-hourly-average"].toFixed(2),
+            ch2o: nodeValue["ch2o-hourly-average"].toFixed(2),
+            wind_speed: nodeValue["wind-speed-hourly-average"].toFixed(2),
             wind_direction: nodeValue["wind-direction-hourly-average"],
-            temperature: nodeValue["temperature-hourly-average"],
-            humidity: nodeValue["humidity-hourly-average"],
-        });
+            temperature: nodeValue["temperature-hourly-average"].toFixed(2),
+            humidity: nodeValue["humidity-hourly-average"].toFixed(2),
+        });//String(value["wind-speed-daily-average"].toFixed(2))
     }
     console.log(transformedData);
 

@@ -2,9 +2,7 @@ import React from "react";
 import "./NodeInfoResponsive.css";
 import CurrentDate from "../../../components/CurrentDate";
 
-function NodeInfoResponsive(props) {
-  const selectedNode = props.electedNode;
-  const handleNodeSelect = props.handleNodeSelect;
+function NodeInfoResponsive() {
 
   return (
     <div className="node-info-responesive">

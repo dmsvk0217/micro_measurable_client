@@ -21,10 +21,7 @@ function MapView() {
   const [legendValueBad, setlegendValueBad] = useState("36~75");
   const [legendValueWorse, setlegendValueWorse] = useState("76~");
 
-  const handleNodeSelect = (node) => {
-    setSelectedNode(node);
-    setDropdownOpen(false);
-  };
+
 
   const selectedButtonAction = (buttonId) => {
     setSelectedButtonId(buttonId);
@@ -98,10 +95,7 @@ function MapView() {
             selectedButtonAction={selectedButtonAction}
           />
           <div className="info-container">
-            <NodeInfo
-              selectedNode={selectedNode}
-              handleNodeSelect={handleNodeSelect}
-            />
+            <NodeInfo/>
             <div className="info-container-dividier"></div>
             <LegendInfo
               legendTitle={legendTitle}
@@ -113,10 +107,7 @@ function MapView() {
           </div>
         </div>
       </div>
-      <NodeInfoResponsive
-        selectedNode={selectedNode}
-        handleNodeSelect={handleNodeSelect}
-      />
+      <NodeInfoResponsive/>
     </div>
   );
   

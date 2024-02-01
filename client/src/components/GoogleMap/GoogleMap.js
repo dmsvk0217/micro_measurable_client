@@ -8,7 +8,7 @@ const GoogleMap = ({ option }) => {
   const markerRefs = useRef([]);
 
   //생성
-  const { setMapLocation, mapData } = useMapStore();
+  const { setMapLocation, mapData, mapLocation } = useMapStore();
 
 
   
@@ -108,7 +108,7 @@ const GoogleMap = ({ option }) => {
         icon: customMarkerIcon,
         label: {
           text: node.label,
-          color: "white",
+          color: mapLocation === node.label? "black":"white",
           fontSize: "1.1em",
           fontWeight: "500",
         },
@@ -147,7 +147,7 @@ const GoogleMap = ({ option }) => {
     return () => {
       window.google.maps.event.removeListener(zoomChangedListener);
     };
-  }, [option, mapData]);
+  }, [option, mapData, mapLocation]);
 
   // 생성
   const handleMarkerClick = (label) => {

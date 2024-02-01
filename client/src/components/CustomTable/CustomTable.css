@@ -4,6 +4,8 @@ Table CSS
 
 table {
     width: 100%;
+    min-width: 400px;
+    overflow-x: auto;
     border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
     background-color: #fff;
