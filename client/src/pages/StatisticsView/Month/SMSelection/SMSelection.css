@@ -9,7 +9,6 @@
 }
 
 .SM-select-container {
-
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -23,7 +22,8 @@
 /* 오늘 일자 css */
 .current-date {
   font-size: 0.8em;
-  font-weight: bold;
+  font-weight: 600;
+  padding: 17px 0 0 10px;
 }
 
 .SM-select-comp {
@@ -44,11 +44,11 @@
 .location-buttons-container {
   width: 100%;
   display: flex;
-  flex-wrap: wrap; /* Buttons wrap to the next line if necessary */
-  justify-content: start; /* Center buttons horizontally */
+  flex-wrap: wrap; 
+  justify-content: center;
 }
 .SM-select-location {
-  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   padding-bottom: 10px;

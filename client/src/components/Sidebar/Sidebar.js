@@ -38,7 +38,7 @@ function Sidebar({ isOpen, onClose }) {
                 <NavLink
                 to="/"
                 className={({ isActive }) =>
-                    isActive ? "nav-link-active" : "nav-link"
+                    isActive ? "nav-link-side-active" : "nav-link-side"
                 }
                 onClick={handleLinkClick}
                 >
@@ -51,7 +51,7 @@ function Sidebar({ isOpen, onClose }) {
                 <NavLink
                 to="/realTime"
                 className={({ isActive }) =>
-                    isActive ? "nav-link-active" : "nav-link"
+                    isActive ? "nav-link-side-active" : "nav-link-side"
                 }
                 onClick={handleLinkClick}
                 >
@@ -64,7 +64,7 @@ function Sidebar({ isOpen, onClose }) {
                 <NavLink
                 to="/statisticsDay"
                 className={({ isActive }) =>
-                    isActive ? "nav-link-active" : "nav-link"
+                    isActive ? "nav-link-side-active" : "nav-link-side"
                 }
                 onClick={handleLinkClick}
                 >
