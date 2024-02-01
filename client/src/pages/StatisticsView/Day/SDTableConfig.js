@@ -95,7 +95,7 @@ const days = [
 
 export const columns = [
   columnHelper.accessor("node", {
-    header: "측정위치",
+    header: "위치",
     size: 100,
   }),
   columnHelper.accessor("average", {

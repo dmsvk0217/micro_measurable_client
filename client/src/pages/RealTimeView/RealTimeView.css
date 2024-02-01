@@ -25,4 +25,8 @@
     .RT-title {
         font-size: 1.2em;
     }
+
+    .x-scroll {
+        overflow-x: scroll;
+    }
 }
