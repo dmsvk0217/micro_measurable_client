@@ -15,17 +15,12 @@ import { useSDTableDataMutation } from '../../../hooks/useSDDataMutation';
 
 function StatisticsDayView() {
   const { tableData } = useSDStore();
-  const { mutate: tableMutate, isLoading } = useSDTableDataMutation();
 
   const [selectedOption, setSelectedOption] = React.useState('일별');
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
   };
-
-  useEffect(() => {
-    tableMutate({selectedLocation:"전체", selectedDate: new Date(2024, 0, 1), selectedSubstance:"포름알데히드"});
-  }, []);
 
   return (
     <div className="SD-container">
