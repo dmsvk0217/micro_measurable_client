@@ -95,7 +95,7 @@ const days = [
 
 export const columns = [
   columnHelper.accessor("node", {
-    header: "측정위치",
+    header: "위치",
     size: 100,
   }),
   columnHelper.accessor("average", {
@@ -108,7 +108,7 @@ export const columns = [
 for (const day of days) {
   columns.push(
     columnHelper.accessor(day, {
-      header: `${days.indexOf(day) + 1}일`,
+      header: `${days.indexOf(day) + 1}`,
       size: 80,
     })
   );

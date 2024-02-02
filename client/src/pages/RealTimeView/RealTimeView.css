@@ -20,3 +20,13 @@
     background-color: #d3d3d3; 
     margin-top: 20px;
 }
+
+@media screen and (max-width: 450px) {
+    .RT-title {
+        font-size: 1.2em;
+    }
+
+    .x-scroll {
+        overflow-x: scroll;
+    }
+}

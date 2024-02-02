@@ -22,3 +22,9 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+/* @media screen and (max-width: 450px) {
+    .SM-content-container {
+        border: 1px solid #d3d3d3;
+    }
+} */

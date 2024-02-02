@@ -39,7 +39,6 @@ function SDSelection() {
         ? selectedLocations.filter((loc) => loc !== location && loc !== '전체')
         : [location, ...selectedLocations.filter((loc) => loc !== '전체')];
   
-
     setSelectedLocations(updatedLocations);
   };
 
@@ -84,9 +83,6 @@ function SDSelection() {
         <p className="location-title">측정 위치</p>
         <div className="location-buttons-container">
           {selectLocationOptions.map((location) => (
-              console.log("👻 "+selectedLocations),
-              console.log("🙊"+selectedLocations[0]),
-
             <LocationsButton
               key={location.value}
               location={location}

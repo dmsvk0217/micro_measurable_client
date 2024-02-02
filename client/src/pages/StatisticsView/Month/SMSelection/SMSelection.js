@@ -34,7 +34,6 @@ function SMSelection(){
     };
 
     const handleLocationChange = (location) => {
-
         const updatedLocations = location === '전체'
         ? ['전체']
         : locations.includes('전체')
@@ -45,7 +44,7 @@ function SMSelection(){
         
         setLocations(updatedLocations);
     };
-    
+
     const handleSubstanceChange = (substance) => {
         setSubstance(substance);
     };
