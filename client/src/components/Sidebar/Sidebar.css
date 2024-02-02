@@ -15,7 +15,7 @@
 
 .side-header {
     background-color: #55b76b;
-    height: 5%;
+    height: 8%;
 }
 
 .side-header p {
@@ -40,6 +40,7 @@
     align-content: center;
     font-size: 0.8em;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .nav-link-side {
@@ -62,6 +63,15 @@
     width: 30px;
     padding: 15px 0 20px 20px;
 }
+
+.map-icon {
+    align-items: center;
+    font-size: 1.3em;
+    width: 25px;
+    height: 13px;
+    margin-top: 7px;
+    padding: 15px 0 20px 20px;
+}
   
 .nav-back {
     display: none;
@@ -78,3 +88,7 @@
     z-index: 99;
 }
   
+hr {
+    color: rgb(215, 215, 215);
+    opacity: 40%;
+}

@@ -29,7 +29,7 @@ function RealTimeView() {
     <div className="RT-container">
       <p className="RT-title">실시간 정보 보기</p>
       <div className="RT-content-container">
-        <RTTableSelection/>
+        <div className="x-scroll"><RTTableSelection/></div>
         <DownloadButton data={tableData?tableData:[]}></DownloadButton>
         <CustomTable data={tableData?tableData:[]} columns={columns}></CustomTable>
         <hr className="RT-hr"></hr>

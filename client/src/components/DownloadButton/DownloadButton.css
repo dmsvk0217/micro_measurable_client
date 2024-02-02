@@ -14,5 +14,16 @@
 
 .file {
     margin-left: 10px;
+    width: 30px;
 }
 
+@media screen and (max-width: 450px) {
+    .file {
+        margin-left: 0;
+        padding: none;
+    }   
+
+    .download-button {
+        width: 150px;
+    }
+}

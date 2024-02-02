@@ -18,7 +18,7 @@ export const locationFromNodeNumberOptions = {
 };
 
 
-export const substanceEnum = {
+export const substanceHourlyEnum = {
   "포름알데히드": "ch2o-hourly-average",
   "습도": "humidity-hourly-average",
   "PM10": "pm10-hourly-average",
@@ -26,6 +26,16 @@ export const substanceEnum = {
   "온도": "temperature-hourly-average",
   "풍향": "wind-direction-hourly-average",
   "풍속": "wind-speed-hourly-average",
+};
+
+export const substanceMonthlyEnum = {
+  "포름알데히드": "ch2o-monthly-average",
+  "습도": "humidity-monthly-average",
+  "PM10": "pm10-monthly-average",
+  "PM2.5": "pm25-monthly-average",
+  "온도": "temperature-monthly-average",
+  "풍향": "wind-direction-monthly-average",
+  "풍속": "wind-speed-monthly-average",
 };
 
 export const positionOfNode = {

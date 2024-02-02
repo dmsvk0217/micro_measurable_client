@@ -2,6 +2,7 @@
   border: none;
   width: 100%;
   background-color: #fff;
+  color: black;
 }
 
 .custom-dropdown {
@@ -12,6 +13,7 @@
   background-color: #fff;
   border-color: transparent;
   cursor: pointer;
+  color: black;
 }
 
 .custom-dropdown select:focus {

@@ -1,5 +1,5 @@
 import axiosInstance from './axiosInstance';
-import  { locationFromNodeNumberOptions, substanceEnum } from "../util.js";
+import  { locationFromNodeNumberOptions, substanceHourlyEnum } from "../util.js";
 
 
 export const makeFormattedTable = (responseJson,day,location) => {
@@ -47,7 +47,7 @@ export const makeFormattedGraph = (responseJson,graphLocation, graphSubstance ) 
      
 
       for(const [substanceKey,substanceValue] of Object.entries(nodeValue)){
-        if(!substanceKey.match(substanceEnum[graphSubstance])) continue;
+        if(!substanceKey.match(substanceHourlyEnum[graphSubstance])) continue;
         // console.log("🌡️",graphSubstance);
 
         transformedArray.push(

@@ -31,7 +31,9 @@ function StatisticsDayView() {
           <div className="SD-content-container">
             <SDSelection />
             <DownloadButton data={tableData?tableData:[]}></DownloadButton>
-            <CustomTable data={tableData?tableData:[]} columns={columns}></CustomTable>
+            <div className="table-wrapper">
+              <CustomTable data={tableData?tableData:[]} columns={columns}></CustomTable>
+            </div>
             <hr className="SD-hr"></hr>
             <CustomGraph data={chartData} options={chartOptions}></CustomGraph>
           </div>

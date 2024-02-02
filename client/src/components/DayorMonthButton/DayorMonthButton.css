@@ -11,6 +11,7 @@ dd {
   margin: 0 0 0 0;
   padding-bottom: 10px;
   font-size: 1.2em;
+  cursor: pointer;
 }
 
 dl {
@@ -25,4 +26,10 @@ dd.active {
   border: 2px solid #55b76b;
   color: #55b76b;
   font-weight: bold;
+}
+
+@media screen and (max-width: 450px) {
+  dl {
+    font-size: 0.7em;
+  }
 }

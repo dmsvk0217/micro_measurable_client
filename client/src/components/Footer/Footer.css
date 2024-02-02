@@ -28,7 +28,6 @@
     display: flex;
     vertical-align: top; 
     align-items: center;
-
 }
 
 .mail {
@@ -41,4 +40,26 @@
     width: 20px;
     height: 25px;
     margin: 10px;
+}
+
+@media screen and (max-width: 450px) {
+    p {
+        font-size: 0.75em;
+    }
+
+    .mail {
+        width: 15px;
+        height: 15px;
+        margin-right: 10px;
+    }
+
+    .location {
+        width: 15px;
+        height: 20px;
+        margin-right: 10px;
+    }
+
+    #copy {
+        margin-top: 20px;
+    }
 }

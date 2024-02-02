@@ -8,7 +8,6 @@ import { columns } from "./SMTableConfig";
 import DownloadButton from "../../../components/DownloadButton/DownloadButton";
 
 import useSMStore from '../../../store/SMStore';
-import { useSMTableDataMutation } from '../../../hooks/useSMDataMutation';
 
 function StatisticsMonthView(){
     const { tableData } = useSMStore();

@@ -1,20 +1,17 @@
 import axiosInstance from './axiosInstance';
 import  { locationFromNodeNumberOptions } from "../util.js";
+import useSMStore from '../store/SMStore.js';
 
 
-export const fetchSMTableData = async ({selectedLocation, selectedYear, selectedSubstance}) => {
-    
+export const fetchSMData = async (selectedLocation, selectedYear, selectedSubstance) => {
 
-    let formattedDate;
     let requestURL;
     let requestBody;
 
     requestURL = "/api/all-nodes/all-substances/monthly-averages";
-    formattedDate = selectedYear;
-    //isoString.split('T')[0].slice(0, 4);
   
     requestBody = {
-      date: formattedDate,
+      date: selectedYear,
     };
     
 
