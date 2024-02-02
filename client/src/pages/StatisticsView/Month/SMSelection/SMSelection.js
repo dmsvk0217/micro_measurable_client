@@ -5,43 +5,55 @@ import {
   selectSubstanceOptions,
 } from "../../../../constants/selectOption";
 import CustomDropDown from "../../../../components/CustomDropDown/CustomDropDown";
-import SMSubmitButton from "../SMSubmitButton/SMSubmitButton";
 import LocationsButton from "../../../../components/LocationsButton/LocationsButton";
 import './SMSelection.css';
-import { useSMTableDataMutation } from "../../../../hooks/useSMDataMutation";
+import { useSMDataMutation } from "../../../../hooks/useSMDataMutation";
+import useSMStore from "../../../../store/SMStore";
 
 
 function SMSelection(){
-    const [selectedYear, setSelectedYear] = useState(selectYearOptions[0]);
-    const [selectedLocation, setSelectedLocation] = useState(
-        selectLocationOptions[0]
-    );
-    const [selectedSubstance, setSelectedSubstance] = useState(
-        selectSubstanceOptions[0]
-    );
-    const [selectedLocations, setSelectedLocations] = useState([
-        selectLocationOptions[0],
-      ]);
+
+    const { year, locations, substance, setYear, setLocations, setSubstance } = useSMStore();
+
+    useEffect(() => {
+
+        const loadData = async () => {
+            await setYear(selectYearOptions[0]);
+            await setLocations('전체');
+            await setSubstance(selectSubstanceOptions[0]);
+            
+            SMMutate();
+        };
+          
+        loadData();
+    },[]);
+
     
     const handleYearChange = (year) => {
-        setSelectedYear(year);
+        setYear(year);
     };
+
     const handleLocationChange = (location) => {
-        const updatedLocations = selectedLocations.includes(location)
-          ? selectedLocations.filter((loc) => loc !== location)
-          : [...selectedLocations, location];
-    
-        setSelectedLocations(updatedLocations);
-      };
+
+        const updatedLocations = location === '전체'
+        ? ['전체']
+        : locations.includes('전체')
+          ? [location]
+          : locations.includes(location)
+            ? locations.filter((loc) => loc !== location && loc !== '전체')
+            : [location, ...locations.filter((loc) => loc !== '전체')];
+        
+        setLocations(updatedLocations);
+    };
     
     const handleSubstanceChange = (substance) => {
-        setSelectedSubstance(substance);
+        setSubstance(substance);
     };
-    const { mutate : tableMutate } = useSMTableDataMutation();
 
+    const { mutate : SMMutate } = useSMDataMutation();
 
     const handleSearchButton = () => {
-        tableMutate({ selectedYear, selectedLocations, selectedSubstance});
+        SMMutate();
     };
 
     return(
@@ -51,7 +63,7 @@ function SMSelection(){
                     <p>측정기간</p>
                     <CustomDropDown
                         optionData={selectYearOptions}
-                        selectedValue={selectedYear}
+                        selectedValue={year}
                         handleSelectedValue={handleYearChange}
                     />
                 </div>
@@ -59,7 +71,7 @@ function SMSelection(){
                     <p>측정물질</p>
                     <CustomDropDown
                         optionData={selectSubstanceOptions}
-                        selectedValue={selectedSubstance}
+                        selectedValue={substance}
                         handleSelectedValue={handleSubstanceChange}
                     />
                 </div>
@@ -70,9 +82,9 @@ function SMSelection(){
                 <div className="location-buttons-container">
                     {selectLocationOptions.map((location) => (
                     <LocationsButton
-                        key={location.value}
+                        key={location}
                         location={location}
-                        selectedLocations={selectedLocations}
+                        selectedLocations={locations}
                         handleLocationChange={handleLocationChange}
                     />
                     ))}
@@ -87,3 +99,4 @@ function SMSelection(){
 }
 
 export default SMSelection;
+
