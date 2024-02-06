@@ -2,25 +2,27 @@ import axiosInstance from './axiosInstance';
 import  { locationFromNodeNumberOptions } from "../util.js";
 
 
-export const fetchSDTableData = async ({selectedLocation, selectedDate, selectedSubstance, selectedUnit}) => {
+export const fetchSDData = async (location, year, month, substance) => {
     
 
     let formattedDate;
     let requestURL;
     let requestBody;
 
-    const offset = selectedDate.getTimezoneOffset() * 60000;
-    const adjustedDate = new Date(selectedDate.getTime() - offset);
-    const isoString = adjustedDate.toISOString(); // ISO 8601 형식의 문자열로 변환
-    const day = isoString.split('T')[0].slice(8, 10);
-
+    const cmonth = month.slice(0,1);
 
     requestURL = "/api/all-nodes/all-substances/daily-averages";
-    formattedDate = isoString.split('T')[0].slice(0, 7); // 'YYYY-MM' 형식으로 변환
-
-    requestBody = {
-      date: formattedDate,
-    };
+    
+    if(cmonth >= "10"){
+      requestBody = {
+        date: year+"-"+cmonth,
+      };
+    }
+    else{
+      requestBody = {
+        date: year+"-0"+cmonth,
+      };
+    }
     
 
     console.log("🚀 ~ handleTableSubmit ~ requestURL:", requestURL);
@@ -28,7 +30,7 @@ export const fetchSDTableData = async ({selectedLocation, selectedDate, selected
 
     const response = await axiosInstance.post(requestURL, requestBody);
 
-
+    console.log("🚀🚀response", response.data)
     return response.data;
 
     // return response.data;

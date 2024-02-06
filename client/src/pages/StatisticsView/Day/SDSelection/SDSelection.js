@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   selectMonthOptions,
   selectYearOptions,
@@ -6,50 +6,60 @@ import {
   selectSubstanceOptions,
 } from "../../../../constants/selectOption";
 import CustomDropDown from "../../../../components/CustomDropDown/CustomDropDown";
-import SDSubmitButton from "../SDSubmitButton/SDSubmitButton";
 import LocationsButton from "../../../../components/LocationsButton/LocationsButton";
 import "./SDSelection.css";
 
-import { useSDTableDataMutation } from "../../../../hooks/useSDDataMutation";
+import { useSDDataMutation } from "../../../../hooks/useSDDataMutation";
+import useSDStore from "../../../../store/SDStore";
 
 function SDSelection() {
-  const [selectedYear, setSelectedYear] = useState(selectYearOptions[0]);
-  const [selectedMonth, setSelectedMonth] = useState(selectMonthOptions[0]);
-  const [selectedLocations, setSelectedLocations] = useState([
-    selectLocationOptions[0],
-  ]);
-  const [selectedSubstance, setSelectedSubstance] = useState(
-    selectSubstanceOptions[0]
-  );
+
+  const { year, month, locations, substance, setYear, setMonth, setLocations, setSubstance} = useSDStore();
+
+  useEffect(() => {
+
+    const loadData = async () => {
+      await setYear(selectYearOptions[0]);
+      await setMonth(selectMonthOptions[0]);
+      await setLocations('전체');
+      await setSubstance(selectSubstanceOptions[0]);
+
+      SDMutate();
+    };
+    
+    loadData();
+  }, []);
+
 
   const handleYearChange = (year) => {
-    setSelectedYear(year);
+    setYear(year);
   };
 
   const handleMonthChange = (month) => {
-    setSelectedMonth(month);
+    setMonth(month);
   };
 
   const handleLocationChange = (location) => {
     const updatedLocations = location === '전체'
     ? ['전체']
-    : selectedLocations.includes('전체')
+    : locations.includes('전체')
       ? [location]
-      : selectedLocations.includes(location)
-        ? selectedLocations.filter((loc) => loc !== location && loc !== '전체')
-        : [location, ...selectedLocations.filter((loc) => loc !== '전체')];
+      : locations.includes(location)
+        ? locations.filter((loc) => loc !== location && loc !== '전체')
+        : [location, ...locations.filter((loc) => loc !== '전체')];
   
-    setSelectedLocations(updatedLocations);
-  };
+
+    setLocations(updatedLocations);
+};
 
   const handleSubstanceChange = (substance) => {
-    setSelectedSubstance(substance);
+    setSubstance(substance);
   };
 
-  const { mutate: tableMutate } = useSDTableDataMutation();
+  const { mutate: SDMutate } = useSDDataMutation();
 
   const handleSearchButton = () => {
-      tableMutate({ selectedYear, selectedMonth, selectedLocations, selectedSubstance});
+      SDMutate();
   };
 
   return (
@@ -59,13 +69,13 @@ function SDSelection() {
           <p>측정기간</p>
           <CustomDropDown
             optionData={selectYearOptions}
-            selectedValue={selectedYear}
+            selectedValue={year}
             handleSelectedValue={handleYearChange}
           />
           <div className="SD-select-comp-sizedBox"></div>
           <CustomDropDown
             optionData={selectMonthOptions}
-            selectedValue={selectedMonth}
+            selectedValue={month}
             handleSelectedValue={handleMonthChange}
           />
         </div>
@@ -74,7 +84,7 @@ function SDSelection() {
           <p>측정물질</p>
           <CustomDropDown
             optionData={selectSubstanceOptions}
-            selectedValue={selectedSubstance}
+            selectedValue={substance}
             handleSelectedValue={handleSubstanceChange}
           />
         </div>
@@ -83,10 +93,13 @@ function SDSelection() {
         <p className="location-title">측정 위치</p>
         <div className="location-buttons-container">
           {selectLocationOptions.map((location) => (
+              //console.log("👻 "+locations),
+              //console.log("🙊"+locations[0]),
+
             <LocationsButton
-              key={location.value}
+              key={location}
               location={location}
-              selectedLocations={selectedLocations}
+              selectedLocations={locations}
               handleLocationChange={handleLocationChange}
             />
           ))}
