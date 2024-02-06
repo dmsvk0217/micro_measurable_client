@@ -14,7 +14,7 @@ export const useSMDataMutation = () => {
     // console.log("📍",locations);
     const transformedArray = [];
     const nodeArray = [];
-    const firstVisit = true;
+    let firstVisit = true;
     const responseJsonData = responseJson.data;
 
     console.log(responseJsonData);
@@ -31,31 +31,27 @@ export const useSMDataMutation = () => {
         // console.log("📍",locations);
         if(!locations.includes(node)) continue;//선택한 노드만
         const value = nodeValue[substanceMonthlyEnum[substance]].toFixed(2);
-        console.log("💵",value);
+        console.log("💵", typeof value, value);
 
         if(firstVisit){
           console.log("asdf");
           nodeArray.push(node);
           transformedArray.push({
             node: node,
-            [month]:value,
+            Jan:"", Feb:"", Mar:"", Apr:"", May:"", Jun:"", Jul:"", Aug:"", Sep:"", Jan:"", Oct:"", Nov:"", Dec:""
           });
+          // [month]:value,
+          // transformedArray[month] 
 
           console.log("🆕",transformedArray);
         }
-        else{
-          console.log(nodeKey.indexOf(node));
-          // transformedArray[nodeKey.indexOf(node)][month] = value;
-          // console.log("🆕",transformedArray);
-        }
-        // if()
-        // nodeArray.push(node);
-        // transformedArray[0][month] = {
-            
-        // };
+        
+        // console.log(nodeArray.indexOf(node));
+        transformedArray[nodeArray.indexOf(node)][month] = value;
       }
+      console.log(firstVisit);
       firstVisit = false;
-    
+      console.log(firstVisit);
     }
     console.log("😆😆😆",transformedArray);
     return transformedArray;
@@ -70,7 +66,7 @@ export const useSMDataMutation = () => {
       onSuccess: (data, variables, context) => {
         // setTableData(data);
         console.log("✅ SMStore success", data);
-        makeFormattedTable(data);
+        setTableData(makeFormattedTable(data));
       },
       onError: (error, variables, context) => {
         console.log("🚨 SMStore error", error);
