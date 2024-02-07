@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { fetchSDData } from '../api/SDTableApi';
+import { fetchDailyAverages } from '../api/axiosApi';
 import useSDStore from '../store/SDStore';
 import { locationFromNodeNumberOptions } from '../util';
 
@@ -8,7 +8,7 @@ export const useSDDataMutation = () => {
   const { locations, year, month, substance, setTableData, setGraphData } = useSDStore();
 
   const SDMutate = () => {
-    return fetchSDData(locations, year, month, substance);
+    return fetchDailyAverages(year, month);
   };
 
   
