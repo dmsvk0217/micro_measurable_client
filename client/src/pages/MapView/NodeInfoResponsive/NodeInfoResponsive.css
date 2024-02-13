@@ -2,11 +2,6 @@
   display: none;
 }
 
-.node-info-header {
-  display: flex;
-  /* margin: 15px 10px 10px 10px; */
-}
-
 /* NodeInfo.css 상속받음 */
 
 @media screen and (max-width: 850px) {
