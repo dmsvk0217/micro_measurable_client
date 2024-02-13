@@ -13,9 +13,18 @@ function MapView() {
 
   const { mutate: mapMutate } = useMapDataMutation();
 
+  // 화면 너비를 확인하고 경고를 띄우는 함수 
+  const checkScreenWidth = () => {
+    if (window.innerWidth < 345) {
+      alert("화면 너비가 345px 미만입니다.😔\n최적의 사용을 위해, 더 넓은 기기 사용을 권장드립니다!");
+    }
+  };
+
+
   useEffect(() => {
     // 초기 데이터 로드
     mapMutate();
+    checkScreenWidth();
 
     // 다음 정각까지의 시간(밀리초) 계산
     const now = new Date();

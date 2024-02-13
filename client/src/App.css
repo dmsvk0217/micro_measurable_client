@@ -6,7 +6,7 @@
 
 .main-content {
   /* ✅ navigationbar hgith+margin 수정 필요 */
-  min-height: max(calc(100vh - 100px), 800px);
+  /* min-height: max(calc(100vh - 100px), 800px); */
   padding: 0px 0px;
 }
 

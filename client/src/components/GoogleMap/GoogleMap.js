@@ -143,7 +143,7 @@ const GoogleMap = () => {
   };
 
   return (
-    <div ref={ref} id="map" style={{ width: "100%", height: "100%" }}></div>
+    <div ref={ref} id="map" style={{ width: "100%", height: "100%" }}></div>//`calc(100vh - 100px)`
   );
 };
 
