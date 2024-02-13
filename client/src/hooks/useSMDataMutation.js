@@ -19,6 +19,7 @@ export const useSMDataMutation = () => {
         // setTableData(data);
         console.log("✅ SMStore success", data);
         setTableData(makeFormattedTable(data));
+        //Todo: setGraphData(makeFormattedGraph(data));
       },
       onError: (error, variables, context) => {
         console.log("🚨 SMStore error", error);

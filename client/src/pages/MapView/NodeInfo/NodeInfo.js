@@ -16,16 +16,16 @@ function NodeInfo() {
 
   const getSubstanceColor = (val) => {
     
-    if (val.match("매우 나쁨")) {
-      return "status-worse";
-    } else if (val.match("나쁨")) {
-      return "status-bad";
+    if (val === "매우 나쁨") {
+      return "worse";
+    } else if (val === "나쁨") {
+      return "bad";
     } else if (val.match("보통")) {
-      return "status-normal";
+      return "normal";
     } else if (val.match("좋음")) {
-      return "status-good";
+      return "good";
     } else{
-      return "status-undefined";
+      return "undefined";
     }
     
   };
@@ -35,7 +35,7 @@ function NodeInfo() {
     setCh2oEval(evaluateSubstance("ch2o",node.ch2o));
     setpm25Eval(evaluateSubstance("pm25",node.pm25));
     setpm10Eval(evaluateSubstance("pm10",node.pm10));
-  },[mapData,ch2oEval,pm25Eval,pm10Eval]);
+  },[mapData,ch2oEval,pm25Eval,pm10Eval, mapLocation]);
 
   return (
     <div className="node-info">
@@ -54,19 +54,19 @@ function NodeInfo() {
         <div className="one-substance-container">
           <div className="substance-name">초미세먼지</div>
           <div className="substance-name-en">PM-2.5</div>
-          <div className="substance-value substance-good">{node.pm25} ㎍/㎥</div>
+          <div className={`substance-value ${getSubstanceColor(pm25Eval)}`}>{node.pm25 ?? '-' } ㎍/㎥</div>
           <div className={`substance-status ${getSubstanceColor(pm25Eval)}`}>{ pm25Eval }</div>
         </div>
         <div className="one-substance-container">
           <div className="substance-name">미세먼지</div>
           <div className="substance-name-en">PM-10</div>
-          <div className="substance-value substance-normal">{node.pm10} ㎍/㎥</div>
+          <div className={`substance-value ${getSubstanceColor(pm10Eval)}`}>{node.pm10 ?? '-'} ㎍/㎥</div>
           <div className={`substance-status ${getSubstanceColor(pm10Eval)}`}>{ pm10Eval }</div>
         </div>
         <div className="one-substance-container">
           <div className="substance-name">포름알데히드</div>
           <div className="substance-name-en">CH2O</div>
-          <div className="substance-value substance-worse">{node.ch2o} ppm</div>
+          <div className={`substance-value ${getSubstanceColor(ch2oEval)}`}>{node.ch2o ?? '-'} ppm</div>
           <div className={`substance-status ${getSubstanceColor(ch2oEval)}`}>{ ch2oEval }</div>
         </div>
         <div className="node-info-divider"></div>

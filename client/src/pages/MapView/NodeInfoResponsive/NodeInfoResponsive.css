@@ -14,11 +14,6 @@
   align-items: center;
 }
 
-.leaf {
-  width: 50px;
-  height: 40px;
-}
-
 .node-info-divider {
   background-color: lightgray;
   width: 100%;
