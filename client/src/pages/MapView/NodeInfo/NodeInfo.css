@@ -11,7 +11,7 @@
 
 .node-info-header {
   display: flex;
- 
+  margin: 15px 10px 10px 10px;
 }
 
 .selected-node-name {
