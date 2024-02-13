@@ -2,28 +2,28 @@ import { create } from 'zustand';
 
 const useRTStore = create((set) => ({
     //graph 관련
-    graphLocation: null,
-    graphSubstance: null,
+    graphLocation: "그레이스",
+    graphSubstance: "포름알데히드",
 
     setGraphLocation: graphLocation => set({graphLocation: graphLocation}),
     setGraphSubstance: graphSubstance => set({graphSubstance: graphSubstance}),
 
-    graphData: null,
+    graphData: {},
     setGraphData: (graphData) => set({ graphData: graphData}),
 
 
     //table 관련
-    tableLocation: null,
-    tableUnit:null,
+    tableLocation: "그레이스",
+    tableUnit:"일평균",
     tableDate: new Date(),
-    tableHour:null,
+    tableHour:"01:00",
 
     setTableLocation: tableLocation => set({tableLocation: tableLocation}),
     setTableUnit: tableUnit => set({tableUnit: tableUnit}),
     setTableDate: tableDate => set({tableDate: tableDate}),
     setTableHour: tableHour => set({tableHour: tableHour}),
 
-    tableData: null,
+    tableData: {},
     setTableData: (tableData) => set({ tableData: tableData }),
 }));
 

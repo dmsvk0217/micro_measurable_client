@@ -1,14 +1,16 @@
 import React from "react";
 import "./OptionContainer.css";
+import useMapStore from "../../../store/MapStore";
 
-function OptionContainer(props) {
-  const selectedButtonId = props.selectedButtonId;
-  const selectedButtonAction = props.selectedButtonAction;
+function OptionContainer() {
+  const { selectedSubstance, setSelectedSubstance} = useMapStore();
+
+
   return (
     <div className="option-container">
       <button
-        className={selectedButtonId === 1 ? "active" : ""}
-        onClick={() => selectedButtonAction(1)}
+        className={selectedSubstance === '초미세먼지' ? "active" : ""}
+        onClick={() => setSelectedSubstance('초미세먼지')}
       >
         <div className="substance-option-one-container">
           <div className="substance-option-name">초미세먼지</div>
@@ -16,8 +18,8 @@ function OptionContainer(props) {
         </div>
       </button>
       <button
-        className={selectedButtonId === 2 ? "active" : ""}
-        onClick={() => selectedButtonAction(2)}
+        className={selectedSubstance === '미세먼지' ? "active" : ""}
+        onClick={() => setSelectedSubstance('미세먼지')}
       >
         <div className="substance-option-one-container">
           <div className="substance-option-name">미세먼지</div>
@@ -25,8 +27,8 @@ function OptionContainer(props) {
         </div>
       </button>
       <button
-        className={selectedButtonId === 3 ? "active" : ""}
-        onClick={() => selectedButtonAction(3)}
+        className={selectedSubstance === '포름알데히드' ? "active" : ""}
+        onClick={() => setSelectedSubstance('포름알데히드')}
       >
         <div className="substance-option-one-container">
           <div className="substance-option-name">포름알데히드</div>
