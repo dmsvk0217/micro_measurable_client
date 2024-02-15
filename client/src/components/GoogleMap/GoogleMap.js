@@ -2,13 +2,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import useMapStore from "../../store/MapStore";
 
-const GoogleMap = ({ option }) => {
-  // const [map, setMap] = useState(null);
+const GoogleMap = () => {
   const ref = useRef();
   const markerRefs = useRef([]);
 
-  //생성
-  const { setMapLocation, mapData, mapLocation } = useMapStore();
+  const { setMapLocation, mapData, mapLocation, selectedSubstance } =
+    useMapStore();
 
   useEffect(() => {
     const newMap = new window.google.maps.Map(ref.current, {
@@ -59,12 +58,11 @@ const GoogleMap = ({ option }) => {
 
     // 노드 정보 가져오기
     mapData.map((node) => {
-      console.log("👀", node);
       let value;
       let sub_level = "";
 
-      switch (option) {
-        case "pm25":
+      switch (selectedSubstance) {
+        case "초미세먼지":
           value = node.pm25;
           if (value >= 76) sub_level = "worst";
           else if (value >= 36) sub_level = "bad";
@@ -72,7 +70,7 @@ const GoogleMap = ({ option }) => {
           else if (value >= 0) sub_level = "good";
           else sub_level = "undefined";
           break;
-        case "pm10":
+        case "미세먼지":
           value = node.pm10;
           if (value >= 151) sub_level = "worst";
           else if (value >= 81) sub_level = "bad";
@@ -80,7 +78,7 @@ const GoogleMap = ({ option }) => {
           else if (value >= 0) sub_level = "good";
           else sub_level = "undefined";
           break;
-        case "ch2o":
+        case "포름알데히드":
           value = node.ch2o;
           break;
         default:
@@ -98,7 +96,6 @@ const GoogleMap = ({ option }) => {
         strokeWeight: 3,
       };
 
-      //변경
       const marker = new window.google.maps.Marker({
         position: node.position,
         map: newMap,
@@ -112,21 +109,12 @@ const GoogleMap = ({ option }) => {
         optimized: false,
       });
 
-      //생성
       marker.addListener("click", () => {
         handleMarkerClick(node.label);
       });
 
-      console.log("📍📍", marker);
-
-      //생성
       markerRefs.current.push(marker);
     });
-
-    // markers를 markerRefs.current에 저장
-    //markerRefs.current = markers;
-
-    // setMap(newMap);
 
     const zoomChangedListener = newMap.addListener("zoom_changed", () => {
       const currentZoom = newMap.getZoom();
@@ -144,16 +132,15 @@ const GoogleMap = ({ option }) => {
     return () => {
       window.google.maps.event.removeListener(zoomChangedListener);
     };
-  }, [option, mapData, mapLocation]);
+  }, [selectedSubstance, mapData, mapLocation]);
 
-  // 생성
   const handleMarkerClick = (label) => {
     setMapLocation(label);
     console.log("🖱️click: ", label);
   };
 
   return (
-    <div ref={ref} id="map" style={{ width: "100%", height: "100%" }}></div>
+    <div ref={ref} id="map" style={{ width: "100%", height: "100%" }}></div> //`calc(100vh - 100px)`
   );
 };
 
