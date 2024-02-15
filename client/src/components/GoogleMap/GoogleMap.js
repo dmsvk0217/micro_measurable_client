@@ -10,9 +10,6 @@ const GoogleMap = ({ option }) => {
   //생성
   const { setMapLocation, mapData, mapLocation } = useMapStore();
 
-
-  
-
   useEffect(() => {
     const newMap = new window.google.maps.Map(ref.current, {
       center: { lat: 36.1032734, lng: 129.3893488 },
@@ -62,7 +59,7 @@ const GoogleMap = ({ option }) => {
 
     // 노드 정보 가져오기
     mapData.map((node) => {
-      console.log("👀",node);
+      console.log("👀", node);
       let value;
       let sub_level = "";
 
@@ -102,13 +99,13 @@ const GoogleMap = ({ option }) => {
       };
 
       //변경
-      const marker =  new window.google.maps.Marker({
+      const marker = new window.google.maps.Marker({
         position: node.position,
         map: newMap,
         icon: customMarkerIcon,
         label: {
           text: node.label,
-          color: mapLocation === node.label? "black":"white",
+          color: mapLocation === node.label ? "black" : "white",
           fontSize: "1.1em",
           fontWeight: "500",
         },
@@ -120,7 +117,7 @@ const GoogleMap = ({ option }) => {
         handleMarkerClick(node.label);
       });
 
-      console.log("📍📍",marker);
+      console.log("📍📍", marker);
 
       //생성
       markerRefs.current.push(marker);
@@ -152,7 +149,7 @@ const GoogleMap = ({ option }) => {
   // 생성
   const handleMarkerClick = (label) => {
     setMapLocation(label);
-    console.log("🖱️click: ",label);
+    console.log("🖱️click: ", label);
   };
 
   return (
