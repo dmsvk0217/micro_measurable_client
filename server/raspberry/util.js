@@ -9,10 +9,19 @@ exports.getDate = () => {
 
 exports.generateAllnodesTestData = () => {
   let result = "";
-  for (let i = 0; i < 15; i++) {
+  for (let i = 1; i <= 15; i++) {
     result += this.generateRandomTestData(i);
   }
   return result;
+};
+
+exports.generateTestNodeData = (nodeAddress) => {
+  return this.generateRandomTestData(nodeAddress);
+};
+
+exports.generateTestRandomNodeData = () => {
+  const randomNodeAddress = Math.floor(Math.random() * 15) + 1;
+  return this.generateRandomTestData(randomNodeAddress);
 };
 
 function getRandomWindDirectiony() {
@@ -22,9 +31,8 @@ function getRandomWindDirectiony() {
   return selectedWindDirection;
 }
 
-exports.generateRandomTestData = (i) => {
+exports.generateRandomTestData = (nodeAddress) => {
   // 노드번호/습도/온도/pm10/pm2.5/포름알데히드/풍향/풍속
-  const nodeNumber = i + 1;
   const humidity = (Math.random() * (30 - -10) + -10).toFixed(0);
   const temperature = (Math.random() * (30 - -10) + -10).toFixed(0);
   const pm10 = (Math.random() * (15 - 5) + 5).toFixed(0);
@@ -32,8 +40,9 @@ exports.generateRandomTestData = (i) => {
   const ch2o = (Math.random() * (0.05 - 0) + 0).toFixed(2);
   const wind_direction = getRandomWindDirectiony();
   const wind_speed = (Math.random() * (30 - 0) + 0).toFixed(0);
+  const battery = Math.floor(Math.random() * 100) + 1;
 
-  const result = `${nodeNumber}/${humidity}/${temperature}/${pm10}/${pm25}/${ch2o}/${wind_direction}/${wind_speed}//`;
+  const result = `${nodeAddress}/${humidity}/${temperature}/${pm10}/${pm25}/${ch2o}/${wind_direction}/${wind_speed}/${battery}//`;
   return result;
 };
 

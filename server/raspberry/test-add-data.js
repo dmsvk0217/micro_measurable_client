@@ -1,4 +1,4 @@
-const addLoraDataToFirestore = require("./add-data-to-raw-data.js");
+const { addLoraDataToFirestore } = require("./func.js");
 const util = require("./util.js");
 
 const dayStart = 1;
