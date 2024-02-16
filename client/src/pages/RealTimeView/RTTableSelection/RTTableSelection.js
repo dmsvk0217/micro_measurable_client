@@ -48,6 +48,7 @@ function RTTableSelection() {
 
   const handleHourSelect = (hour) => {
     setTableHour(hour);
+    console.log(hour);
   };
 
   const CustomDatePickerIcon = React.forwardRef(({ onClick }, ref) => (
@@ -92,6 +93,7 @@ function RTTableSelection() {
               <DatePicker
                 selected={tableDate}
                 onChange={handleDateChange}
+                maxDate={new Date()}
                 showTimeSelect={false}
                 dateFormat="MMMM d, yyyy h:mm aa"
                 customInput={<CustomDatePickerIcon />}

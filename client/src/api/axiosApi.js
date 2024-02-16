@@ -7,7 +7,7 @@ export const fetchHourlyAverages = async (date) => {
   
     let requestURL = "/api/all-nodes/all-substances/hourly-averages";
     const requestBody = {
-      date : "2024-01-01",// formattedDate "2024-01-01"
+      date : formattedDate,// formattedDate "2024-01-01"
     };
 
     console.log("🚀 ~ handleTableSubmit ~ requestURL:", requestURL);

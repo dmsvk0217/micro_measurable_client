@@ -9,13 +9,13 @@ export const useMapDataMutation = () => {
   const { mapLocation, setMapData } = useMapStore();
 
   const mapMutate = () => {
-    return fetchHourlyAverages(new Date());
+    return fetchHourlyAverages(new Date(2024,0,2));//🚨🚨 날짜 수정필요!
   };
 
   const mutation = useMutation({
       mutationFn: mapMutate,
       onSuccess: async (data, variables, context) =>  {
-        console.log("✅  MapStore fetch success", data, new Date());
+        console.log("✅  MapStore fetch success", data, new Date(2024,0,2));//🚨🚨 날짜 수정필요!
         // const queryClient = useQueryClient(); // 캐시 데이터된 무효화 -> 다시 실행 -> 최신 데이터
         setMapData(makeFormattedMapData(data));
       },

@@ -16,7 +16,10 @@ export const useRTTableDataMutation = () => {
       return fetchDailyAverages(year, month);
     }
     else{//tableUnit이 시간평균일때
-      return fetchHourlyAverages(tableDate);
+      const offset = tableDate.getTimezoneOffset() * 60000;
+      const adjustedDate = new Date(tableDate.getTime() - offset);
+
+      return fetchHourlyAverages(adjustedDate);
     }
     
   };
@@ -26,7 +29,14 @@ export const useRTTableDataMutation = () => {
       onSuccess: (data, variables, context) => {
         console.log("✅ RTStore table success", data);
         // const queryClient = useQueryClient(); // 캐시 데이터된 무효화 -> 다시 실행 -> 최신 데이터
-        setTableData(makeFormattedTable(data));
+        if(tableUnit.match("일평균")){
+          setTableData(makeFormattedTableDaily(data));
+        }
+        else{//tableUnit이 시간평균일때
+          setTableData(makeFormattedTableHourly(data));
+        }
+
+        
       },
       onError: (error, variables, context) => {
         console.log("🚨 RTStore table error", error);
@@ -39,7 +49,7 @@ export const useRTTableDataMutation = () => {
 
 
   //responseData parsing
-  const makeFormattedTable = (responseJson) => {
+  const makeFormattedTableDaily = (responseJson) => {
     const transformedArray = [];
     const responseJsonData = responseJson.data;
 
@@ -73,6 +83,70 @@ export const useRTTableDataMutation = () => {
     return transformedArray;
   };
 
+  const makeFormattedTableHourly = (responseJson) => {
+    const transformedArray = [];
+    const responseJsonData = responseJson.data;
+
+    let hour = tableHour.split(":")[0]; 
+
+    const offset = tableDate.getTimezoneOffset() * 60000;
+    const adjustedDate = new Date(tableDate.getTime() - offset);
+    const isoString = adjustedDate.toISOString(); // ISO 8601 형식의 문자열로 변환
+    const day = isoString.split('T')[0] + "  ";
+
+
+    if(!tableHour.match('전체')){
+      // console.log("🤪",'hour'+hour);
+      for( const [nodeKey, nodeValue] of Object.entries(responseJsonData['hour'+hour])){
+        if(!nodeKey.startsWith("node")) continue;
+
+        if(!tableLocation.match("전체"))
+          if(!tableLocation.match(locationFromNodeNumberOptions[parseInt(nodeKey.replace("node",""),10)])) continue;
+          
+          // console.log("🥸",nodeKey, nodeValue, day);
+          transformedArray.push({
+            date: day + tableHour,
+            location: locationFromNodeNumberOptions[parseInt(nodeKey.replace("node",""),10)],
+            pm25: String(nodeValue["pm25-hourly-average"].toFixed(2)),
+            pm10: String(nodeValue["pm10-hourly-average"].toFixed(2)),
+            ch2o: String(nodeValue["ch2o-hourly-average"].toFixed(2)),
+            wind_speed: String(nodeValue["wind-speed-hourly-average"].toFixed(2)), // 임의의 값으로 설정
+            wind_direction: nodeValue["wind-direction-hourly-average"], // 임의의 값으로 설정
+            temperature: `${nodeValue["temperature-hourly-average"].toFixed(2)} °C`,
+            humidity: `${nodeValue["humidity-hourly-average"].toFixed(2)} %`,
+          });
+
+      }
+    }
+    else{
+      for( const [hourKey, hourValue] of Object.entries(responseJsonData)){
+        if(!hourKey.startsWith("hour")) continue;
+
+        for( const [nodeKey, nodeValue] of Object.entries(hourValue)){
+          if(!nodeKey.startsWith("node")) continue;
+          if(!tableLocation.match(locationFromNodeNumberOptions[parseInt(nodeKey.replace("node",""),10)])) continue;
+          
+          console.log("🥸",nodeKey, nodeValue, day);
+          transformedArray.push({
+            date: day + hourKey.slice(4,6)+":00",
+            location: locationFromNodeNumberOptions[parseInt(nodeKey.replace("node",""),10)],
+            pm25: String(nodeValue["pm25-hourly-average"].toFixed(2)),
+            pm10: String(nodeValue["pm10-hourly-average"].toFixed(2)),
+            ch2o: String(nodeValue["ch2o-hourly-average"].toFixed(2)),
+            wind_speed: String(nodeValue["wind-speed-hourly-average"].toFixed(2)), // 임의의 값으로 설정
+            wind_direction: nodeValue["wind-direction-hourly-average"], // 임의의 값으로 설정
+            temperature: `${nodeValue["temperature-hourly-average"].toFixed(2)} °C`,
+            humidity: `${nodeValue["humidity-hourly-average"].toFixed(2)} %`,
+          });
+        }
+
+        
+      }
+    }
+
+    return transformedArray;
+  }
+
 
   return mutation;
 }
@@ -83,7 +157,7 @@ export const useRTGraphDataMutation = () => {
   const { setGraphData, graphLocation, graphSubstance } = useRTStore();
 
   const graphMutate = () => {
-    return fetchHourlyAverages(new Date());
+    return fetchHourlyAverages(new Date(2024,0,2));//🚨🚨 날짜 수정필요!
   };
 
   const mutation = useMutation({
