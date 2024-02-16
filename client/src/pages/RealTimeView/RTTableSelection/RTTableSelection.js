@@ -92,6 +92,7 @@ function RTTableSelection() {
               <DatePicker
                 selected={tableDate}
                 onChange={handleDateChange}
+                maxDate={new Date()}
                 showTimeSelect={false}
                 dateFormat="MMMM d, yyyy h:mm aa"
                 customInput={<CustomDatePickerIcon />}
