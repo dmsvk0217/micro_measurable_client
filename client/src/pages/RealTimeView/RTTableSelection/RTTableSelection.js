@@ -48,6 +48,7 @@ function RTTableSelection() {
 
   const handleHourSelect = (hour) => {
     setTableHour(hour);
+    console.log(hour);
   };
 
   const CustomDatePickerIcon = React.forwardRef(({ onClick }, ref) => (
