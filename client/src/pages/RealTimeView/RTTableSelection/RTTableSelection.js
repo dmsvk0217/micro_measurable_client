@@ -16,7 +16,14 @@ function RTTableSelection() {
   const { mutate: tableMutate } = useRTTableDataMutation();
 
   const handleSearchButton = () => {
-    tableMutate();
+
+    if(tableUnit.match("시간평균") && tableLocation.match("전체") && tableHour.match("전체")){
+      alert('전체시간으로 검색시에는 상세 측정 위치를 선택하셔야 합니다.');
+    }
+    else{
+      tableMutate();
+    }
+
   };
 
 
