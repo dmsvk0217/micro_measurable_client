@@ -8,6 +8,7 @@ export const useSMDataMutation = () => {
   // const queryClient = useQueryClient();
   const { locations, year, substance, setTableData, setGraphData } = useSMStore();
 
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
   const SMMutate = () => {
     return fetchMonthlyAverages(year);
@@ -16,10 +17,9 @@ export const useSMDataMutation = () => {
   const mutation = useMutation({
       mutationFn: SMMutate,
       onSuccess: (data, variables, context) => {
-        // setTableData(data);
         console.log("✅ SMStore success", data);
-        setTableData(makeFormattedTable(data));
-        //Todo: setGraphData(makeFormattedGraph(data));
+        makeFormattedData(data);
+        
       },
       onError: (error, variables, context) => {
         console.log("🚨 SMStore error", error);
@@ -31,8 +31,8 @@ export const useSMDataMutation = () => {
 
 
   //responseData parsing
-  const makeFormattedTable = (responseJson) => {
-    const transformedArray = [];
+  const makeFormattedData = (responseJson) => {
+    const transformedTableData = [];
     const nodeArray = [];
     let firstVisit = true;
     const responseJsonData = responseJson.data;
@@ -56,31 +56,48 @@ export const useSMDataMutation = () => {
 
         if(firstVisit){
           nodeArray.push(node);
-          transformedArray.push({
+          transformedTableData.push({
             node: node,
             Jan:"", Feb:"", Mar:"", Apr:"", May:"", Jun:"", Jul:"", Aug:"", Sep:"", Oct:"", Nov:"", Dec:""
           });
-          // console.log("🆕",transformedArray);
+          // console.log("🆕",transformedTableData);
         }
         
         // console.log(nodeArray.indexOf(node));
-        transformedArray[nodeArray.indexOf(node)][month] = value;
+        transformedTableData[nodeArray.indexOf(node)][month] = value;
       }
      
       firstVisit = false;
     }
 
     //평균계산
-    for(let nodeData of transformedArray){
+    for(let nodeData of transformedTableData){
       const average = calculateAverage(nodeData);
       nodeData.average = average;
     }
 
-    return transformedArray;
+    setTableData(transformedTableData);
+
+    //올해일때는 이전달까지 데이터만 담음
+    const currentYear = new Date().getFullYear();
+    const currentMonthIndex = new Date().getMonth();  
+
+    const transformedGraphData = transformedTableData.map(item => {
+      const data = (parseFloat(year) === currentYear ? 
+        monthNames.slice(0, currentMonthIndex) : monthNames) 
+        .map(month => parseFloat(item[month]) || 0);
+
+      return {
+      node: item.node,
+      data: data,
+      };
+    });
+
+    setGraphData(transformedGraphData);
+
   };
 
   const calculateAverage = (data) => {
-    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     
     let sum = 0;
     let count = 0;
@@ -95,6 +112,7 @@ export const useSMDataMutation = () => {
 
     return (count > 0) ? (sum / count) : 0;
   }
+
 
 
 

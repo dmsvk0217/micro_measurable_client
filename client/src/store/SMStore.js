@@ -13,7 +13,7 @@ const useSMStore = create((set) => ({
 
     tableData: {},
     setTableData: data => set({ tableData: data }),
-    graphData: {},
+    graphData: [],
     setGraphData: data => set({ graphData: data}),
 
 }));
