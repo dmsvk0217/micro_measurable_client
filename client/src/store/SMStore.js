@@ -2,7 +2,7 @@ import { create } from 'zustand';
 
 const useSMStore = create((set) => ({
     //selection
-    locations: '전체',
+    locations: ['전체'],
     substance: '포름알데히드',
     year: '2024',
 

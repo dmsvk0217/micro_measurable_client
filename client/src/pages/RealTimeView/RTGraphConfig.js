@@ -1,6 +1,5 @@
 // chartConfig
 
-// 측정물질별 라인 설정을 매핑하는 객체
 const substanceLineSettings = {
     'PM2.5': [ 0, 15, 35, 75 ],
     'PM10': [ 0,30,80,150 ],
