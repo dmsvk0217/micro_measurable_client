@@ -10,6 +10,7 @@ function RTGraphSelection() {
 
   const { graphLocation, graphSubstance, setGraphLocation, setGraphSubstance } = useRTStore();
 
+
   const handleNodeSelect = async (node) => {
     await setGraphLocation(node);
     handleSearchButton();
@@ -26,6 +27,7 @@ function RTGraphSelection() {
       await setGraphLocation(selectLocationOptions[1]);
       await setGraphSubstance(selectSubstanceOptions[1]);
       handleSearchButton();
+      
     }
 
     loadData();

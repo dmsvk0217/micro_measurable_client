@@ -79,7 +79,6 @@ export const useRTTableDataMutation = () => {
       });
     }
 
-  
     return transformedArray;
   };
 
@@ -143,6 +142,8 @@ export const useRTTableDataMutation = () => {
         
       }
     }
+
+
 
     return transformedArray;
   }
