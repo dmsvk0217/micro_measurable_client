@@ -3,7 +3,7 @@ import './StatisticsMonthView.css'
 import CustomGraph from "../../../components/CustomGraph/CustomGraph";
 import CustomTable from "../../../components/CustomTable/CustomTable";
 import SMSelection from './SMSelection/SMSelection';
-import { createGraphDataConfig, chartOptions } from './SMGraphConfig';
+import { createGraphDataConfig, createGraphOptionsConfig } from './SMGraphConfig';
 import { columns } from "./SMTableConfig";
 import DownloadButton from "../../../components/DownloadButton/DownloadButton";
 
@@ -16,9 +16,9 @@ function StatisticsMonthView(){
     const [graphDataConfig, setGraphDataConfig] = useState([]);
 
     useEffect(() => {
-        // const _graphOptionsConfig = createGraphOptionsConfig(graphSubstance);
+        const _graphOptionsConfig = createGraphOptionsConfig(substance);
         const _graphDataConfig = createGraphDataConfig(graphData, substance);
-        // setGraphOptionsConfig(_graphOptionsConfig);
+        setGraphOptionsConfig(_graphOptionsConfig);
         setGraphDataConfig(_graphDataConfig);
     
       },[graphData])
@@ -33,7 +33,7 @@ function StatisticsMonthView(){
                 <hr className='SM-Month'></hr>
                 <p className="SM-graph-title"> | 그래프 보기 | </p>
                 { Object.keys(graphDataConfig).length > 0 ? 
-                (<CustomGraph data={graphDataConfig} options={chartOptions}></CustomGraph>) : (<div></div>)}
+                (<CustomGraph data={graphDataConfig} options={graphOptionsConfig}></CustomGraph>) : (<div></div>)}
                 
             </div>
         </div>

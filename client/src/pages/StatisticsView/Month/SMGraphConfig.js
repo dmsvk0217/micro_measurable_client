@@ -47,52 +47,57 @@ export const createGraphDataConfig = (data, substance) => {
     return dataConfig;
 };
 
-export const chartOptions = {
-    plugins: {
-        legend: {
-            display: false,
-        },
-        annotation: {
-          annotations: {
-            line1: {
-              type: 'line',
-              yMin: 0,
-              yMax: 0,
-              borderColor: '#7D9DDB',
-              borderWidth: 2,
+export const createGraphOptionsConfig = (substance) => {
+
+    const options = {
+        plugins: {
+            legend: {
+                display: false,
             },
-            line2: {
-              type: 'line',
-              yMin: 16,
-              yMax: 16,
-              borderColor: '#6EB057',
-              borderWidth: 2,
-            },
-            line3: {
-                type: 'line',
-                yMin: 36,
-                yMax: 36,
-                borderColor: '#D7E067',
-                borderWidth: 2,
-            },
-            line4: {
-                type: 'line',
-                yMin: 76,
-                yMax: 76,
-                borderColor: '#BB7373',
-                borderWidth: 2,
-            },
-          }
-        }
-    },
-    scales: {
-        y: {
-            beginAtZero: true,
-            ticks: {
-                stepSize: 10,
-                suggestedMin: 0, // Suggests a minimum value for the scale
-                suggestedMax: 80, // Suggests a maximum value for the scale
+            annotation: {
+                annotations: {
+                  line1: {
+                    type: 'line',
+                    yMin: getLineValue(substance,0),
+                    yMax: getLineValue(substance,0),
+                    borderColor: '#7D9DDB',
+                    borderWidth: substanceLineSettings[substance] ? 2:0,
+                  },
+                  line2: {
+                    type: 'line',
+                    yMin: getLineValue(substance,1),
+                    yMax: getLineValue(substance,1),
+                    borderColor: '#6EB057',
+                    borderWidth: substanceLineSettings[substance] ? 2:0,
+                  },
+                  line3: {
+                      type: 'line',
+                      yMin: getLineValue(substance,2),
+                      yMax: getLineValue(substance,2),
+                      borderColor: '#D7E067',
+                      borderWidth: substanceLineSettings[substance] ? 2:0,
+                  },
+                  line4: {
+                      type: 'line',
+                      yMin: getLineValue(substance,3),
+                      yMax: getLineValue(substance,3),
+                      borderColor: '#BB7373',
+                      borderWidth: substanceLineSettings[substance] ? 2:0,
+                  },
+                }
               }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    stepSize: 10,
+                    suggestedMin: 0,
+                    suggestedMax: 80,
+                }
+            }
         }
     }
+
+    return options;
 };
