@@ -19,7 +19,6 @@ export const useSMDataMutation = () => {
       onSuccess: (data, variables, context) => {
         console.log("✅ SMStore success", data);
         makeFormattedData(data);
-        
       },
       onError: (error, variables, context) => {
         console.log("🚨 SMStore error", error);
@@ -32,15 +31,20 @@ export const useSMDataMutation = () => {
 
   //responseData parsing
   const makeFormattedData = (responseJson) => {
+    const transformedTableData = makeFormattedTableData(responseJson);
+    const transformedGraphData = makeFormattedGraphData(transformedTableData);
+    
+    setTableData(transformedTableData);
+    setGraphData(transformedGraphData);
+
+  };
+
+  const makeFormattedTableData = (responseJson) => {
     const transformedTableData = [];
     const nodeArray = [];
     let firstVisit = true;
-    const responseJsonData = responseJson.data;
 
-
-
-    //데이터 구조를 순회하면서 변환
-    for( const [monthKey,monthValue] of Object.entries(responseJsonData)){//한 달을 들고 와서 하루씩
+    for( const [monthKey,monthValue] of Object.entries(responseJson.data)){//한 달을 들고 와서 하루씩
       if (!monthKey.startsWith("month")) continue;
       const month = numToMonth[parseInt(monthKey.slice(5,7))];
       // console.log("✅",month);
@@ -76,8 +80,10 @@ export const useSMDataMutation = () => {
       nodeData.average = average;
     }
 
-    setTableData(transformedTableData);
+    return transformedTableData;
+  }
 
+  const makeFormattedGraphData = (transformedTableData) => {
     //올해일때는 이전달까지 데이터만 담음
     const currentYear = new Date().getFullYear();
     const currentMonthIndex = new Date().getMonth();  
@@ -93,9 +99,8 @@ export const useSMDataMutation = () => {
       };
     });
 
-    setGraphData(transformedGraphData);
-
-  };
+    return transformedGraphData;
+  }
 
   const calculateAverage = (data) => {
     
@@ -110,7 +115,7 @@ export const useSMDataMutation = () => {
       }
     });
 
-    return (count > 0) ? (sum / count) : 0;
+    return (count > 0) ? (sum / count).toFixed(2) : 0;
   }
 
 

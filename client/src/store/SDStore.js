@@ -1,9 +1,9 @@
 import { create } from 'zustand';
 const useSDStore = create((set) => ({
-    locations: '전체',
-    substance: null,
-    year: null,
-    month: null,
+    locations: ['전체'],
+    substance: '포름알데히드',
+    year: 2024,
+    month: '1월',
 
     setLocations: data => set({locations:data}),
     setSubstance: data => set({substance:data}),
