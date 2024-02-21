@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./StatisticsDayView.css";
 import CustomGraph from "../../../components/CustomGraph/CustomGraph";
 import CustomTable from "../../../components/CustomTable/CustomTable";
 import SDSelection from "./SDSelection/SDSelection";
-import { chartData, chartOptions } from "./SDGraphConfig";
+import { createGraphDataConfig, createGraphOptionsConfig } from "./SDGraphConfig";
 import { data, columns } from "./SDTableConfig";
 import DownloadButton from "../../../components/DownloadButton/DownloadButton";
 import DayorMonthButton from "../../../components/DayorMonthButton/DayorMonthButton";
@@ -14,13 +14,24 @@ import useSDStore from "../../../store/SDStore";
 import { useSDTableDataMutation } from '../../../hooks/useSDDataMutation';
 
 function StatisticsDayView() {
-  const { tableData } = useSDStore();
+  const { tableData, graphData, substance } = useSDStore();
 
-  const [selectedOption, setSelectedOption] = React.useState('일별');
+  const [selectedOption, setSelectedOption] = useState('일별');
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
   };
+
+  const [graphOptionsConfig, setGraphOptionsConfig] = useState({});
+    const [graphDataConfig, setGraphDataConfig] = useState([]);
+
+  useEffect(() => {
+    const _graphOptionsConfig = createGraphOptionsConfig(substance);
+    const _graphDataConfig = createGraphDataConfig(graphData, substance);
+    setGraphOptionsConfig(_graphOptionsConfig);
+    setGraphDataConfig(_graphDataConfig);
+
+  },[graphData])
 
   return (
     <div className="SD-container">
@@ -35,7 +46,9 @@ function StatisticsDayView() {
               <CustomTable data={tableData?tableData:[]} columns={columns}></CustomTable>
             </div>
             <hr className="SD-hr"></hr>
-            <CustomGraph data={chartData} options={chartOptions}></CustomGraph>
+            { Object.keys(graphDataConfig).length > 0 ? 
+                (<CustomGraph data={graphDataConfig} options={graphOptionsConfig}></CustomGraph>) : (<div></div>)}
+                
           </div>
         )}
 

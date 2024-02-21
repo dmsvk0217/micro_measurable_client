@@ -23,6 +23,8 @@ const getPointColor = (value, substance) => {
 
 export const createGraphDataConfig = (data, substance) => {
 
+    if (!data) return {};
+    
     const datasets = data.map(item => {
         let pointColors = item.data.map(() => '#CCCCCC'); // 기본 색상 설정
 

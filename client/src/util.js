@@ -38,6 +38,16 @@ export const substanceMonthlyEnum = {
   "풍속": "wind-speed-monthly-average",
 };
 
+export const substanceDailyEnum = {
+  "포름알데히드": "ch2o-daily-average",
+  "습도": "humidity-daily-average",
+  "PM10": "pm10-daily-average",
+  "PM2.5": "pm25-daily-average",
+  "온도": "temperature-daily-average",
+  "풍향": "wind-direction-daily-average",
+  "풍속": "wind-speed-daily-average",
+};
+
 export const positionOfNode = {
   1: { lat: 36.1022758, lng: 129.3821343 },
   2: { lat: 36.1027753, lng: 129.3836298 },

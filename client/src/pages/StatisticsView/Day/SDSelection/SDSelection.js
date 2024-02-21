@@ -22,7 +22,7 @@ function SDSelection() {
       await setYear(selectYearOptions[0]);
       await setMonth(selectMonthOptions[0]);
       await setLocations('전체');
-      await setSubstance(selectSubstanceOptions[0]);
+      await setSubstance(selectSubstanceOptions[1]);
 
       SDMutate();
     };
@@ -47,10 +47,9 @@ function SDSelection() {
       : locations.includes(location)
         ? locations.filter((loc) => loc !== location && loc !== '전체')
         : [location, ...locations.filter((loc) => loc !== '전체')];
-  
-
+    
     setLocations(updatedLocations);
-};
+  };
 
   const handleSubstanceChange = (substance) => {
     setSubstance(substance);
