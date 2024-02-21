@@ -19,7 +19,7 @@ function SMSelection(){
 
         const loadData = async () => {
             await setYear(selectYearOptions[0]);
-            await setLocations('전체');
+            await setLocations(['전체']);
             await setSubstance(selectSubstanceOptions[0]);
             
             SMMutate();
