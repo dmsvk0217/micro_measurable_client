@@ -1,21 +1,30 @@
 import React, { useEffect, useState } from "react";
 import "./RealTimeView.css";
 import RTTableSelection from "./RTTableSelection/RTTableSelection.js";
-import { graphDataConfig , graphOptionsConfig } from "./RTGraphConfig";
+import { createGraphDataConfig , createGraphOptionsConfig } from "./RTGraphConfig";
 import { columns } from "./RTTableConfig";
 import CustomGraph from "../../components/CustomGraph/CustomGraph";
 import CustomTable from "../../components/CustomTable/CustomTable";
 import DownloadButton from "../../components/DownloadButton/DownloadButton";
 
 import useRTSotre from "../../store/RTStore.js";
-import { useRTTableDataMutation } from '../../hooks/useRTDataMutation.js';
 import RTGraphSelection from "./RTGraphSelection/RTGraphSelection.js";
 
 
-
-
 function RealTimeView() {
-  const { tableData, graphData } = useRTSotre();
+  const { tableData, graphData, graphSubstance, setGraphLocation, setGraphSubstance } = useRTSotre();
+
+  const [graphOptionsConfig, setGraphOptionsConfig] = useState({});
+  const [graphDataConfig, setGraphDataConfig] = useState([]);
+
+  useEffect(() => {
+    const _graphOptionsConfig = createGraphOptionsConfig(graphSubstance);
+    const _graphDataConfig = createGraphDataConfig(graphData, graphSubstance);
+    setGraphOptionsConfig(_graphOptionsConfig);
+    setGraphDataConfig(_graphDataConfig);
+
+  },[graphSubstance,graphData])
+
 
   return (
     <div className="RT-container">
@@ -26,7 +35,9 @@ function RealTimeView() {
         <CustomTable data={tableData?tableData:[]} columns={columns}></CustomTable>
         <hr className="RT-hr"></hr>
         <RTGraphSelection/>
-        <CustomGraph data={{ ...graphDataConfig, datasets: [{ ...graphDataConfig.datasets[0], data: graphData }] }} options={graphOptionsConfig}></CustomGraph>
+        { Object.keys(graphDataConfig).length > 0 ? 
+        (<CustomGraph data={graphDataConfig} options={graphOptionsConfig}></CustomGraph>): (<div></div>)}
+        {/*   { graphDataConfig && graphData && graphData.length > 0 &&  graphSubstance ?  */}
       </div>
     </div>
   );

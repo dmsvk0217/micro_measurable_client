@@ -61,16 +61,16 @@ export const evaluateSubstance = (option, value) => {
 
   switch (option) {
     case "pm25":
-      if (value >= 76) sub_level = "매우 나쁨";
-      else if (value >= 36) sub_level = "나쁨";
-      else if (value >= 16) sub_level = "보통";
+      if (value > 75) sub_level = "매우 나쁨";
+      else if (value > 35) sub_level = "나쁨";
+      else if (value > 15) sub_level = "보통";
       else if (value >= 0) sub_level = "좋음";
       else sub_level = "-";
       break;
     case "pm10":
-      if (value >= 151) sub_level = "매우 나쁨";
-      else if (value >= 81) sub_level = "나쁨";
-      else if (value > 31) sub_level = "보통";
+      if (value > 150) sub_level = "매우 나쁨";
+      else if (value > 80) sub_level = "나쁨";
+      else if (value > 30) sub_level = "보통";
       else if (value >= 0) sub_level = "좋음";
       else sub_level = "-";
       break;

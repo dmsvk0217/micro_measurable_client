@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 
+
 const useRTStore = create((set) => ({
     //graph 관련
     graphLocation: "그레이스",
@@ -8,9 +9,9 @@ const useRTStore = create((set) => ({
     setGraphLocation: graphLocation => set({graphLocation: graphLocation}),
     setGraphSubstance: graphSubstance => set({graphSubstance: graphSubstance}),
 
-    graphData: {},
+    graphData: [],
     setGraphData: (graphData) => set({ graphData: graphData}),
-
+    
 
     //table 관련
     tableLocation: "그레이스",
