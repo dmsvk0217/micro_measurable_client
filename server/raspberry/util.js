@@ -1,3 +1,14 @@
+const constant = require("./const.js");
+
+exports.extractLoraContentFromLoraData = (loraData) => {
+  const secondCommaIndex = loraData.indexOf(",", loraData.indexOf(",") + 1);
+  const extractedData = loraData.substring(
+    secondCommaIndex + 1,
+    loraData.indexOf("//", secondCommaIndex)
+  );
+  return extractedData;
+};
+
 exports.getDate = () => {
   const currentDate = new Date();
   const yyyyMM = currentDate.toISOString().slice(0, 7); // YYYY-MM format
@@ -15,21 +26,29 @@ exports.generateAllnodesTestData = () => {
   return result;
 };
 
-exports.generateTestNodeData = (nodeAddress) => {
-  return this.generateRandomTestData(nodeAddress);
-};
-
-exports.generateTestRandomNodeData = () => {
-  const randomNodeAddress = Math.floor(Math.random() * 15) + 1;
-  return this.generateRandomTestData(randomNodeAddress);
-};
-
 function getRandomWindDirectiony() {
   const windDirectionOptions = [0, 45, 90, 135, 180, 225, 270, 315];
   const randomIndex = Math.floor(Math.random() * windDirectionOptions.length);
   const selectedWindDirection = windDirectionOptions[randomIndex];
   return selectedWindDirection;
 }
+
+exports.generateTestRandomNodeData = () => {
+  const randomValue = Math.random();
+
+  if (randomValue > 0.2) {
+    const randomNodeAddress = Math.floor(Math.random() * 15) + 1;
+    return this.generateRandomTestData(randomNodeAddress);
+  } else {
+    return this.generateErrTestData();
+  }
+};
+
+exports.generateErrTestData = () => {
+  const randomElement = getRandomKeyFromObject(constant.loraErrorType);
+  const result = `+ERR=${randomElement}`;
+  return result;
+};
 
 exports.generateRandomTestData = (nodeAddress) => {
   // 노드번호/습도/온도/pm10/pm2.5/포름알데히드/풍향/풍속
@@ -41,8 +60,12 @@ exports.generateRandomTestData = (nodeAddress) => {
   const wind_direction = getRandomWindDirectiony();
   const wind_speed = (Math.random() * (30 - 0) + 0).toFixed(0);
   const battery = Math.floor(Math.random() * 100) + 1;
+  const loraContent = `${nodeAddress}/${humidity}/${temperature}/${pm10}/${pm25}/${ch2o}/${wind_direction}/${wind_speed}/${battery}//`;
 
-  const result = `${nodeAddress}/${humidity}/${temperature}/${pm10}/${pm25}/${ch2o}/${wind_direction}/${wind_speed}/${battery}//`;
+  let result = `+RCV=${nodeAddress},${loraContent.length},`;
+  result += loraContent;
+  result += ",-18,11";
+
   return result;
 };
 
@@ -64,3 +87,17 @@ exports.generateDayDD = (dayDD) => {
   dayDD = dayDD < 10 ? "0" + dayDD : dayDD;
   return dayDD;
 };
+
+function getRandomKeyFromObject(jsonObject) {
+  // JSON 객체의 속성을 배열로 추출
+  const objectKeys = Object.keys(jsonObject);
+
+  // 랜덤한 인덱스 생성
+  const randomIndex = Math.floor(Math.random() * objectKeys.length);
+
+  // 랜덤한 속성을 선택하여 반환
+  const randomKey = objectKeys[randomIndex];
+  // const randomElement = jsonObject[randomKey];
+
+  return randomKey;
+}

@@ -54,8 +54,8 @@ exports.isLoraErr = async (loraContent) => {
   return false;
 };
 
-exports.getLoraErrType = async (loraContent) => {
-  const loraErrNumber = loraContent.slice(5);
+exports.getLoraErrTypeFromLoraData = (loraData) => {
+  const loraErrNumber = loraData.slice(5);
   result = loraErrorType[loraErrNumber];
   return result;
 };
@@ -102,9 +102,7 @@ exports.addRawData = async function addRawData(options) {
 };
 
 exports.getCurrentNodeInfoByNodeAddress = async (nodeAddress) => {
-  const nodeInfoRef = db
-    .collection("node-info")
-    .where("nodeAddress", "==", nodeAddress);
+  const nodeInfoRef = db.collection("node-info").where("nodeAddress", "==", nodeAddress);
 
   const nodeInfoSnapshot = await nodeInfoRef.get();
   if (nodeInfoSnapshot.empty) return undefined;
@@ -116,8 +114,9 @@ exports.getCurrentNodeInfoByNodeAddress = async (nodeAddress) => {
 
 exports.addErrData = function addErrData(options) {
   const { loraContent, nodeInfo, errMsg } = options;
-  const { yyyyMM, dayDD, hhmmss, hh } = util.getDate();
+  const { yyyyMM, dayDD, hhmmss } = util.getDate();
   const errDataRef = db.collection(`err-data/${yyyyMM}/day${dayDD}`);
+
   const dataObject = {
     date: `${yyyyMM}-${dayDD}`,
     timestamp: hhmmss,
@@ -125,33 +124,20 @@ exports.addErrData = function addErrData(options) {
     errCause: "",
     solution: "",
   };
+
   if (loraContent) dataObject["loraContent"] = loraContent;
-  if (errMsg) dataObject["nodeerrMsgInfo"] = errMsg;
+  if (errMsg) dataObject["errMsg"] = errMsg;
   if (nodeInfo) dataObject["nodeInfo"] = nodeInfo;
 
   console.log("🚀 ~ addErrData ~ dataObject:", dataObject);
 
-  errDataRef.add(dataObject);
-  return;
-};
-
-exports.isNodeSubstancesArrayValid = function isNodeSubstancesArrayValid(
-  nodeSubstancesArray
-) {
-  // 1) 물질 개수가 8개인지 (7개물질+배터리)
-  // 2) 모든 데이터가 숫자인지
-  if (nodeSubstancesArray.length !== 8) return false;
-
-  for (const nodeSubstance of nodeSubstancesArray) {
-    if (
-      isNaN(parseInt(nodeSubstance, 10)) &&
-      isNaN(parseFloat(nodeSubstance, 10))
-    ) {
-      return false;
-    }
+  try {
+    errDataRef.add(dataObject);
+  } catch (error) {
+    console.log("🚀 ~ addErrData ~ error:", error);
   }
 
-  return true;
+  return;
 };
 
 /*
