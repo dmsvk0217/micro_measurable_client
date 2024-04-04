@@ -1,0 +1,11 @@
+.customNode {
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    fill-opacity: 10;
+}
