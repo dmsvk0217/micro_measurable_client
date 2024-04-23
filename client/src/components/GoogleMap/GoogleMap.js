@@ -9,16 +9,19 @@ const GoogleMap = () => {
   
 
   const { setMapLocation, mapData, mapLocation, selectedSubstance } =
-    useMapStore();2
+    useMapStore();
 
-  const { AdvancedMarkerElement } = window.google.maps.importLibrary("marker");
 
   useEffect(() => {
+
+    const { AdvancedMarkerElement } = window.google.maps.importLibrary("marker");
+    
     if (!mapInstance.current) {
       mapInstance.current = new window.google.maps.Map(ref.current, {
         center: { lat: 36.1032734, lng: 129.3893488 },
         zoom: 16.3,
-        mapId: "AIzaSyCjp5Sxe-c5mUn1GtfLqEatR0mt7cXYdIM",
+        // mapId: "AIzaSyCjp5Sxe-c5mUn1GtfLqEatR0mt7cXYdIM",
+        mapId: "9e9e4cf9a48b1c79"
       });
     }
 
