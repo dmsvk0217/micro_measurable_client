@@ -17,6 +17,10 @@
   margin: 0 60px 0 60px;
 }
 
+.empty-space { /* map - footer 간 간격 */
+  height: 7em;
+}
+
 @media screen and (max-width: 720px) {
   .nav-hr {
     margin: 0;

@@ -16,7 +16,6 @@ function App() {
       <hr className="nav-hr"></hr>
       <div className="main-content">
         <div className="sidebar">
-          
         </div>
         <Routes>
           <Route path="/" element={<MapView />} />
@@ -24,6 +23,7 @@ function App() {
           <Route path="/statisticsDay" element={<StatisticsDayView />} />
         </Routes>
       </div>
+      <div className="empty-space"></div>
       <Footer />
     </Router>
   );

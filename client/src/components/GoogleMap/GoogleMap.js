@@ -7,7 +7,6 @@ const GoogleMap = () => {
   const markerRefs = useRef([]);
   const mapInstance = useRef(null);
   
-
   const { setMapLocation, mapData, mapLocation, selectedSubstance } =
     useMapStore();
 
@@ -32,6 +31,7 @@ const GoogleMap = () => {
       worst: "#BB7373",
       undefined: "#000000",
     };
+    
     const markerColors_rgb = {
       good: "rgb(125,157,219,0.7)",
       normal: "rgb(110,176,87,0.7)",

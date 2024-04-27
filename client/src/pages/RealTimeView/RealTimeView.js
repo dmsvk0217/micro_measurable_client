@@ -32,7 +32,9 @@ function RealTimeView() {
       <div className="RT-content-container">
         <div className="x-scroll"><RTTableSelection/></div>
         <DownloadButton data={tableData?tableData:[]}></DownloadButton>
-        <CustomTable data={tableData?tableData:[]} columns={columns}></CustomTable>
+        <div className="table-wrapper">
+          <CustomTable data={tableData?tableData:[]} columns={columns}></CustomTable>
+        </div>
         <hr className="RT-hr"></hr>
         <RTGraphSelection/>
         { Object.keys(graphDataConfig).length > 0 ? 

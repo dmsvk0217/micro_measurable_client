@@ -26,7 +26,12 @@
         font-size: 1.2em;
     }
 
-    .x-scroll {
+    .table-wrapper {
+        overflow-x: auto;
+        margin-top: 40px;
+    }
+
+    .table {
         overflow-x: scroll;
     }
 }

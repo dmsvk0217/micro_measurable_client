@@ -64,4 +64,12 @@ table {
     td {
       padding: 3px 3px;
     }
+
+    td {
+      width: 1px;
+    }
+
+    table {
+      font-size: 8px;
+    }
   }

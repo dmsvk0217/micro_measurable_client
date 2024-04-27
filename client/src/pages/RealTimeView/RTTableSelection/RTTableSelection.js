@@ -30,7 +30,7 @@ function RTTableSelection() {
   useEffect(() => {
     const loadData = async () => {
       await setTableUnit(selectUnitOptions[0]);
-      await setTableDate(new Date(2024,0,2));//new Date() 로 변경해줘야 함
+      await setTableDate(new Date(2024,0,2)); // new Date() 로 변경해줘야 함
       await setTableHour(selectHourOptions[0]);
       await setTableLocation(selectLocationOptions[0]);
 
