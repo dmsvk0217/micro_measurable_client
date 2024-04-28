@@ -29,7 +29,7 @@ const GoogleMap = () => {
       normal: "#6EB057",
       bad: "#D7E067",
       worst: "#BB7373",
-      undefined: "#000000",
+      undefined: "black",
     };
     
     const markerColors_rgb = {
