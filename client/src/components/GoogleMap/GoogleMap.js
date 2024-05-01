@@ -87,7 +87,7 @@ const GoogleMap = () => {
         content: CustomNode,
       });
 
-      marker.addListener("click", () => {
+      marker.addListener("click", () => { // wngjer
         handleMarkerClick(node.label);
         // color: mapLocation === node.label ? "black" : "white",
       });
