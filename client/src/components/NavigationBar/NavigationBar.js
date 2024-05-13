@@ -21,7 +21,7 @@ function NavigationBar() {
       <nav className="navbar">
         <div className="navbar-logo">
           <NavLink to="/">
-            <img src="/img/logo.png" alt="Logo" className="logo" />
+            <img src="/img/MicroMeasurable.png" alt="Logo" className="logo" />
           </NavLink>
         </div>
         <RxHamburgerMenu onClick={toggleSidebar}  className="hamburger"  />

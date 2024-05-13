@@ -92,3 +92,8 @@ hr {
     color: rgb(215, 215, 215);
     opacity: 40%;
 }
+
+.logo {
+    padding-left: 5%;
+    padding-top: 3%;
+}

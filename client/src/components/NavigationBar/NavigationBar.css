@@ -82,9 +82,9 @@
 }
 
 .logo {
-  padding-top: 25px;
-  width: max(30%, 200px);
-  height: 17%;
+  padding-top: 7px;
+  width: max(30%, 300px);
+  height: 25%;
 }
 
 .hamburger {
@@ -104,8 +104,8 @@
 
 @media screen and (max-width: 720px) {
   .logo {
-    width: 150px;
-    height: 50px;
+    width: 175px;
+    height: 25px;
   }
 
   .navbar {
@@ -132,10 +132,10 @@
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 726px) {
   .logo {
-    width: 150px;
-    height: 50px;
+    width: 200px;
+    height: 20px;
   }
 
   .navbar {

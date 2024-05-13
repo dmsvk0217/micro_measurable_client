@@ -30,7 +30,7 @@ function Sidebar({ isOpen, onClose }) {
     <>
     <div className={`sidebar ${isOpen ? "open" : ""}`} ref={sidebarRef}>
         <div className="side-header">
-            <p>App Name</p>
+          <img src="/img/MicroMeasurable_smallLogo.png" alt="Logo" className="logo" />
         </div>
         <ul className="side-nav-links">
             <li>
