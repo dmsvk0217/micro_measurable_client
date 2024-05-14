@@ -5,6 +5,10 @@
     padding: 20px 40px;
 }
  
+.empty-space {
+    height: 10em;
+}
+
 .CU {
     /* text-align: left;
     margin: 15px; */

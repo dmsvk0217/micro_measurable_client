@@ -30,7 +30,7 @@ function RTTableSelection() {
   useEffect(() => {
     const loadData = async () => {
       await setTableUnit(selectUnitOptions[0]);
-      await setTableDate(new Date(2024,0,2));//new Date() 로 변경해줘야 함
+      await setTableDate(new Date(2024,0,2)); // new Date() 로 변경해줘야 함
       await setTableHour(selectHourOptions[0]);
       await setTableLocation(selectLocationOptions[0]);
 
@@ -73,7 +73,8 @@ function RTTableSelection() {
     <div className="RTTable">
       <div className="RT-table-title-container">
         <span className="RT-table-title">| 측정 일시 |</span>
-        {new Date(tableDate).toLocaleDateString()}
+        {/* {new Date(tableDate).toLocaleDateString()} TODO!!!!  */}
+        2024. 5. 9
       </div>
       <div className="RT-table-select-container">
         <div className="location-and-unit">

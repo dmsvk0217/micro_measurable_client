@@ -29,7 +29,9 @@ function StatisticsMonthView(){
             <div className='SM-content-container'>
                 <SMSelection/>
                 <DownloadButton data={tableData?tableData:[]}></DownloadButton>
-                <CustomTable data={tableData?tableData:[]} columns={columns}></CustomTable>
+                <div className="table-wrapper">
+                    <CustomTable data={tableData?tableData:[]} columns={columns}></CustomTable>
+                </div>
                 <hr className='SM-Month'></hr>
                 <p className="SM-graph-title"> | 그래프 보기 | </p>
                 { Object.keys(graphDataConfig).length > 0 ? 

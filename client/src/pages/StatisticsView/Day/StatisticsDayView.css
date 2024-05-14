@@ -24,6 +24,15 @@
     margin-bottom: 20px;
 }
 
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 40px;
+}
+
+.table {
+    overflow-x: scroll;
+}
+
 @media screen and (max-width: 450px) {
     .SD-title {
         font-size: 1.2em;

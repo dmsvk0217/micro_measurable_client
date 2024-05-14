@@ -27,7 +27,6 @@ function NodeInfo() {
     } else{
       return "undefined";
     }
-    
   };
 
 

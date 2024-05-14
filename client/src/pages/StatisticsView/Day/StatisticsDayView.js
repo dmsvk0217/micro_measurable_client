@@ -46,6 +46,7 @@ function StatisticsDayView() {
               <CustomTable data={tableData?tableData:[]} columns={columns}></CustomTable>
             </div>
             <hr className="SD-hr"></hr>
+            <p className="SD-graph-title"> | 그래프 보기 | </p>
             { Object.keys(graphDataConfig).length > 0 ? 
                 (<CustomGraph data={graphDataConfig} options={graphOptionsConfig}></CustomGraph>) : (<div></div>)}
                 

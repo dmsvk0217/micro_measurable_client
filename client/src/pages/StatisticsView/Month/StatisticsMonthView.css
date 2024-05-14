@@ -23,8 +23,17 @@
     margin-bottom: 20px;
 }
 
-/* @media screen and (max-width: 450px) {
-    .SM-content-container {
+@media screen and (max-width: 450px) {
+    /* .SM-content-container {
         border: 1px solid #d3d3d3;
+    } */
+
+    .table-wrapper {
+        overflow-x: auto;
+        margin-top: 40px;
     }
-} */
+
+    .table {
+        overflow-x: scroll;
+    }
+}

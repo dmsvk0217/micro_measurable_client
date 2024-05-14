@@ -7,7 +7,6 @@ const GoogleMap = () => {
   const markerRefs = useRef([]);
   const mapInstance = useRef(null);
   
-
   const { setMapLocation, mapData, mapLocation, selectedSubstance } =
     useMapStore();
 
@@ -29,6 +28,7 @@ const GoogleMap = () => {
           },
           
         ]
+
       });
     }
 
@@ -37,14 +37,15 @@ const GoogleMap = () => {
       normal: "#6EB057",
       bad: "#D7E067",
       worst: "#BB7373",
-      undefined: "#000000",
+      undefined: "#575757",
     };
+    
     const markerColors_rgb = {
       good: "rgb(125,157,219,0.7)",
       normal: "rgb(110,176,87,0.7)",
       bad: "rgb(215,224,103,0.7)",
       worst: "rgb(187,115,115,0.7)",
-      undefined: "rgb(0,0,240,0.7)",
+      undefined: "rgb(87,87,87,0.7)",
     };
 
     markerRefs.current.forEach(marker => marker.setMap(null));
@@ -74,13 +75,14 @@ const GoogleMap = () => {
           break;
         case "포름알데히드":
           value = node.ch2o;
+          sub_level = "undefined"
           break;
         default:
           value = undefined;
       }
 
       const markerColor = markerColors[sub_level];
-      const marker_rgb = markerColors_rgb[sub_level]
+      const marker_rgb = markerColors_rgb[sub_level];
 
       const CustomNode = document.createElement('div');
       CustomNode.className = 'customNode';
@@ -94,7 +96,7 @@ const GoogleMap = () => {
         content: CustomNode,
       });
 
-      marker.addListener("click", () => {
+      marker.addListener("click", () => { 
         handleMarkerClick(node.label);
         // color: mapLocation === node.label ? "black" : "white",
       });
