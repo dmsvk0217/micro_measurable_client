@@ -17,5 +17,10 @@ module.exports = (app) => {
     mainController.allNodesAllSubstancesMonthlyAverages
   );
 
+  router.get("/nodeInfo", mainController.getNodeInfo);
+  router.post("/nodeInfo", mainController.createNodeInfo);
+  router.put("/nodeInfo", mainController.updateNodeInfo);
+  router.delete("/nodeInfo", mainController.deleteNodeInfo);
+
   app.use("/api", router);
 };

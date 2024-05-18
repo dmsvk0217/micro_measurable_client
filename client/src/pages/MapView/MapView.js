@@ -7,11 +7,14 @@ import LegendInfo from "./LegendInfo/LegendInfo";
 import NodeInfo from "./NodeInfo/NodeInfo";
 import NodeInfoResponsive from "./NodeInfoResponsive/NodeInfoResponsive";
 import { useMapDataMutation } from "../../hooks/useMapDataMutation";
-
+import useNodeInfoStore from "../../store/NodeInfoStore";
+import { useNodeInfo } from "../../hooks/useNodeInfo";
 
 function MapView() {
 
   const { mutate: mapMutate } = useMapDataMutation();
+  const { isPending, error, data } = useNodeInfo();
+  const { setNodes, nodes } = useNodeInfoStore();
 
   // 화면 너비를 확인하고 경고를 띄우는 함수 
   const checkScreenWidth = () => {
@@ -19,7 +22,14 @@ function MapView() {
       alert("화면 너비가 345px 미만입니다.😔\n최적의 사용을 위해, 더 넓은 기기 사용을 권장드립니다!");
     }
   };
-
+  useEffect(() => {
+    if (data){
+        setNodes(data.data);
+    }
+    else if (error){
+        setNodes([]);
+    }
+  }, [error, data, setNodes, nodes]);
 
   useEffect(() => {
     // 초기 데이터 로드

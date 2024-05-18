@@ -6,16 +6,17 @@ import {evaluateSubstance} from "../../../util.js";
 function NodeInfo() {
 
   const { mapLocation, mapData } = useMapStore();
+  console.log("🔶🔶", mapData);
 
   const node = mapData.filter(item => item.label === mapLocation)[0] ?? 
   { id:"-", date:"-", pm25:"-", pm10:"-", ch2o:"-", wind_direction:"-", wind_speed:"-", temperature:"-", humidity:"-"};
+  console.log("🐟", node);
 
   const [ch2oEval, setCh2oEval] = useState("-");
   const [pm25Eval, setpm25Eval] = useState("-");
   const [pm10Eval, setpm10Eval] = useState("-");
 
   const getSubstanceColor = (val) => {
-    
     if (val === "매우 나쁨") {
       return "worse";
     } else if (val === "나쁨") {
@@ -28,7 +29,6 @@ function NodeInfo() {
       return "undefined";
     }
   };
-
 
   useEffect(() => {
     setCh2oEval(evaluateSubstance("ch2o",node.ch2o));
@@ -48,7 +48,6 @@ function NodeInfo() {
       </div>
 
       <div className="node-info-divider"></div>
-
       <div className="display-substance-container">
         <div className="one-substance-container">
           <div className="substance-name">초미세먼지</div>

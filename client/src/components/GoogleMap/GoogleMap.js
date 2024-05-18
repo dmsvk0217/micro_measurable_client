@@ -1,15 +1,27 @@
 import React, { useState, useEffect, useRef } from "react";
 import useMapStore from "../../store/MapStore";
 import './GoogleMarker.css';
+import useNodeInfoStore from "../../store/NodeInfoStore";
+import { useNodeInfo } from "../../hooks/useNodeInfo";
 
 const GoogleMap = () => {
   const ref = useRef();
   const markerRefs = useRef([]);
   const mapInstance = useRef(null);
-  
+
   const { setMapLocation, mapData, mapLocation, selectedSubstance } =
     useMapStore();
+  const { isPending, error, data } = useNodeInfo();
+  const { setNodes, nodes } = useNodeInfoStore();
 
+  useEffect(() => {
+    if (data){
+        setNodes(data.data);
+    }
+    else if (error){
+        setNodes([]);
+    }
+  }, [error, data, setNodes, nodes]);
 
   useEffect(() => {
     const { AdvancedMarkerElement } = window.google.maps.importLibrary("marker");
@@ -18,7 +30,6 @@ const GoogleMap = () => {
       mapInstance.current = new window.google.maps.Map(ref.current, {
         center: { lat: 36.1032734, lng: 129.3893488 },
         zoom: 16.3,
-        // mapId: "AIzaSyCjp5Sxe-c5mUn1GtfLqEatR0mt7cXYdIM",
         mapId: "9e9e4cf9a48b1c79"
       });
     }
@@ -43,7 +54,7 @@ const GoogleMap = () => {
     markerRefs.current = [];
 
     // 노드 정보 가져오기
-    mapData.forEach((node) => {
+    nodes.forEach((node) => {
       let value;
       let sub_level = "";
 
@@ -77,19 +88,19 @@ const GoogleMap = () => {
 
       const CustomNode = document.createElement('div');
       CustomNode.className = 'customNode';
-      CustomNode.innerText = node.label;
+      CustomNode.innerText = node.location;
       CustomNode.style.border = `2px solid ${markerColor}`;
       CustomNode.style.background = marker_rgb;
 
       const marker = new window.google.maps.marker.AdvancedMarkerElement({
-        position: node.position,
+        position: { lat: node.latitude, lng: node.longitude },
         map: mapInstance.current,
         content: CustomNode,
       });
 
       marker.addListener("click", () => { 
-        handleMarkerClick(node.label);
-        // color: mapLocation === node.label ? "black" : "white",
+        console.log(node.location);
+        handleMarkerClick(node.location);
       });
       markerRefs.current.push(marker);
     });
@@ -117,7 +128,9 @@ const GoogleMap = () => {
   };
 
   return (
-    <div ref={ref} id="map" style={{ width: "100%", height: "100%" }}></div>
+    <div ref={ref} id="map" 
+    style={{ width: "100%", height: "100%" }}>
+    </div>
   );
 };
 

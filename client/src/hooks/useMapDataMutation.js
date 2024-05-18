@@ -1,12 +1,25 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { fetchHourlyAverages } from '../api/axiosApi.js';
 import useMapStore from '../store/MapStore';
-import  { locationFromNodeNumberOptions, positionOfNode } from "../util.js";
+// import  { locationFromNodeNumberOptions, positionOfNode } from "../util.js";
 
+import { useNodeInfo } from './useNodeInfo.js';
+import useNodeInfoStore from '../store/NodeInfoStore.js';
 
 export const useMapDataMutation = () => {
   // const queryClient = useQueryClient();
+  const { isPending, error, data } = useNodeInfo();
+  const { setNodes, nodes } = useNodeInfoStore();
   const { mapLocation, setMapData } = useMapStore();
+
+  const positionsOfNodes = [];
+  
+  for (let i = 0; i < nodes.length; i++) {
+    const { nodeAddress, latitude, longitude } = nodes[i];
+    const positionOfNode = { nodeAddress, latitude, longitude };
+    positionsOfNodes.push(positionOfNode);
+  }
+  console.log(positionsOfNodes);
 
   const mapMutate = () => {
     return fetchHourlyAverages(new Date(2024,0,2));//🚨🚨 날짜 수정필요!
@@ -15,7 +28,7 @@ export const useMapDataMutation = () => {
   const mutation = useMutation({
       mutationFn: mapMutate,
       onSuccess: async (data, variables, context) =>  {
-        console.log("✅  MapStore fetch success", data, new Date(2024,0,2));//🚨🚨 날짜 수정필요!
+        console.log("✅  MapStore fetch success", data, new Date(2024,0,2)); // 🚨🚨 날짜 수정필요!
         // const queryClient = useQueryClient(); // 캐시 데이터된 무효화 -> 다시 실행 -> 최신 데이터
         setMapData(makeFormattedMapData(data));
       },
@@ -29,38 +42,36 @@ export const useMapDataMutation = () => {
   });
 
 
-  //responseData parsing
-  const findLatestHourData = (data) => {//가장 최근에 기록된 시간을 찾기
+  // responseData parsing
+  const findLatestHourData = (data) => { // 가장 최근에 기록된 시간을 찾기
     let maxHour = -1;
     let latestDataKey = null;
 
-    for( const key in data) {
+    for (const key in data) {
         const hour = parseInt(key.slice(4,6));
 
-        if(hour > maxHour){
+        if (hour > maxHour){
             maxHour = hour;
             latestDataKey = key;
         }
     }
-
     console.log("🔑",latestDataKey);
-
     return latestDataKey;
   };
 
   //responseData parsing
-  const makeFormattedMapData = (responseJson) => {//
+  const makeFormattedMapData = (responseJson) => {
     const transformedData = [];
     const responseJsonData = responseJson.data;
     const latestDataKey = findLatestHourData(responseJsonData);
 
-    // console.log("😆",responseJsonData[latestDataKey]);
+    console.log("😆",responseJsonData[latestDataKey]);
 
-    for(const [nodeKey,nodeValue] of Object.entries(responseJsonData[latestDataKey])){
+    for (const [nodeKey,nodeValue] of Object.entries(responseJsonData[latestDataKey])){
         if(!nodeKey.includes("node")) continue;
-       
-        let id = parseInt(nodeKey.replace("node",""),10);
-        let location = locationFromNodeNumberOptions[id];
+      
+        let id = parseInt(nodeKey.replace("node",""), 10);
+        let location = locationFromNodeNumberptions[id];
 
         const offset = new Date().getTimezoneOffset() * 60000;
         const adjustedDate = new Date(new Date().getTime() - offset);
@@ -77,7 +88,7 @@ export const useMapDataMutation = () => {
             wind_direction: nodeValue["wind-direction-hourly-average"],
             temperature: nodeValue["temperature-hourly-average"].toFixed(2),
             humidity: nodeValue["humidity-hourly-average"].toFixed(2),
-        });//String(value["wind-speed-daily-average"].toFixed(2))
+        }); // String(value["wind-speed-daily-average"].toFixed(2))
     }
     console.log(transformedData);
 

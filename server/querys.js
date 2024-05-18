@@ -43,3 +43,19 @@ exports.getNodesSubstanceMonthlyAveragesQuery = (yyyyMM, substance) => {
 exports.getAllNodesSubstanceMonthlyAveragesQuery = (yyyyMM, substance) => {
   return `monthly-data/${yyyyMM}/${substance}/allNode`;
 };
+
+exports.getNodeInfoQuery = () => {
+  return `node-info`;
+};
+
+exports.createNodeInfoQuery = () => {
+  return `node-info`;
+};
+
+exports.updateNodeInfoQuery = (id) => {
+  return `node-info/${id}`;
+};
+
+exports.deleteNodeInfoQuery = (id) => {
+  return `node-info/${id}`;
+};
