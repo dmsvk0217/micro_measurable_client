@@ -17,6 +17,9 @@ module.exports = (app) => {
     mainController.allNodesAllSubstancesMonthlyAverages
   );
 
+  router.post("/rawData/day", mainController.getRawDataInDay);
+
+
   router.get("/nodeInfo", mainController.getNodeInfo);
   router.post("/nodeInfo", mainController.createNodeInfo);
   router.put("/nodeInfo", mainController.updateNodeInfo);

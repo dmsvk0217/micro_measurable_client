@@ -1,5 +1,20 @@
 import axiosInstance from './axiosInstance';
 
+
+// 실시간 로우 데이텨
+export const fetchRawData = async (date) => {
+
+  let requestURL = "/api/rawData/day";
+
+  const requestBody = {
+      date,
+  }
+  const response = await axiosInstance.post(requestURL, requestBody);
+
+  console.log(response);
+  return response.data;
+};
+
 //시간별 평균
 export const fetchHourlyAverages = async (date) => {
     let formattedDate = date.toISOString().split('T')[0];

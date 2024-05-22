@@ -1,3 +1,9 @@
+exports.getRawDataQuery = (yyyyMM, dayDD) => {
+  return `raw-data/${yyyyMM}/day${dayDD}`;
+};
+
+// --------------------------------------------------------------------------------
+
 exports.getAllNodesAllSubstancesHourlyAveragesQuery = (yyyyMM, dayDD) => {
   return `hourly-data/${yyyyMM}/day${dayDD}/data`;
 };
@@ -9,7 +15,7 @@ exports.getAllNodesAllSubstancesMonthlyAveragesQuery = (yyyy) => {
   return `monthly-data/${yyyy}`;
 };
 
-//////////////////////////////////////////////////////////////////////////////////////////
+// --------------------------------------------------------------------------------
 
 exports.getNodeAllSubstancesAllHourlyAveragesQuery = (
   yyyyMM,

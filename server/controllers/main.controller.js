@@ -1,6 +1,48 @@
 const db = require("../firebase/firebase.js");
 const querys = require("../querys.js");
 
+exports.getRawDataInDay = async (req, res) => {
+  const { date } = req.body;
+  if (!date) return res.status(400).json({ error: "All fields are required" });
+  if (!isValidDateFormat(date))
+    return res.status(400).send({ error: "date is not valid date format" });
+
+  const yyyyMM = date.slice(0, 7);
+  const dayDD = date.slice(8);
+  const query = querys.getRawDataQuery(yyyyMM, dayDD);
+  let dataObject = {
+    type: "getRawDataInDay",
+    date: req.body.date,
+    data: [],
+  };
+
+  try {
+    const rawDataDayRef = db.collection(query);
+    const snapshot = await rawDataDayRef.get();
+    if (snapshot.empty) {
+      console.log(`[getRawDataInDay] snapshot.empty ${query}`);
+      return res.status(500).send({
+        error: `[getRawDataInDay] snapshot.empty ${query}`,
+      });
+    }
+    // snapshot.forEach((doc) => dataObject["data"].push(doc.data()));
+    snapshot.forEach((doc) => {
+      let docData = doc.data();
+      docData["id"] = doc.id;
+      dataObject["data"].push(docData);
+    });
+  } catch (error) {
+    console.log("[getRawDataInDay]", error);
+    return res.status(500).json({
+      error: `[getRawDataInDay] ${error}`,
+    });
+  }
+
+  console.log(`[${yyyyMM}-${dayDD}] getRawDataInDay done`);
+  return res.status(200).json(dataObject);
+};
+
+
 /*
   request body
   {

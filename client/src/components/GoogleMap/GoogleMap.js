@@ -1,137 +1,79 @@
-import React, { useState, useEffect, useRef } from "react";
-import useMapStore from "../../store/MapStore";
-import './GoogleMarker.css';
+import React, { useRef, useState, useEffect } from "react";
+
+import googleMapID from "../../config/googleMapId";
 import useNodeInfoStore from "../../store/NodeInfoStore";
-import { useNodeInfo } from "../../hooks/useNodeInfo";
+import useMapStore from "../../store/MapStore";
+
 
 const GoogleMap = () => {
-  const ref = useRef();
-  const markerRefs = useRef([]);
-  const mapInstance = useRef(null);
+  const ref = useRef(null);
+  const [map, setMap] = useState();
 
-  const { setMapLocation, mapData, mapLocation, selectedSubstance } =
-    useMapStore();
-  const { isPending, error, data } = useNodeInfo();
-  const { setNodes, nodes } = useNodeInfoStore();
+  const { nodes } = useNodeInfoStore();
+  const { setMapAddress, setMapLocation } = useMapStore();
+  // const { setSelectedLocation } = useOverViewStore();
 
   useEffect(() => {
-    if (data){
-        setNodes(data.data);
-    }
-    else if (error){
-        setNodes([]);
-    }
-  }, [error, data, setNodes, nodes]);
-
-  useEffect(() => {
-    const { AdvancedMarkerElement } = window.google.maps.importLibrary("marker");
-    
-    if (!mapInstance.current) {
-      mapInstance.current = new window.google.maps.Map(ref.current, {
-        center: { lat: 36.1032734, lng: 129.3893488 },
-        zoom: 16.3,
-        mapId: "9e9e4cf9a48b1c79"
-      });
-    }
-
-    const markerColors = {
-      good: "#7D9DDB",
-      normal: "#6EB057",
-      bad: "#D7E067",
-      worst: "#BB7373",
-      undefined: "#575757",
-    };
-    
-    const markerColors_rgb = {
-      good: "rgb(125,157,219,0.7)",
-      normal: "rgb(110,176,87,0.7)",
-      bad: "rgb(215,224,103,0.7)",
-      worst: "rgb(187,115,115,0.7)",
-      undefined: "rgb(87,87,87,0.7)",
-    };
-
-    markerRefs.current.forEach(marker => marker.setMap(null));
-    markerRefs.current = [];
-
-    // 노드 정보 가져오기
-    nodes.forEach((node) => {
-      let value;
-      let sub_level = "";
-
-      switch (selectedSubstance) {
-        case "초미세먼지":
-          value = node.pm25;
-          if (value >= 76) sub_level = "worst";
-          else if (value >= 36) sub_level = "bad";
-          else if (value >= 16) sub_level = "normal";
-          else if (value >= 0) sub_level = "good";
-          else sub_level = "undefined";
-          break;
-        case "미세먼지":
-          value = node.pm10;
-          if (value >= 151) sub_level = "worst";
-          else if (value >= 81) sub_level = "bad";
-          else if (value > 31) sub_level = "normal";
-          else if (value >= 0) sub_level = "good";
-          else sub_level = "undefined";
-          break;
-        case "포름알데히드":
-          value = node.ch2o;
-          sub_level = "undefined"
-          break;
-        default:
-          value = undefined;
+    async function initMap() {
+      if (!window.google) {
+        // Handle the case where Google Maps API is not loaded yet
+        console.error("Google Maps API is not loaded.");
+        return;
       }
 
-      const markerColor = markerColors[sub_level];
-      const marker_rgb = markerColors_rgb[sub_level];
+      const { AdvancedMarkerElement } = await window.google.maps.importLibrary("marker");
 
-      const CustomNode = document.createElement('div');
-      CustomNode.className = 'customNode';
-      CustomNode.innerText = node.location;
-      CustomNode.style.border = `2px solid ${markerColor}`;
-      CustomNode.style.background = marker_rgb;
+      if (ref.current && !map) {
+        const newMap = new window.google.maps.Map(ref.current, {
+          mapId: googleMapID,
+          center: { lat: 36.1032734, lng: 129.3893488 },
+          zoom: 17,
+          // styles: [{ featureType: "all", elementType: "labels", stylers: [{ visibility: "off" }] }]
+        });
+        setMap(newMap);
+      }
 
-      const marker = new window.google.maps.marker.AdvancedMarkerElement({
-        position: { lat: node.latitude, lng: node.longitude },
-        map: mapInstance.current,
-        content: CustomNode,
-      });
+      if (map) {
+        nodes.forEach((node) => {
+          const CustomNode = document.createElement('div');
+          CustomNode.className = 'customNode';
+          CustomNode.innerText = node.location;
+          CustomNode.style.cssText = `
+            width: 3.5em;
+            height: 3.5em;
+            border-radius: 50%;
+            text-align: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(125,157,219,0.7);
+            border: 2px solid #7D9DDB;
+          `;
 
-      marker.addListener("click", () => { 
-        console.log(node.location);
-        handleMarkerClick(node.location);
-      });
-      markerRefs.current.push(marker);
-    });
+          const marker = new AdvancedMarkerElement({
+            map,
+            position: { lat: node.latitude, lng: node.longitude },
+            content: CustomNode,
+            title: node.location,
+          });
 
-    const zoomChangedListener = mapInstance.current.addListener("zoom_changed", () => {
-      const currentZoom = mapInstance.current.getZoom();
-      const minZoomToShowMarker = 14;
+          marker.addListener("click", () => {
+            console.log(node.location);
+            setMapAddress(node.nodeAddress);
+            setMapLocation(node.location);
+          });
+        });
+      }
+    }
 
-      markerRefs.current.forEach((marker) => {
-        if (currentZoom <= minZoomToShowMarker) {
-          marker.setMap(null);
-        } else {
-          marker.setMap(mapInstance.current);
-        }
-      });
-    });
-
-    return () => {
-      window.google.maps.event.removeListener(zoomChangedListener);
-    };
-  }, [selectedSubstance, mapData, mapLocation]);
-
-  const handleMarkerClick = (label) => {
-    setMapLocation(label);
-  };
+    initMap();
+  }, [map, nodes]);  // Ensure correct dependencies
 
   return (
-    <div ref={ref} id="map" 
-    style={{ width: "100%", height: "100%" }}>
-    </div>
+    <div ref={ref} style={{ width: "100%", height: "100%" }}/>
   );
 };
+
 
 export default GoogleMap;

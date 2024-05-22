@@ -5,12 +5,16 @@ const useMapStore = create((set) => ({
     selectedSubstance: "초미세먼지",
     setSelectedSubstance: data => set({ selectedSubstance: data }),
 
-    //지도 관련
-    mapLocation: "그레이스",
+    mapAddress: '',
+    setMapAddress: data => set({ mapAddress: data }),
+
+    mapLocation: '',
     setMapLocation: data => set({ mapLocation: data }),
 
     mapData: [],
-    setMapData: data => set({ mapData: data }),
+    setMapData: (data) => set({
+        mapData: data.sort((a,b) => b.timestamp.localeCompare(a.timestamp)) // desc
+    }),
 }));
 
 export default useMapStore;
