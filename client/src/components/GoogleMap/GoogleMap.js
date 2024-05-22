@@ -10,7 +10,15 @@ const GoogleMap = () => {
   const [map, setMap] = useState();
 
   const { nodes } = useNodeInfoStore();
-  const { setMapAddress, setMapLocation } = useMapStore();
+  const { setMapLocation } = useMapStore();
+
+  useEffect(() => {
+    async function initMap() {
+      if (!window.google) {
+        // Handle the case where Google Maps API is not loaded yet
+        console.error("Google Maps API is not loaded.");
+        return;
+      }
 
       const { AdvancedMarkerElement } = await window.google.maps.importLibrary("marker");
 
@@ -18,7 +26,7 @@ const GoogleMap = () => {
         const newMap = new window.google.maps.Map(ref.current, {
           mapId: googleMapID,
           center: { lat: 36.1032734, lng: 129.3893488 },
-          zoom: 17,
+          zoom: 16,
           // styles: [{ featureType: "all", elementType: "labels", stylers: [{ visibility: "off" }] }]
         });
         setMap(newMap);
@@ -51,7 +59,6 @@ const GoogleMap = () => {
 
           marker.addListener("click", () => {
             console.log(node.location);
-            setMapAddress(node.nodeAddress);
             setMapLocation(node.location);
           });
         });
@@ -59,7 +66,7 @@ const GoogleMap = () => {
     }
 
     initMap();
-  }, [map, nodes]);  // Ensure correct dependencies
+  }, [map, nodes]);
 
   return (
     <div ref={ref} style={{ width: "100%", height: "100%" }}/>
