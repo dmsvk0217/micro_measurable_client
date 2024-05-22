@@ -5,9 +5,6 @@ const useMapStore = create((set) => ({
     selectedSubstance: "초미세먼지",
     setSelectedSubstance: data => set({ selectedSubstance: data }),
 
-    mapAddress: '',
-    setMapAddress: data => set({ mapAddress: data }),
-
     mapLocation: '',
     setMapLocation: data => set({ mapLocation: data }),
 
