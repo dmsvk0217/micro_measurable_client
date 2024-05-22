@@ -11,15 +11,6 @@ const GoogleMap = () => {
 
   const { nodes } = useNodeInfoStore();
   const { setMapAddress, setMapLocation } = useMapStore();
-  // const { setSelectedLocation } = useOverViewStore();
-
-  useEffect(() => {
-    async function initMap() {
-      if (!window.google) {
-        // Handle the case where Google Maps API is not loaded yet
-        console.error("Google Maps API is not loaded.");
-        return;
-      }
 
       const { AdvancedMarkerElement } = await window.google.maps.importLibrary("marker");
 
