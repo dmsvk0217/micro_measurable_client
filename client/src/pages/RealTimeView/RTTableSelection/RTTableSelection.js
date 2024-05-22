@@ -73,8 +73,7 @@ function RTTableSelection() {
     <div className="RTTable">
       <div className="RT-table-title-container">
         <span className="RT-table-title">| 측정 일시 |</span>
-        {/* {new Date(tableDate).toLocaleDateString()} TODO!!!!  */}
-        2024. 5. 9
+        {new Date(tableDate).toLocaleDateString()} 
       </div>
       <div className="RT-table-select-container">
         <div className="location-and-unit">

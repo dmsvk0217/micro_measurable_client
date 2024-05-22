@@ -1,3 +1,9 @@
+exports.getRawDataQuery = (yyyyMM, dayDD) => {
+  return `raw-data/${yyyyMM}/day${dayDD}`;
+};
+
+// --------------------------------------------------------------------------------
+
 exports.getAllNodesAllSubstancesHourlyAveragesQuery = (yyyyMM, dayDD) => {
   return `hourly-data/${yyyyMM}/day${dayDD}/data`;
 };
@@ -9,7 +15,7 @@ exports.getAllNodesAllSubstancesMonthlyAveragesQuery = (yyyy) => {
   return `monthly-data/${yyyy}`;
 };
 
-//////////////////////////////////////////////////////////////////////////////////////////
+// --------------------------------------------------------------------------------
 
 exports.getNodeAllSubstancesAllHourlyAveragesQuery = (
   yyyyMM,
@@ -42,4 +48,20 @@ exports.getNodesSubstanceMonthlyAveragesQuery = (yyyyMM, substance) => {
 
 exports.getAllNodesSubstanceMonthlyAveragesQuery = (yyyyMM, substance) => {
   return `monthly-data/${yyyyMM}/${substance}/allNode`;
+};
+
+exports.getNodeInfoQuery = () => {
+  return `node-info`;
+};
+
+exports.createNodeInfoQuery = () => {
+  return `node-info`;
+};
+
+exports.updateNodeInfoQuery = (id) => {
+  return `node-info/${id}`;
+};
+
+exports.deleteNodeInfoQuery = (id) => {
+  return `node-info/${id}`;
 };
