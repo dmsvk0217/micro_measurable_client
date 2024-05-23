@@ -25,7 +25,7 @@ const GoogleMap = () => {
       const newMap = new window.google.maps.Map(ref.current, {
         mapId: googleMapID,
         center: { lat: 36.1032734, lng: 129.3893488 },
-        zoom: 16,
+        zoom: 16.5,
       });
       setMap(newMap);
     }
