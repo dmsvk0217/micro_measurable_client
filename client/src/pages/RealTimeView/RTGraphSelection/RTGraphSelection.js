@@ -3,10 +3,16 @@ import "./RTGraphSelection.css";
 import CurrentDate from "../../../components/CurrentDate";
 import CustomDropDown from "../../../components/CustomDropDown/CustomDropDown";
 import { useRTGraphDataMutation } from '../../../hooks/useRTDataMutation';
-import { selectLocationOptions, selectSubstanceOptions } from "../../../constants/selectOption";
+import { selectSubstanceOptions } from "../../../constants/selectOption";
 import useRTStore from '../../../store/RTStore';
+import useNodeInfoStore from "../../../store/NodeInfoStore";
 
 function RTGraphSelection() {
+
+  const { nodes } = useNodeInfoStore();
+  const nodeLocation = ['전체', ...nodes.map((row) => (row.location))];
+
+  console.log("ads",  nodeLocation);
 
   const { graphLocation, graphSubstance, setGraphLocation, setGraphSubstance } = useRTStore();
 
@@ -24,7 +30,7 @@ function RTGraphSelection() {
   useEffect(() => {
 
     const loadData = async () => {
-      await setGraphLocation(selectLocationOptions[1]);
+      await setGraphLocation(nodeLocation[1]);
       await setGraphSubstance(selectSubstanceOptions[1]);
       handleSearchButton();
       
@@ -54,7 +60,7 @@ function RTGraphSelection() {
                 측정위치
               </p>
               <CustomDropDown
-                optionData={selectLocationOptions}
+                optionData={nodeLocation}
                 selectedValue={graphLocation}
                 handleSelectedValue={handleNodeSelect}
               />

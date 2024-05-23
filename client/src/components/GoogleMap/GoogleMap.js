@@ -86,7 +86,7 @@ const GoogleMap = () => {
   
 
   return (
-    <div ref={ref} style={{ width: "100%", height: "100%" }}/>
+    <div ref={ref} style={{ width: "100%", height: "1125px" }}/>
   );
 };
 

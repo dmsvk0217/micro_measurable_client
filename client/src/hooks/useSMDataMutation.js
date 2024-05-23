@@ -55,7 +55,8 @@ export const useSMDataMutation = () => {
         // console.log("😆",node);
         // console.log("📍",locations);
         if(!locations.includes('전체') && !locations.includes(node)) continue;//선택한 노드만
-        const value = nodeValue[substanceMonthlyEnum[substance]].toFixed(2);
+        console.log(nodeValue[substanceMonthlyEnum[substance]]);
+        const value = nodeValue[substanceMonthlyEnum[substance]] ? nodeValue[substanceMonthlyEnum[substance]].toFixed(2): '';
         // console.log("💵", typeof value, value);
 
         if(firstVisit){

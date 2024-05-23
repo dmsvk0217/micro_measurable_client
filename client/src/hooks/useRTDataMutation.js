@@ -66,13 +66,13 @@ export const useRTTableDataMutation = () => {
       transformedArray.push({
         date: responseJsonData["day"+day]["date"],
         location: locationFromNodeNumberOptions[parseInt(key.replace("node",""),10)],
-        pm25: String(value["pm25-daily-average"] ? value["pm25-daily-average"].toFixed(2): ''),
-        pm10: String(value["pm10-daily-average"] ? value["pm10-daily-average"].toFixed(2): ''),
-        ch2o: String(value["ch2o-daily-average"] ? value["ch2o-daily-average"].toFixed(2): ''),
+        pm25: String(value["pm25-daily-average"] ? value["pm25-daily-average"].toFixed(2): '-'),
+        pm10: String(value["pm10-daily-average"] ? value["pm10-daily-average"].toFixed(2): '-'),
+        ch2o: String(value["ch2o-daily-average"] ? value["ch2o-daily-average"].toFixed(2): '-'),
         wind_speed: String(value["wind-speed-daily-average"].toFixed(2)), // 임의의 값으로 설정
-        wind_direction: value["wind-direction-daily-average"] ?? '', // 임의의 값으로 설정
-        temperature: `${value["temperature-daily-average"] ? value["temperature-daily-average"].toFixed(2) : ''} °C`,
-        humidity: `${value["humidity-daily-average"] ? value["humidity-daily-average"].toFixed(2): ''} %`,
+        wind_direction: value["wind-direction-daily-average"] ?? '-', // 임의의 값으로 설정
+        temperature: `${value["temperature-daily-average"] ? value["temperature-daily-average"].toFixed(2) : '-'} °C`,
+        humidity: `${value["humidity-daily-average"] ? value["humidity-daily-average"].toFixed(2): '-'} %`,
       });
     }
 
@@ -126,13 +126,13 @@ export const useRTTableDataMutation = () => {
           transformedArray.push({
             date: day + hourKey.slice(4,6)+":00",
             location: locationFromNodeNumberOptions[parseInt(nodeKey.replace("node",""),10)],
-            pm25: String(nodeValue["pm25-hourly-average"].toFixed(2)),
-            pm10: String(nodeValue["pm10-hourly-average"].toFixed(2)),
-            ch2o: String(nodeValue["ch2o-hourly-average"].toFixed(2)),
-            wind_speed: String(nodeValue["wind-speed-hourly-average"].toFixed(2)), // 임의의 값으로 설정
-            wind_direction: nodeValue["wind-direction-hourly-average"], // 임의의 값으로 설정
-            temperature: `${nodeValue["temperature-hourly-average"].toFixed(2)} °C`,
-            humidity: `${nodeValue["humidity-hourly-average"].toFixed(2)} %`,
+            pm25: String(nodeValue["pm25-hourly-average"] ? nodeValue["pm25-hourly-average"].toFixed(2): ''),
+            pm10: String(nodeValue["pm10-hourly-average"] ? nodeValue["pm10-hourly-average"].toFixed(2): ''),
+            ch2o: String(nodeValue["ch2o-hourly-average"] ? nodeValue["ch2o-hourly-average"].toFixed(2): ''),
+            wind_speed: String(nodeValue["wind-speed-hourly-average"] ? nodeValue["wind-speed-hourly-average"].toFixed(2): ''), // 임의의 값으로 설정
+            wind_direction: nodeValue["wind-direction-hourly-average"] ?? '', // 임의의 값으로 설정
+            temperature: `${nodeValue["temperature-hourly-average"] ? nodeValue["temperature-hourly-average"].toFixed(2): ''} °C`,
+            humidity: `${nodeValue["humidity-hourly-average"] ? nodeValue["humidity-hourly-average"].toFixed(2): ''} %`,
           });
         }
 

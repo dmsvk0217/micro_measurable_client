@@ -8,8 +8,12 @@ import CustomDropDown from "../../../components/CustomDropDown/CustomDropDown";
 import { useRTTableDataMutation } from "../../../hooks/useRTDataMutation";
 import { selectLocationOptions, selectUnitOptions, selectHourOptions } from "../../../constants/selectOption";
 import useRTStore from '../../../store/RTStore';
+import useNodeInfoStore from "../../../store/NodeInfoStore";
 
 function RTTableSelection() {
+
+  const { nodes } = useNodeInfoStore();
+  const nodeLocation = ['전체', ...nodes.map((row) => (row.location))];
 
   const { tableLocation, tableUnit, tableDate, tableHour, setTableLocation, setTableUnit, setTableDate, setTableHour } = useRTStore();
 
@@ -32,7 +36,7 @@ function RTTableSelection() {
       await setTableUnit(selectUnitOptions[0]);
       await setTableDate(new Date(2024,0,2)); // new Date() 로 변경해줘야 함
       await setTableHour(selectHourOptions[0]);
-      await setTableLocation(selectLocationOptions[0]);
+      await setTableLocation(nodeLocation[0]);
 
       tableMutate();
     }
@@ -80,7 +84,7 @@ function RTTableSelection() {
           <div className="RT-table-location">
             <p>측정위치</p>
             <CustomDropDown
-              optionData={selectLocationOptions}
+              optionData={nodeLocation}
               selectedValue={tableLocation}
               handleSelectedValue={handleNodeSelect}
             />
