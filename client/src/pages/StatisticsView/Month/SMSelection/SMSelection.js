@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
   selectYearOptions,
-  selectLocationOptions,
   selectSubstanceOptions,
 } from "../../../../constants/selectOption";
 import CustomDropDown from "../../../../components/CustomDropDown/CustomDropDown";
@@ -9,9 +8,14 @@ import LocationsButton from "../../../../components/LocationsButton/LocationsBut
 import './SMSelection.css';
 import { useSMDataMutation } from "../../../../hooks/useSMDataMutation";
 import useSMStore from "../../../../store/SMStore";
+import useNodeInfoStore from "../../../../store/NodeInfoStore";
+
 
 
 function SMSelection(){
+
+    const { nodes } = useNodeInfoStore();
+    const nodeLocation = ['전체', ...nodes.map((row) => (row.location))];
 
     const { year, locations, substance, setYear, setLocations, setSubstance } = useSMStore();
 
@@ -79,7 +83,7 @@ function SMSelection(){
                 <p className="location-title">측정 위치</p>
                 <div className="location-container">
                 <div className="location-buttons-container">
-                    {selectLocationOptions.map((location) => (
+                    {nodeLocation.map((location) => (
                     <LocationsButton
                         key={location}
                         location={location}

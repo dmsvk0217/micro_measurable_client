@@ -51,7 +51,9 @@ export const useSMDataMutation = () => {
         
       for(const [nodeKey, nodeValue] of Object.entries(monthValue)){
         if (!nodeKey.startsWith("node")) continue;
-        const node = String(locationFromNodeNumberOptions[parseInt(nodeKey.slice(4,6))]);
+        const nodeKeyNum = parseInt(nodeKey.slice(4,6));
+        if(nodeKeyNum >= 9) continue;
+        const node = String(locationFromNodeNumberOptions[nodeKeyNum]);
         // console.log("😆",node);
         // console.log("📍",locations);
         if(!locations.includes('전체') && !locations.includes(node)) continue;//선택한 노드만

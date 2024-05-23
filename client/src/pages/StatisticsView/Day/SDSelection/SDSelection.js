@@ -11,8 +11,12 @@ import "./SDSelection.css";
 
 import { useSDDataMutation } from "../../../../hooks/useSDDataMutation";
 import useSDStore from "../../../../store/SDStore";
+import useNodeInfoStore from "../../../../store/NodeInfoStore";
 
 function SDSelection() {
+
+  const { nodes } = useNodeInfoStore();
+  const nodeLocation = ['전체', ...nodes.map((row) => (row.location))];
 
   const { year, month, locations, substance, setYear, setMonth, setLocations, setSubstance} = useSDStore();
 
@@ -91,7 +95,7 @@ function SDSelection() {
       <div className="SD-select-location">
         <p className="location-title">측정 위치</p>
         <div className="location-buttons-container">
-          {selectLocationOptions.map((location) => (
+          {nodeLocation.map((location) => (
               //console.log("👻 "+locations),
               //console.log("🙊"+locations[0]),
 
