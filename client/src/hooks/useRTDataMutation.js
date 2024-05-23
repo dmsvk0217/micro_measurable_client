@@ -59,6 +59,9 @@ export const useRTTableDataMutation = () => {
     // 데이터 구조를 순회하면서 변환
     for( const [key,value] of Object.entries(responseJsonData["day"+day])){
       if (!key.startsWith("node")) continue;
+      const nodeKeyNum = parseInt(key.replace("node",""),10);
+          if(nodeKeyNum >= 9) continue;
+      
       
       if(!tableLocation.match("전체"))
         if(!tableLocation.match(locationFromNodeNumberOptions[parseInt(key.replace("node",""),10)])) continue;
@@ -95,6 +98,8 @@ export const useRTTableDataMutation = () => {
       // console.log("🤪",'hour'+hour);
       for( const [nodeKey, nodeValue] of Object.entries(responseJsonData['hour'+hour])){
         if(!nodeKey.startsWith("node")) continue;
+        const nodeKeyNum = parseInt(nodeKey.replace("node",""),10);
+          if(nodeKeyNum >= 9) continue;
 
         if(!tableLocation.match("전체"))
           if(!tableLocation.match(locationFromNodeNumberOptions[parseInt(nodeKey.replace("node",""),10)])) continue;
@@ -120,7 +125,9 @@ export const useRTTableDataMutation = () => {
 
         for( const [nodeKey, nodeValue] of Object.entries(hourValue)){
           if(!nodeKey.startsWith("node")) continue;
-          if(!tableLocation.match(locationFromNodeNumberOptions[parseInt(nodeKey.replace("node",""),10)])) continue;
+          const nodeKeyNum = parseInt(nodeKey.replace("node",""),10);
+          if(nodeKeyNum >= 9) continue;
+          if(!tableLocation.match(locationFromNodeNumberOptions[nodeKeyNum])) continue;
           
           console.log("🥸",nodeKey, nodeValue, day);
           transformedArray.push({
