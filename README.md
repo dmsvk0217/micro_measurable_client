@@ -40,10 +40,12 @@
 - 일별, 월별, 년도별 통계자료를 표와 그래프 형식 열람할 수 있습니다.
 - 엑셀파일 다운로드 기능이 제공됩니다.
 
+<br>
 
 ## 4. 시스템 구조
 ![](https://github.com/LeeShinwon/micro_measurable_admin/blob/main/structure.png)
 
+<br>
 
 ## 5. 개발 환경
 
