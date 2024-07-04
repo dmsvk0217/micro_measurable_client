@@ -55,4 +55,6 @@
 - 협업 툴 : Notion, Github, Google Drive
 - 서비스 배포 환경 : AWS EC2
 - 디자인 : [Figma](https://www.figma.com/design/aiXTcvZdEUs0Ji5YNyiMwH/%EC%BA%A1%EC%8A%A4%ED%86%A42-%EC%9B%B9?node-id=260%3A78&t=ZfmlI2ikT0HOWtn7-1)
+
+<img src="https://github.com/LeeShinwon/micro_measurable_admin/blob/main/stack.png" alt="Example Image" width="500" height="180">
 <br>
