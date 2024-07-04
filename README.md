@@ -1,8 +1,4 @@
-# Micro Measurable Admin Website README
-
-![micro_measurable_admin_cover](https://github.com/likelion-project-README/README/assets/82192923/ad4716ce-9889-4ce7-aba7-f67de8587199)
-[참고 영상](https://www.youtube.com/watch?v=nm_seyMrYFw&feature=youtu.be)
-
+# Micro Measurable Client Website
 <br>
 
 ## 1. 프로젝트 소개
